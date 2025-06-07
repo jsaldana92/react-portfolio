@@ -1,3 +1,4 @@
+//./src/components/TopNav.jsx
 import React, { useRef, useEffect, useState } from 'react';
 
 const pages = ['Home', 'Example1', 'Example2', 'Example3', 'Example4'];
@@ -46,7 +47,7 @@ function TopNav({ currentPage, setCurrentPage }) {
     };
 
     return (
-        <nav className="border-b border-gray-300 bg-black">
+        <nav className=" bg-black">
             {/* Desktop Nav (md and up) */}
             <div className="hidden md:flex justify-center">
                 <ul

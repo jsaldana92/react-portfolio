@@ -1,1 +1,38 @@
 @import "tailwindcss";
+
+ @theme{
+    --color-backgroundgrey: #2c282865;
+    --color-cardbackground: #2c2929
+}
+
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes bg-pulse {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-pulse-animated {
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
+  background-size: 400% 400%;
+  animation: bg-pulse 5s ease infinite;
+}
+
+
+.glow-hover {
+  transition: box-shadow 0.3s ease;
+  border-radius: 0.75rem; /* Tailwind's rounded-xl */
+}
+.glow-hover:hover {
+  box-shadow: 0 0 20px 6px rgba(216, 216, 216, 0.411);
+}
