@@ -36,3 +36,14 @@
 .glow-hover:hover {
   box-shadow: 0 0 20px 6px rgba(216, 216, 216, 0.411);
 }
+
+@layer utilities {
+  @media (min-width: 900px) {
+    .bento\:w-\[32\%\] {
+      width: 32%;
+    }
+    .bento\:aspect-square {
+      aspect-ratio: 1 / 1;
+    }
+  }
+}

@@ -60,7 +60,7 @@ function ProjectCard({ frontContent, backContent }) {
             backfaceVisibility: 'hidden',
           }}
         >
-          <div className="bg-pulse-animated w-full h-full rounded-xl glow-hover">
+          <div className="bg-gradient-to-br from-backgroundgrey via-[#212020] to-[#201f1f] w-full h-full rounded-xl glow-hover">
             {frontContent}
           </div>
         </div>
@@ -234,6 +234,7 @@ export default function ProjectCarousel() {
         </div>
       ),
     },
+    
   ];
 
   return (
