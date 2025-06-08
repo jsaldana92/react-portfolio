@@ -9,6 +9,7 @@ import { BsFillClipboard2DataFill } from "react-icons/bs";
 import { FiTrendingUp } from "react-icons/fi";
 import profileImg from './images/profile.png';
 import ProjectCards from './components/ProjectCard';
+import BentoSection from './components/BentoSection';
 import './index.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -143,7 +144,7 @@ function App() {
 
       <main className="p-6">
         {currentPage === 'Home' && (
-          <section className="space-y-0">
+          <section className="space-y-2">
             {/* Centered Intro Block */}
             <div className="text-center space-y-1">
               <h1 className="text-4xl text-white font-bold">Jhonatan M. Saldaña Santisteban</h1>
@@ -153,8 +154,8 @@ function App() {
             </div>
 
             {/* Main Body Content */}
-            <section ref={aboutRef} className="w-screen bg-backgroundgrey py-10 -mx-6 px-6">
-              <div className="flex flex-col md:flex-row items-center gap-8 max-w-5xl mx-auto text-white text-xl">
+            <section ref={aboutRef} className="relative w-screen bg-gradient-to-br from-[#201f1f] via-[#212020] to-backgroundgrey py-10 -mx-6 px-6 border-t border-b border-white/3 overflow-hidden">
+              <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 max-w-5xl mx-auto text-white text-xl">
                 <div ref={aboutTextRef} className="flex-1 space-y-4 text-justify opacity-0 translate-y-6">
                   <p>
                     As a UX researcher, I focus on aligning project goals with user needs by selecting effective, context-driven methodologies. I've applied this approach to evaluate grading systems, course engagement, and community development at Georgia State University.
@@ -164,14 +165,20 @@ function App() {
                   </p>
                 </div>
 
-                <div ref={imgRef}  className="flex-1 flex justify-center items-center opacity-0 translate-y-6">
+                <div ref={imgRef}  className="relative z-10 flex-1 flex justify-center items-center opacity-0 translate-y-6">
                   <img
                     src={profileImg}
                     alt="Jhonatan"
-                    className="w-100 rounded-xl shadow-lg shadow-blue-500/20"
+                    className="w-100 rounded-xl shadow-lg shadow-white/20"
                   />
                 </div>
               </div>  
+                {/* Light beams behind content */}
+              <div className="absolute inset-0 z-0 pointer-events-none">
+                <div className="absolute w-[10%] h-full bg-[#f1f1f1] opacity-8 blur-3xl rotate-[145deg] top-0 left-[-10%]"></div>
+                <div className="absolute w-[2%] h-full bg-[#f1f1f1] opacity-10 blur-2xl rotate-[125deg] top-0 left-[30%]"></div>
+                <div className="absolute w-[6.66%] h-full bg-[#f1f1f1] opacity-5 blur-2xl rotate-[20deg] top-0 left-[85%]"></div>
+              </div>
             </section>
 
             <section ref={dynamicWrapperRef} className="mt-16 text-left max-w-7xl mx-auto">
@@ -184,6 +191,13 @@ function App() {
             <section className="mt-10">
               <ProjectCards />
             </section>
+            
+
+            {/* Placeholder for Bento Section */}
+            <section className="mt-10">
+              <BentoSection />
+            </section>
+
           </section>
         )}
 
