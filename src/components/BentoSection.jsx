@@ -1,10 +1,22 @@
+import figroLogo from '../images/figro_logo.png';
 import gsuLogo from '../images/gsu_logo.png';
 import datapullerLogo from '../images/datapuller_logo.png';
 import researchobsLogo from '../images/researchobs_logo.png';
 import dataVideo from '../videos/data_video.mp4';
 import React, { useRef, useState, useEffect } from 'react';
+import CardSorting from "./CardSorting";
 
-const BentoBox = ({ imageSrc, imageStyle, videoSrc, videoClassName, title, description, className }) => {
+
+const BentoBox = ({
+  imageSrc,
+  imageStyle,
+  videoSrc,
+  videoClassName,
+  title,
+  description,
+  className,
+  content, // allow optional embedded content like the card sorting game
+}) => {
   const [videoReady, setVideoReady] = useState(false);
   const videoRef = useRef(null);
 
@@ -16,7 +28,7 @@ const BentoBox = ({ imageSrc, imageStyle, videoSrc, videoClassName, title, descr
 
   return (
     <div className={`relative h-full border border-white/5 rounded-xl overflow-hidden p-4 bg-black/20 hover:bg-white/5 transition ${className}`}>
-      
+
       {/* Video Background (if provided) */}
       {videoSrc && (
         <>
@@ -31,7 +43,8 @@ const BentoBox = ({ imageSrc, imageStyle, videoSrc, videoClassName, title, descr
             className={`absolute top-0 left-0 object-cover w-full h-full transition-opacity duration-1000 z-0 ${videoClassName} ${videoReady ? 'opacity-30' : 'opacity-0'}`}
           />
           {/* Optional subtle gradient overlay to soften contrast */}
-          <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-l from-black via-black/70 via-80% to-black/0" />
+          <div className="absolute inset-0 z-10 bg-gradient-to-l from-black via-black/70 via-80% to-black/0" />
+
         </>
       )}
 
@@ -45,10 +58,17 @@ const BentoBox = ({ imageSrc, imageStyle, videoSrc, videoClassName, title, descr
       )}
 
       {/* Text Overlay */}
-      <div className="relative z-20 text-white space-y-2">
+      <div className="relative z-10 text-white space-y-2">
         <h3 className="text-xl font-semibold">{title}</h3>
         <p className="text-sm">{description}</p>
       </div>
+
+      {/* Embedded Content (e.g., card sorting) */}
+      {content && (
+        <div className="relative z-20 mt-4">
+          {content}
+        </div>
+      )}
     </div>
   );
 };
@@ -63,7 +83,7 @@ const BentoSection = () => {
       // imageSrc: gsuLogo, //un-comment to add the img above the video
       imageStyle: 'top-4 left-4 w-1/3 opacity-30',
       title: 'Data Analysis',
-      description: 'Tools for data collection and analysis.',
+      description: 'Large data clean up, mutation, and a slew of different statistical analysis.',
       className: 'col-span-12 md:col-span-12 lg:col-span-8 min-h-[300px]',
     },
     {
@@ -74,18 +94,19 @@ const BentoSection = () => {
       className: 'col-span-12 md:col-span-6 lg:col-span-4 min-h-[300px]',
     },
     {
-      imageSrc: researchobsLogo,
-      imageStyle: 'top-1/2 left-1/2 w-2/3 opacity-15 -translate-x-1/2 -translate-y-1/2 min-h-[200px]',
-      title: 'Card Sorting',
-      description: 'User testing protocols.',
+      imageSrc: figroLogo,
+      imageStyle: 'top-[55%] left-1/2 w-2/3 opacity-65 -translate-x-1/2 -translate-y-1/2 min-h-[200px]',
+      title: 'Collaborations',
+      description: 'Proficient in common collaborative platforms.',
       className: 'col-span-12 md:col-span-6 lg:col-span-4 min-h-[300px]',
     },
     {
-      imageSrc: datapullerLogo,
-      imageStyle: 'top-2 right-2 w-1/3 opacity-10',
-      title: 'Collaborations',
-      description: 'Automated reporting and metrics.',
+      //imageSrc: researchobsLogo,
+      //imageStyle: 'top-2 right-2 w-1/3 opacity-10',
+      title: 'Card Sorting',
+      description: 'Intuative user-generated groupings to increase intuative layouts.',
       className: 'col-span-12 md:col-span-12 lg:col-span-8 min-h-[300px]',
+      content: <CardSorting />,
     },
     {
       imageSrc: researchobsLogo,

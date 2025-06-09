@@ -11,6 +11,8 @@ import profileImg from './images/profile.png';
 import ProjectCards from './components/ProjectCard';
 import BentoSection from './components/BentoSection';
 import './index.css';
+import CardSorting from './components/CardSorting';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -139,6 +141,7 @@ function App() {
   
 
   return (
+    
     <div className="min-h-screen bg-black text-gray-800">
       <TopNav currentPage={currentPage} setCurrentPage={setCurrentPage} class = 'align-center'/>
 
@@ -197,6 +200,8 @@ function App() {
             <section className="mt-10">
               <BentoSection />
             </section>
+            
+          
 
           </section>
         )}
