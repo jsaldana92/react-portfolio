@@ -4,7 +4,7 @@ import datapullerLogo from '../images/datapuller_logo.png';
 import researchobsLogo from '../images/researchobs_logo.png';
 import dataVideo from '../videos/data_video.mp4';
 import React, { useRef, useState, useEffect } from 'react';
-import CardSorting from "./CardSorting";
+import CardSorter3D from './CardSorter3d';
 
 
 const BentoBox = ({
@@ -16,18 +16,19 @@ const BentoBox = ({
   description,
   className,
   content, // allow optional embedded content like the card sorting game
+  bgClass = 'bg-black20',
 }) => {
   const [videoReady, setVideoReady] = useState(false);
   const videoRef = useRef(null);
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 0.7; // adjust as needed (0.5 = half speed, 1 = normal)
+      videoRef.current.playbackRate = 0.5; // adjust as needed (0.5 = half speed, 1 = normal)
     }
   }, [videoReady]);
 
   return (
-    <div className={`relative h-full border border-white/5 rounded-xl overflow-hidden p-4 bg-black/20 hover:bg-white/5 transition ${className}`}>
+    <div className={`relative h-full border border-white/5 rounded-xl overflow-hidden p-4 ${bgClass} hover:bg-white/5 transition ${className}`}>
 
       {/* Video Background (if provided) */}
       {videoSrc && (
@@ -40,7 +41,7 @@ const BentoBox = ({
             muted
             playsInline
             onCanPlayThrough={() => setVideoReady(true)}
-            className={`absolute top-0 left-0 object-cover w-full h-full transition-opacity duration-1000 z-0 ${videoClassName} ${videoReady ? 'opacity-30' : 'opacity-0'}`}
+            className={`absolute top-0 left-0 object-cover w-full h-full transition-opacity duration-2000 z-0 ${videoClassName} ${videoReady ? 'opacity-30' : 'opacity-0'}`}
           />
           {/* Optional subtle gradient overlay to soften contrast */}
           <div className="absolute inset-0 z-10 bg-gradient-to-l from-black via-black/70 via-80% to-black/0" />
@@ -97,6 +98,7 @@ const BentoSection = () => {
       imageSrc: figroLogo,
       imageStyle: 'top-[55%] left-1/2 w-2/3 opacity-65 -translate-x-1/2 -translate-y-1/2 min-h-[200px]',
       title: 'Collaborations',
+      bgClass: 'bg-backgroundgrey',
       description: 'Proficient in common collaborative platforms.',
       className: 'col-span-12 md:col-span-6 lg:col-span-4 min-h-[300px]',
     },
@@ -105,14 +107,15 @@ const BentoSection = () => {
       //imageStyle: 'top-2 right-2 w-1/3 opacity-10',
       title: 'Card Sorting',
       description: 'Intuative user-generated groupings to increase intuative layouts.',
+      bgClass: 'bg-backgroundgrey',
       className: 'col-span-12 md:col-span-12 lg:col-span-8 min-h-[300px]',
-      content: <CardSorting />,
+      content: <CardSorter3D />,
     },
     {
       imageSrc: researchobsLogo,
       imageStyle: 'bottom-2 left-2 w-1/4 opacity-25',
       title: 'Coding Languages',
-      description: 'Observation apps for research teams.',
+      description: 'Different languages to meet different needs.',
       className: 'col-span-12 md:col-span-6 lg:col-span-4 min-h-[300px]',
     },
     {

@@ -14,7 +14,8 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## Required plugins for this website to work
 
-- tailwindcss v4.0
-- GSAP
-- React-Icons
-- DnD Kit (npm install @dnd-kit/core @dnd-kit/sortable @dnd-kit/modifiers)
+- tailwindcss v4.0 {/this is for genearl coding maintenance/}
+- GSAP {/this is for some more minute animation details/}
+- React-Icons {/these icons are used somewhat frequently in the home page components/}
+- DnD Kit (npm install @dnd-kit/core @dnd-kit/sortable @dnd-kit/modifiers) {/this is for the card sorting game/}
+- three.js {/this is for the 3d sorting animation/}
