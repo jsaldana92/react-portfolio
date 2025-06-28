@@ -2,7 +2,8 @@
 
  @theme{
     --color-backgroundgrey: #2c282865;
-    --color-cardbackground: #2c2929
+    --color-cardbackground: #2c2929;
+    --color-bentobackground: #1f1f1f;
 }
 
 
@@ -46,4 +47,45 @@
       aspect-ratio: 1 / 1;
     }
   }
+}
+
+@keyframes bubble {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  10% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}
+
+/* Apply the animation */
+.animate-bubble {
+  animation: bubble 7s ease-in-out infinite;
+}
+
+/* Custom delays for staggering (non-overlapping) */
+.delay-0 {
+  animation-delay: 0s;
+}
+.delay-1 {
+  animation-delay: 1.5s;
+}
+.delay-2 {
+  animation-delay: 2.5s;
+}
+.delay-3 {
+  animation-delay: 3.5s;
+}
+
+.custom-shadow {
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
