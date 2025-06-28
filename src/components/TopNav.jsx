@@ -1,4 +1,5 @@
 //./src/components/TopNav.jsx
+
 import React, { useRef, useEffect, useState } from 'react';
 
 const pages = ['Home', 'Example1', 'Example2', 'Example3', 'Example4'];

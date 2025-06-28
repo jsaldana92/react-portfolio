@@ -1,3 +1,5 @@
+// src/App.jsx
+
 import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -9,9 +11,13 @@ import { BsFillClipboard2DataFill } from "react-icons/bs";
 import { FiTrendingUp } from "react-icons/fi";
 import profileImg from './images/profile.png';
 import ProjectCards from './components/ProjectCard';
-import BentoSection from './components/BentoSection';
+//import BentoSection from './components/BentoSection';
 import './index.css';
 import CardSorting from './components/CardSorting';
+import BubblesSection from './components/BubblesSection'
+import { Suspense, lazy } from 'react';
+
+const BentoSection = lazy(() => import('./components/BentoSection'));
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -159,7 +165,7 @@ function App() {
             {/* Main Body Content */}
             <section ref={aboutRef} className="relative w-screen bg-gradient-to-br from-[#201f1f] via-[#212020] to-backgroundgrey py-10 -mx-6 px-6 border-t border-b border-white/3 overflow-hidden">
               <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 max-w-5xl mx-auto text-white text-xl">
-                <div ref={aboutTextRef} className="flex-1 space-y-4 text-justify opacity-0 translate-y-6">
+                <div ref={aboutTextRef} className="custom-shadow flex-1 space-y-4 text-justify opacity-0 translate-y-6 will-change-transform">
                   <p>
                     As a UX researcher, I focus on aligning project goals with user needs by selecting effective, context-driven methodologies. I've applied this approach to evaluate grading systems, course engagement, and community development at Georgia State University.
                   </p>
@@ -168,7 +174,7 @@ function App() {
                   </p>
                 </div>
 
-                <div ref={imgRef}  className="relative z-10 flex-1 flex justify-center items-center opacity-0 translate-y-6">
+                <div ref={imgRef}  className="relative z-10 flex-1 flex justify-center items-center opacity-0 translate-y-6 will-change-transform">
                   <img
                     src={profileImg}
                     alt="Jhonatan"
@@ -185,21 +191,25 @@ function App() {
             </section>
 
             <section ref={dynamicWrapperRef} className="mt-16 text-left max-w-7xl mx-auto">
-              <div ref={dynamicTextRef} className="opacity-0 translate-y-6">
+              <div ref={dynamicTextRef} className="opacity-0 translate-y-6 will-change-transform">
                 <DynamicText/> 
               </div>
             </section>
 
-            {/* Placeholder for Carousel Section */}
+            {/*Carousel Section */}
             <section className="mt-10">
               <ProjectCards />
             </section>
             
 
-            {/* Placeholder for Bento Section */}
+            {/* Bento Section */}
             <section className="mt-10">
-              <BentoSection />
+              <Suspense fallback={<div className="text-white text-center">Loading projects...</div>}>
+                <BentoSection />
+              </Suspense>
             </section>
+
+            
             
           
 
