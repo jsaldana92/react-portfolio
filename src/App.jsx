@@ -14,7 +14,6 @@ import ProjectCards from './components/ProjectCard';
 //import BentoSection from './components/BentoSection';
 import './index.css';
 import CardSorting from './components/CardSorting';
-import BubblesSection from './components/BubblesSection'
 import { Suspense, lazy } from 'react';
 
 const BentoSection = lazy(() => import('./components/BentoSection'));

@@ -89,3 +89,11 @@
 .custom-shadow {
   text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
+
+.custom-shadow-white {
+  text-shadow: 2px 2px 2.5px rgba(128, 122, 122, 0.521);
+}
+
+.custom-shadow-grey {
+  text-shadow: 2px 2px 5px rgba(68, 64, 64, 0.507);
+}
