@@ -113,7 +113,7 @@ const CodingLanguages = ({ isHovered }) => {
             ease: 'power2.out',
             stagger: 0.05, // small delay between each line
         });
-    }, [current]);
+    }, [current]); 
 
   const { name, src } = logos[current];
 

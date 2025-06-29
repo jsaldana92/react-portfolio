@@ -12,7 +12,7 @@ const SpeechAnimation = () => {
       </div>
 
       <div className="animate-bubble delay-1 absolute top-24 left-5 w-fit max-w-[75%] px-4 py-2 bg-white/50 rounded-2xl shadow-md blur-[1px]">
-        <span className="text-black blur-[3px] select-none">
+        <span className="text-white blur-[3px] select-none">
           Yes! Do you have a webroom ready?
         </span>
       </div>
@@ -24,7 +24,7 @@ const SpeechAnimation = () => {
       </div>
 
       <div className="animate-bubble delay-3 absolute top-66 left-5 w-fit max-w-[75%] px-4 py-2 bg-white/50 rounded-2xl shadow-md blur-[1px]">
-        <span className="text-black blur-[3px] select-none">
+        <span className="text-white blur-[3px] select-none">
           Ok great, I'll look for it and see you in 5 minutes.
         </span>
       </div>

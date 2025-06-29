@@ -1,9 +1,8 @@
 // src/components/ProjectCards.jsx
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import researchObsLogo from '../images/researchobs_logo.png';
 import researchObsCard from '../images/researchobs_card.png';
 import dataPullerLogo from '../images/datapuller_logo.png';
@@ -14,26 +13,15 @@ import gradingCard from '../images/grading_card.png';
 
 
 
-gsap.registerPlugin(ScrollTrigger);
+
 
 function ProjectCard({ frontContent, backContent }) {
   const [flipped, setFlipped] = useState(false);
   const cardRef = useRef();
   const containerRef = useRef();
 
-  useGSAP(() => {
-    gsap.set(cardRef.current, { transformStyle: 'preserve-3d' });
-    gsap.from(containerRef.current, {
-      opacity: 0,
-      y: 50,
-      duration: 0.8,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top 80%',
-        toggleActions: 'play none none reverse',
-      },
-    });
+  useEffect(() => {
+    cardRef.current.style.transformStyle = 'preserve-3d';
   }, []);
 
   const handleFlip = () => {
