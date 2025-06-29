@@ -30,20 +30,35 @@ const ArrowArcAnimation = ({ isHovered }) => {
 
     const screenWidth = window.innerWidth;
 
-    let arrowStartX = -340  ;
+    let arrowStartX = -290;
     let arrowEndX = -100;
-    let arcStartX = 330;
-    let arcEndX = -130;
-    let arcSpeed = 90;
-    let arrowSpeed = 10.5;
-    let arc2Delay = 4.5;
-    let arc3Delay = 9;
-    let arc4Delay = 13.5;
-    let arc5Delay = 18;
+    let arcStartX = 280;
+    let arcEndX = -120;
+    let arcSpeed = 80;
+    let arrowSpeed = 10;
+    let arc2Delay = 3.5;
+    let arc3Delay = 7;
+    let arc4Delay = 10.5;
+    let arc5Delay = 14;
     let arrowWidth = 500;
-    let arcWidth = 120;
+    let arcWidth = 100;
 
-    if (screenWidth >= 640 && screenWidth < 768) {
+    if (screenWidth >= 469 && screenWidth < 640) {
+      // extra small (xs)
+      arrowStartX = -340;
+      arrowEndX = -100;
+      arcStartX = 330;
+      arcEndX = -130;
+      arcSpeed = 90;
+      arrowSpeed = 10.5;
+      arc2Delay = 4.5;
+      arc3Delay = 9;
+      arc4Delay = 13.5;
+      arc5Delay = 18;
+      arrowWidth = 500;
+      arcWidth = 120;
+
+    } else if (screenWidth >= 640 && screenWidth < 768) {
       // small–medium
       arrowStartX = -440;
       arrowEndX = -80;
@@ -139,7 +154,7 @@ const ArrowArcAnimation = ({ isHovered }) => {
       tlRef.current.to(arc, {
         x: arcEndX,
         duration: arcDuration,
-        ease: 'power0.5.outIn',
+        ease: 'power0.5.inOut',
       }, 0);
       tlRef.current.to(arc, {
         opacity: 0,
@@ -151,7 +166,7 @@ const ArrowArcAnimation = ({ isHovered }) => {
       tlRef.current.to(arc2, {
         x: arcEndX,
         duration: arcDuration,
-        ease: 'power0.5.outIn',
+        ease: 'power0.5.inOut',
       }, arc2Delay);
       tlRef.current.to(arc2, {
         opacity: 0,
@@ -163,7 +178,7 @@ const ArrowArcAnimation = ({ isHovered }) => {
       tlRef.current.to(arc3, {
         x: arcEndX,
         duration: arcDuration,
-        ease: 'power0.5.outIn',
+        ease: 'power0.5.inOut',
       }, arc3Delay);
       tlRef.current.to(arc3, {
         opacity: 0,
@@ -175,7 +190,7 @@ const ArrowArcAnimation = ({ isHovered }) => {
       tlRef.current.to(arc4, {
         x: arcEndX,
         duration: arcDuration,
-        ease: 'power0.5.outIn',
+        ease: 'power0.5.inOut',
       }, arc4Delay);
       tlRef.current.to(arc4, {
         opacity: 0,
@@ -187,7 +202,7 @@ const ArrowArcAnimation = ({ isHovered }) => {
       tlRef.current.to(arc5, {
         x: arcEndX,
         duration: arcDuration,
-        ease: 'power0.5.outIn',
+        ease: 'power0.5.inOut',
       }, arc5Delay);
       tlRef.current.to(arc5, {
         opacity: 0,
