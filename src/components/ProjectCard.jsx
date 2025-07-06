@@ -10,6 +10,8 @@ import dataPullerCard from '../images/datapuller_card.png';
 import gsuLogo from '../images/gsu_logo.png';
 import hyperlinkCard from '../images/hyperlink_card.png';
 import gradingCard from '../images/grading_card.png';
+import seehbLogo from '../images/seehb_logo.png'
+import seehbCard from '../images/seehbcard.png'
 
 
 
@@ -49,7 +51,7 @@ function ProjectCard({ frontContent, backContent }) {
             backfaceVisibility: 'hidden',
           }}
         >
-          <div className="bg-gradient-to-br from-backgroundgrey via-[#212020] to-[#201f1f] w-full h-full rounded-xl glow-hover">
+          <div className="bg-cardblue w-full h-full rounded-xl glow-hover">
             {frontContent}
           </div>
         </div>
@@ -61,9 +63,9 @@ function ProjectCard({ frontContent, backContent }) {
             backfaceVisibility: 'hidden',
           }}
         >
-          {/*bg-backgroundgrey here is the default but it can be overriden later on */}
+          {/*bg-cardbackground here is the default but it can be overriden later on */}
           <div className="w-full h-full rounded-xl glow-hover overflow-hidden">
-            <div className="w-full h-full rounded-xl glow-hover bg-backgroundgrey">
+            <div className="w-full h-full rounded-xl glow-hover bg-cardbackground">
               {backContent}
             </div>
           </div>
@@ -105,7 +107,7 @@ export default function ProjectCarousel() {
   const cards = [
     {
       frontContent: (
-        <div className="flex flex-col items-center justify-center h-full p-4 rounded-xl">
+        <div className="pointer-events-none flex flex-col items-center justify-center h-full p-4 rounded-xl">
           <img src={researchObsLogo} alt="ResearchObs" className="w-16 h-16 mb-2" />
           <p className="text-xl font-semibold text-white">CEBUS-ResearchObs</p>
         </div>
@@ -117,7 +119,7 @@ export default function ProjectCarousel() {
             backgroundImage: `url(${researchObsCard})`,
           }}
         >
-          <div className="flex-1 overflow-hidden">
+          <div className="pointer-events-none  flex-1 overflow-hidden">
             <h3 className="text-xl font-bold break-words text-white">CEBUS-ResearchObs</h3>
             <p className="text-sm mt-2 break-words whitespace-normal">
               Created behavioral observation collection app based on graduate student, PI, and lab manager interviews.
@@ -223,6 +225,36 @@ export default function ProjectCarousel() {
         </div>
       ),
     },
+    {
+      frontContent: (
+        <div className="flex flex-col items-center justify-center h-full p-4 rounded-xl">
+          <img src={seehbLogo} alt="GSU Logo" className="w-16 h-16 mb-2" />
+          <p className="text-xl font-semibold text-white">SEEHB Website</p>
+        </div>
+      ),
+      backContent: (
+        <div
+          className="p-4 flex flex-col justify-between h-full overflow-hidden bg-backgroundgrey bg-no-repeat bg-center bg-contain"
+          style={{
+            backgroundImage: `url(${seehbCard})`,
+          }}
+        >
+          <div className="flex-1 overflow-hidden">
+            <h3 className="text-xl font-bold break-words text-white">SEEHB Website</h3>
+            <p className="text-sm mt-2 break-words whitespace-normal">
+              Conducted market research, developed/deployed from start-to-finish website, and adjusted based on user feedback.
+            </p>
+          </div>
+          <div className="flex justify-end mt-2">
+            <a href="#" className="text-blue-400 hover:underline whitespace-nowrap">
+              Learn more &rarr;
+            </a>
+          </div>
+
+        
+        </div>
+      ),
+    },
     
   ];
 
@@ -236,7 +268,7 @@ export default function ProjectCarousel() {
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
     >
-      <div className="flex gap-6 px-4 w-max">
+      <div className="flex gap-6 px-0 w-max">
         {cards.map((card, i) => (
           <ProjectCard
             key={i}
