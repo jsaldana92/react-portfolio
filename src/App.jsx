@@ -1,6 +1,6 @@
 // src/App.jsx
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -13,8 +13,10 @@ import profileImg from './images/profile.png';
 import ProjectCards from './components/ProjectCard';
 //import BentoSection from './components/BentoSection';
 import './index.css';
-import CardSorting from './components/CardSorting';
 import { Suspense, lazy } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 
 const BentoSection = lazy(() => import('./components/BentoSection'));
 const SEEHBpage    = lazy(() => import('./components/SEEHBpage')); 
@@ -23,14 +25,15 @@ const SEEHBpage    = lazy(() => import('./components/SEEHBpage'));
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('Home');
 
   const aboutRef = useRef();
   const aboutTextRef = useRef();
   const imgRef = useRef();
+  const location = useLocation();
 
   useGSAP(() => {
-    if (currentPage !== 'Home') return;
+    // only run on Home route (`#/`)
+    if (location.pathname !== '/') return;
 
     const ctx = gsap.context(() => {
       gsap.to(aboutTextRef.current, {
@@ -57,13 +60,14 @@ function App() {
     }, aboutRef);
 
     return () => ctx.revert();
-  }, [currentPage]);
+  }, [ location.pathname ]);
 
   const dynamicWrapperRef = useRef();
   const dynamicTextRef = useRef();
 
   useGSAP(() => {
-    if (currentPage !== 'Home') return;
+  // only run on Home route (`#/`)
+  if (location.pathname !== '/') return;
 
     const ctx = gsap.context(() => {
       gsap.to(dynamicTextRef.current, {
@@ -79,7 +83,7 @@ function App() {
     }, dynamicWrapperRef);
 
     return () => ctx.revert();
-  }, [currentPage]);
+  }, [ location.pathname ]);
 
 
 
@@ -147,13 +151,17 @@ function App() {
   
 
   return (
-    
     <div className="min-h-screen bg-backgroundwhite text-gray-800">
-      <TopNav currentPage={currentPage} setCurrentPage={setCurrentPage} class = 'align-center'/>
+      <TopNav />
+      <ScrollToTop /> 
 
-      <main className="">
-        {currentPage === 'Home' && (
-          <section>
+      <main>
+        <Routes>
+          {/* Home at #/ */}
+          <Route
+            path="/"
+            element={
+              <section>
             {/* Centered Intro Block */}
             <div className="text-center py-6">
               <h1 className="text-4xl text-textblack font-bold">Jhonatan M. Saldaña Santisteban</h1>
@@ -218,20 +226,22 @@ function App() {
           
 
           </section>
-        )}
+            }
+          />
 
+          {/* SEEHB page at #/SEEHB */}
+          <Route
+            path="/SEEHB"
+            element={
+              <Suspense fallback={<div className="text-center py-20">Loading…</div>}>
+                <SEEHBpage />
+              </Suspense>
+            }
+          />
 
-          {currentPage === 'SEEHB Website' && (
-            <Suspense fallback={<div className="text-center py-20">Loading presentation…</div>}>
-              <SEEHBpage />
-            </Suspense>
-          )}
-
-          {currentPage !== 'Home' && currentPage !== 'SEEHB Website' && (
-            <div className="bg-pulse-animated text-center text-2xl font-medium mt-20">
-              Welcome to {currentPage}!
-            </div>
-          )}
+          {/* Fallback to Home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
     </div>
   );

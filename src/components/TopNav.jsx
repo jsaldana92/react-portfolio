@@ -1,68 +1,76 @@
 // src/components/TopNav.jsx
 import React, { useRef, useEffect, useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
 
 const pages = [
-  'Home',
-  'CEBUS-ResearchObs',
-  'DataPuller',
-  'Hyperlink Engagement',
-  'GTA Grading Experience',
-  'SEEHB Website'
+  { label: 'Home', to: '/' },
+  { label: 'CEBUS-ResearchObs', to: '/CEBUS-ResearchObs' },
+  { label: 'DataPuller', to: '/DataPuller' },
+  { label: 'Hyperlink Engagement', to: '/Hyperlink Engagement' },
+  { label: 'GTA Grading Experience', to: '/GTA Grading Experience' },
+  { label: 'SEEHB Website', to: '/SEEHB' },
 ];
 
-export default function TopNav({ currentPage, setCurrentPage }) {
+export default function TopNav() {
   const scrollRef = useRef(null);
   const [itemWidths, setItemWidths] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const currentPath = location.pathname;
 
-  // Measure items for auto-centering
+  // Measure each nav-item width + padding for centering
   useEffect(() => {
-    if (!scrollRef.current) return;
-    const widths = Array.from(scrollRef.current.children).map(el => el.offsetWidth + 32);
+    const ul = scrollRef.current;
+    if (!ul) return;
+    const widths = Array.from(ul.children).map(el => el.offsetWidth + 32);
     setItemWidths(widths);
   }, []);
 
-  // Center the current page in the scroll area
+  // Center the active item in the scroll area
   useEffect(() => {
-    if (!scrollRef.current || itemWidths.length !== pages.length) return;
-    const idx = pages.indexOf(currentPage);
+    const ul = scrollRef.current;
+    if (!ul || itemWidths.length !== pages.length) return;
+    const idx = pages.findIndex(p => p.to === currentPath);
+    if (idx < 0) return;
     const offset = itemWidths.slice(0, idx).reduce((a, w) => a + w, 0);
-    const center = scrollRef.current.clientWidth / 2 - itemWidths[idx] / 2;
-    scrollRef.current.scrollTo({ left: offset - center, behavior: 'smooth' });
-  }, [currentPage, itemWidths]);
+    const center = ul.clientWidth / 2 - itemWidths[idx] / 2;
+    ul.scrollTo({ left: offset - center, behavior: 'smooth' });
+  }, [currentPath, itemWidths]);
 
-  // Fade levels based on distance from active
+  // Fade levels based on distance from the active index
   const getNavItemClass = i => {
-    const distance = Math.abs(i - pages.indexOf(currentPage));
+    const idx = pages.findIndex(p => p.to === currentPath);
+    const distance = Math.abs(i - idx);
     const level = Math.min(distance, 4);
     return [
-      'text-blue-600 font-semibold',    // active
+      'text-blue-600 font-semibold',   // active
       'text-gray-800/90',
       'text-gray-800/70',
       'text-gray-800/50',
-      'text-gray-800/30'
+      'text-gray-800/30',
     ][level];
   };
 
   return (
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-md">
       <div className="max-w-7xl mx-auto px-4">
-        {/* Desktop */}
+        {/* Desktop Nav */}
         <div className="hidden md:flex h-16 items-center">
           <ul
             ref={scrollRef}
             className="flex space-x-8 overflow-x-auto no-scrollbar py-2"
           >
             {pages.map((page, i) => (
-              <li key={page} className="relative">
-                <button
-                  onClick={() => setCurrentPage(page)}
+              <li key={page.to} className="relative">
+                <NavLink
+                  to={page.to}
+                  end
                   className={`px-4 py-1 transition ${getNavItemClass(i)}`}
                 >
-                  {page}
-                </button>
-                {currentPage === page && (
+                  {page.label}
+                </NavLink>
+                {currentPath === page.to && (
                   <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2">
                     <span className="block w-6 h-0.5 bg-gradient-to-r from-blue-500 to-teal-400 rounded-full" />
                   </span>
@@ -72,10 +80,10 @@ export default function TopNav({ currentPage, setCurrentPage }) {
           </ul>
         </div>
 
-        {/* Mobile */}
+        {/* Mobile Nav */}
         <div className="flex md:hidden h-16 items-center justify-between">
           <span className="text-lg font-bold text-gray-800">
-            {currentPage}
+            {pages.find(p => p.to === currentPath)?.label || 'Home'}
           </span>
           <button
             onClick={() => setMenuOpen(o => !o)}
@@ -91,16 +99,15 @@ export default function TopNav({ currentPage, setCurrentPage }) {
           <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg">
             <ul className="flex flex-col">
               {pages.map(page => (
-                <li key={page}>
-                  <button
-                    onClick={() => {
-                      setCurrentPage(page);
-                      setMenuOpen(false);
-                    }}
-                    className="w-full text-left px-6 py-3 text-gray-800 hover:bg-gray-100 transition"
+                <li key={page.to}>
+                  <NavLink
+                    to={page.to}
+                    end
+                    onClick={() => setMenuOpen(false)}
+                    className="block w-full text-left px-6 py-3 text-gray-800 hover:bg-gray-100 transition"
                   >
-                    {page}
-                  </button>
+                    {page.label}
+                  </NavLink>
                 </li>
               ))}
             </ul>
