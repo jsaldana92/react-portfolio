@@ -7,8 +7,8 @@ const pages = [
   { label: 'Home', to: '/' },
   { label: 'CEBUS-ResearchObs', to: '/CEBUS-ResearchObs' },
   { label: 'DataPuller', to: '/DataPuller' },
-  { label: 'Hyperlink Engagement', to: '/Hyperlink Engagement' },
-  { label: 'GTA Grading Experience', to: '/GTA Grading Experience' },
+  { label: 'Hyperlink Engagement', to: '/HyperlinkEngagement' },
+  { label: 'GTA Grading Experience', to: '/GTAGradingExperience' },
   { label: 'SEEHB Website', to: '/SEEHB' },
 ];
 

@@ -17,6 +17,9 @@ import { Suspense, lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
+const GTAGradingPage = lazy(() => import('./components/GTAGradingPage'));
+
+
 
 const BentoSection = lazy(() => import('./components/BentoSection'));
 const SEEHBpage    = lazy(() => import('./components/SEEHBpage')); 
@@ -235,6 +238,16 @@ function App() {
             element={
               <Suspense fallback={<div className="text-center py-20">Loading…</div>}>
                 <SEEHBpage />
+              </Suspense>
+            }
+          />
+
+          {/* GTAGradingExperience page at #/GTAGradingPage */}
+          <Route
+            path="/GTAGradingExperience"
+            element={
+              <Suspense fallback={<div className="text-center py-20">Loading…</div>}>
+                <GTAGradingPage />
               </Suspense>
             }
           />

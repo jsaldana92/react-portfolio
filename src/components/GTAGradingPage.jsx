@@ -1,9 +1,8 @@
-// src/components/SEEHBpage.jsx
+// src/components/GTAGradingPage.jsx
 import React, { useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
-import SEEHBtimeline from './SEEHBtimeline';
-import likelyToImg from '../images/seehb/likelyto.png';
+import avgGraphImg from '../images/hyperlinkstudy/avgGraph.png';
 import speedImg from '../images/seehb/speedgraph.png';
 import seehbGHome     from '../images/seehb/seehbGHome.png';
 import seehbGSchedule from '../images/seehb/seehbGSchedule.png';
@@ -13,7 +12,7 @@ import seehbRSchedule from '../images/seehb/seehbRSchedule.png';
 import seehbRMedia    from '../images/seehb/seehbRMedia.png';
 
 
-export function SEEHBpage() {
+export function GTAGradingPage() {
   const { pathname } = useLocation();
 
   // lightbox state
@@ -23,8 +22,7 @@ export function SEEHBpage() {
   const [revealed, setRevealed] = useState([false, false, false]);
   // refs for each goal card
   const cardRefs = [useRef(null), useRef(null), useRef(null)];
-  const goalTexts = ['Decrease User Frustration', 'Improve Navigation', 'Modernize'];
-  const outcomesTexts = ['Improved Likeliness to Use', 'Faster Navigation Speed', 'Updated UI with Consistent Layout'];
+  const goalTexts = ['Does Hyperlinking Increase Lecture Engagement?', 'Does Hyperlinking Increase Grades?', 'Does Increase Engagement Increase Grades?'];
 
   return (
     <div className="w-full">
@@ -35,12 +33,12 @@ export function SEEHBpage() {
         <div className="text-center space-y-4">
           <h1 className="text-5xl font-extrabold">
             <span className="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">
-              Improving Navigation, Enjoyment, and Impact
+              Using Hyperlinks
             </span>{' '}
-            on the SEEHB Conference Website
+            to Increase Online Classroom Engagement
           </h1>
           <p className="text-xl text-gray-700 italic">
-            Led UX research to improve conference site usability through user interviews, click-tracking, and A|B testing.
+            Conducted a quantitative analyssis with a large data set of student engagement metrics to determine if hyperlinking online lectures increase student engagement.
           </p>
         </div>
 
@@ -51,29 +49,44 @@ export function SEEHBpage() {
             <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-blue-200 to-blue-50 rounded-full -z-10" />
             <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl">
                 <p className="text-lg md:text-xl text-gray-800">
-                The South Eastern Evolution and Human Behavior (SEEHB) group needed a revamped website with a{' '}
-                <strong className='text-blue-500'>modernize the layout</strong> to{' '}
-                <strong className='text-blue-500'>increase attendee interaction</strong> and {' '}
-                <strong className='text-blue-500'>decrease existing issues</strong>
+                Research shows that students report{' '}
+                <strong className='text-blue-500'>lower engagement</strong> in{' '}
+                <strong className='text-blue-500'>online classrooms</strong>
                 </p>
             </div>
             </div>
 
           {/* Card 2: Right-aligned */}
           <div className="relative flex justify-end">
+            <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-blue-200 to-blue-50 rounded-full -z-10" />
+            <div className="bg-white text-right p-8 rounded-2xl shadow-lg max-w-xl">
+                <p className="text-lg md:text-xl text-gray-800">
+                Hyperlink studies show that they{' '}
+                <strong className='text-blue-500'>highlight important information</strong> and{' '}
+                <strong className='text-blue-500'>increase engagement</strong>
+                </p>
+            </div>
+          </div>
+
+           {/* Card 3: Right-aligned */}
+          <div className="relative flex justify-center">
             <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-teal-200 to-teal-50 rounded-full -z-10" />
-            <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl text-right">
-              <p className="text-lg md:text-xl text-gray-800">
-                I led the UX research and front-end development
+            <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl text-center">
+              <p className="text-lg md:text-xl font-semibold text-gray-800">
+              To determine if hyperlinking lectures (or not), in weekly online announcements increased student engagement and overall course grade, I{' '}  
+              <strong className='text-blue-500'>compiled</strong> and {' '} 
+              <strong className='text-blue-500'>cleaned up</strong> an internal dataset to conduct {' '} 
+              <strong className='text-blue-500'>multiple comparative analysis</strong> and a {' '} 
+              <strong className='text-blue-500'>linear regression model</strong>
               </p>
             </div>
           </div>
 
-          {/* Card 3: Centered briefing */}
+          {/* Card 4: Centered briefing */}
           <div className="flex justify-center">
             <div className="w-full mx-auto">
             <p className="text-4xl font-extrabold custom-shadow-white text-[#000000] text-center">
-                Client Briefing
+                Research Purpose
             </p>
             </div>
           </div>
@@ -101,7 +114,7 @@ export function SEEHBpage() {
                       { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.7)' }
                     );
                   }}
-                  className={`relative font-semibold p-8 rounded-2xl shadow-lg max-w-md text-center cursor-pointer overflow-hidden ${revealed[i] ? 'bg-white custom-shadow-sm text-gray-800' : 'bg-blue-950/80 text-white'}`}
+                  className={`relative font-semibold p-14 rounded-2xl shadow-lg max-w-md text-center cursor-pointer overflow-hidden ${revealed[i] ? 'bg-white custom-shadow-sm text-gray-800' : 'bg-blue-950/80 text-white'}`}
                 >
                   <span
                     className={`block transition-opacity duration-300 ${revealed[i] ? 'opacity-0' : 'opacity-100'}`}>
@@ -118,14 +131,11 @@ export function SEEHBpage() {
         </div>
       </section>
 
-      {/* ---- GSAP timeline component ---- */}
-      <SEEHBtimeline key={pathname} />
-
 
       {/* Intro card and results title */}
         <div className="w-full mx-auto px-6 py-8">
           <h2 className="text-4xl font-extrabold text-gray-900 text-center">
-            Results from final A|B testing and interviews with 5 conference attendees
+            Results from the analysis of 71 students in an online asynchrnous class during one semester at a higher-education institution
           </h2>
 
           <div className="flex justify-center py-4">
@@ -148,17 +158,17 @@ export function SEEHBpage() {
           {/* Right column: stats card */}
           <div className="md:w-1/2 flex justify-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">Average Reported Bugs</h4>
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">Total Views per Lecture</h4>
               <div className="grid grid-cols-2 gap-8 text-center">
                 <div>
-                  <p className="text-3xl font-bold">0</p>
+                  <p className="text-3xl font-bold">85</p>
                   <div className="border-t-2 border-gray-300 my-2"></div>
-                  <p className="text-gray-600 font-semibold">React</p>
+                  <p className="text-gray-600 font-semibold">Hyperlinked</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold">4</p>
+                  <p className="text-3xl font-bold">62</p>
                   <div className="border-t-2 border-gray-300 my-2"></div>
-                  <p className="text-gray-600 font-semibold">Google Sites</p>
+                  <p className="text-gray-600 font-semibold">Not Hyperlinked</p>
                 </div>
               </div>
             </div>
@@ -171,16 +181,16 @@ export function SEEHBpage() {
             {/* Insight card on top */}
             <div className="w-full mx-auto mb-8">
             <p className="text-4xl font-extrabold custom-shadow-white text-[#000000] text-center">
-                Decreasing the number of bugs (deadlinks, misdirects, incorrect information) increased the likeliness to interact with the website.
+                When lectures were hyperlinked inside of weekly announcements, students watched them more often
             </p>
             </div>
             {/* Illustration below */}
             <div className="flex justify-center">
             <img
-              src={likelyToImg}
+              src={avgGraphImg}
               alt="Increased Interaction Likelihood"
-              className="bg-white p-6 max-w-full h-auto rounded-lg shadow-md cursor-pointer transition-transform duration-200 hover:scale-102"
-              onClick={() => setSelectedImage(likelyToImg)}
+              className="bg-white p-6 max-w-full h-auto rounded-lg shadow-md cursor-pointer transition-transform duration-200 hover:scale-105"
+              onClick={() => setSelectedImage(avgGraphImg)}
             />
             </div>
         </div>
@@ -226,7 +236,7 @@ export function SEEHBpage() {
              <img
                src={speedImg}
                alt="Faster Navigation Speed"
-               className="bg-white p-6 max-w-full h-auto rounded-lg shadow-md cursor-pointer transition-transform duration-200 hover:scale-102"
+               className="bg-white p-6 max-w-full h-auto rounded-lg shadow-md cursor-pointer transition-transform duration-200 hover:scale-105"
                onClick={() => setSelectedImage(speedImg)}
              />
             </div>
@@ -382,4 +392,4 @@ export function SEEHBpage() {
 
 }
 
-export default SEEHBpage;
+export default GTAGradingPage;
