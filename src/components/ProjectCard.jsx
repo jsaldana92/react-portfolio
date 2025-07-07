@@ -12,6 +12,7 @@ import hyperlinkCard from '../images/hyperlink_card.png';
 import gradingCard from '../images/grading_card.png';
 import seehbLogo from '../images/seehb_logo.png'
 import seehbCard from '../images/seehbcard.png'
+import { Link } from 'react-router-dom';
 
 
 
@@ -235,25 +236,26 @@ export default function ProjectCarousel() {
       backContent: (
         <div
           className="p-4 flex flex-col justify-between h-full overflow-hidden bg-backgroundgrey bg-no-repeat bg-center bg-contain"
-          style={{
-            backgroundImage: `url(${seehbCard})`,
-          }}
+          style={{ backgroundImage: `url(${seehbCard})` }}
         >
           <div className="flex-1 overflow-hidden">
             <h3 className="text-xl font-bold break-words text-white">SEEHB Website</h3>
             <p className="text-sm mt-2 break-words whitespace-normal">
-              Conducted market research, developed/deployed from start-to-finish website, and adjusted based on user feedback.
+              Conducted market research, developed/deployed from start-to-finish website,
+              and adjusted based on user feedback.
             </p>
           </div>
           <div className="flex justify-end mt-2">
-            <a href="#" className="text-blue-400 hover:underline whitespace-nowrap">
+            <Link
+              to="/SEEHB"
+              className="text-blue-400 hover:underline whitespace-nowrap"
+            >
               Learn more &rarr;
-            </a>
+            </Link>
           </div>
-
-        
         </div>
-      ),
+      )
+
     },
     
   ];
