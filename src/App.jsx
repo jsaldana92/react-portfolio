@@ -18,6 +18,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 const GTAGradingPage = lazy(() => import('./components/GTAGradingPage'));
+const HyperlinkPage = lazy(() => import('./components/HyperlinkPage'));
 
 
 
@@ -248,6 +249,16 @@ function App() {
             element={
               <Suspense fallback={<div className="text-center py-20">Loading…</div>}>
                 <GTAGradingPage />
+              </Suspense>
+            }
+          />
+
+          {/* HyperlinkPage page at #/HyperlinkPage */}
+          <Route
+            path="/HyperlinkEngagement"
+            element={
+              <Suspense fallback={<div className="text-center py-20">Loading…</div>}>
+                <HyperlinkPage />
               </Suspense>
             }
           />

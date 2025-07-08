@@ -2,59 +2,33 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
-import condensImg from '../images/condenslogo.png';
 
 import { FaArrowUp, FaArrowDown, FaCircle } from 'react-icons/fa';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 
-export function GTAGradingPage() {
+export function HyperlinkPage() {
+
+
 
 
   // which goals have been “flipped”
   const [revealed, setRevealed] = useState([false, false, false]);
   // refs for each goal card
   const cardRefs = [useRef(null), useRef(null), useRef(null)];
-  const goalTexts = ['What is the most commong grading issue GTAs experience?', 'How do GTAs navigate grading issues?', 'How do different departments support GTAs with grading issues?'];
+  const goalTexts = ['Does Hyperlinking Increase Lecture Engagement?', 'Does Increase Engagement Increase Grades?', 'Does Hyperlinking Increase Grades?'];
 
   //moving arrow components
-    const flowContainer = useRef(null);
-    const flowBoxes    = [
-      useRef(null),
-      useRef(null),
-      useRef(null),
-      useRef(null),
-      useRef(null),
-    ];
-    const arrowPathRef = useRef(null);
-
-
-
-
-      const themeTexts = [
-        "Description of Teaching Training Course",          // Theme 1
-        "Common Grading Issues", // Theme 2
-        "AI Issues",            // Theme 3
-        "Departamental Support",        // Theme 4
-        "GTA-to-GTA support",           // Theme 5
-        "Support Wanted",       // Theme 6
-        "Previous Experience Teaching"    // Theme 7
-      ];
-      // one ref + one boolean for each theme
-      const themeRefs = [
-        useRef(null),
-        useRef(null),
-        useRef(null),
-        useRef(null),
-        useRef(null),
-        useRef(null),
-        useRef(null),
-      ];
-      const [themesRevealed, setThemesRevealed] = useState(
-        Array(themeTexts.length).fill(false)
-      );
-
+   const flowContainer = useRef(null);
+   const flowBoxes    = [
+     useRef(null),
+     useRef(null),
+     useRef(null),
+     useRef(null),
+     useRef(null),
+   ];
+   const arrowPathRef = useRef(null);
 
   useEffect(() => {
   if (!flowContainer.current) return;
@@ -148,12 +122,12 @@ export function GTAGradingPage() {
         <div className="text-center space-y-4">
           <h1 className="text-5xl font-extrabold">
             <span className="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">
-              Conducting Interviews
+              Using Hyperlinks
             </span>{' '}
-             to Determine Most Common <span className="bg-gradient-to-r from-[#e3a730] to-[#b55f5f] bg-clip-text text-transparent"> Frustrating Aspect of Grading</span>
+            to Increase Online Classroom Engagement
           </h1>
           <p className="text-xl text-gray-700 italic">
-            Conducted a qualitative analyssis of the most comming issues graduate teaching assistants encounter while grading student work.
+            Conducted a quantitative analyssis with a large data set of student engagement metrics to determine if hyperlinking online lectures increase student engagement.
           </p>
         </div>
 
@@ -164,9 +138,9 @@ export function GTAGradingPage() {
             <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-blue-200 to-blue-50 rounded-full -z-10" />
             <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl">
                 <p className="text-lg md:text-xl text-gray-800">
-                Higher-education institutions often rely on{' '}
-                <strong className='text-blue-500'>Graduate Teaching Assistants (GTAs) </strong> to teach multiple undergraduate classes across{' '}
-                <strong className='text-blue-500'>different departments</strong>
+                Research shows that students report{' '}
+                <strong className='text-blue-500'>lower engagement</strong> in{' '}
+                <strong className='text-blue-500'>online classrooms</strong>
                 </p>
             </div>
             </div>
@@ -176,9 +150,9 @@ export function GTAGradingPage() {
             <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-blue-200 to-blue-50 rounded-full -z-10" />
             <div className="bg-white text-right p-8 rounded-2xl shadow-lg max-w-xl">
                 <p className="text-lg md:text-xl text-gray-800">
-                GTAs report issues with grading but it is{' '}
-                <strong className='text-blue-500'>unkown the most common type of issues</strong> and{' '}
-                <strong className='text-blue-500'>how these differ across departments</strong>
+                Hyperlink studies show that they{' '}
+                <strong className='text-blue-500'>highlight important information</strong> and{' '}
+                <strong className='text-blue-500'>increase engagement</strong>
                 </p>
             </div>
           </div>
@@ -188,11 +162,11 @@ export function GTAGradingPage() {
             <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-teal-200 to-teal-50 rounded-full -z-10" />
             <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl text-center">
               <p className="text-lg md:text-xl font-semibold text-gray-800">
-              To determine the most 
-              <strong className='text-blue-500'> themes</strong> with grading issues, I conducted{' '}   
-              <strong className='text-blue-500'> interviews</strong> with GTAs from multiple departments to determine the most common factors leading to GTAs{' '} 
-              <strong className='text-blue-500'> experiencing issues</strong> with {' '} 
-              <strong className='text-blue-500'> grading</strong>
+              To determine if hyperlinking lectures (or not), in weekly online announcements increased student engagement and overall course grade, I{' '}  
+              <strong className='text-blue-500'>compiled</strong> and {' '} 
+              <strong className='text-blue-500'>cleaned up</strong> an internal dataset to conduct {' '} 
+              <strong className='text-blue-500'>multiple comparative analysis</strong> and a {' '} 
+              <strong className='text-blue-500'>linear regression model</strong>
               </p>
             </div>
           </div>
@@ -250,7 +224,7 @@ export function GTAGradingPage() {
       {/* Intro card and results title */}
         <div className="w-full mx-auto px-6 py-8">
           <h2 className="text-4xl font-extrabold text-gray-900 text-center">
-            Mock results from fake interviews of GTAs at a higher-education institution
+            Mock results from a fake online asynchrnous class at a higher-education institution
           </h2>
 
           <div className="flex justify-center py-4">
@@ -264,142 +238,12 @@ export function GTAGradingPage() {
             Due to the sensitive nature of this data, the actual results of this study cannot be shared online. Instead, this page focuses on the process of completing the project and uses a stand-in data set to demonstrate skills similar to those used in the real project.
           </h2>
 
-          <div className="flex justify-center mb-8 py-4">
+          <div className="flex justify-center py-4">
             <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
           </div>
         </div>
-      {/* ---- Methods---- */}
-      {/*----Interviews----*/}
-      <section className="max-w-4xl mx-auto px-6">
-        <div className="flex flex-col space-y-8">
-            {/* Insight card on top */}
-            <div className="w-full mx-auto">
-            <p className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
-                Interviews
-            </p>
-            </div>
-        </div>
-      </section>
-      {/*----Interview Methods----*/}
-      <section className="max-w-4xl mx-auto px-6 py-16">
-        <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
-          {/* Left column*/}
-          <div className="md:w-1/2 flex justify-center">
-            <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
-              <p className="text-lg text-center md:text-start font-semibold text-gray-900 ">
-                Approximately 20-minute Interviews with 10 GTAs from 3 departments
-              </p>
-            </div>
-          </div>
 
-          {/* Right column */}
-          <div className="md:w-1/2 flex justify-center">
-            <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
-              <p className="text-lg text-center md:text-end font-semibold text-gray-900 ">
-                Totaled 220 minutes of interview reponses to thematically code
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* ---- Interview Themes (4 + 3 centered) ---- */}
-      <section className="max-w-4xl mx-auto px-2">
-        <h2 className="text-3xl font-extrabold text-center mb-8">
-          Themes from
-        </h2>
-
-        {/* Condens logo, centered, tight spacing */}
-        <img
-          src={condensImg}
-          alt="Condens Logo"
-          className="mx-auto mb-12 w-80 h-auto"
-        />
-
-        {/* parent flex so both rows are centered */}
-        <div className="flex flex-col items-center space-y-6 font-semibold mb-6">
-          {/* Top row: 4 boxes */}
-          <div className="grid grid-cols-4 gap-6">
-            {themeTexts.slice(0, 4).map((txt, i) => (
-              <div
-                key={i}
-                ref={themeRefs[i]}
-                onClick={() => {
-                  setThemesRevealed(prev => {
-                    const copy = [...prev];
-                    copy[i] = !copy[i];
-                    return copy;
-                  });
-                  const el = themeRefs[i].current;
-                  gsap.fromTo(el, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.7)' });
-                }}
-                className={`
-                  w-44 h-28
-                  flex items-center justify-center
-                  rounded-2xl shadow-lg p-4
-                  cursor-pointer overflow-hidden
-                  transition-transform
-                  ${themesRevealed[i]
-                    ? 'bg-white text-gray-800'
-                    : 'bg-blue-950/80 text-white hover:scale-105'}
-                `}
-              >
-                <span className={`transition-opacity duration-300 ${themesRevealed[i] ? 'opacity-0' : 'opacity-100'}`}>
-                  Theme #{i + 1}
-                </span>
-                <span className={`absolute inset-0 flex items-center justify-center px-3 text-center transition-opacity duration-300 ${themesRevealed[i] ? 'opacity-100' : 'opacity-0'}`}>
-                  {txt}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* Bottom row: 3 boxes */}
-          <div className="grid grid-cols-3 gap-6">
-            {themeTexts.slice(4).map((txt, idx) => {
-              const i = idx + 4;
-              return (
-                <div
-                  key={i}
-                  ref={themeRefs[i]}
-                  onClick={() => {
-                    setThemesRevealed(prev => {
-                      const copy = [...prev];
-                      copy[i] = !copy[i];
-                      return copy;
-                    });
-                    const el = themeRefs[i].current;
-                    gsap.fromTo(el, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.7)' });
-                  }}
-                  className={`
-                    w-44 h-28
-                    flex items-center justify-center
-                    rounded-2xl shadow-lg p-4
-                    cursor-pointer overflow-hidden
-                    transition-transform
-                    ${themesRevealed[i]
-                      ? 'bg-white text-gray-800'
-                      : 'bg-blue-950/80 text-white hover:scale-105'}
-                  `}
-                >
-                  <span className={`transition-opacity duration-300 ${themesRevealed[i] ? 'opacity-0' : 'opacity-100'}`}>
-                    Theme #{i + 1}
-                  </span>
-                  <span className={`absolute inset-0 flex items-center justify-center px-3 text-center transition-opacity duration-300 ${themesRevealed[i] ? 'opacity-100' : 'opacity-0'}`}>
-                    {txt}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-        <div className="flex justify-center mb-8 py-4">
-            <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
-          </div>
-      </section>
-
-
-
-{/* ---- Engagement Flow Diagram ---- */}
+        {/* ---- Engagement Flow Diagram ---- */}
 <section
   ref={flowContainer}
   className="relative w-full max-w-4xl mx-auto px-6 py-16 min-h-[400px]"
@@ -465,10 +309,10 @@ export function GTAGradingPage() {
       <p><span  className='text-blue-500'>Chi-Square Comparison</span> Between Full and Null Model</p>
     </div>
   </div>
-</section>
-{/* line page break */}
-<section className="flex justify-center py-8">
-  <div className="block w-3/4 h-[4px] bg-backgroundgrey "></div>
+  {/* line page break */}
+  <div className="flex justify-center mb-8 mt-6 py-4">
+    <div className="w-full h-1 bg-backgroundgrey rounded-full" />
+  </div>
 </section>
 
 {/* ---- Outcomes for Goal #1 ---- */}
@@ -519,12 +363,12 @@ export function GTAGradingPage() {
       </div>
     </div>
   </div>
+    {/* line page break */}
+  <div className="flex justify-center mt-6 mb-8 py-4">
+    <div className="w-full h-1 bg-backgroundgrey rounded-full" />
+  </div>
 </section>
 
-  {/* line page break */}
-  <section className="flex justify-center py-8">
-  <div className="block w-3/4 h-[4px] bg-backgroundgrey "></div>
-</section>
 {/* ---- Outcomes for Goal #2 ---- */}
 {/*----Title----*/}
 <section className="max-w-4xl mx-auto px-6">
@@ -584,11 +428,12 @@ export function GTAGradingPage() {
         </p>
       </div>
   </div>
+      {/* line page break */}
+  <div className="flex justify-center mt-6 mb-8 py-4">
+    <div className="w-full h-1 bg-backgroundgrey rounded-full" />
+  </div>
 </section>
-{/* line page break */}
-<section className="flex justify-center py-8">
-  <div className="block w-3/4 h-[4px] bg-backgroundgrey "></div>
-</section>
+
 
 {/* ---- Outcomes for Goal #3 ---- */}
 {/*----Title----*/}
@@ -623,11 +468,13 @@ export function GTAGradingPage() {
       </div>
     </div>
   </div>
+        {/* line page break */}
+  <div className="flex justify-center mt-6 mb-8 py-4">
+    <div className="w-full h-1 bg-backgroundgrey rounded-full" />
+  </div>
 </section>
-{/* line page break */}
-<section className="flex justify-center py-8">
-  <div className="block w-3/4 h-[4px] bg-backgroundgrey "></div>
-</section>
+
+
 {/* Take Aways */}
 <section>
   <div className="w-full mx-auto px-6 py-8">
@@ -696,4 +543,4 @@ export function GTAGradingPage() {
 
 }
 
-export default GTAGradingPage;
+export default HyperlinkPage;
