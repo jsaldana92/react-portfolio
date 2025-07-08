@@ -80,18 +80,14 @@ export function SEEHBpage() {
 
           {/* Goals Row with onClick animation */}
           <div className="flex justify-center">
-            <div className="flex space-x-6">
+            <div className="flex space-x-6 md:space-x-12">
               {goalTexts.map((text, i) => (
                 <div
                   key={i}
                   ref={cardRefs[i]}
                   onClick={() => {
                     // toggle only this card
-                    setRevealed(prev => {
-                      const copy = [...prev];
-                      copy[i] = !copy[i];
-                      return copy;
-                    });
+                    setRevealed(r => r.map((v,j) => (j === i ? !v : v)));
                     // animate only the clicked card
                     const el = cardRefs[i].current;
                     if (!el) return;
@@ -101,14 +97,22 @@ export function SEEHBpage() {
                       { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.7)' }
                     );
                   }}
-                  className={`relative font-semibold p-8 rounded-2xl shadow-lg max-w-md text-center cursor-pointer overflow-hidden ${revealed[i] ? 'bg-white custom-shadow-sm text-gray-800' : 'bg-blue-950/80 text-white'}`}
+                  className={`
+                    relative flex items-center justify-center box-content
+                    font-semibold rounded-2xl shadow-lg
+                    p-6 h-18 w-42 md:h-12 md:w-42
+                    cursor-pointer overflow-hidden
+                    ${revealed[i]
+                      ? 'bg-white custom-shadow-sm text-gray-800'
+                      : 'bg-blue-950/80 text-white'}
+                  `}
                 >
-                  <span
-                    className={`block transition-opacity duration-300 ${revealed[i] ? 'opacity-0' : 'opacity-100'}`}>
-                    Goal #{i + 1}
+                  {/* front face */}
+                  <span className={`block transition-opacity duration-300 ${revealed[i] ? 'opacity-0' : 'opacity-100'}`}>
+                    Goal #{i+1}
                   </span>
-                  <span
-                    className={`absolute font-semibold inset-0 flex items-center justify-center transition-opacity duration-300 ${revealed[i] ? 'opacity-100' : 'opacity-0'}`}>
+                  {/* back face */}
+                  <span className={`absolute inset-0 flex items-center justify-center font-semibold transition-opacity duration-300 ${revealed[i] ? 'opacity-100' : 'opacity-0'}`}>
                     {text}
                   </span>
                 </div>
