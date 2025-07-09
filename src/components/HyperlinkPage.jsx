@@ -17,7 +17,7 @@ export function HyperlinkPage() {
   const [revealed, setRevealed] = useState([false, false, false]);
   // refs for each goal card
   const cardRefs = [useRef(null), useRef(null), useRef(null)];
-  const goalTexts = ['Does Hyperlinking Increase Lecture Engagement?', 'Does Increase Engagement Increase Grades?', 'Does Hyperlinking Increase Grades?'];
+  const goalTexts = ['Does Hyperlinking Increase Lecture Engagement?', 'Does Increased Engagement Increase Grades?', 'Does Hyperlinking Increase Grades?'];
 
   //moving arrow components
    const flowContainer = useRef(null);
@@ -224,7 +224,7 @@ export function HyperlinkPage() {
       {/* Intro card and results title */}
         <div className="w-full mx-auto px-6 py-8">
           <h2 className="text-4xl font-extrabold text-gray-900 text-center">
-            Mock results from a fake online asynchrnous class at a higher-education institution
+            Mock results from a fake online asynchronous class at a higher-education institution
           </h2>
 
           <div className="flex justify-center py-4">
@@ -397,7 +397,7 @@ export function HyperlinkPage() {
     <div className="md:w-1/2 flex justify-center">
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
         <p className="text-lg font-semibold text-gray-900 ">
-          The linear regression model, which included grades, engagement metrics (e.g., number of views, percetange complete, average time completed, load count, etc.), and hyperlink-state, out performed a null model with no predictors
+          The linear regression model, which included grades, engagement metrics (e.g., number of views, percentage completed, average time completed, load count, etc.), and hyperlink-state, out performed a null model with no predictors
         </p>
       </div>
     </div>
@@ -423,7 +423,7 @@ export function HyperlinkPage() {
         <p className="flex items-center ">
           <FaArrowDown className="mr-2 w-7 h-7 text-red-600"/>
           <span className='text-xl md:text-2xl text-black text-semibold' >
-          Regardelss of viewing, loading a lecture more often decreased final grade by ~2 points
+          Regardless of viewing, loading a lecture more often decreased final grade by ~2 points
           </span>
         </p>
       </div>
@@ -491,7 +491,7 @@ export function HyperlinkPage() {
 <section className="max-w-4xl mx-auto px-6 pt-4 pb-16">
   <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
     {/* Left column: title + result card */}
-    <div className="flex flex-col items-start space-y-4 md:w-1/2">
+    <div className="flex flex-col items-center md:items-start space-y-4 md:w-1/2">
       <h3 className="text-2xl font-extrabold text-backgroundred">Primary Considerations</h3>
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
@@ -500,11 +500,11 @@ export function HyperlinkPage() {
     </div>
 
     {/* Right column: quote card */}
-    <div className="flex flex-col items-end space-y-4 md:w-1/2">
+    <div className="flex flex-col items-center md:items-end space-y-4 md:w-1/2">
       <h3 className="text-2xl font-extrabold text-backgroundred">Secondary Considerations</h3>
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-        <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">Improve early alerts or provide directed feedback for students with a high number of loading lectures as they may be struggling with engagement</p>
+        <p className="text-lg font-semibold text-start md:text-end text-custom-shadow-sm text-gray-800">Improve early alerts or provide directed feedback for students with a high number of lectures loaded as they may be struggling with engagement</p>
       </div>
     </div>
   </div>
@@ -515,7 +515,7 @@ export function HyperlinkPage() {
       {/* Insight card on top */}
       <div className="w-full mx-auto mb-8">
       <p className="text-4xl  font-extrabold custom-shadow-white text-[#000000] text-center">
-        Professors should consider <span className='text-[#f28e0b]'>hyperlinking online lectures</span> in weekly announcements to <span className='text-[#f28e0b]'>increase engagement,</span> specially for <span className='text-[#f28e0b]'>classes with expected lower engagement</span> metrics due to... 
+        Professors should consider <span className='text-[#f28e0b]'>hyperlinking online lectures</span> in weekly announcements to <span className='text-[#f28e0b]'>increase engagement,</span> specifically for <span className='text-[#f28e0b]'>classes with expected lower engagement</span> metrics due to... 
       </p>
       </div>
     {/* linear regression models */}

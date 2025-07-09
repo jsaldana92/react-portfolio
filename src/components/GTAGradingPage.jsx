@@ -3,8 +3,17 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
 import condensImg from '../images/condenslogo.png';
+import InteractiveSteps from './interactiveSteps';
 
-import { FaArrowUp, FaArrowDown, FaCircle } from 'react-icons/fa';
+import PersonaTemplate from './PersonaTemplate';
+import persona1 from '../images/gradingstudy/persona1.png';
+import persona2 from '../images/gradingstudy/persona2.png';
+import { FaArrowUp, FaArrowDown, FaUser, FaGraduationCap, FaAppleAlt, FaBook, FaRobot} from 'react-icons/fa';
+import { SlCalender } from "react-icons/sl";
+import { CgGym } from "react-icons/cg";
+import { SiGoogleclassroom } from "react-icons/si";
+import { MdGroups2 } from "react-icons/md";
+import { RiEmotionUnhappyLine,RiEmotionHappyLine } from "react-icons/ri";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,7 +45,7 @@ export function GTAGradingPage() {
         "Description of Teaching Training Course",          // Theme 1
         "Common Grading Issues", // Theme 2
         "AI Issues",            // Theme 3
-        "Departamental Support",        // Theme 4
+        "Departmental Support",        // Theme 4
         "GTA-to-GTA support",           // Theme 5
         "Support Wanted",       // Theme 6
         "Previous Experience Teaching"    // Theme 7
@@ -318,7 +327,7 @@ export function GTAGradingPage() {
         {/* parent flex so both rows are centered */}
         <div className="flex flex-col items-center space-y-6 font-semibold mb-6">
           {/* Top row: 4 boxes */}
-          <div className="grid grid-cols-4 gap-6">
+          <div className="grid grid-cols-4 gap-2 md:gap-6">
             {themeTexts.slice(0, 4).map((txt, i) => (
               <div
                 key={i}
@@ -333,20 +342,20 @@ export function GTAGradingPage() {
                   gsap.fromTo(el, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.7)' });
                 }}
                 className={`
-                  w-44 h-28
+                  w-24 h-16 md:w-44 md:h-28
                   flex items-center justify-center
                   rounded-2xl shadow-lg p-4
                   cursor-pointer overflow-hidden
-                  transition-transform
+                  transition-transform text-center text-xs md:text-lg 
                   ${themesRevealed[i]
                     ? 'bg-white text-gray-800'
                     : 'bg-blue-950/80 text-white hover:scale-105'}
                 `}
               >
-                <span className={`transition-opacity duration-300 ${themesRevealed[i] ? 'opacity-0' : 'opacity-100'}`}>
+                <span className={`transition-opacity  duration-300 ${themesRevealed[i] ? 'opacity-0' : 'opacity-100'}`}>
                   Theme #{i + 1}
                 </span>
-                <span className={`absolute inset-0 flex items-center justify-center px-3 text-center transition-opacity duration-300 ${themesRevealed[i] ? 'opacity-100' : 'opacity-0'}`}>
+                <span className={`absolute inset-0 flex items-center justify-center px-3  text-center transition-opacity duration-300 ${themesRevealed[i] ? 'opacity-100' : 'opacity-0'}`}>
                   {txt}
                 </span>
               </div>
@@ -371,11 +380,11 @@ export function GTAGradingPage() {
                     gsap.fromTo(el, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.7)' });
                   }}
                   className={`
-                    w-44 h-28
+                    w-24 h-16 md:w-44 md:h-28
                     flex items-center justify-center
                     rounded-2xl shadow-lg p-4
                     cursor-pointer overflow-hidden
-                    transition-transform
+                    transition-transform text-center text-xs md:text-lg 
                     ${themesRevealed[i]
                       ? 'bg-white text-gray-800'
                       : 'bg-blue-950/80 text-white hover:scale-105'}
@@ -384,7 +393,7 @@ export function GTAGradingPage() {
                   <span className={`transition-opacity duration-300 ${themesRevealed[i] ? 'opacity-0' : 'opacity-100'}`}>
                     Theme #{i + 1}
                   </span>
-                  <span className={`absolute inset-0 flex items-center justify-center px-3 text-center transition-opacity duration-300 ${themesRevealed[i] ? 'opacity-100' : 'opacity-0'}`}>
+                  <span className={`absolute inset-0 flex items-center justify-center px-3 transition-opacity duration-300 ${themesRevealed[i] ? 'opacity-100' : 'opacity-0'}`}>
                     {txt}
                   </span>
                 </div>
@@ -392,245 +401,117 @@ export function GTAGradingPage() {
             })}
           </div>
         </div>
-        <div className="flex justify-center mb-8 py-4">
+        <div className="flex justify-center mb-2 py-4">
             <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
           </div>
       </section>
 
+    {/* ---- Pesona Section ---- */}
+    <section className="max-w-4xl mx-auto pt-12 pb-8 px-6">
+      <section className="max-w-4xl mx-auto mb-14 px-2">
+            <h2 className="text-3xl font-extrabold text-center">
+              Personas
+            </h2>
+      </section>
+      <div className="flex flex-col md:flex-row 
+                    items-center justify-center 
+                    space-y-4 md:space-y-0 md:space-x-10">
+      <div className="w-90 md:w-140 overflow-hidden">
+        <PersonaTemplate
+            className="w-full h-auto text-sm" 
+            imageSrc={persona1}
+            name="Jenny Acworth"
+            age={29}
+            quote='"Although the department certainly helps and is involved, we are the primary person handling the reporting of AI usage."'
 
+            LTIcon={FaUser}
+            leftTopDem="Female"
+            LBIcon={FaGraduationCap}
+            leftBottomDem="PhD Track"
+            RTIcon={FaBook}
+            rightTopDem="5th Year Student"
+            RBIcon={FaAppleAlt}
+            rightBottomDem="2 years GTA"
 
-{/* ---- Engagement Flow Diagram ---- */}
-<section
-  ref={flowContainer}
-  className="relative w-full max-w-4xl mx-auto px-6 py-16 min-h-[400px]"
->
-  {/* A) SVG arrow behind everything */}
-  <svg className="absolute inset-0 w-full h-full pointer-events-none">
-    <defs>
-      <marker
-        id="arrowhead"
-        markerWidth="8"
-        markerHeight="6"
-        refX="8"
-        refY="3"
-        orient="auto"
-      >
-        <path d="M0,0 L8,3 L0,6" fill="#3b82f6" />
-      </marker>
-    </defs>
-    <path
-      ref={arrowPathRef}
-      d=""                       // will be set by useEffect
-      stroke="#3b82f6"
-      strokeWidth="4"
-      fill="none"
-      markerEnd="url(#arrowhead)"
-    />
-  </svg>
-
-  {/* B) Your 5 boxes, with a higher z-index so they sit on top of the arrow */}
-  <div className="relative z-10 w-full grid grid-cols-3 grid-rows-3 gap-6">
-    <div
-      ref={flowBoxes[0]}
-      className="col-start-1 row-start-1 bg-white p-1 md:p-6 w-full rounded shadow min-w-0 break-words text-sm md:text-lg font-semibold"
-    >
-      <p className='text-black'> <span className='text-blue-500'>Pull Data</span> | Split Hyperlink and Non-Hyperlinked Lectures</p>
-    </div>
-
-    <div
-      ref={flowBoxes[1]}
-      className="col-start-3 row-start-1 bg-white p-1 md:p-6 w-full rounded shadow min-w-0 break-words text-end text-sm md:text-lg font-semibold"
-    >
-      <p><span className='text-blue-500'>Encrypt</span> and <span  className='text-blue-500'>Deidentify</span> Sensitive Information</p>
-    </div>
-
-    <div
-      ref={flowBoxes[2]}
-      className="col-start-2 row-start-2 bg-white p-1 md:p-6 w-full rounded shadow min-w-0 break-words text-center text-sm md:text-lg font-semibold"
-    >
-      <p><span  className='text-blue-500'>Repeated t-Test</span> to Compare Hyperlinking Impact</p>
-    </div>
-
-    <div
-      ref={flowBoxes[3]}
-      className="col-start-1 row-start-3 bg-white p-1 md:p-6 w-full rounded shadow min-w-0 break-words text-sm md:text-lg font-semibold"
-    >
-      <p><span  className='text-blue-500'>Linear Regression:</span> Hyperlink, Engagement, and Grades Relationship</p>
-    </div>
-
-    <div
-      ref={flowBoxes[4]}
-      className="col-start-3 row-start-3 bg-white p-1 md:p-6 w-full rounded shadow min-w-0 break-words font-semibold text-end text-sm md:text-lg"
-    >
-      <p><span  className='text-blue-500'>Chi-Square Comparison</span> Between Full and Null Model</p>
-    </div>
-  </div>
-</section>
-{/* line page break */}
-<section className="flex justify-center py-8">
-  <div className="block w-3/4 h-[4px] bg-backgroundgrey "></div>
-</section>
-
-{/* ---- Outcomes for Goal #1 ---- */}
-{/*----Title----*/}
-<section className="max-w-4xl mx-auto px-6">
-  <div className="flex flex-col space-y-8">
-      {/* Insight card on top */}
-      <div className="w-full mx-auto">
-      <p className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
-          Hyperlinking video lectures to weekly announcements increased engagement
-      </p>
-      </div>
-  </div>
-  </section>
-{/*----Outcomes----*/}
-  <section className="max-w-4xl mx-auto px-6 py-16">
-    <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
-      {/* Left column: title + result card */}
-    <div className="flex flex-col items-start space-y-4 md:w-1/2">
-      <h3 className="text-2xl font-extrabold text-backgroundred">Goal #1</h3>
-      <hr className="w-16 border-backgroundgrey border-[2 px]" />
-      <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-        <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[0]}</p>
-      </div>
-    </div>
-
-        {/* Right column: GSAP‐animated stats card */}
-    <div className="md:w-1/2 flex justify-center">
-      <div className="bg-white p-6 rounded-2xl shadow-lg w-full overflow-hidden">
-        {/* wrapper for GSAP targeting */}
-        <div ref={statsRef}>
-          {/* only this <h4> will animate */}
-          <h4 className="anim text-lg font-semibold text-gray-900 mb-4">
-            {statsSets[statsIndex].title}
-          </h4>
-          <div className="grid grid-cols-2 gap-8 text-center">
-            {statsSets[statsIndex].data.map(item => (
-              <div key={item.label}>
-                {/* only this <p> will animate */}
-                <p className="anim text-3xl font-bold">{item.value}</p>
-                <div className="border-t-2 border-gray-300 my-2"></div>
-                {/* label stays static */}
-                <p className="text-gray-600 font-semibold">{item.label}</p>
-              </div>
-            ))}
-          </div>
+            TLIcon={CgGym}
+            TLBehavior="Standardized derpatmental training provided a baseline expectation for teaching and classroom resources"
+            TRIcon={SlCalender }
+            TRBehavior="Standardized check-ins with faculty mentor result in  in being micro-managed one semesters and receiving little support the next"
+            MLIcon={SiGoogleclassroom}
+            MLBehavior="Primarily teaching online asynchronous classes"
+            MRIcon={FaRobot }
+            MRBehavior="AI policy violations is the most common grading issue followed by general cheating"
+            BLIcon={MdGroups2}
+            BLBehavior="Relies on faculty mentor's open-door policy and check-ins for support more than on other GTAs"
+            BRIcon={RiEmotionHappyLine}
+            BRBehavior="Enjoys teaching and is happy with the departmental support received and made available"
+          />
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      <div className="w-90 md:w-140 overflow-hidden">
+        <PersonaTemplate
+            className="w-full h-auto text-sm" 
+            imageSrc={persona2}
+            name="Dan Kennesaw"
+            age={29}
+            quote='"I just go along with what the department tells me to do since we are not encouraged to resolve issues ourselves"'
 
-  {/* line page break */}
-  <section className="flex justify-center py-8">
-  <div className="block w-3/4 h-[4px] bg-backgroundgrey "></div>
-</section>
-{/* ---- Outcomes for Goal #2 ---- */}
-{/*----Title----*/}
-<section className="max-w-4xl mx-auto px-6">
-  <div className="flex flex-col space-y-8">
-      {/* Insight card on top */}
-      <div className="w-full mx-auto">
-      <p className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
-          The linear model showed that engagement and final grades were linked
-      </p>
-      </div>
-  </div>
-</section>
-{/*----Outcomes----*/}
-<section className="max-w-4xl mx-auto px-6 py-16">
-  <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
-    {/* Left column: title + result card */}
-    <div className="flex flex-col items-start space-y-4 md:w-1/2">
-      <h3 className="text-2xl font-extrabold text-backgroundred">Goal #2</h3>
-      <hr className="w-16 border-backgroundgrey border-[2px]" />
-      <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-        <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[1]}</p>
-      </div>
-    </div>
+            LTIcon={FaUser}
+            leftTopDem="Male"
+            LBIcon={FaGraduationCap}
+            leftBottomDem="Master Track"
+            RTIcon={FaBook}
+            rightTopDem="2nd Year Student"
+            RBIcon={FaAppleAlt}
+            rightBottomDem="1 year GTA"
 
-    {/* Right column: quote card */}
-    <div className="md:w-1/2 flex justify-center">
-      <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
-        <p className="text-lg font-semibold text-gray-900 ">
-          The linear regression model, which included grades, engagement metrics (e.g., number of views, percetange complete, average time completed, load count, etc.), and hyperlink-state, out performed a null model with no predictors
-        </p>
+            TLIcon={CgGym}
+            TLBehavior="Deparment does not standardize training resulting in either no, some, or too much training on how to teach a class"
+            TRIcon={SlCalender }
+            TRBehavior="Faculty mentor check-ins are not standardized resulting in being micro-managed one semesters and receiving little support the next"
+            MLIcon={SiGoogleclassroom}
+            MLBehavior="Primarily teaches in person classes entry or mid-level classes"
+            MRIcon={FaRobot}
+            MRBehavior="Dealing with cheating is the most commong grading issue he has, with AI policy violations being the most common"
+            BLIcon={MdGroups2}
+            BLBehavior="Often relies on other GTAs for support due to inconsistent training and mentoring"
+            BRIcon={RiEmotionUnhappyLine}
+            BRBehavior="Enjoys teaching but the department does not meet his expectations for training or suppor"
+          />
+        </div>
+        
+        
       </div>
-    </div>
-  </div>
-</section>
-{/* ---- Additional Insight for Goal 2 (stacked) ---- */}
-<section className="max-w-4xl mx-auto px-6">
-  <div className="flex flex-col space-y-8">
-      {/* linear regression models*/}
-      <div className="space-y-2">
-        <p className="flex items-center">
-          <FaArrowUp className="mr-2 w-6 h-6 text-green-600" />
-          <span className='text-xl md:text-2xl text-black text-semibold'>
-          Viewing a lecture increased final grade ~7 points per lecture
-          </span>
-        </p>
-        <p className="flex items-center ">
-          <FaArrowUp className="mr-2 w-6 h-6 text-green-600"/>
-          <span className='text-xl md:text-2xl  text-black text-semibold'>
-          Subsequent viewings of lectures increased final grade by ~2 points
-          </span>
-        </p>
-        <p className="flex items-center ">
-          <FaArrowDown className="mr-2 w-7 h-7 text-red-600"/>
-          <span className='text-xl md:text-2xl text-black text-semibold' >
-          Regardelss of viewing, loading a lecture more often decreased final grade by ~2 points
-          </span>
-        </p>
+      <div className="flex justify-center py-4 pt-8">
+        <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
       </div>
-  </div>
-</section>
-{/* line page break */}
-<section className="flex justify-center py-8">
-  <div className="block w-3/4 h-[4px] bg-backgroundgrey "></div>
-</section>
+    </section>
 
-{/* ---- Outcomes for Goal #3 ---- */}
-{/*----Title----*/}
-<section className="max-w-4xl mx-auto px-6">
-  <div className="flex flex-col space-y-8">
-      {/* Insight card on top */}
-      <div className="w-full mx-auto">
-      <p className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
-          Hyperlinking lectures to weekly announcement did not increase or decrease student grades
-      </p>
-      </div>
-  </div>
-</section>
-{/*----Outcomes----*/}
-<section className="max-w-4xl mx-auto px-6 py-16">
-  <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
-    {/* Left column: title + result card */}
-    <div className="flex flex-col items-start space-y-4 md:w-1/2">
-      <h3 className="text-2xl font-extrabold text-backgroundred">Goal #3</h3>
-      <hr className="w-16 border-backgroundgrey border-[2px]" />
-      <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-        <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[2]}</p>
-      </div>
+    {/* ---- Journey Map ---- */}
+    <section className="max-w-4xl mx-auto pt-8 pb-16 px-6">
+      <section className="max-w-4xl mx-auto mb-1 px-2">
+            <h2 className="text-3xl font-extrabold text-center">
+              Journey Map
+            </h2>
+      </section>
+      <section className='mb-14 max-w-4xl mx-auto px-2'>
+        <p className='text-lg  text-gray-700 italic text-center'>
+          Deparmental training and support, alongside experience, impact how GTAs perceive grading issues
+          </p>
+      </section>
+      {/* ---- Step #1 ---- */}
+      {/*----Outcomes Step #1----*/}
+      <section>
+        <InteractiveSteps/>
+      </section>
+    {/* line page break */}
+    <div className="flex justify-center py-4 pt-8">
+      <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
     </div>
+    </section>
 
-    {/* Right column: quote card */}
-    <div className="md:w-1/2 flex justify-center">
-      <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
-        <p className="text-lg font-semibold text-gray-900 ">
-          Hyperlinking lectures in weekly announcements did not directly relate to student grades. Individual differences with engagement among students better accounted for grades
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-{/* line page break */}
-<section className="flex justify-center py-8">
-  <div className="block w-3/4 h-[4px] bg-backgroundgrey "></div>
-</section>
 {/* Take Aways */}
-<section>
-  <div className="w-full mx-auto px-6 py-8">
+<section className="max-w-4xl mx-auto pt-4 pb-16 px-6">
+  <div className="w-full">
     <h2 className="text-4xl leading-snug  font-extrabold text-center text-black">
       Take Aways
     </h2>
@@ -648,7 +529,9 @@ export function GTAGradingPage() {
       <h3 className="text-2xl font-extrabold text-backgroundred">Primary Considerations</h3>
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-        <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">Hyperlinking increases student engagement with online classroom lectures and may indirectly lead to better classroom performance</p>
+        <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">
+          Formal training, alongisde brief regular check-ins, provide the highest valued type of support. This allows GTAs the resources and the experience to imporve as lectures and rely less of direct departmental support for minor issues. 
+          </p>
       </div>
     </div>
 
@@ -657,7 +540,9 @@ export function GTAGradingPage() {
       <h3 className="text-2xl font-extrabold text-backgroundred">Secondary Considerations</h3>
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-        <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">Improve early alerts or provide directed feedback for students with a high number of loading lectures as they may be struggling with engagement</p>
+        <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">
+          Experience is ultimately the largest factor when GTAs deal with grading issues, therefore, regardless of training or departmental support and rated a low likihood to take further education towards teaching unless necessary.
+        </p>
       </div>
     </div>
   </div>
@@ -668,24 +553,13 @@ export function GTAGradingPage() {
       {/* Insight card on top */}
       <div className="w-full mx-auto mb-8">
       <p className="text-4xl  font-extrabold custom-shadow-white text-[#000000] text-center">
-        Professors should consider <span className='text-[#f28e0b]'>hyperlinking online lectures</span> in weekly announcements to <span className='text-[#f28e0b]'>increase engagement,</span> specially for <span className='text-[#f28e0b]'>classes with expected lower engagement</span> metrics due to... 
+        Departments should consider providing{' '}
+        <span className='text-[#f28e0b]'>formal training</span> as part of graduate school curiculum and provide{' '}
+        <span className='underline text-[#f28e0b]'>brief</span> regular {' '}
+        <span className='text-[#f28e0b]'>check-ins</span> to continously support GTAs deal with{' '}
+        <span className='text-[#f28e0b]'>grading issues.</span> 
       </p>
       </div>
-    {/* linear regression models */}
-    <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
-      <p className="text-2xl font-semibold text-center text-gray-700">
-        Online classrooms
-      </p>
-      <p className="text-2xl font-semibold text-center text-gray-700">
-        Large number of students
-      </p>
-      <p className="text-2xl font-semibold text-center text-gray-700">
-        Difficult course material
-      </p>
-      <p className="text-2xl font-semibold text-center text-gray-700">
-        High quantity of lectures
-      </p>
-    </div>
   </div>
 </section>
 

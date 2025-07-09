@@ -52,7 +52,7 @@ export function SEEHBpage() {
             <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl">
                 <p className="text-lg md:text-xl text-gray-800">
                 The South Eastern Evolution and Human Behavior (SEEHB) group needed a revamped website with a{' '}
-                <strong className='text-blue-500'>modernize the layout</strong> to{' '}
+                <strong className='text-blue-500'>modernized layout</strong> to{' '}
                 <strong className='text-blue-500'>increase attendee interaction</strong> and {' '}
                 <strong className='text-blue-500'>decrease existing issues</strong>
                 </p>
@@ -87,7 +87,11 @@ export function SEEHBpage() {
                   ref={cardRefs[i]}
                   onClick={() => {
                     // toggle only this card
-                    setRevealed(r => r.map((v,j) => (j === i ? !v : v)));
+                    setRevealed(prev => {
+                      const copy = [...prev];
+                      copy[i] = !copy[i];
+                      return copy;
+                    });
                     // animate only the clicked card
                     const el = cardRefs[i].current;
                     if (!el) return;
@@ -97,22 +101,14 @@ export function SEEHBpage() {
                       { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.7)' }
                     );
                   }}
-                  className={`
-                    relative flex items-center justify-center box-content
-                    font-semibold rounded-2xl shadow-lg
-                    p-6 h-18 w-42 md:h-12 md:w-42
-                    cursor-pointer overflow-hidden
-                    ${revealed[i]
-                      ? 'bg-white custom-shadow-sm text-gray-800'
-                      : 'bg-blue-950/80 text-white'}
-                  `}
+                  className={`relative flex items-center justify-center  box-content font-semibold rounded-2xl shadow-lg p-6 h-18 w-18 md:h-12 md:w-42 text-center cursor-pointer overflow-hidden ${revealed[i] ? 'bg-white custom-shadow-sm text-gray-800' : 'bg-blue-950/80 text-white'}`}
                 >
-                  {/* front face */}
-                  <span className={`block transition-opacity duration-300 ${revealed[i] ? 'opacity-0' : 'opacity-100'}`}>
-                    Goal #{i+1}
+                  <span
+                    className={`block just transition-opacity duration-300 ${revealed[i] ? 'opacity-0' : 'opacity-100'}`}>
+                    Goal #{i + 1}
                   </span>
-                  {/* back face */}
-                  <span className={`absolute inset-0 flex items-center justify-center font-semibold transition-opacity duration-300 ${revealed[i] ? 'opacity-100' : 'opacity-0'}`}>
+                  <span
+                    className={`absolute font-semibold inset-0 flex items-center justify-center transition-opacity duration-300 ${revealed[i] ? 'opacity-100' : 'opacity-0'}`}>
                     {text}
                   </span>
                 </div>
@@ -209,7 +205,7 @@ export function SEEHBpage() {
           <div className="md:w-1/2 flex justify-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
               <p className="text-lg font-semibold italic text-gray-900 ">
-                "I feel like I know where I am suppose to go... I would definitely consider using it in future, specially over the printed out schedules."
+                "I feel like I know where I am supposed to go... I would definitely consider using it in future, especially over the printed out schedules."
               </p>
               <p className="text-md text-right italic text-gray-900">- previous attendee interviewed</p>
             </div>
