@@ -187,9 +187,12 @@ export default function ProjectCarousel() {
             </p>
           </div>
           <div className="flex justify-end mt-2">
-            <a href="#" className="text-blue-400 hover:underline whitespace-nowrap">
+            <Link
+              to="/HyperlinkEngagement"
+              className="text-blue-400 hover:underline whitespace-nowrap"
+            >
               Learn more &rarr;
-            </a>
+            </Link>
           </div>
 
         
@@ -217,9 +220,12 @@ export default function ProjectCarousel() {
             </p>
           </div>
           <div className="flex justify-end mt-2">
-            <a href="#" className="text-blue-400 hover:underline whitespace-nowrap">
+            <Link
+              to="/GTAGradingExperience"
+              className="text-blue-400 hover:underline whitespace-nowrap"
+            >
               Learn more &rarr;
-            </a>
+            </Link>
           </div>
 
         
