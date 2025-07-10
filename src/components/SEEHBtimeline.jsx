@@ -19,7 +19,7 @@ import dd12 from '../images/seehb/dd12.png';
 import ddFinal from '../images/seehb/ddfinal.png';
 
 gsap.registerPlugin(ScrollTrigger);
-ScrollTrigger.normalizeScroll(true);
+
 
 export default function SEEHBtimeline() {
   const { pathname } = useLocation();

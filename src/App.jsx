@@ -19,6 +19,7 @@ import { useLocation } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 const GTAGradingPage = lazy(() => import('./components/GTAGradingPage'));
 const HyperlinkPage = lazy(() => import('./components/HyperlinkPage'));
+const DataPullerPage = lazy(() => import('./components/DataPullerPage'));
 
 
 
@@ -259,6 +260,16 @@ function App() {
             element={
               <Suspense fallback={<div className="text-center py-20">Loading…</div>}>
                 <HyperlinkPage />
+              </Suspense>
+            }
+          />
+
+          {/* DataPuller page at #/DataPuller */}
+          <Route
+            path="/DataPuller"
+            element={
+              <Suspense fallback={<div className="text-center py-20">Loading…</div>}>
+                <DataPullerPage />
               </Suspense>
             }
           />
