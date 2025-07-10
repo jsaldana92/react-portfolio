@@ -1,4 +1,4 @@
-// src/components/HyperlinkPage.jsx
+// src/components/DataPullerPage.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
@@ -15,17 +15,18 @@ import { SiGoogleclassroom } from "react-icons/si";
 import { MdGroups2 } from "react-icons/md";
 import { RiEmotionUnhappyLine,RiEmotionHappyLine } from "react-icons/ri";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import DPPreliminary from './DataPullerPreliminary';
 gsap.registerPlugin(ScrollTrigger);
 
 
-export function GTAGradingPage() {
+export function DataPullerPage() {
 
 
   // which goals have been “flipped”
   const [revealed, setRevealed] = useState([false, false, false]);
   // refs for each goal card
   const cardRefs = [useRef(null), useRef(null), useRef(null)];
-  const goalTexts = ['What is the most commong grading issue GTAs experience?', 'How do GTAs navigate grading issues?', 'How do different departments support GTAs with grading issues?'];
+  const goalTexts = ['Determine Common Data Collection Timeline', "Determine an Optimal Solution", 'Gauge Engagement with Solution'];
 
   //moving arrow components
     const flowContainer = useRef(null);
@@ -157,12 +158,12 @@ export function GTAGradingPage() {
         <div className="text-center space-y-4">
           <h1 className="text-5xl font-extrabold">
             <span className="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">
-              Conducting Interviews
+              Conducting End-User Interviews
             </span>{' '}
-             to Determine Most Common <span className="bg-gradient-to-r from-[#e3a730] to-[#b55f5f] bg-clip-text text-transparent"> Frustrating Aspect of Grading</span>
+             to Determine How to <span className="bg-gradient-to-r from-[#e3a730] to-[#b55f5f] bg-clip-text text-transparent"> Improve Data Collection Experience</span>
           </h1>
           <p className="text-xl text-gray-700 italic">
-            Conducted a qualitative analyssis of the most comming issues graduate teaching assistants encounter while grading student work.
+            Multiple researchers reported assistants having difficulty collecting data and also reported collection being ineffective and taking longer than expected 
           </p>
         </div>
 
@@ -173,9 +174,8 @@ export function GTAGradingPage() {
             <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-blue-200 to-blue-50 rounded-full -z-10" />
             <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl">
                 <p className="text-lg md:text-xl text-gray-800">
-                Higher-education institutions often rely on{' '}
-                <strong className='text-blue-500'>Graduate Teaching Assistants (GTAs) </strong> to teach multiple undergraduate classes across{' '}
-                <strong className='text-blue-500'>different departments</strong>
+                Older research facilities often rely on non-cloud based local data storage to increase cyber security and therefore{' '}
+                <strong className='text-blue-500'>manualy collect data</strong> across multiple systems
                 </p>
             </div>
             </div>
@@ -185,23 +185,23 @@ export function GTAGradingPage() {
             <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-blue-200 to-blue-50 rounded-full -z-10" />
             <div className="bg-white text-right p-8 rounded-2xl shadow-lg max-w-xl">
                 <p className="text-lg md:text-xl text-gray-800">
-                GTAs report issues with grading but it is{' '}
-                <strong className='text-blue-500'>unkown the most common type of issues</strong> and{' '}
-                <strong className='text-blue-500'>how these differ across departments</strong>
+                Although more "safe" this method can be highly{' '}
+                <strong className='text-blue-500'>ineffective</strong> and cause{' '}
+                <strong className='text-blue-500'>frustation</strong> and {' '}
+                <strong className='text-blue-500'>needless time loss</strong>
                 </p>
             </div>
           </div>
 
-           {/* Card 3: Right-aligned */}
+           {/* Card 4: center-aligned */}
           <div className="relative flex justify-center">
             <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-teal-200 to-teal-50 rounded-full -z-10" />
             <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl text-center">
               <p className="text-lg md:text-xl font-semibold text-gray-800">
-              To determine the most 
-              <strong className='text-blue-500'> themes</strong> with grading issues, I conducted{' '}   
-              <strong className='text-blue-500'> interviews</strong> with GTAs from multiple departments to determine the most common factors leading to GTAs{' '} 
-              <strong className='text-blue-500'> experiencing issues</strong> with {' '} 
-              <strong className='text-blue-500'> grading</strong>
+              To determine a viable solution at decreasing frustation and time loss, I conducted 
+              <strong className='text-blue-500'> preliminary interviews and questionnaires</strong> with research staff to determine the most common friction points in data collection. I then conducted{' '}   
+              <strong className='text-blue-500'> beta-test interviews</strong> to verify my solution resonated well with staff and would actually be used. Lastly, I conducted{' '} 
+              <strong className='text-blue-500'> post-launch interviews and questionnaires</strong> to determine what future solutions might increase engagement and productivity by decreasing frustration and time loss.
               </p>
             </div>
           </div>
@@ -259,7 +259,7 @@ export function GTAGradingPage() {
       {/* Intro card and results title */}
         <div className="w-full mx-auto px-6 py-8">
           <h2 className="text-4xl font-extrabold text-gray-900 text-center">
-            Mock results from fake interviews of GTAs at a higher-education institution
+            Results from Research Staff Interviews
           </h2>
 
           <div className="flex justify-center py-4">
@@ -267,25 +267,20 @@ export function GTAGradingPage() {
           </div>
         </div>
         
-      {/* Disclaimer section */}
-        <div className="w-full mx-auto px-6 ">
-          <h2 className="text-xl font-semibold text-gray-900 text-center">
-            Due to the sensitive nature of this data, the actual results of this study cannot be shared online. Instead, this page focuses on the process of completing the project and uses a stand-in data set to demonstrate skills similar to those used in the real project.
-          </h2>
 
-          <div className="flex justify-center mb-8 py-4">
-            <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
-          </div>
-        </div>
+
       {/* ---- Methods---- */}
       {/*----Interviews----*/}
       <section className="max-w-4xl mx-auto px-6">
-        <div className="flex flex-col space-y-8">
+        <div className="flex flex-col">
             {/* Insight card on top */}
             <div className="w-full mx-auto">
-            <p className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
-                Interviews
-            </p>
+            <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
+                Preliminary In-Person Interviews and Questionnaires
+            </h1>
+            </div>
+            <div className="w-full mx-auto">
+              <p className='text-lg text-center pt-1 text-gray-700 italic'>6 Research Staff Members: Junior, Senior, and Primary Investigators</p>
             </div>
         </div>
       </section>
@@ -296,7 +291,7 @@ export function GTAGradingPage() {
           <div className="md:w-1/2 flex justify-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
               <p className="text-lg text-center md:text-start font-semibold text-gray-900 ">
-                Approximately 20-minute Interviews with 10 GTAs from 3 departments
+                Approximately 5-minute Interviews with Open Ended Questions
               </p>
             </div>
           </div>
@@ -305,209 +300,104 @@ export function GTAGradingPage() {
           <div className="md:w-1/2 flex justify-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
               <p className="text-lg text-center md:text-end font-semibold text-gray-900 ">
-                Totaled 220 minutes of interview reponses to thematically code
+                10 Closed Question Questionnaire per Researcher
               </p>
             </div>
           </div>
         </div>
       </section>
-      {/* ---- Interview Themes (4 + 3 centered) ---- */}
-      <section className="max-w-4xl mx-auto px-2">
-        <h2 className="text-3xl font-extrabold text-center mb-8">
-          Themes from
-        </h2>
 
-        {/* Condens logo, centered, tight spacing */}
-        <img
-          src={condensImg}
-          alt="Condens Logo"
-          className="mx-auto mb-12 w-80 h-auto"
-        />
-
-        {/* parent flex so both rows are centered */}
-        <div className="flex flex-col items-center space-y-6 font-semibold mb-6">
-          {/* Top row: 4 boxes */}
-          <div className="grid grid-cols-4 gap-2 md:gap-6">
-            {themeTexts.slice(0, 4).map((txt, i) => (
-              <div
-                key={i}
-                ref={themeRefs[i]}
-                onClick={() => {
-                  setThemesRevealed(prev => {
-                    const copy = [...prev];
-                    copy[i] = !copy[i];
-                    return copy;
-                  });
-                  const el = themeRefs[i].current;
-                  gsap.fromTo(el, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.7)' });
-                }}
-                className={`
-                  w-24 h-16 md:w-44 md:h-28
-                  flex items-center justify-center
-                  rounded-2xl shadow-lg p-4
-                  cursor-pointer overflow-hidden
-                  transition-transform text-center text-xs md:text-lg 
-                  ${themesRevealed[i]
-                    ? 'bg-white text-gray-800'
-                    : 'bg-blue-950/80 text-white hover:scale-105'}
-                `}
-              >
-                <span className={`transition-opacity  duration-300 ${themesRevealed[i] ? 'opacity-0' : 'opacity-100'}`}>
-                  Theme #{i + 1}
-                </span>
-                <span className={`absolute inset-0 flex items-center justify-center px-3  text-center transition-opacity duration-300 ${themesRevealed[i] ? 'opacity-100' : 'opacity-0'}`}>
-                  {txt}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* Bottom row: 3 boxes */}
-          <div className="grid grid-cols-3 gap-6">
-            {themeTexts.slice(4).map((txt, idx) => {
-              const i = idx + 4;
-              return (
-                <div
-                  key={i}
-                  ref={themeRefs[i]}
-                  onClick={() => {
-                    setThemesRevealed(prev => {
-                      const copy = [...prev];
-                      copy[i] = !copy[i];
-                      return copy;
-                    });
-                    const el = themeRefs[i].current;
-                    gsap.fromTo(el, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.7)' });
-                  }}
-                  className={`
-                    w-24 h-16 md:w-44 md:h-28
-                    flex items-center justify-center
-                    rounded-2xl shadow-lg p-4
-                    cursor-pointer overflow-hidden
-                    transition-transform text-center text-xs md:text-lg 
-                    ${themesRevealed[i]
-                      ? 'bg-white text-gray-800'
-                      : 'bg-blue-950/80 text-white hover:scale-105'}
-                  `}
-                >
-                  <span className={`transition-opacity duration-300 ${themesRevealed[i] ? 'opacity-0' : 'opacity-100'}`}>
-                    Theme #{i + 1}
-                  </span>
-                  <span className={`absolute inset-0 flex items-center justify-center px-3 transition-opacity duration-300 ${themesRevealed[i] ? 'opacity-100' : 'opacity-0'}`}>
-                    {txt}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-        <div className="flex justify-center mb-2 py-4">
-            <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
-          </div>
-      </section>
-
-    {/* ---- Pesona Section ---- */}
-    <section className="max-w-4xl mx-auto pt-12 pb-8 px-6">
-      <section className="max-w-4xl mx-auto mb-14 px-2">
-            <h2 className="text-3xl font-extrabold text-center">
-              Personas
-            </h2>
-      </section>
-      <div className="flex flex-col md:flex-row 
-                    items-center justify-center 
-                    space-y-4 md:space-y-0 md:space-x-10">
-      <div className="w-90 md:w-140 overflow-hidden">
-        <PersonaTemplate
-            className="w-full h-auto text-sm" 
-            imageSrc={persona1}
-            name="Jenny Acworth"
-            age={29}
-            quote='"Although the department certainly helps and is involved, we are the primary person handling the reporting of AI usage."'
-
-            LTIcon={FaUser}
-            leftTopDem="Female"
-            LBIcon={FaGraduationCap}
-            leftBottomDem="PhD Track"
-            RTIcon={FaBook}
-            rightTopDem="5th Year Student"
-            RBIcon={FaAppleAlt}
-            rightBottomDem="2 years GTA"
-
-            TLIcon={CgGym}
-            TLBehavior="Standardized derpatmental training provided a baseline expectation for teaching and classroom resources"
-            TRIcon={SlCalender }
-            TRBehavior="Standardized check-ins with faculty mentor result in  in being micro-managed one semesters and receiving little support the next"
-            MLIcon={SiGoogleclassroom}
-            MLBehavior="Primarily teaching online asynchronous classes"
-            MRIcon={FaRobot }
-            MRBehavior="AI policy violations is the most common grading issue followed by general cheating"
-            BLIcon={MdGroups2}
-            BLBehavior="Relies on faculty mentor's open-door policy and check-ins for support more than on other GTAs"
-            BRIcon={RiEmotionHappyLine}
-            BRBehavior="Enjoys teaching and is happy with the departmental support received and made available"
-          />
-        </div>
-      <div className="w-90 md:w-140 overflow-hidden">
-        <PersonaTemplate
-            className="w-full h-auto text-sm" 
-            imageSrc={persona2}
-            name="Dan Kennesaw"
-            age={29}
-            quote='"I just go along with what the department tells me to do since we are not encouraged to resolve issues ourselves"'
-
-            LTIcon={FaUser}
-            leftTopDem="Male"
-            LBIcon={FaGraduationCap}
-            leftBottomDem="Master Track"
-            RTIcon={FaBook}
-            rightTopDem="2nd Year Student"
-            RBIcon={FaAppleAlt}
-            rightBottomDem="1 year GTA"
-
-            TLIcon={CgGym}
-            TLBehavior="Deparment does not standardize training resulting in either no, some, or too much training on how to teach a class"
-            TRIcon={SlCalender }
-            TRBehavior="Faculty mentor check-ins are not standardized resulting in being micro-managed one semesters and receiving little support the next"
-            MLIcon={SiGoogleclassroom}
-            MLBehavior="Primarily teaches in person classes entry or mid-level classes"
-            MRIcon={FaRobot}
-            MRBehavior="Dealing with cheating is the most commong grading issue he has, with AI policy violations being the most common"
-            BLIcon={MdGroups2}
-            BLBehavior="Often relies on other GTAs for support due to inconsistent training and mentoring"
-            BRIcon={RiEmotionUnhappyLine}
-            BRBehavior="Enjoys teaching but the department does not meet his expectations for training or suppor"
-          />
-        </div>
-        
-        
-      </div>
-      <div className="flex justify-center py-4 pt-8">
-        <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
-      </div>
-    </section>
-
-    {/* ---- Journey Map ---- */}
-    <section className="max-w-4xl mx-auto pt-8 pb-16 px-6">
-      <section className="max-w-4xl mx-auto mb-1 px-2">
-            <h2 className="text-3xl font-extrabold text-center">
-              Journey Map
-            </h2>
-      </section>
-      <section className='mb-14 max-w-4xl mx-auto px-2'>
-        <p className='text-lg  text-gray-700 italic text-center'>
-          Deparmental training and support, alongside experience, impact how GTAs perceive grading issues
-          </p>
-      </section>
-      {/* ---- Step #1 ---- */}
-      {/*----Outcomes Step #1----*/}
+            {/* Interview  */}
+      {/* ---- Timeline & Questionnaire ---- */}
       <section>
-        <InteractiveSteps/>
+      <DPPreliminary />
       </section>
-    {/* line page break */}
-    <div className="flex justify-center py-4 pt-8">
-      <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
+
+      <section className="max-w-4xl mx-auto   mt-16 px-6">
+        {/* Insight card on top */}
+            <div className="w-full mx-auto">
+            <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
+                Preliminary Conclusion
+            </h1>
+            </div>
+            <div className="w-full mx-auto">
+              <p className='text-lg text-center pt-1 text-gray-700 italic'>Plans for Beta-App</p>
+            </div>
+      </section>
+
+{/*preliminary conclusion */}
+<section className="max-w-4xl mx-auto px-6 mt-12 mb-6">
+  <section className="max-w-4xl mx-auto px-6 mt-12 mb-4">
+    <div className="pb-6 text-center">
+      <h2 className="text-2xl font-extrabold">
+        DataPuller Configuration
+      </h2>
+      <hr className="w-2/3 mx-auto border-backgroundgrey border-2 mt-2" />
     </div>
-    </section>
+  </section>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {/* Code */}
+    <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+      <h3 className="text-lg font-semibold text-gray-800">Code Language</h3>
+      <p className="mt-2 text-gray-700">Python</p>
+    </div>
+
+    {/* Type */}
+    <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+      <h3 className="text-lg font-semibold text-gray-800">App Type</h3>
+      <p className="mt-2 text-gray-700">Stand alone (.exe)</p>
+    </div>
+
+    {/* Pulls from */}
+    <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+      <h3 className="text-lg font-semibold text-gray-800">Collects Folders From</h3>
+      <p className="mt-2 text-gray-700">C:/Tasks/</p>
+    </div>
+
+    {/* Sends to */}
+    <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+      <h3 className="text-lg font-semibold text-gray-800">Data Sent To</h3>
+      <p className="mt-2 text-gray-700">
+        D:/data_from_puller/
+        <br />
+        <span className="text-sm text-gray-600">
+          optional: C:/Tasks/[last name]/[task name]/copied/
+        </span>
+      </p>
+    </div>
+
+    {/* Supported Files */}
+    <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+      <h3 className="text-lg font-semibold text-gray-800">Supported Files</h3>
+      <p className="mt-2 text-gray-700">
+        .csv
+      </p>
+       <p className="mt-2 text-gray-700">
+        .txt (not “para”; optional: “monkey”, “block”)
+        </p>
+    </div>
+
+    {/* Feedback */}
+    <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+      <h3 className="text-lg font-semibold text-gray-800">Feedback</h3>
+      <p className="mt-2 text-gray-700">Pop-ups for Errors and Successes</p>
+    </div>
+  </div>
+  <div className="flex justify-center mb-2 mt-8 py-4">
+    <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
 
 {/* Take Aways */}
 <section className="max-w-4xl mx-auto pt-4 pb-16 px-6">
@@ -570,4 +460,4 @@ export function GTAGradingPage() {
 
 }
 
-export default GTAGradingPage;
+export default DataPullerPage;
