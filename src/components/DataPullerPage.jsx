@@ -2,24 +2,22 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
-import condensImg from '../images/condenslogo.png';
-import InteractiveSteps from './interactiveSteps';
 
-import PersonaTemplate from './PersonaTemplate';
-import persona1 from '../images/gradingstudy/persona1.png';
-import persona2 from '../images/gradingstudy/persona2.png';
-import { FaArrowUp, FaArrowDown, FaUser, FaGraduationCap, FaAppleAlt, FaBook, FaRobot} from 'react-icons/fa';
-import { SlCalender } from "react-icons/sl";
-import { CgGym } from "react-icons/cg";
-import { SiGoogleclassroom } from "react-icons/si";
-import { MdGroups2 } from "react-icons/md";
-import { RiEmotionUnhappyLine,RiEmotionHappyLine } from "react-icons/ri";
+
+import rustImg from '../images/datapuller/rust.png';
+import betaImg from '../images/datapuller/beta.png';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import DPPreliminary from './DataPullerPreliminary';
+import DataPullerImage from './DataPullerImage';
+import DataPullerImprovementSuggested from './DataPullerImprovementSuggested';
+import DataPullerImageZoom from './DataPullerFigjam';
 gsap.registerPlugin(ScrollTrigger);
 
 
 export function DataPullerPage() {
+
+    // lightbox state
+    const [selectedImage, setSelectedImage] = useState(null);
 
 
   // which goals have been “flipped”
@@ -270,7 +268,7 @@ export function DataPullerPage() {
 
 
       {/* ---- Methods---- */}
-      {/*----Interviews----*/}
+      {/*----Prelimary Interviews----*/}
       <section className="max-w-4xl mx-auto px-6">
         <div className="flex flex-col">
             {/* Insight card on top */}
@@ -313,81 +311,161 @@ export function DataPullerPage() {
       <DPPreliminary />
       </section>
 
+      {/* Insight card on top */}
       <section className="max-w-4xl mx-auto   mt-16 px-6">
-        {/* Insight card on top */}
             <div className="w-full mx-auto">
             <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
-                Preliminary Conclusion
+                Outline for Beta-App
             </h1>
             </div>
             <div className="w-full mx-auto">
-              <p className='text-lg text-center pt-1 text-gray-700 italic'>Plans for Beta-App</p>
+              <p className='text-lg text-center pt-1 text-gray-700 italic'>DataPuller Configuration</p>
             </div>
       </section>
 
-{/*preliminary conclusion */}
-<section className="max-w-4xl mx-auto px-6 mt-12 mb-6">
-  <section className="max-w-4xl mx-auto px-6 mt-12 mb-4">
-    <div className="pb-6 text-center">
-      <h2 className="text-2xl font-extrabold">
-        DataPuller Configuration
-      </h2>
-      <hr className="w-2/3 mx-auto border-backgroundgrey border-2 mt-2" />
-    </div>
-  </section>
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {/* Code */}
-    <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-      <h3 className="text-lg font-semibold text-gray-800">Code Language</h3>
-      <p className="mt-2 text-gray-700">Python</p>
-    </div>
 
-    {/* Type */}
-    <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-      <h3 className="text-lg font-semibold text-gray-800">App Type</h3>
-      <p className="mt-2 text-gray-700">Stand alone (.exe)</p>
-    </div>
 
-    {/* Pulls from */}
-    <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-      <h3 className="text-lg font-semibold text-gray-800">Collects Folders From</h3>
-      <p className="mt-2 text-gray-700">C:/Tasks/</p>
-    </div>
+    {/*preliminary conclusion */}
+    <section className="max-w-4xl mx-auto px-6 mt-12 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Code */}
+        <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+          <h3 className="text-lg underline font-semibold text-gray-800">Code Language</h3>
+          <p className="mt-2 text-gray-700">Python</p>
+        </div>
 
-    {/* Sends to */}
-    <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-      <h3 className="text-lg font-semibold text-gray-800">Data Sent To</h3>
-      <p className="mt-2 text-gray-700">
-        D:/data_from_puller/
-        <br />
-        <span className="text-sm text-gray-600">
-          optional: C:/Tasks/[last name]/[task name]/copied/
-        </span>
-      </p>
-    </div>
+        {/* Type */}
+        <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+          <h3 className="text-lg underline font-semibold text-gray-800">App Type</h3>
+          <p className="mt-2 text-gray-700">Stand alone (.exe)</p>
+        </div>
 
-    {/* Supported Files */}
-    <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-      <h3 className="text-lg font-semibold text-gray-800">Supported Files</h3>
-      <p className="mt-2 text-gray-700">
-        .csv
-      </p>
-       <p className="mt-2 text-gray-700">
-        .txt (not “para”; optional: “monkey”, “block”)
-        </p>
-    </div>
+        {/* Pulls from */}
+        <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+          <h3 className="text-lg font-semibold underline  text-gray-800">Collects Folders From</h3>
+          <p className="mt-2 text-gray-700">C:/Tasks/</p>
+        </div>
 
-    {/* Feedback */}
-    <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-      <h3 className="text-lg font-semibold text-gray-800">Feedback</h3>
-      <p className="mt-2 text-gray-700">Pop-ups for Errors and Successes</p>
-    </div>
-  </div>
-  <div className="flex justify-center mb-2 mt-8 py-4">
-    <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
-  </div>
-</section>
+        {/* Sends to */}
+        <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+          <h3 className="text-lg font-semibold underline text-gray-800">Data Sent To</h3>
+          <p className="mt-2 text-gray-700">
+            D:/data_from_puller/
+            <br />
+            <span className="text-sm text-gray-600">
+              optional: C:/Tasks/[last name]/[task name]/copied/
+            </span>
+          </p>
+        </div>
 
+        {/* Supported Files */}
+        <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+          <h3 className="text-lg underline font-semibold text-gray-800">Supported Files</h3>
+          <p className="mt-2 text-gray-700">
+            .csv
+          </p>
+          <p className="mt-2 text-gray-700">
+            .txt (not “para”; optional: “monkey”, “block”)
+            </p>
+        </div>
+
+        {/* Feedback */}
+        <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+          <h3 className="text-lg underline font-semibold text-gray-800">Feedback</h3>
+          <p className="mt-2 text-gray-700">Pop-ups for Errors and Successes</p>
+        </div>
+      </div>
+      <div className="flex justify-center mb-2 mt-8 py-4">
+        <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
+      </div>
+    </section>
+
+        {/*----Beta Interviews----*/}
+    <section className="max-w-4xl mb-6 mx-auto px-6">
+      <div className="flex flex-col">
+          {/* Insight card on top */}
+          <div className="w-full mx-auto">
+          <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
+              Beta-Testing In-Person Interviews
+          </h1>
+          </div>
+          <div className="w-full mx-auto">
+            <p className='text-lg text-center pt-1 text-gray-700 italic'>4 Research Staff Members: Junior and Senior Researchers</p>
+          </div>
+      </div>
+    </section>
+    <section className="max-w-4xl mx-auto px-2 flex justify-center">
+      <img
+        src={betaImg}
+        alt="Increased Interaction Likelihood"
+        className="bg-white max-w-full h-120 rounded-lg shadow-md cursor-pointer transition-transform duration-200 hover:scale-102"
+        onClick={() => setSelectedImage(betaImg)}
+      />
+    </section>
+          {/* Insight card on top */}
+      <section className="max-w-4xl mx-auto mt-12 px-6">
+            <div className="w-full mx-auto">
+            <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
+                Results
+            </h1>
+            </div>
+            <div className="w-full mx-auto">
+              <p className='text-lg text-center pt-1 text-gray-700 italic'>DataPuller Configuration</p>
+            </div>
+      </section>
+      {/*columns for results */}
+      <section className="max-w-6xl mx-auto px-6 mt-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+          
+          {/* Component that shows image with button */}
+          <div className="w-full">
+            <DataPullerImage />
+          </div>
+
+          {/* Component that shows improvement text with button */}
+          <div className="w-full">
+            <DataPullerImprovementSuggested />
+          </div>
+        </div>
+      </section>
+            <section className="max-w-4xl mx-auto mt-4 mb-12 px-6">
+            <div className="w-full mx-auto">
+            <h1 className="text-2xl font-bold custom-shadow-white text-[#000000] text-center">
+                Although DataPuller was 
+                <span className='text-blue-500'> faster </span> 
+                than the traditional way to collect data, users primarily reported 
+                <span className='text-blue-500'> needing data from one or two projects </span>
+                 causing them to 
+                 <span className='text-blue-500'> overfixate the long start up time </span>
+                  (~12 seconds) leading them to a 
+                  <span className='text-blue-500'> negative perception </span>
+                   of the app and making it 
+                   <span className='text-blue-500'> unlikely to be used </span> 
+                   in real-world application.
+            </h1>
+            </div>
+            <div className="w-full mt-4 mx-auto">
+            <h1 className="text-2xl font-bold custom-shadow-white text-[#000000] text-center">
+                Due to the overhead of 
+                <span className='text-blue-500'> Python’s </span> 
+                bundled interpreter, the beta-version had noticeably
+                <span className='text-blue-500'> long launch times </span>
+                 regardless of optimization. To achieve a faster startup, the app was
+                <span className='text-blue-500'> recoded </span> 
+                in a 
+                <span className='text-blue-500'> faster language </span> 
+                  compiled to a native binary, 
+                <span className='text-[#cc4100]'> Rust.</span> 
+            </h1>
+            </div>
+      </section>
+      
+      <section className="max-w-4xl mx-auto p-4">
+        <DataPullerImageZoom/>
+              <div className="flex justify-center mb-2 mt-4 py-4">
+        <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
+      </div>
+      </section>
 
 
 
@@ -453,7 +531,25 @@ export function DataPullerPage() {
   </div>
 </section>
 
-
+      {/* Modal Overlay */}
+      {selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+          <div className="relative max-w-4xl w-150 px-4">
+            <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-4 right-6 z-10 w-10 h-10 flex items-start justify-center text-white text-3xl font-bold rounded-full bg-black/60 shadow-lg backdrop-blur-sm hover:bg-black/80 transition"
+            >
+              &times;
+            </button>
+            <img
+              src={selectedImage}
+              alt="enlarged"
+              className="w-full h-auto rounded-lg shadow-lg"
+              onContextMenu={(e) => e.preventDefault()} //prevents right clicking
+            />
+          </div>
+        </div>
+      )}
   </div>
   );
 
