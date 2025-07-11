@@ -64,7 +64,7 @@ export default function DPPreliminary() {
 
         {/* Left column: Timeline */}
         <div>
-          <h2 className="text-3xl font-extrabold text-center mb-6">Timeline</h2>
+          <h2 className="text-3xl  font-extrabold text-center mb-6">Timeline</h2>
           <div className="flex flex-col space-y-4">
             {timelineSteps.map((step, i) => (
               <div
