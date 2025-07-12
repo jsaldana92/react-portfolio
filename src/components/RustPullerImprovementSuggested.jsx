@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 
-export default function DataPullerImprovementSuggested() {
+export default function RustPullerImprovementSuggested() {
   const tabs = ['General Feedback', 'Most Common Suggested Feature', 'Most Wanted Improvement'];
   const [selectedTab, setSelectedTab] = useState('General Feedback');
 
   const improvementQuotes = [
-    { text: '“The start up times is really slow and should improve.”', author: 'Junior Researcher' },
-    { text: '“It takes too long to launch the app, it should be faster.”', author: 'Senior Researcher' },
+    { text: '“Nothing really comes to mind for improvements, the launch speed was the biggest hang up I had.”', author: 'Junior Researcher' },
+    { text: '“I can not think of any improvement to current features.”', author: 'Senior Researcher' },
   ];
 
   const featureQuotes = [
-    { text: '“I cannot really think of any features I could suggest.”', author: 'Junior Researcher' },
-    { text: '“Safely ejecting the USB drive would be great.”', author: 'Senior Researcher' },
+    { text: '“It would be nice if this could also pull data from copied folder when selected.”', author: 'Junior Researcher' },
+    { text: '“Maybe a launcher app that handles installing new programs? Those can be a bit tricky and take a long time. Otherwise, no suggestiongs!”', author: 'Senior Researcher' },
   ];
 
   const generalFeedbackQuotes = [
-    { text: '“The launch time was super long and made it not fun waiting for the app to launch, I would much rather just click around and get to the one folder I need since I would rather not just sit there.”', author: 'Junior Researcher' },
-    { text: '“I only really pull data from one or two projects at a time, so the long start up time makes it seem not necessary to use the app.”', author: 'Senior Researcher' },
-    { text: '“I cancertainly feel it being faster but the long start up time is a major downfall.”', author: 'Senior Researcher' },
+    { text: '“The fact that the launch times is like a second makes this so much better, I will definitely try it out later in the week.”', author: 'Junior Researcher' },
+    { text: '“The super quick load time makes this an actual viable solution.”', author: 'Senior Researcher' },
+    { text: '“This is an actual app that I can see myself using now that it does not take so long to start.”', author: 'Senior Researcher' },
   ];
 
   const renderQuotes = (quotes) => (

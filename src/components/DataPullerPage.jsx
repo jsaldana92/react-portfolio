@@ -11,6 +11,8 @@ import DPPreliminary from './DataPullerPreliminary';
 import DataPullerImage from './DataPullerImage';
 import DataPullerImprovementSuggested from './DataPullerImprovementSuggested';
 import DataPullerImageZoom from './DataPullerFigjam';
+import RustPullerImage from './RustPullerImage';
+import RustPullerImprovementSuggested from './RustPullerImprovementSuggested'
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -468,6 +470,73 @@ export function DataPullerPage() {
       </section>
 
 
+        {/*----Post Interviews----*/}
+    <section className="max-w-4xl mb-6 mx-auto px-6">
+      <div className="flex flex-col">
+          {/* Insight card on top */}
+          <div className="w-full mx-auto">
+          <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
+              Post-Launch In-Person Interviews
+          </h1>
+          </div>
+          <div className="w-full mx-auto">
+            <p className='text-lg text-center pt-1 text-gray-700 italic'>4 Research Staff Members: Junior and Senior Researchers</p>
+          </div>
+      </div>
+    </section>
+    <section className="max-w-4xl mx-auto px-2 flex justify-center">
+      <img
+        src={rustImg}
+        alt="Increased Interaction Likelihood"
+        className="bg-white max-w-full h-120 rounded-lg shadow-md cursor-pointer transition-transform duration-200 hover:scale-102"
+        onClick={() => setSelectedImage(rustImg)}
+      />
+    </section>
+          {/* Insight card on top */}
+      <section className="max-w-4xl mx-auto mt-12 px-6">
+            <div className="w-full mx-auto">
+            <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
+                Results
+            </h1>
+            </div>
+            <div className="w-full mx-auto">
+              <p className='text-lg text-center pt-1 text-gray-700 italic'>DataPuller Configuration</p>
+            </div>
+      </section>
+      {/*columns for results */}
+      <section className="max-w-6xl mx-auto px-6 mt-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+          
+          {/* Component that shows image with button */}
+          <div className="w-full">
+            <RustPullerImage />
+          </div>
+
+          {/* Component that shows improvement text with button */}
+          <div className="w-full">
+            <RustPullerImprovementSuggested />
+          </div>
+        </div>
+      </section>
+            <section className="max-w-4xl mx-auto mt-4 mb-12 px-6">
+            <div className="w-full mx-auto">
+            <h1 className="text-2xl font-bold custom-shadow-white text-[#000000] text-center">
+                Using 
+                <span className='text-[#cc4100]'> Rust </span> to lower launch times to
+                <span className='text-blue-500'> ~1s </span> 
+                lead to users having a
+                <span className='text-blue-500'> positive perception </span>
+                 and  
+                 <span className='text-blue-500'> greater likelihood </span>
+                  to use the app over the current methodology.
+            </h1>
+            </div>
+              <div className="flex justify-center mb-2 mt-4 py-4">
+        <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
+      </div>
+      </section>
+      
+
 
 
 
@@ -498,7 +567,7 @@ export function DataPullerPage() {
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
         <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">
-          Formal training, alongisde brief regular check-ins, provide the highest valued type of support. This allows GTAs the resources and the experience to imporve as lectures and rely less of direct departmental support for minor issues. 
+          Improving comparative speed time alone is <span className='underline'>not enough</span> to get current users to engage with DataPuller. The solution had to avoid negative connotations (slow launch speed) to increase engagement.
           </p>
       </div>
     </div>
@@ -509,7 +578,7 @@ export function DataPullerPage() {
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
         <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">
-          Experience is ultimately the largest factor when GTAs deal with grading issues, therefore, regardless of training or departmental support and rated a low likihood to take further education towards teaching unless necessary.
+          Future updates shoul avoid decreasing the speed DataPuller so that they do not decrease users' perception of its effectiveness.
         </p>
       </div>
     </div>
@@ -521,11 +590,10 @@ export function DataPullerPage() {
       {/* Insight card on top */}
       <div className="w-full mx-auto mb-8">
       <p className="text-4xl  font-extrabold custom-shadow-white text-[#000000] text-center">
-        Departments should consider providing{' '}
-        <span className='text-[#f28e0b]'>formal training</span> as part of graduate school curiculum and provide{' '}
-        <span className='underline text-[#f28e0b]'>brief</span> regular {' '}
-        <span className='text-[#f28e0b]'>check-ins</span> to continously support GTAs deal with{' '}
-        <span className='text-[#f28e0b]'>grading issues.</span> 
+        Solving long standing issues need to be {' '}
+        <span className='text-[#f28e0b]'>perceived</span> as improving the {' '}
+        <span className='text-[#f28e0b]'>experience</span> rather than simply improving {' '}
+        <span className='text-[#f28e0b]'>efficiency</span> to overcome cognitive biases.
       </p>
       </div>
   </div>
