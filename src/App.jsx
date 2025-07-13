@@ -20,6 +20,7 @@ import ScrollToTop from './components/ScrollToTop';
 const GTAGradingPage = lazy(() => import('./components/GTAGradingPage'));
 const HyperlinkPage = lazy(() => import('./components/HyperlinkPage'));
 const DataPullerPage = lazy(() => import('./components/DataPullerPage'));
+const ResearchObsPage = lazy(() => import('./components/ResearchObsPage'));
 
 
 
@@ -270,6 +271,16 @@ function App() {
             element={
               <Suspense fallback={<div className="text-center py-20">Loading…</div>}>
                 <DataPullerPage />
+              </Suspense>
+            }
+          />
+
+          {/* ResearchObs page at #/ResearchObs */}
+          <Route
+            path="/ResearchObs"
+            element={
+              <Suspense fallback={<div className="text-center py-20">Loading…</div>}>
+                <ResearchObsPage />
               </Suspense>
             }
           />

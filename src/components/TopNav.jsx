@@ -5,11 +5,11 @@ import { FiMenu, FiX } from 'react-icons/fi';
 
 const pages = [
   { label: 'Home', to: '/' },
-  { label: 'CEBUS-ResearchObs', to: '/CEBUS-ResearchObs' },
+  { label: 'ResearchObs', to: '/ResearchObs' },
   { label: 'DataPuller', to: '/DataPuller' },
   { label: 'Hyperlink Engagement', to: '/HyperlinkEngagement' },
   { label: 'GTA Grading Experience', to: '/GTAGradingExperience' },
-  { label: 'SEEHB Website', to: '/SEEHB' },
+  { label: 'SEEHB Website', to: '/SEEHB' }
 ];
 
 export default function TopNav() {

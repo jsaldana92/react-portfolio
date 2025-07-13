@@ -255,11 +255,97 @@ export function GTAGradingPage() {
         </div>
       </section>
 
+  {/* Intro card and results title */}
+  <section className='w-full mx-auto'>
+        <div className="px-6 py-8">
+          <h2 className="text-4xl font-extrabold text-gray-900 text-center">
+            Methodology Overview
+          </h2>
 
-      {/* Intro card and results title */}
+          <div className="flex justify-center py-4">
+            <div className="w-2/3 h-1 bg-gradient-to-r from-blue-500 to-teal-400 rounded-full" />
+          </div>
+        </div>
+        </section>
+      
+
+
+
+<section
+  ref={flowContainer}
+  className="relative w-full max-w-4xl mx-auto px-6 py-16 min-h-[400px]"
+>
+  {/* A) SVG arrow behind everything */}
+  <svg className="absolute inset-0 w-full h-full pointer-events-none">
+    <defs>
+      <marker
+        id="arrowhead"
+        markerWidth="8"
+        markerHeight="6"
+        refX="8"
+        refY="3"
+        orient="auto"
+      >
+        <path d="M0,0 L8,3 L0,6" fill="#3b82f6" />
+      </marker>
+    </defs>
+    <path
+      ref={arrowPathRef}
+      d=""                       // will be set by useEffect
+      stroke="#3b82f6"
+      strokeWidth="4"
+      fill="none"
+      markerEnd="url(#arrowhead)"
+    />
+  </svg>
+
+  {/* B) Your 5 boxes, with a higher z-index so they sit on top of the arrow */}
+  <div className="relative z-10 w-full grid grid-cols-3 grid-rows-3 gap-6">
+    <div
+      ref={flowBoxes[0]}
+      className="col-start-1 row-start-1 bg-white p-1 md:p-6 w-full rounded shadow min-w-0 break-words text-sm md:text-lg font-semibold"
+    >
+      <p className='text-black'> <span className='text-blue-500'>Preliminary Contact</span> with Select GTAs to Develop Interview Script</p>
+    </div>
+
+    <div
+      ref={flowBoxes[1]}
+      className="col-start-3 row-start-1 bg-white p-1 md:p-6 w-full rounded shadow min-w-0 break-words text-end text-sm md:text-lg font-semibold"
+    >
+      <p><span className='text-blue-500'>Contact GTAs</span> from Different <span  className='text-blue-500'>Departments</span> to Interview Over Two Weeks</p>
+    </div>
+
+    <div
+      ref={flowBoxes[2]}
+      className="col-start-2 row-start-2 bg-white p-1 md:p-6 w-full rounded shadow min-w-0 break-words text-center text-sm md:text-lg font-semibold"
+    >
+      <p><span  className='text-blue-500'>Thematic Analysis</span> of GTA Interviews | Develop <span  className='text-blue-500'>Personas</span></p>
+    </div>
+
+    <div
+      ref={flowBoxes[3]}
+      className="col-start-1 row-start-3 bg-white p-1 md:p-6 w-full rounded shadow min-w-0 break-words text-sm md:text-lg font-semibold"
+    >
+      <p>Compile <span  className='text-blue-500'>Journey Map</span>: What Affects GTAs' Perception of Grading?</p>
+    </div>
+
+    <div
+      ref={flowBoxes[4]}
+      className="col-start-3 row-start-3 bg-white p-1 md:p-6 w-full rounded shadow min-w-0 break-words font-semibold text-end text-sm md:text-lg"
+    >
+      <p>Develop <span  className='text-blue-500'>Primary</span> and <span  className='text-blue-500'>Secodary</span> Considerations | <span  className='text-blue-500'>Key Take Away</span></p>
+    </div>
+  </div>
+  {/* line page break */}
+  <div className="flex justify-center mb-4 mt-6 py-4">
+    <div className="w-full h-1 bg-backgroundgrey rounded-full" />
+  </div>
+</section>
+
+  {/* Intro card and results title */}
         <div className="w-full mx-auto px-6 py-8">
           <h2 className="text-4xl font-extrabold text-gray-900 text-center">
-            Mock results from fake interviews of GTAs at a higher-education institution
+            Mock Results
           </h2>
 
           <div className="flex justify-center py-4">
@@ -268,15 +354,18 @@ export function GTAGradingPage() {
         </div>
         
       {/* Disclaimer section */}
-        <div className="w-full mx-auto px-6 ">
+        <div className="w-full mx-auto mb-12 px-6 ">
           <h2 className="text-xl font-semibold text-gray-900 text-center">
-            Due to the sensitive nature of this data, the actual results of this study cannot be shared online. Instead, this page focuses on the process of completing the project and uses a stand-in data set to demonstrate skills similar to those used in the real project.
+            Due to the sensitive nature of this data, the actual results of this study cannot be shared online. Instead, this page uses a stand-in mock data set that was analyzed similarly to the real project to highlight the skills needed to complete the study.
           </h2>
 
-          <div className="flex justify-center mb-8 py-4">
+          <div className="flex justify-center py-4">
             <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
           </div>
-        </div>
+        </div>  
+
+      
+
       {/* ---- Methods---- */}
       {/*----Interviews----*/}
       <section className="max-w-4xl mx-auto px-6">

@@ -118,26 +118,86 @@ export function SEEHBpage() {
         </div>
       </section>
 
-      {/* ---- GSAP timeline component ---- */}
-      <SEEHBtimeline key={pathname} />
-
-
-      {/* Intro card and results title */}
+        {/* Intro card and results title */}
         <div className="w-full mx-auto px-6 py-8">
           <h2 className="text-4xl font-extrabold text-gray-900 text-center">
-            Results from final A|B testing and interviews with 5 conference attendees
+            Methodology Overview
           </h2>
 
           <div className="flex justify-center py-4">
             <div className="w-2/3 h-1 bg-gradient-to-r from-blue-500 to-teal-400 rounded-full" />
           </div>
         </div>
-         
+        
+
+      {/* ---- GSAP timeline component ---- */}
+      <SEEHBtimeline key={pathname} />
+
+
+              {/* Intro card and results title */}
+        <section className='w-full mx-auto'>     
+        <div className="px-6 py-8">
+          <h2 className="text-4xl font-extrabold text-gray-900 text-center">
+           Post-Launch Research
+          </h2>
+
+          <div className="flex justify-center py-4">
+            <div className="w-2/3 h-1 bg-gradient-to-r from-blue-500 to-teal-400 rounded-full" />
+          </div>
+        </div>
+        </section> 
+
+      <section className="max-w-4xl mx-auto px-6">
+          <div className="w-full mx-auto">
+          <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
+              Methods
+          </h1>
+          </div>
+          <div className="w-full mx-auto">
+            <p className='text-lg text-center pt-1 text-gray-700 italic'>A|B testing and interviews with 5 conference attendees</p>
+          </div>
+      </section>
+
+      {/*----Interview Methods----*/}
+      <section className="max-w-4xl mx-auto px-6 mt-12">
+        <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
+
+          {/* Left column */}
+          <div className="md:w-1/2 flex justify-center">
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
+              <p className="text-lg text-center md:text-start font-semibold text-gray-900 ">
+                Closed Question Questionnaire and Usability Testing
+              </p>
+            </div>
+          </div>
+
+          {/* Right column*/}
+          <div className="md:w-1/2 flex justify-center">
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
+              <p className="text-lg text-center md:text-end font-semibold text-gray-900 ">
+                Approximately 15-minute Interviews with Open Ended Questions
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+       <section className="max-w-4xl mx-auto mt-10 px-6">
+          <div className="w-full mx-auto">
+          <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
+              Results
+          </h1>
+          </div>
+          <div className="w-full mx-auto">
+            <p className='text-lg text-center pt-1 text-gray-700 italic'></p>
+          </div>
+      </section>
+
       {/* ---- Outcomes for Goal #1 ---- */}
-      <section className="max-w-4xl mx-auto px-6 py-16">
+      <section className="max-w-4xl mx-auto px-6 mt-8 mb-8">
         <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
           {/* Left column: title + result card */}
-  <div className="flex flex-col items-start space-y-4 md:w-1/2">
+  <div className="flex flex-col items-start mb-12 space-y-4 md:w-1/2">
             <h3 className="text-2xl font-extrabold text-backgroundred">Goal #1</h3>
             <hr className="w-16 border-backgroundgrey border-[2 px]" />
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
@@ -156,7 +216,7 @@ export function SEEHBpage() {
                   <p className="text-gray-600 font-semibold">React</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold">4</p>
+                  <p className="text-3xl font-bold">6</p>
                   <div className="border-t-2 border-gray-300 my-2"></div>
                   <p className="text-gray-600 font-semibold">Google Sites</p>
                 </div>
@@ -351,7 +411,11 @@ export function SEEHBpage() {
                 </div>
             </a>
             ))}
+          
         </div>
+          <div className="flex justify-center mt-6 mb-8 py-4">
+    <div className="w-full h-1 bg-backgroundgrey rounded-full" />
+  </div>
 
         
         </section>
@@ -374,7 +438,64 @@ export function SEEHBpage() {
           </div>
         </div>
       )}
+    
+{/* Take Aways */}
+<section>
+  <div className="w-full mx-auto px-6 py-8">
+    <h2 className="text-4xl leading-snug  font-extrabold text-center text-black">
+      Take Aways
+    </h2>
 
+    <div className="flex justify-center mt-2 py-4">
+      <div className="w-2/3 h-1 bg-gradient-to-r from-blue-500 to-teal-400 rounded-full" />
+    </div>
+  </div>
+</section>
+{/* ---- Outcomes from study ---- */}
+<section className="max-w-4xl mx-auto px-6 pt-4 pb-16">
+  <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
+    {/* Left column: title + result card */}
+    <div className="flex flex-col items-center md:items-start space-y-4 md:w-1/2">
+      <h3 className="text-2xl font-extrabold text-backgroundred">Primary Considerations</h3>
+      <hr className="w-16 border-backgroundgrey border-[2px]" />
+      <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+        <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">Optimizing the website to decrease users' frustation while navigating by getting rid of bugs was the primary reported reason that increased likely future engagement</p>
+      </div>
+    </div>
+
+    {/* Right column: quote card */}
+    <div className="flex flex-col items-center md:items-end space-y-4 md:w-1/2">
+      <h3 className="text-2xl font-extrabold text-backgroundred">Secondary Considerations</h3>
+      <hr className="w-16 border-backgroundgrey border-[2px]" />
+      <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+        <p className="text-lg font-semibold text-start md:text-end text-custom-shadow-sm text-gray-800">Improved design layouts and animations increased attention to key links and features which optimized times for user to RSVP and find schedule related items </p>
+      </div>
+    </div>
+  </div>
+</section>
+{/* ---- Additional Insight for Goal 2 (stacked) ---- */}
+<section className="max-w-4xl mx-auto px-6">
+  <div className="flex flex-col space-y-8 pb-16">
+      {/* Insight card on top */}
+      <div className="w-full mx-auto mb-8">
+      <p className="text-4xl  font-extrabold custom-shadow-white text-[#000000] text-center">
+        Future changes to this website should consider <span className='text-[#f28e0b]'>maintaining a consistent theme</span> and <span className='text-[#f28e0b]'>using current built-in tools</span> to highlight important information so that <span className='text-[#f28e0b]'>users' attention remains focused</span> where it is needed most.
+      </p>
+      </div>
+    {/* linear regression models */}
+    <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
+      <p className="text-2xl font-semibold text-center text-gray-700">
+        RSVPing
+      </p>
+      <p className="text-2xl font-semibold text-center text-gray-700">
+        Navitaing to the Schedule
+      </p>
+      <p className="text-2xl font-semibold text-center text-gray-700">
+        Accessing Abstracts
+      </p>
+    </div>
+  </div>
+</section>
 
     </div>
   );

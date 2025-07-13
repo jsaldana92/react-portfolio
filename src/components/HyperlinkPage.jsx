@@ -220,11 +220,10 @@ export function HyperlinkPage() {
         </div>
       </section>
 
-
-      {/* Intro card and results title */}
+  {/* Intro card and results title */}
         <div className="w-full mx-auto px-6 py-8">
           <h2 className="text-4xl font-extrabold text-gray-900 text-center">
-            Mock results from a fake online asynchronous class at a higher-education institution
+            Methodology Overview
           </h2>
 
           <div className="flex justify-center py-4">
@@ -232,18 +231,10 @@ export function HyperlinkPage() {
           </div>
         </div>
         
-      {/* Disclaimer section */}
-        <div className="w-full mx-auto px-6 ">
-          <h2 className="text-xl font-semibold text-gray-900 text-center">
-            Due to the sensitive nature of this data, the actual results of this study cannot be shared online. Instead, this page focuses on the process of completing the project and uses a stand-in data set to demonstrate skills similar to those used in the real project.
-          </h2>
+      
 
-          <div className="flex justify-center py-4">
-            <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
-          </div>
-        </div>
 
-        {/* ---- Engagement Flow Diagram ---- */}
+
 <section
   ref={flowContainer}
   className="relative w-full max-w-4xl mx-auto px-6 py-16 min-h-[400px]"
@@ -292,7 +283,7 @@ export function HyperlinkPage() {
       ref={flowBoxes[2]}
       className="col-start-2 row-start-2 bg-white p-1 md:p-6 w-full rounded shadow min-w-0 break-words text-center text-sm md:text-lg font-semibold"
     >
-      <p><span  className='text-blue-500'>Repeated t-Test</span> to Compare Hyperlinking Impact</p>
+      <p><span  className='text-blue-500'>Repeated Measures t-Test</span> to Compare Hyperlinking Impact</p>
     </div>
 
     <div
@@ -315,9 +306,33 @@ export function HyperlinkPage() {
   </div>
 </section>
 
+
+
+  {/* Intro card and results title */}
+        <div className="w-full mx-auto px-6 py-8">
+          <h2 className="text-4xl font-extrabold text-gray-900 text-center">
+            Mock Results
+          </h2>
+
+          <div className="flex justify-center py-4">
+            <div className="w-2/3 h-1 bg-gradient-to-r from-blue-500 to-teal-400 rounded-full" />
+          </div>
+        </div>
+        
+      {/* Disclaimer section */}
+        <div className="w-full mx-auto mb-12 px-6 ">
+          <h2 className="text-xl font-semibold text-gray-900 text-center">
+            Due to the sensitive nature of this data, the actual results of this study cannot be shared online. Instead, this page uses a stand-in mock data set that was analyzed similarly to the real project to highlight the skills needed to complete the study.
+          </h2>
+
+          <div className="flex justify-center py-4">
+            <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
+          </div>
+        </div>  
+
 {/* ---- Outcomes for Goal #1 ---- */}
 {/*----Title----*/}
-<section className="max-w-4xl mx-auto px-6">
+<section className="max-w-4xl mx-auto  px-6">
   <div className="flex flex-col space-y-8">
       {/* Insight card on top */}
       <div className="w-full mx-auto">
@@ -327,6 +342,8 @@ export function HyperlinkPage() {
       </div>
   </div>
   </section>
+
+
 {/*----Outcomes----*/}
   <section className="max-w-4xl mx-auto px-6 py-16">
     <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">

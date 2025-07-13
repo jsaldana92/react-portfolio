@@ -110,7 +110,7 @@ export default function ProjectCarousel() {
       frontContent: (
         <div className="pointer-events-none flex flex-col items-center justify-center h-full p-4 rounded-xl">
           <img src={researchObsLogo} alt="ResearchObs" className="w-16 h-16 mb-2" />
-          <p className="text-xl font-semibold text-white">CEBUS-ResearchObs</p>
+          <p className="text-xl font-semibold text-white">ResearchObs</p>
         </div>
       ),
       backContent: (
@@ -121,15 +121,18 @@ export default function ProjectCarousel() {
           }}
         >
           <div className="pointer-events-none  flex-1 overflow-hidden">
-            <h3 className="text-xl font-bold break-words text-white">CEBUS-ResearchObs</h3>
+            <h3 className="text-xl font-bold break-words text-white">ResearchObs</h3>
             <p className="text-sm mt-2 break-words whitespace-normal">
               Created behavioral observation collection app based on graduate student, PI, and lab manager interviews.
             </p>
           </div>
           <div className="flex justify-end mt-2">
-            <a href="#" className="text-blue-400 hover:underline whitespace-nowrap">
+            <Link
+              to="/ResearchObs"
+              className="text-blue-400 hover:underline whitespace-nowrap"
+            >
               Learn more &rarr;
-            </a>
+            </Link>
           </div>
 
         
@@ -157,9 +160,12 @@ export default function ProjectCarousel() {
             </p>
           </div>
           <div className="flex justify-end mt-2">
-            <a href="#" className="text-blue-400 hover:underline whitespace-nowrap">
+            <Link
+              to="/DataPuller"
+              className="text-blue-400 hover:underline whitespace-nowrap"
+            >
               Learn more &rarr;
-            </a>
+            </Link>
           </div>
 
         
