@@ -51,25 +51,40 @@ export function SEEHBpage() {
             <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-blue-200 to-blue-50 rounded-full -z-10" />
             <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl">
                 <p className="text-lg md:text-xl text-gray-800">
-                The South Eastern Evolution and Human Behavior (SEEHB) group needed a revamped website with a{' '}
-                <strong className='text-blue-500'>modernized layout</strong> to{' '}
-                <strong className='text-blue-500'>increase attendee interaction</strong> and {' '}
-                <strong className='text-blue-500'>decrease existing issues</strong>
+                Custom websites created by no-code solutions can result in {' '}
+                <strong className='text-blue-500'>unimpactful</strong> and{' '}
+                <strong className='text-blue-500'>unmaintained</strong> websites that do not reflect the changing needs of yearly conferences. This expands to{' '}
+                <strong className='text-blue-500'> confusing</strong> and <strong className='text-blue-500'>bug-ridden</strong> pages that leave a{' '}
+                <strong className='text-blue-500'>negative impression </strong> on potential conference attendees
                 </p>
             </div>
             </div>
 
-          {/* Card 2: Right-aligned */}
+                      {/* Card 2: Right-aligned */}
           <div className="relative flex justify-end">
             <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-teal-200 to-teal-50 rounded-full -z-10" />
             <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl text-right">
+                <p className="text-lg md:text-xl text-gray-800">
+                The South Eastern Evolution and Human Behavior (SEEHB) group needed their previous website revamped with a{' '}
+                <strong className='text-blue-500'>modernized layout</strong> to{' '}
+                <strong className='text-blue-500'>increase attendee interaction</strong> and coded to {' '}
+                <strong className='text-blue-500'>decrease existing issues</strong>
+                </p>
+            </div>
+          </div>
+
+          {/* Card 3: Right-aligned */}
+          <div className="relative flex justify-center">
+            <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-teal-200 to-teal-50 rounded-full -z-10" />
+            <div className="bg-white p-8 font-semibold rounded-2xl shadow-lg max-w-xl text-center">
               <p className="text-lg md:text-xl text-gray-800">
-                I led the UX research and front-end development
+                I conducted <strong className='text-blue-500'>end-user interviews</strong> and 
+                <strong className='text-blue-500'> usability testing</strong> with previous conference attendees to lead research-based changes 
               </p>
             </div>
           </div>
 
-          {/* Card 3: Centered briefing */}
+          {/* Card 4: Centered briefing */}
           <div className="flex justify-center">
             <div className="w-full mx-auto">
             <p className="text-4xl font-extrabold custom-shadow-white text-[#000000] text-center">
@@ -488,7 +503,7 @@ export function SEEHBpage() {
         RSVPing
       </p>
       <p className="text-2xl font-semibold text-center text-gray-700">
-        Navitaing to the Schedule
+        Navigating to the Schedule
       </p>
       <p className="text-2xl font-semibold text-center text-gray-700">
         Accessing Abstracts
