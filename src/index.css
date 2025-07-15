@@ -9,6 +9,7 @@
     --color-textblack: #2E2E2E;
     --color-cardblue: #4A5E72;
     --color-backgroundgreen: #5F7E61;
+    --color-backgroundcard: bg-gradient-to-br from-blue-800 to-teal-700;
 }
 
 

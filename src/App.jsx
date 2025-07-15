@@ -1,9 +1,6 @@
 // src/App.jsx
 
 import { useRef, useEffect, useState } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import TopNav from './components/TopNav';
 import { TfiAndroid } from "react-icons/tfi";
 import { HiUserGroup } from "react-icons/hi2";
@@ -15,80 +12,18 @@ import ProjectCards from './components/ProjectCard';
 import './index.css';
 import { Suspense, lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 const GTAGradingPage = lazy(() => import('./components/GTAGradingPage'));
 const HyperlinkPage = lazy(() => import('./components/HyperlinkPage'));
 const DataPullerPage = lazy(() => import('./components/DataPullerPage'));
-
-
-
+const ResearchObsPage = lazy(() => import('./components/ResearchObsPage'));
 const BentoSection = lazy(() => import('./components/BentoSection'));
 const SEEHBpage    = lazy(() => import('./components/SEEHBpage')); 
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
-
-gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-
-  const aboutRef = useRef();
-  const aboutTextRef = useRef();
-  const imgRef = useRef();
-  const location = useLocation();
-
-  useGSAP(() => {
-    // only run on Home route (`#/`)
-    if (location.pathname !== '/') return;
-
-    const ctx = gsap.context(() => {
-      gsap.to(aboutTextRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 2,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: aboutTextRef.current,
-          start: 'top 80%',
-        },
-      });
-
-      gsap.to(imgRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 2,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: imgRef.current,
-          start: 'top 80%',
-        },
-      });
-    }, aboutRef);
-
-    return () => ctx.revert();
-  }, [ location.pathname ]);
-
-  const dynamicWrapperRef = useRef();
-  const dynamicTextRef = useRef();
-
-  useGSAP(() => {
-  // only run on Home route (`#/`)
-  if (location.pathname !== '/') return;
-
-    const ctx = gsap.context(() => {
-      gsap.to(dynamicTextRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 2,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: dynamicTextRef.current,
-          start: 'top 80%',
-        },
-      });
-    }, dynamicWrapperRef);
-
-    return () => ctx.revert();
-  }, [ location.pathname ]);
 
 
 
@@ -143,9 +78,9 @@ function App() {
     }, [index]);
 
     return (
-      <div className="text-white text-2xl leading-snug">
+      <div className="text-gray-900 text-2xl mt-8 font-semibold leading-snug">
         {/* On small screens: stack lines. On md+: inline */}
-        <span className="block md:inline custom-shadow-grey">Bringing research-based progress to</span>
+        <span className="block md:inline custom-shadow-white">Conducting research to improve</span>
         <span className="block md:inline md:ml-3 font-semibold italic text-[#158fcc]">
           <span ref={wordRef} className="inline-flex items-center gap-2">{dynamicWords[index]}</span>
         </span>
@@ -168,57 +103,97 @@ function App() {
             element={
               <section>
             {/* Centered Intro Block */}
-            <div className="text-center py-6">
-              <h1 className="text-4xl text-textblack font-bold">Jhonatan M. Saldaña Santisteban</h1>
-              <p className="text-yellow-700 italic text-lg font-semibold">
+            <div className="text-center  py-6">
+              <h1 className="text-5xl text-textblack custom-shadow-white font-bold">Jhonatan M. Saldaña Santisteban</h1>
+              <p className="text-[#f27209] italic text-xl font-semibold">
                 UX Research Intern and Cognitive Psychologist, PhD Candidate
               </p>
             </div>
+ <section
+  className="relative w-screen overflow-hidden py-16 px-6  text-white"
+>
+  <div className="relative z-10 max-w-5xl mx-auto space-y-12">
+    {/* Top Row: stacked on small, side-by-side on md+ */}
+    <div className="flex flex-col md:flex-row items-start md:items-center gap-12">
+      {/* Card 1 */}
+      <div className="relative w-full md:w-2/3 flex justify-start">
+        <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-red-600 to-red-300 rounded-full -z-10" />
+        <div className="bg-gradient-to-r from-[#1b2683] to-[#0987c6] p-8 rounded-2xl shadow-lg max-w-xl w-full">
+          <p className="text-lg md:text-xl font-semibold text-backgroundwhite">
+            As a UX researcher, my goal is to leverage the <span className="text-[#f27209]">quantitative</span> and <span className="text-[#f27209]">qualitative methodologies </span>
+            I’ve become familiar with over my academic career as a <span className="text-[#f27209]">cognitive psychologist</span> to produce real-world impact.
+          </p>
+        </div>
+      </div>
 
-            {/* Main Body Content */}
-            <section ref={aboutRef} className="relative w-screen bg-backgroundred py-10 px-6 border-t border-b border-white/3 overflow-hidden"> 
-              <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 max-w-5xl mx-auto text-white text-xl">
-                <div ref={aboutTextRef} className="custom-shadow flex-1 space-y-4 text-justify opacity-0 translate-y-6 will-change-transform">
-                  <p>
-                    As a UX researcher, I focus on aligning project goals with user needs by selecting effective, context-driven methodologies. I've applied this approach to evaluate grading systems, course engagement, and community development at Georgia State University.
-                  </p>
-                  <p>
-                    I bring this same mindset to building tools that have streamline data collection and transfer for researchers and also to my academic work which explores the evolution of heuristics to understand the roots of irrational decision-making and sequence preferences.
-                  </p>
-                </div>
+      {/* Photo + Resume */}
+      <div className="w-full md:w-1/4 flex flex-col items-center">
+        <img
+          src={profileImg}
+          alt="Jhonatan"
+          className="w-64 md:w-80 rounded-2xl shadow-xl shadow-black/30"
+        />
+        <a
+          href="https://drive.google.com/file/d/1CIQwMEa25KASg9uQ_SysraoFHSCzVUtA/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-block text-white bg-black/40 hover:bg-black/60 px-5 py-2 rounded-full font-medium transition"
+        >
+          Resume
+        </a>
+      </div>
+    </div>
 
-                <div ref={imgRef}  className="relative z-10 flex-1 flex justify-center items-center opacity-0 translate-y-6 will-change-transform">
-                  <img
-                    src={profileImg}
-                    alt="Jhonatan"
-                    className="w-100 rounded-xl shadow-lg shadow-white/20"
-                  />
-                </div>
-              </div>  
+    {/* Middle Row */}
+    <div className="relative flex justify-end">
+      <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-red-600 to-red-300 rounded-full -z-10" />
+      <div className="bg-gradient-to-r from-[#0987c6] to-[#1b2683] p-8 rounded-2xl shadow-lg max-w-3xl w-full text-right">
+        <p className="text-lg md:text-xl font-semibold text-backgroundwhite">
+          In university settings, my research has helped departments <span className="text-[#f27209]">understand the effectiveness</span>
+          of the training they provide to graduate teaching assistants. My research also has helped to show
+          effective methods that <span className="text-[#f27209]">increased student engagement</span> with online course materials.
+        </p>
+      </div>
+    </div>
 
-            </section>
+    {/* Bottom Row */}
+    <div className="relative flex justify-start">
+      <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-red-600 to-red-300 rounded-full -z-10" />
+      <div className="bg-gradient-to-r from-[#1b2683] to-[#0987c6] p-8 rounded-2xl shadow-lg max-w-3xl w-full">
+        <p className="text-lg md:text-xl font-semibold text-backgroundwhite">
+          In app development, my research <span className="text-[#f27209]">increased end-users’ positive perception</span> of data collection
+          and likelihood of engagement with mobile and desktop apps used by research labs. In web
+          development, my research <span className="text-[#f27209]">increased enjoyment, usability, and sign-up speed</span> for attendees
+          of a yearly regional conference.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <section ref={dynamicWrapperRef} className=" w-screen py-10 px-6 text-left bg-backgroundgreen">
+
+
+            <section className="w-screen px-6 text-left">
               <div className="max-w-7xl mx-auto">
-                <div ref={dynamicTextRef} className="opacity-0 translate-y-6 will-change-transform">
+                <div>
                   <DynamicText/>
                 </div>
               </div>
             </section>
 
             {/*Carousel Section */}
-            <section className="w-screen px-6 bg-backgroundgreen py-12">
+            <section className="w-screen px-6">
               <div className="max-w-7xl mx-auto relative overflow-hidden">
                 <ProjectCards />
                 {/* Fading overlays */}
-                <div className="absolute left-0 top-0 h-full w-4 bg-gradient-to-r from-backgroundgreen to-transparent pointer-events-none z-10" />
-                <div className="absolute right-0 top-0 h-full w-4 bg-gradient-to-l from-backgroundgreen to-transparent pointer-events-none z-10" />
+                <div className="absolute left-0 top-0 h-full w-4 bg-gradient-to-r from-backgroundwhite to-transparent pointer-events-none z-10" />
+                <div className="absolute right-0 top-0 h-full w-4 bg-gradient-to-l from-backgroundwhite to-transparent pointer-events-none z-10" />
               </div>
             </section>
             
 
             {/* Bento Section */}
-            <section className="w-screen px-6 bg-[#2E2E2E] py-12">
+            <section className="w-screen px-6 mb-12">
               <div className="max-w-7xl mx-auto">
                 <Suspense fallback={<div className="text-white text-center">Loading projects...</div>}>
                   <BentoSection />
@@ -270,6 +245,16 @@ function App() {
             element={
               <Suspense fallback={<div className="text-center py-20">Loading…</div>}>
                 <DataPullerPage />
+              </Suspense>
+            }
+          />
+
+          {/* ResearchObs page at #/ResearchObs */}
+          <Route
+            path="/ResearchObs"
+            element={
+              <Suspense fallback={<div className="text-center py-20">Loading…</div>}>
+                <ResearchObsPage />
               </Suspense>
             }
           />

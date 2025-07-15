@@ -255,11 +255,97 @@ export function GTAGradingPage() {
         </div>
       </section>
 
+  {/* Intro card and results title */}
+  <section className='w-full mx-auto'>
+        <div className="px-6 py-8">
+          <h2 className="text-4xl font-extrabold text-gray-900 text-center">
+            Methodology Overview
+          </h2>
 
-      {/* Intro card and results title */}
+          <div className="flex justify-center py-4">
+            <div className="w-2/3 h-1 bg-gradient-to-r from-blue-500 to-teal-400 rounded-full" />
+          </div>
+        </div>
+        </section>
+      
+
+
+
+<section
+  ref={flowContainer}
+  className="relative w-full max-w-4xl mx-auto px-6 py-16 min-h-[400px]"
+>
+  {/* A) SVG arrow behind everything */}
+  <svg className="absolute inset-0 w-full h-full pointer-events-none">
+    <defs>
+      <marker
+        id="arrowhead"
+        markerWidth="8"
+        markerHeight="6"
+        refX="8"
+        refY="3"
+        orient="auto"
+      >
+        <path d="M0,0 L8,3 L0,6" fill="#3b82f6" />
+      </marker>
+    </defs>
+    <path
+      ref={arrowPathRef}
+      d=""                       // will be set by useEffect
+      stroke="#3b82f6"
+      strokeWidth="4"
+      fill="none"
+      markerEnd="url(#arrowhead)"
+    />
+  </svg>
+
+  {/* B) Your 5 boxes, with a higher z-index so they sit on top of the arrow */}
+  <div className="relative z-10 w-full grid grid-cols-3 grid-rows-3 gap-6">
+    <div
+      ref={flowBoxes[0]}
+      className="col-start-1 row-start-1 bg-white p-1 md:p-6 w-full rounded shadow min-w-0 break-words text-sm md:text-lg font-semibold"
+    >
+      <p className='text-black'> <span className='text-blue-500'>Preliminary Contact</span> with Select GTAs to Develop Interview Script</p>
+    </div>
+
+    <div
+      ref={flowBoxes[1]}
+      className="col-start-3 row-start-1 bg-white p-1 md:p-6 w-full rounded shadow min-w-0 break-words text-end text-sm md:text-lg font-semibold"
+    >
+      <p><span className='text-blue-500'>Contact GTAs</span> from Different <span  className='text-blue-500'>Departments</span> to Interview Over Two Weeks</p>
+    </div>
+
+    <div
+      ref={flowBoxes[2]}
+      className="col-start-2 row-start-2 bg-white p-1 md:p-6 w-full rounded shadow min-w-0 break-words text-center text-sm md:text-lg font-semibold"
+    >
+      <p><span  className='text-blue-500'>Thematic Analysis</span> of GTA Interviews | Develop <span  className='text-blue-500'>Personas</span></p>
+    </div>
+
+    <div
+      ref={flowBoxes[3]}
+      className="col-start-1 row-start-3 bg-white p-1 md:p-6 w-full rounded shadow min-w-0 break-words text-sm md:text-lg font-semibold"
+    >
+      <p>Compile <span  className='text-blue-500'>Journey Map</span>: What Affects GTAs' Perception of Grading?</p>
+    </div>
+
+    <div
+      ref={flowBoxes[4]}
+      className="col-start-3 row-start-3 bg-white p-1 md:p-6 w-full rounded shadow min-w-0 break-words font-semibold text-end text-sm md:text-lg"
+    >
+      <p>Develop <span  className='text-blue-500'>Primary</span> and <span  className='text-blue-500'>Secodary</span> Considerations | <span  className='text-blue-500'>Key Take Away</span></p>
+    </div>
+  </div>
+  {/* line page break */}
+  <div className="flex justify-center mb-4 mt-6 py-4">
+    <div className="w-full h-1 bg-backgroundgrey rounded-full" />
+  </div>
+</section>
+
+  {/* Intro card and results title */}
         <div className="w-full mx-auto px-6 py-8">
           <h2 className="text-4xl font-extrabold text-gray-900 text-center">
-            Mock results from fake interviews of GTAs at a higher-education institution
+            Mock Results
           </h2>
 
           <div className="flex justify-center py-4">
@@ -268,15 +354,18 @@ export function GTAGradingPage() {
         </div>
         
       {/* Disclaimer section */}
-        <div className="w-full mx-auto px-6 ">
+        <div className="w-full mx-auto mb-12 px-6 ">
           <h2 className="text-xl font-semibold text-gray-900 text-center">
-            Due to the sensitive nature of this data, the actual results of this study cannot be shared online. Instead, this page focuses on the process of completing the project and uses a stand-in data set to demonstrate skills similar to those used in the real project.
+            Due to the sensitive nature of this data, the actual results of this study cannot be shared online. Instead, this page uses a stand-in mock data set that was analyzed similarly to the real project to highlight the skills needed to complete the study.
           </h2>
 
-          <div className="flex justify-center mb-8 py-4">
+          <div className="flex justify-center py-4">
             <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
           </div>
-        </div>
+        </div>  
+
+      
+
       {/* ---- Methods---- */}
       {/*----Interviews----*/}
       <section className="max-w-4xl mx-auto px-6">
@@ -405,6 +494,175 @@ export function GTAGradingPage() {
             <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
           </div>
       </section>
+
+            {/* ---- Outcomes for Goal #1 ---- */}
+      <section className="max-w-4xl mx-auto px-6 py-16">
+        <div className="flex flex-col md:flex-row items-start md:items-end md:space-x-12 space-y-8 md:space-y-0">
+          {/* Left column: title + result card */}
+          <div className="flex flex-col items-start space-y-4 md:w-1/2">
+            <h3 className="text-2xl font-extrabold text-backgroundred">Goal #1</h3>
+            <hr className="w-16 border-backgroundgrey border-[2px]" />
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[0]}</p>
+            </div>
+          </div>
+
+          {/* Right column: quote card */}
+          <div className="md:w-1/2 flex justify-center">
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold italic text-gray-900 ">
+                "I've taught 3 different course topics and there are always issue with a student trying to cheat here and there, but the usage of AI is getting to be a bit much."
+              </p>
+              <p className="text-md text-right italic text-gray-900">- GTA with formal training and monthly supervision</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Goal 1 results*/}
+      <section className="max-w-4xl mx-auto px-6 py-8">
+      <h2 className="text-3xl font-extrabold text-center mb-6">
+        Interview Findings
+      </h2>
+      <ul className="space-y-4">
+        <li className="flex items-start">
+          <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
+            1
+          </span>
+          <p className="text-gray-800 text-2xl">
+            All 10 GTAs reported issues with AI policy violations
+          </p>
+        </li>
+        <li className="flex items-start">
+          <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
+            2
+          </span>
+          <p className="text-gray-800 text-2xl">
+            4 GTAs reported issues with general cheating (e.g., using phones)
+          </p>
+        </li>
+        <li className="flex items-start">
+          <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
+            3
+          </span>
+          <p className="text-gray-800 text-2xl">
+            Only 2 GTAs reported issues grading scantrons
+          </p>
+        </li>
+      </ul>
+    </section>
+
+            {/* ---- Outcomes for Goal #2 ---- */}
+      <section className="max-w-4xl mx-auto px-6 py-16">
+        <div className="flex flex-col md:flex-row items-start md:items-end md:space-x-12 space-y-8 md:space-y-0">
+          {/* Left column: title + result card */}
+          <div className="flex flex-col items-start space-y-4 md:w-1/2">
+            <h3 className="text-2xl font-extrabold text-backgroundred">Goal #2</h3>
+            <hr className="w-16 border-backgroundgrey border-[2px]" />
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[1]}</p>
+            </div>
+          </div>
+
+          {/* Right column: quote card */}
+          <div className="md:w-1/2 flex justify-center">
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold italic text-gray-900 ">
+                "A faculty member is always there when you need them... eventually... but some semesters it feels like I've relied on other GTAs to make sure what I am doing is correct before even reaching out."
+              </p>
+              <p className="text-md text-right italic text-gray-900">- GTA with formal training and heavy supervision</p>
+            </div>
+          </div>
+        </div>
+      </section>
+            {/* Goal 2 results*/}
+      <section className="max-w-4xl mx-auto px-6 py-8">
+      <h2 className="text-3xl font-extrabold text-center mb-6">
+        Interview Findings
+      </h2>
+      <ul className="space-y-4">
+        <li className="flex items-start">
+          <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
+            1
+          </span>
+          <p className="text-gray-800 text-2xl">
+            All 10 GTAs reported reaching out to a faculty advisor when cheating was involved
+          </p>
+        </li>
+        <li className="flex items-start">
+          <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
+            2
+          </span>
+          <p className="text-gray-800 text-2xl">
+            5 GTAs reported talking to other GTAs for less serious issues (e.g., setting up online exams)
+          </p>
+        </li>
+        <li className="flex items-start">
+          <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
+            3
+          </span>
+          <p className="text-gray-800 text-2xl">
+            3 GTAs reported always reporting everyting to their faculty advisor as they took care of all grading issues
+          </p>
+        </li>
+      </ul>
+    </section>
+
+            {/* ---- Outcomes for Goal #3 ---- */}
+      <section className="max-w-4xl mx-auto px-6 py-16">
+        <div className="flex flex-col md:flex-row items-start md:items-end md:space-x-12 space-y-8 md:space-y-0">
+          {/* Left column: title + result card */}
+          <div className="flex flex-col items-start space-y-4 md:w-1/2">
+            <h3 className="text-2xl font-extrabold text-backgroundred">Goal #3</h3>
+            <hr className="w-16 border-backgroundgrey border-[2px]" />
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[2]}</p>
+            </div>
+          </div>
+
+          {/* Right column: quote card */}
+          <div className="md:w-1/2 flex justify-center">
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold italic text-gray-900 ">
+                "I know that our depratment gives a lot of structured support, but talking to other graduate students, it seems like that is not every department... it's like the wild west when it comes to having proper help and training."
+              </p>
+              <p className="text-md text-right italic text-gray-900">- GTA with formal training and monthly supervision</p>
+            </div>
+          </div>
+        </div>
+      </section>
+              {/* Goal 3 results*/}
+      <section className="max-w-4xl mx-auto px-6 py-8">
+      <h2 className="text-3xl font-extrabold text-center mb-6">
+        Interview Findings
+      </h2>
+      <ul className="space-y-4">
+        <li className="flex items-start">
+          <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
+            1
+          </span>
+          <p className="text-gray-800 text-2xl">
+            4 GTAs reported that the received a <span className='text-blue-500'>formal class prior to teaching </span> with <span className='text-blue-500'>once-a-month virtual townhall check-ins</span> between all GTAs and a faculty advisor where they were required to give a brief update on thier experience or ask a question relevant to teaching
+          </p>
+        </li>
+        <li className="flex items-start">
+          <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
+            2
+          </span>
+          <p className="text-gray-800 text-2xl">
+            3 GTAs reported that their department provided <span className='text-blue-500'>varibale training depending on what they were expected to teach</span> but had <span className='text-blue-500'>intense weekly mandatory 2-hour meetings</span> between the GTAs and teaching faculty advisor where they discussed topics <span className='text-orange-500'>somewhat</span> related to teaching
+          </p>
+        </li>
+        <li className="flex items-start">
+          <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
+            3
+          </span>
+          <p className="text-gray-800 text-2xl">
+            3 GTAs reported receiving <span className='text-orange-500'>no training prior to teaching</span> and learned as they were teaching. They also reported that <span className='text-orange-500'>support was highly depandent</span> on whatever faculty member their were assinged which resulted in <span className='text-orange-500'> heavy or no supervision.</span>
+          </p>
+        </li>
+      </ul>
+    </section>
+
 
     {/* ---- Pesona Section ---- */}
     <section className="max-w-4xl mx-auto pt-12 pb-8 px-6">

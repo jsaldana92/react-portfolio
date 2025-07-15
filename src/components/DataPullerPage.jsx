@@ -26,7 +26,7 @@ export function DataPullerPage() {
   const [revealed, setRevealed] = useState([false, false, false]);
   // refs for each goal card
   const cardRefs = [useRef(null), useRef(null), useRef(null)];
-  const goalTexts = ['Determine Common Data Collection Timeline', "Determine an Optimal Solution", 'Gauge Engagement with Solution'];
+  const goalTexts = ['Determine Common Data Collection Timeline', "Determine an Optimal Solution", 'Gauge Engagement'];
 
   //moving arrow components
     const flowContainer = useRef(null);
@@ -41,29 +41,6 @@ export function DataPullerPage() {
 
 
 
-
-      const themeTexts = [
-        "Description of Teaching Training Course",          // Theme 1
-        "Common Grading Issues", // Theme 2
-        "AI Issues",            // Theme 3
-        "Departmental Support",        // Theme 4
-        "GTA-to-GTA support",           // Theme 5
-        "Support Wanted",       // Theme 6
-        "Previous Experience Teaching"    // Theme 7
-      ];
-      // one ref + one boolean for each theme
-      const themeRefs = [
-        useRef(null),
-        useRef(null),
-        useRef(null),
-        useRef(null),
-        useRef(null),
-        useRef(null),
-        useRef(null),
-      ];
-      const [themesRevealed, setThemesRevealed] = useState(
-        Array(themeTexts.length).fill(false)
-      );
 
 
   useEffect(() => {
@@ -259,7 +236,7 @@ export function DataPullerPage() {
       {/* Intro card and results title */}
         <div className="w-full mx-auto px-6 py-8">
           <h2 className="text-4xl font-extrabold text-gray-900 text-center">
-            Results from Research Staff Interviews
+           Preliminary Research
           </h2>
 
           <div className="flex justify-center py-4">
@@ -270,22 +247,20 @@ export function DataPullerPage() {
 
 
       {/* ---- Methods---- */}
-      {/*----Prelimary Interviews----*/}
+
       <section className="max-w-4xl mx-auto px-6">
-        <div className="flex flex-col">
-            {/* Insight card on top */}
-            <div className="w-full mx-auto">
-            <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
-                Preliminary In-Person Interviews and Questionnaires
-            </h1>
-            </div>
-            <div className="w-full mx-auto">
-              <p className='text-lg text-center pt-1 text-gray-700 italic'>6 Research Staff Members: Junior, Senior, and Primary Investigators</p>
-            </div>
-        </div>
+          <div className="w-full mx-auto">
+          <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
+              Methods
+          </h1>
+          </div>
+          <div className="w-full mx-auto">
+            <p className='text-lg text-center pt-1 text-gray-700 italic'>6 Research Staff Members: Junior, Senior, and Primary Investigators</p>
+          </div>
       </section>
+
       {/*----Interview Methods----*/}
-      <section className="max-w-4xl mx-auto px-6 py-16">
+      <section className="max-w-4xl mx-auto px-6 mt-10 mb-8">
         <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
           {/* Left column*/}
           <div className="md:w-1/2 flex justify-center">
@@ -307,6 +282,16 @@ export function DataPullerPage() {
         </div>
       </section>
 
+      <section className="max-w-4xl mx-auto mb-10 mt-8 px-6">
+          <div className="w-full mx-auto">
+          <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
+              Results
+          </h1>
+          </div>
+          <div className="w-full mx-auto">
+            <p className='text-lg text-center pt-1 text-gray-700 italic'></p>
+          </div>
+      </section>
             {/* Interview  */}
       {/* ---- Timeline & Questionnaire ---- */}
       <section>
@@ -383,27 +368,53 @@ export function DataPullerPage() {
     </section>
 
         {/*----Beta Interviews----*/}
-    <section className="max-w-4xl mb-6 mx-auto px-6">
-      <div className="flex flex-col">
-          {/* Insight card on top */}
+
+              {/* Intro card and results title */}
+        <section className='w-full mx-auto'>     
+        <div className="px-6 py-8">
+          <h2 className="text-4xl font-extrabold text-gray-900 text-center">
+           Beta-App Research
+          </h2>
+
+          <div className="flex justify-center py-4">
+            <div className="w-2/3 h-1 bg-gradient-to-r from-blue-500 to-teal-400 rounded-full" />
+          </div>
+        </div>
+        </section> 
+        
+      <section className="max-w-4xl mx-auto mt-4 px-6">
           <div className="w-full mx-auto">
           <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
-              Beta-Testing In-Person Interviews
+              Methods
           </h1>
           </div>
           <div className="w-full mx-auto">
             <p className='text-lg text-center pt-1 text-gray-700 italic'>4 Research Staff Members: Junior and Senior Researchers</p>
           </div>
-      </div>
-    </section>
-    <section className="max-w-4xl mx-auto px-2 flex justify-center">
-      <img
-        src={betaImg}
-        alt="Increased Interaction Likelihood"
-        className="bg-white max-w-full h-120 rounded-lg shadow-md cursor-pointer transition-transform duration-200 hover:scale-102"
-        onClick={() => setSelectedImage(betaImg)}
-      />
-    </section>
+      </section>
+      {/*----Interview Methods----*/}
+      <section className="max-w-4xl mx-auto px-6 mt-12">
+        <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
+
+          {/* Left column */}
+          <div className="md:w-1/2 flex justify-center">
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
+              <p className="text-lg text-center md:text-start font-semibold text-gray-900 ">
+                Closed Question Questionnaire and Beta-App Usability Testing
+              </p>
+            </div>
+          </div>
+
+          {/* Right column*/}
+          <div className="md:w-1/2 flex justify-center">
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
+              <p className="text-lg text-center md:text-end font-semibold text-gray-900 ">
+                Approximately 5-minute Interviews with Open Ended Questions
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
           {/* Insight card on top */}
       <section className="max-w-4xl mx-auto mt-12 px-6">
             <div className="w-full mx-auto">
@@ -412,7 +423,7 @@ export function DataPullerPage() {
             </h1>
             </div>
             <div className="w-full mx-auto">
-              <p className='text-lg text-center pt-1 text-gray-700 italic'>DataPuller Configuration</p>
+              <p className='text-lg text-center pt-1 text-gray-700 italic'></p>
             </div>
       </section>
       {/*columns for results */}
@@ -460,47 +471,70 @@ export function DataPullerPage() {
                 <span className='text-[#cc4100]'> Rust.</span> 
             </h1>
             </div>
-      </section>
-      
-      <section className="max-w-4xl mx-auto p-4">
-        <DataPullerImageZoom/>
-              <div className="flex justify-center mb-2 mt-4 py-4">
+                  <div className="flex justify-center mb-2 mt-4 py-4">
         <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
       </div>
       </section>
+      
+     
 
 
         {/*----Post Interviews----*/}
-    <section className="max-w-4xl mb-6 mx-auto px-6">
-      <div className="flex flex-col">
-          {/* Insight card on top */}
+              {/* Intro card and results title */}
+        <section className='w-full mx-auto'>     
+        <div className="px-6 py-8">
+          <h2 className="text-4xl font-extrabold text-gray-900 text-center">
+           Post-Launch Research
+          </h2>
+
+          <div className="flex justify-center py-4">
+            <div className="w-2/3 h-1 bg-gradient-to-r from-blue-500 to-teal-400 rounded-full" />
+          </div>
+        </div>
+        </section> 
+
+      <section className="max-w-4xl mx-auto mt-4 px-6">
           <div className="w-full mx-auto">
           <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
-              Post-Launch In-Person Interviews
+              Methods
           </h1>
           </div>
           <div className="w-full mx-auto">
             <p className='text-lg text-center pt-1 text-gray-700 italic'>4 Research Staff Members: Junior and Senior Researchers</p>
           </div>
-      </div>
-    </section>
-    <section className="max-w-4xl mx-auto px-2 flex justify-center">
-      <img
-        src={rustImg}
-        alt="Increased Interaction Likelihood"
-        className="bg-white max-w-full h-120 rounded-lg shadow-md cursor-pointer transition-transform duration-200 hover:scale-102"
-        onClick={() => setSelectedImage(rustImg)}
-      />
-    </section>
+      </section>
+      {/*----Interview Methods----*/}
+      <section className="max-w-4xl mx-auto px-6 mt-12">
+        <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
+
+          {/* Left column */}
+          <div className="md:w-1/2 flex justify-center">
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
+              <p className="text-lg text-center md:text-start font-semibold text-gray-900 ">
+                Closed Question Questionnaire and Usability Testing
+              </p>
+            </div>
+          </div>
+
+          {/* Right column*/}
+          <div className="md:w-1/2 flex justify-center">
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
+              <p className="text-lg text-center md:text-end font-semibold text-gray-900 ">
+                Approximately 5-minute Interviews with Open Ended Questions
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
           {/* Insight card on top */}
-      <section className="max-w-4xl mx-auto mt-12 px-6">
+      <section className="max-w-4xl mx-auto mt-8 px-6">
             <div className="w-full mx-auto">
             <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
                 Results
             </h1>
             </div>
             <div className="w-full mx-auto">
-              <p className='text-lg text-center pt-1 text-gray-700 italic'>DataPuller Configuration</p>
+              <p className='text-lg text-center pt-1 text-gray-700 italic'></p>
             </div>
       </section>
       {/*columns for results */}
@@ -531,7 +565,13 @@ export function DataPullerPage() {
                   to use the app over the current methodology.
             </h1>
             </div>
-              <div className="flex justify-center mb-2 mt-4 py-4">
+            
+             <section className="max-w-4xl mt-6 mx-auto p-4">
+        <DataPullerImageZoom/>
+      </section>
+
+
+      <div className="flex justify-center mb-2 mt-4 py-4">
         <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
       </div>
       </section>
