@@ -20,7 +20,7 @@ const defaultSteps = [
       A: '"It was definitely nice to get a feel for how some of these things worked, especially with the syllabus."',
       B: '"There was shadowing…you just have an idea of how [teaching] works."'
     },
-    sources: { A: 'GTA with formal training and monthly supervision', B: 'GTA with minimum training and variable supervision' }
+    sources: { A: 'GTA with formal training and monthly supervision', B: 'GTA with minimum training and no supervision' }
   },
   {
     id: 2,

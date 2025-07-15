@@ -4,15 +4,19 @@ import { useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
 
 
-import rustImg from '../images/datapuller/rust.png';
-import betaImg from '../images/datapuller/beta.png';
+import undoImg from '../images/researchobs/undoscore.png';
+import switchImg from '../images/researchobs/switchscore.png';
+import editImg from '../images/researchobs/editscore.png';
+import famImg from '../images/researchobs/famscore.png';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import DPPreliminary from './DataPullerPreliminary';
-import DataPullerImage from './DataPullerImage';
-import DataPullerImprovementSuggested from './DataPullerImprovementSuggested';
-import DataPullerImageZoom from './DataPullerFigjam';
-import RustPullerImage from './RustPullerImage';
-import RustPullerImprovementSuggested from './RustPullerImprovementSuggested'
+import ROPreliminaryInterview  from './ROPrelimInterview';
+import ROPrelimFigjam from './ROPrelimFigjam';
+import homeImg from '../images/researchobs/homescreen.png';
+import storageImg from '../images/researchobs/storagepage.png';
+import dataImg from '../images/researchobs/datapage.png';
+import ROMarket from './ROMarket';
+import ROTimeline from './ROTimeline';
+import ROFlow from './ROFlow';
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -26,7 +30,7 @@ export function ResearchObsPage() {
   const [revealed, setRevealed] = useState([false, false, false]);
   // refs for each goal card
   const cardRefs = [useRef(null), useRef(null), useRef(null)];
-  const goalTexts = ['Determine Common Data Collection Timeline', "Determine an Optimal Solution", 'Gauge Engagement with Solution'];
+  const goalTexts = ['Determine Best Future Proof App Language', 'Determine Current Issues with WhatsOb', "Gauge Effectiveness of Beta-App Solutions", ];
 
   //moving arrow components
     const flowContainer = useRef(null);
@@ -43,10 +47,10 @@ export function ResearchObsPage() {
 
 
       const themeTexts = [
-        "Description of Teaching Training Course",          // Theme 1
-        "Common Grading Issues", // Theme 2
-        "AI Issues",            // Theme 3
-        "Departmental Support",        // Theme 4
+        "In-Observation Editing",          // Theme 1
+        "Cross-tablet Profiles", // Theme 2
+        "Continuity with Legacy Data Structure",            // Theme 3
+        "Customizable Groups",        // Theme 4
         "GTA-to-GTA support",           // Theme 5
         "Support Wanted",       // Theme 6
         "Previous Experience Teaching"    // Theme 7
@@ -158,12 +162,12 @@ export function ResearchObsPage() {
         <div className="text-center space-y-4">
           <h1 className="text-5xl font-extrabold">
             <span className="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">
-              ResearchObs Conducting End-User Interviews
+              Conducting Quantitative and Qualitative Research
             </span>{' '}
-             to Determine How to <span className="bg-gradient-to-r from-[#e3a730] to-[#b55f5f] bg-clip-text text-transparent"> Improve Data Collection Experience</span>
+             to Improve <span className="bg-gradient-to-r from-[#e3a730] to-[#b55f5f] bg-clip-text text-transparent">Behavioral Data Collection and Management </span>
           </h1>
           <p className="text-xl text-gray-700 italic">
-            Multiple researchers reported assistants having difficulty collecting data and also reported collection being ineffective and taking longer than expected 
+            The CEBUS lab's behavioral data collection app (WhatsOb) was no longer maintained or supported and therefore needed an updated app that would improve on its current iteration
           </p>
         </div>
 
@@ -174,8 +178,10 @@ export function ResearchObsPage() {
             <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-blue-200 to-blue-50 rounded-full -z-10" />
             <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl">
                 <p className="text-lg md:text-xl text-gray-800">
-                Older research facilities often rely on non-cloud based local data storage to increase cyber security and therefore{' '}
-                <strong className='text-blue-500'>manualy collect data</strong> across multiple systems
+                Many psychology labs use <strong className='text-blue-500'>mobile</strong> or {' '} 
+                <strong className='text-blue-500'>browser apps </strong> to collect behavioral data as it increases the {' '}
+                <strong className='text-blue-500'>reliability</strong> and {' '}
+                <strong className='text-blue-500'>consistency </strong> of their results
                 </p>
             </div>
             </div>
@@ -185,24 +191,37 @@ export function ResearchObsPage() {
             <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-blue-200 to-blue-50 rounded-full -z-10" />
             <div className="bg-white text-right p-8 rounded-2xl shadow-lg max-w-xl">
                 <p className="text-lg md:text-xl text-gray-800">
-                Although more "safe" this method can be highly{' '}
-                <strong className='text-blue-500'>ineffective</strong> and cause{' '}
-                <strong className='text-blue-500'>frustation</strong> and {' '}
-                <strong className='text-blue-500'>needless time loss</strong>
+                <strong className='text-blue-500'>Support </strong> and{' '}
+                <strong className='text-blue-500'>customizability</strong> for these apps is variable and can retrict labs to existing {' '}
+                <strong className='text-blue-500'>designs/ecosystems</strong>, therefore, some labs rely on indivdual graduate students to provide{' '}
+                <strong className='text-blue-500'>custom solutions</strong>
                 </p>
             </div>
           </div>
+
+          {/* Card 3: Left-aligned */}
+          <div className="relative flex justify-start">
+            <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-blue-200 to-blue-50 rounded-full -z-10" />
+            <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl">
+                <p className="text-lg md:text-xl text-gray-800">
+                <strong className='text-blue-500'>Custom solutions </strong>become{' '} 
+                <strong className='text-blue-500'>unsupported</strong> and {' '}
+                <strong className='text-blue-500'>difficult to maintain/edit</strong> once the developer no longer works for the lab causing{' '}
+                <strong className='text-blue-500'>data collection</strong> issues
+                </p>
+            </div>
+            </div>
+
 
            {/* Card 4: center-aligned */}
           <div className="relative flex justify-center">
             <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-teal-200 to-teal-50 rounded-full -z-10" />
             <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl text-center">
-              <p className="text-lg md:text-xl font-semibold text-gray-800">
-              To determine a viable solution at decreasing frustation and time loss, I conducted 
-              <strong className='text-blue-500'> preliminary interviews and questionnaires</strong> with research staff to determine the most common friction points in data collection. I then conducted{' '}   
-              <strong className='text-blue-500'> beta-test interviews</strong> to verify my solution resonated well with staff and would actually be used. Lastly, I conducted{' '} 
-              <strong className='text-blue-500'> post-launch interviews and questionnaires</strong> to determine what future solutions might increase engagement and productivity by decreasing frustration and time loss.
-              </p>
+                <p className="text-lg md:text-xl font-semibold text-gray-800"> I conducted
+                <strong className='text-blue-500'> exploratory and qualitative research </strong> to first determine end-user/data management issues related to the current app and to best lead the{' '}
+                <strong className='text-blue-500'>front and back-end development</strong> of a new behavioral collection app. I also conducted multiple instances of{' '}
+                <strong className='text-blue-500'>quantitative and qualitative research</strong> in both beta and final-launch versions of the app to verify that all initial concerns were addressed
+                </p>
             </div>
           </div>
 
@@ -259,7 +278,7 @@ export function ResearchObsPage() {
       {/* Intro card and results title */}
         <div className="w-full mx-auto px-6 py-8">
           <h2 className="text-4xl font-extrabold text-gray-900 text-center">
-            Results from Research Staff Interviews
+            Market Solution Research
           </h2>
 
           <div className="flex justify-center py-4">
@@ -267,282 +286,413 @@ export function ResearchObsPage() {
           </div>
         </div>
         
-
-
-      {/* ---- Methods---- */}
-      {/*----Prelimary Interviews----*/}
+      {/*----market----*/}
       <section className="max-w-4xl mx-auto px-6">
         <div className="flex flex-col">
             {/* Insight card on top */}
             <div className="w-full mx-auto">
             <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
-                Preliminary In-Person Interviews and Questionnaires
+                Market Analysis
             </h1>
             </div>
             <div className="w-full mx-auto">
-              <p className='text-lg text-center pt-1 text-gray-700 italic'>6 Research Staff Members: Junior, Senior, and Primary Investigators</p>
+              <p className='text-lg text-center pt-1 text-gray-700 italic'>Determining Possible Solutions to Prevent Future Maintenance Issues</p>
             </div>
         </div>
       </section>
-      {/*----Interview Methods----*/}
+      {/* ---- Outcomes for Goal #1 ---- */}
       <section className="max-w-4xl mx-auto px-6 py-16">
-        <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
-          {/* Left column*/}
-          <div className="md:w-1/2 flex justify-center">
-            <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
-              <p className="text-lg text-center md:text-start font-semibold text-gray-900 ">
-                Approximately 5-minute Interviews with Open Ended Questions
-              </p>
+        <div className="flex flex-col md:flex-row items-start md:items-end md:space-x-12 space-y-8 md:space-y-0">
+          {/* Left column: title + result card */}
+          <div className="flex flex-col items-start space-y-4 md:w-1/2">
+            <h3 className="text-2xl font-extrabold text-backgroundred">Goal #1</h3>
+            <hr className="w-16 border-backgroundgrey border-[2px]" />
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[0]}</p>
             </div>
           </div>
 
-          {/* Right column */}
+          {/* Right column: quote card */}
           <div className="md:w-1/2 flex justify-center">
-            <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
-              <p className="text-lg text-center md:text-end font-semibold text-gray-900 ">
-                10 Closed Question Questionnaire per Researcher
-              </p>
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-gray-900 ">
+                Compared Pros and Cons of Different Coding Languages and Future Cross-Platform Needs
+                </p>
             </div>
           </div>
         </div>
       </section>
 
-            {/* Interview  */}
-      {/* ---- Timeline & Questionnaire ---- */}
+      {/* ---- language research ---- */}
       <section>
-      <DPPreliminary />
+      <ROMarket />
+                  
       </section>
+      <div className="flex justify-center mb-2 mt-4 py-4">
+        <div className="w-1/2 h-1 bg-backgroundgrey rounded-full" />
+      </div>
 
-      {/* Insight card on top */}
-      <section className="max-w-4xl mx-auto   mt-16 px-6">
+
+
+      {/* preliminary title */}
+        <div className="w-full mx-auto px-6 mt-12 py-8">
+          <h2 className="text-4xl font-extrabold text-gray-900 text-center">
+            Preliminary Research
+          </h2>
+
+          <div className="flex justify-center py-4">
+            <div className="w-2/3 h-1 bg-gradient-to-r from-blue-500 to-teal-400 rounded-full" />
+          </div>
+        </div>
+              {/*----end user interviews----*/}
+      <section className="max-w-4xl mx-auto px-6">
+        <div className="flex flex-col">
+            {/* Insight card on top */}
             <div className="w-full mx-auto">
             <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
-                Outline for Beta-App
+                Interviews
             </h1>
             </div>
             <div className="w-full mx-auto">
-              <p className='text-lg text-center pt-1 text-gray-700 italic'>DataPuller Configuration</p>
+              <p className='text-lg text-center pt-1 text-gray-700 italic'>Determining Current Issues with Current App</p>
             </div>
+        </div>
+      </section>
+
+            {/* ---- Outcomes for Goal #2 ---- */}
+      <section className="max-w-4xl mx-auto px-6 py-16">
+        <div className="flex flex-col md:flex-row items-start md:items-end md:space-x-12 space-y-8 md:space-y-0">
+          {/* Left column: title + result card */}
+          <div className="flex flex-col items-start space-y-4 md:w-1/2">
+            <h3 className="text-2xl font-extrabold text-backgroundred">Goal #2</h3>
+            <hr className="w-16 border-backgroundgrey border-[2px]" />
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[1]}</p>
+            </div>
+          </div>
+
+          {/* Right column: quote card */}
+          <div className="md:w-1/2 flex justify-center">
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-gray-900 ">
+                10-minute interviews with 4 end-users (data cllectors), data manager, and primary investigator (lead researcher) focused on current errors, bugs, and "needed" versus "would like" changes 
+                </p>
+            </div>
+          </div>
+        </div>
       </section>
 
 
-
-    {/*preliminary conclusion */}
-    <section className="max-w-4xl mx-auto px-6 mt-12 mb-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {/* Code */}
-        <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-          <h3 className="text-lg underline font-semibold text-gray-800">Code Language</h3>
-          <p className="mt-2 text-gray-700">Python</p>
-        </div>
-
-        {/* Type */}
-        <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-          <h3 className="text-lg underline font-semibold text-gray-800">App Type</h3>
-          <p className="mt-2 text-gray-700">Stand alone (.exe)</p>
-        </div>
-
-        {/* Pulls from */}
-        <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-          <h3 className="text-lg font-semibold underline  text-gray-800">Collects Folders From</h3>
-          <p className="mt-2 text-gray-700">C:/Tasks/</p>
-        </div>
-
-        {/* Sends to */}
-        <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-          <h3 className="text-lg font-semibold underline text-gray-800">Data Sent To</h3>
-          <p className="mt-2 text-gray-700">
-            D:/data_from_puller/
-            <br />
-            <span className="text-sm text-gray-600">
-              optional: C:/Tasks/[last name]/[task name]/copied/
-            </span>
-          </p>
-        </div>
-
-        {/* Supported Files */}
-        <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-          <h3 className="text-lg underline font-semibold text-gray-800">Supported Files</h3>
-          <p className="mt-2 text-gray-700">
-            .csv
-          </p>
-          <p className="mt-2 text-gray-700">
-            .txt (not “para”; optional: “monkey”, “block”)
-            </p>
-        </div>
-
-        {/* Feedback */}
-        <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-          <h3 className="text-lg underline font-semibold text-gray-800">Feedback</h3>
-          <p className="mt-2 text-gray-700">Pop-ups for Errors and Successes</p>
-        </div>
-      </div>
-      <div className="flex justify-center mb-2 mt-8 py-4">
-        <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
-      </div>
-    </section>
-
-        {/*----Beta Interviews----*/}
-    <section className="max-w-4xl mb-6 mx-auto px-6">
-      <div className="flex flex-col">
           {/* Insight card on top */}
-          <div className="w-full mx-auto">
-          <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
-              Beta-Testing In-Person Interviews
-          </h1>
-          </div>
-          <div className="w-full mx-auto">
-            <p className='text-lg text-center pt-1 text-gray-700 italic'>4 Research Staff Members: Junior and Senior Researchers</p>
-          </div>
-      </div>
-    </section>
-    <section className="max-w-4xl mx-auto px-2 flex justify-center">
-      <img
-        src={betaImg}
-        alt="Increased Interaction Likelihood"
-        className="bg-white max-w-full h-120 rounded-lg shadow-md cursor-pointer transition-transform duration-200 hover:scale-102"
-        onClick={() => setSelectedImage(betaImg)}
-      />
-    </section>
-          {/* Insight card on top */}
-      <section className="max-w-4xl mx-auto mt-12 px-6">
+      <section className="max-w-4xl mx-auto mt-12 mb-8 px-6">
             <div className="w-full mx-auto">
             <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
                 Results
             </h1>
             </div>
             <div className="w-full mx-auto">
-              <p className='text-lg text-center pt-1 text-gray-700 italic'>DataPuller Configuration</p>
+              <p className='text-lg text-center pt-1 text-gray-700 italic'></p>
             </div>
       </section>
-      {/*columns for results */}
-      <section className="max-w-6xl mx-auto px-6 mt-2">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-          
-          {/* Component that shows image with button */}
-          <div className="w-full">
-            <DataPullerImage />
+
+      {/* ---- Interview Themes (4 + 3 centered) ---- */}
+      <section className="max-w-4xl mx-auto px-2">
+        <h2 className="text-2xl font-extrabold text-center mb-8">
+          Thematic Analysis
+        </h2>
+
+        {/* parent flex so both rows are centered */}
+        <div className="flex flex-col items-center space-y-6 font-semibold mb-6">
+          {/* Top row: 4 boxes */}
+          <div className="grid grid-cols-4 gap-2 md:gap-6">
+            {themeTexts.slice(0, 4).map((txt, i) => (
+              <div
+                key={i}
+                ref={themeRefs[i]}
+                onClick={() => {
+                  setThemesRevealed(prev => {
+                    const copy = [...prev];
+                    copy[i] = !copy[i];
+                    return copy;
+                  });
+                  const el = themeRefs[i].current;
+                  gsap.fromTo(el, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.7)' });
+                }}
+                className={`
+                  w-24 h-16 md:w-44 md:h-28
+                  flex items-center justify-center
+                  rounded-2xl shadow-lg p-4
+                  cursor-pointer overflow-hidden
+                  transition-transform text-center text-xs md:text-lg 
+                  ${themesRevealed[i]
+                    ? 'bg-white text-gray-800'
+                    : 'bg-blue-950/80 text-white hover:scale-105'}
+                `}
+              >
+                <span className={`transition-opacity  duration-300 ${themesRevealed[i] ? 'opacity-0' : 'opacity-100'}`}>
+                  Theme #{i + 1}
+                </span>
+                <span className={`absolute inset-0 flex items-center justify-center px-3  text-center transition-opacity duration-300 ${themesRevealed[i] ? 'opacity-100' : 'opacity-0'}`}>
+                  {txt}
+                </span>
+              </div>
+            ))}
           </div>
+
+        </div>
+      </section>
+
+      {/*columns for results */}
+      <section className="max-w-4xl mx-auto px-6 mt-2">
+        <div className="">
 
           {/* Component that shows improvement text with button */}
           <div className="w-full">
-            <DataPullerImprovementSuggested />
+            <ROPreliminaryInterview />
           </div>
         </div>
       </section>
             <section className="max-w-4xl mx-auto mt-4 mb-12 px-6">
             <div className="w-full mx-auto">
             <h1 className="text-2xl font-bold custom-shadow-white text-[#000000] text-center">
-                Although DataPuller was 
-                <span className='text-blue-500'> faster </span> 
-                than the traditional way to collect data, users primarily reported 
-                <span className='text-blue-500'> needing data from one or two projects </span>
-                 causing them to 
-                 <span className='text-blue-500'> overfixate the long start up time </span>
-                  (~12 seconds) leading them to a 
-                  <span className='text-blue-500'> negative perception </span>
-                   of the app and making it 
-                   <span className='text-blue-500'> unlikely to be used </span> 
-                   in real-world application.
-            </h1>
-            </div>
-            <div className="w-full mt-4 mx-auto">
-            <h1 className="text-2xl font-bold custom-shadow-white text-[#000000] text-center">
-                Due to the overhead of 
-                <span className='text-blue-500'> Python’s </span> 
-                bundled interpreter, the beta-version had noticeably
-                <span className='text-blue-500'> long launch times </span>
-                 regardless of optimization. To achieve a faster startup, the app was
-                <span className='text-blue-500'> recoded </span> 
-                in a 
-                <span className='text-blue-500'> faster language </span> 
-                  compiled to a native binary, 
-                <span className='text-[#cc4100]'> Rust.</span> 
+                The new app, <span className='text-blue-500'>ResearchObs</span>, should provide new quality of life feautres for end-users  
+                <span className='text-blue-500'> (undo button and quick group switching) </span> 
+                and management 
+                <span className='text-blue-500'> (in-app editing of groups, group members,and behaviors) </span> in the 
+                <span className='text-blue-500'> front-end. </span>
+                 The  
+                 <span className='text-blue-500'> back-end </span>
+                  should generally 
+                  <span className='text-blue-500'> remain the same </span>
+                   to maintain with continuity with  
+                   <span className='text-blue-500'> legacy data storage/structure </span> 
+                   but the app should 
+                   <span className='text-blue-500'> standardize global data input  </span>
+                   (day,location, weather, etc.) to minize errors in stored data.
             </h1>
             </div>
       </section>
       
       <section className="max-w-4xl mx-auto p-4">
-        <DataPullerImageZoom/>
+        <ROPrelimFigjam/>
               <div className="flex justify-center mb-2 mt-4 py-4">
         <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
       </div>
       </section>
 
+          {/* BETA TITLE */}
+        <div className="w-full mx-auto px-6 mt-12 py-8">
+          <h2 className="text-4xl font-extrabold text-gray-900 text-center">
+            Beta-App Research
+          </h2>
 
-        {/*----Post Interviews----*/}
-    <section className="max-w-4xl mb-6 mx-auto px-6">
-      <div className="flex flex-col">
-          {/* Insight card on top */}
-          <div className="w-full mx-auto">
-          <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
-              Post-Launch In-Person Interviews
-          </h1>
+          <div className="flex justify-center py-4">
+            <div className="w-2/3 h-1 bg-gradient-to-r from-blue-500 to-teal-400 rounded-full" />
           </div>
-          <div className="w-full mx-auto">
-            <p className='text-lg text-center pt-1 text-gray-700 italic'>4 Research Staff Members: Junior and Senior Researchers</p>
+        </div>
+              {/*----end user interviews----*/}
+      <section className="max-w-4xl mx-auto px-6">
+        <div className="flex flex-col">
+            {/* Insight card on top */}
+            <div className="w-full mx-auto">
+            <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
+                Interviews
+            </h1>
+            </div>
+            <div className="w-full mx-auto">
+              <p className='text-lg text-center pt-1 text-gray-700 italic'>What Works and What Does Not</p>
+            </div>
+        </div>
+      </section>
+
+            {/* ---- Outcomes for Goal #3 ---- */}
+      <section className="max-w-4xl mx-auto px-6 py-16">
+        <div className="flex flex-col md:flex-row items-start md:items-end md:space-x-12 space-y-8 md:space-y-0">
+          {/* Left column: title + result card */}
+          <div className="flex flex-col items-start space-y-4 md:w-1/2">
+            <h3 className="text-2xl font-extrabold text-backgroundred">Goal #3</h3>
+            <hr className="w-16 border-backgroundgrey border-[2px]" />
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[2]}</p>
+            </div>
           </div>
-      </div>
-    </section>
-    <section className="max-w-4xl mx-auto px-2 flex justify-center">
-      <img
-        src={rustImg}
-        alt="Increased Interaction Likelihood"
-        className="bg-white max-w-full h-120 rounded-lg shadow-md cursor-pointer transition-transform duration-200 hover:scale-102"
-        onClick={() => setSelectedImage(rustImg)}
-      />
-    </section>
+
+          {/* Right column: quote card */}
+          <div className="md:w-1/2 flex justify-center">
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-gray-900 ">
+                Usability testing/interview with 4 end-users plus beta-app presentation to primary investigator focused on gaguging the effectiveness of the new features 
+                </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
           {/* Insight card on top */}
-      <section className="max-w-4xl mx-auto mt-12 px-6">
+      <section className="max-w-4xl mx-auto mt- mb-8 px-6">
             <div className="w-full mx-auto">
             <h1 className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
                 Results
             </h1>
             </div>
             <div className="w-full mx-auto">
-              <p className='text-lg text-center pt-1 text-gray-700 italic'>DataPuller Configuration</p>
+              <p className='text-lg text-center pt-1 text-gray-700 italic'>Solutions based on premiliminary research findings</p>
             </div>
       </section>
-      {/*columns for results */}
-      <section className="max-w-6xl mx-auto px-6 mt-2">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-          
-          {/* Component that shows image with button */}
-          <div className="w-full">
-            <RustPullerImage />
-          </div>
 
-          {/* Component that shows improvement text with button */}
-          <div className="w-full">
-            <RustPullerImprovementSuggested />
-          </div>
+        {/*result 1*/}
+        <section className="max-w-4xl mt-4 mx-auto px-2">
+        {/* Centered title */}
+        <h2 className="w-full text-center text-2xl font-semibold mb-4">
+            ResearchObs was Rated More Positively in Ease of Editing
+        </h2>
+
+        {/* Image container stays centered */}
+        <div className="flex justify-center">
+            <img
+            src={undoImg}
+            alt="Increased Interaction Likelihood"
+            className="bg-white p-4 rounded-lg shadow-md transition-transform duration-200 hover:scale-102"
+            />
         </div>
-      </section>
-            <section className="max-w-4xl mx-auto mt-4 mb-12 px-6">
+        </section>
+
+        {/*result 2*/}
+        <section className="max-w-4xl mt-12 mx-auto px-2">
+        {/* Centered title */}
+        <h2 className="w-full text-center text-2xl font-semibold mb-4">
+            ResearchObs was Rated More Positively in Ease of Switching Between Groups
+        </h2>
+
+        {/* Image container stays centered */}
+        <div className="flex justify-center">
+            <img
+            src={switchImg}
+            alt="Increased Interaction Likelihood"
+            className="bg-white p-4 rounded-lg shadow-md transition-transform duration-200 hover:scale-102"
+            />
+        </div>
+        </section>
+
+        {/*result 3*/}
+        <section className="max-w-4xl mt-12 mx-auto px-2">
+        {/* Centered title */}
+        <h2 className="w-full text-center text-2xl font-semibold mb-4">
+            ResearchObs was Rated Easier to Edit Group Names, Members, and Behaviors 
+        </h2>
+
+        {/* Image container stays centered */}
+        <div className="flex justify-center">
+            <img
+            src={editImg}
+            alt="Increased Interaction Likelihood"
+            className="bg-white p-4 rounded-lg shadow-md transition-transform duration-200 hover:scale-102"
+            />
+        </div>
+        </section>
+
+        {/*result 4*/}
+        <section className="max-w-4xl mt-12 mx-auto px-2">
+        {/* Centered title */}
+        <h2 className="w-full text-center text-2xl font-semibold mb-4">
+            ResearchObs Remained Familiar to Most Users Even with New Features and Layout
+        </h2>
+
+        {/* Image container stays centered */}
+        <div className="flex justify-center">
+            <img
+            src={famImg}
+            alt="Increased Interaction Likelihood"
+            className="bg-white p-4 rounded-lg shadow-md transition-transform duration-200 hover:scale-102"
+            />
+        </div>
+        </section>
+
+
+            <section className="max-w-4xl mx-auto mt-8 mb-12 px-6">
             <div className="w-full mx-auto">
             <h1 className="text-2xl font-bold custom-shadow-white text-[#000000] text-center">
-                Using 
-                <span className='text-[#cc4100]'> Rust </span> to lower launch times to
-                <span className='text-blue-500'> ~1s </span> 
-                lead to users having a
-                <span className='text-blue-500'> positive perception </span>
-                 and  
-                 <span className='text-blue-500'> greater likelihood </span>
-                  to use the app over the current methodology.
+                Overall, the new features added were seen as an <span className='text-blue-500'>improvement </span>, with users rating multiple-aspects of their experience as being 
+                <span className='text-blue-500'> positive </span> 
+                and without a major impact on
+                <span className='text-blue-500'> familiarity </span> (a key point made by the PI).
+            </h1>
+            <h1 className="text-2xl font-bold custom-shadow-white text-[#000000] text-center pt-4">
+                The remain developement time should be spent optimizing back-end developement to incorporate 
+                <span className='text-blue-500'> safety features </span>
+                 geared towards accidental data loss. Additionaly care should be placed on   
+                 <span className='text-blue-500'> standardizing the UI </span>
+                  to create a consistent UI geared at  
+                  <span className='text-blue-500'> improving familiarity </span>
+                   for all users. 
             </h1>
             </div>
-              <div className="flex justify-center mb-2 mt-4 py-4">
+                          <div className="flex justify-center mb-2 mt-4 py-4">
         <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
       </div>
       </section>
+
       
 
+{/* ResearchObs Final */}
+<section className="max-w-4xl mx-auto pt-4 mb-8 px-6">
+  <div className="w-full">
+    <h2 className="text-4xl leading-snug  font-extrabold text-center text-black">
+      ResearchObs Launch
+    </h2>
 
+    <div className="flex justify-center mt-2 py-4">
+      <div className="w-2/3 h-1 bg-gradient-to-r from-blue-500 to-teal-400 rounded-full" />
+    </div>
+  </div>
+</section>
+{/*images */}
+    <section className="max-w-4xl mx-auto px-6 mt-6">
+              <div className="flex items-center justify-center mb-6">
+        <h3 className="text-3xl text-center font-extrabold">ResearchObs App</h3>
+      </div>
+      
+        {/* ---- Outcomes for Goal #3 ---- */}
+      <section className="max-w-4xl mx-auto pt-4 pb-8 px-6">
+        <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
+          {/* Left column: title + result card */}
+          <div className="md:w-1/2 flex justify-center">
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
+              <p className="text-lg font-semibold italic text-gray-900 ">
+                "I made an error [in an observation] last week and I was thinking "ughhh where is the Undo button!" I'm excited to finally use the new app."
+              </p>
+              <p className="text-md text-right italic text-gray-900">- Senior Researcher</p>
+            </div>
+          </div>
 
+          {/* Right column: quote card */}
+          <div className="md:w-1/2 flex justify-center">
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
+              <p className="text-lg font-semibold italic text-gray-900 ">
+                "We've already had to skip data collection for one group because only one tablet has the updated members list. It'll be nice to resume data collection for them."
+              </p>
+              <p className="text-md text-right italic text-gray-900">- Junior Researcher</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <img src={homeImg} alt="First"  className="w-full rounded-lg shadow-md" onClick={() => setSelectedImage(homeImg)} />
+        <img src={dataImg} alt="Second" className="w-full rounded-lg shadow-md" onClick={() => setSelectedImage(dataImg)}/>
+        <img src={storageImg} alt="Third"  className="w-full rounded-lg shadow-md" onClick={() => setSelectedImage(storageImg)}/>
+      </div>
+    </section>
 
-
-
-
+  {/* Timeline*/}
+        <section className="w-full mx-auto p-4">
+        <ROFlow/>
+      </section>
+  {/* Timeline*/}
+        <section className="w-full mx-auto p-4">
+        <ROTimeline/>
+      </section>
 
 
 
@@ -567,7 +717,7 @@ export function ResearchObsPage() {
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
         <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">
-          Improving comparative speed time alone is <span className='underline'>not enough</span> to get current users to engage with DataPuller. The solution had to avoid negative connotations (slow launch speed) to increase engagement.
+          Custom apps developed by graduate researchers can cause issues with code maintenance once the researcher leaves. These apps should allow for as much in-app editing to minimize code editing as possible.
           </p>
       </div>
     </div>
@@ -578,7 +728,7 @@ export function ResearchObsPage() {
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
         <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">
-          Future updates shoul avoid decreasing the speed DataPuller so that they do not decrease users' perception of its effectiveness.
+          Preliminary UX research is crucial for custom research apps since they are rarely updated which can lead long standing UX issues which will remain unsolved until the app is rewritten or the code is analyzed/updated.
         </p>
       </div>
     </div>
@@ -590,10 +740,11 @@ export function ResearchObsPage() {
       {/* Insight card on top */}
       <div className="w-full mx-auto mb-8">
       <p className="text-4xl  font-extrabold custom-shadow-white text-[#000000] text-center">
-        Solving long standing issues need to be {' '}
-        <span className='text-[#f28e0b]'>perceived</span> as improving the {' '}
-        <span className='text-[#f28e0b]'>experience</span> rather than simply improving {' '}
-        <span className='text-[#f28e0b]'>efficiency</span> to overcome cognitive biases.
+        Custom research apps need careful {' '}
+        <span className='text-[#f28e0b]'>preliminary research and developement</span> as a lack of a software developer(s) can lead to labs relying on {' '}
+        <span className='text-[#f28e0b]'>outdated and unmainted apps.</span>  
+        This is particularly important since it can cause {' '}
+        <span className='text-[#f28e0b]'>issues with data collection. </span> 
       </p>
       </div>
   </div>
@@ -612,7 +763,7 @@ export function ResearchObsPage() {
             <img
               src={selectedImage}
               alt="enlarged"
-              className="w-full h-auto rounded-lg shadow-lg"
+              className="w-full bg-black p-4 h-auto rounded-lg shadow-lg"
               onContextMenu={(e) => e.preventDefault()} //prevents right clicking
             />
           </div>

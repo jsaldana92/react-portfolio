@@ -495,6 +495,175 @@ export function GTAGradingPage() {
           </div>
       </section>
 
+            {/* ---- Outcomes for Goal #1 ---- */}
+      <section className="max-w-4xl mx-auto px-6 py-16">
+        <div className="flex flex-col md:flex-row items-start md:items-end md:space-x-12 space-y-8 md:space-y-0">
+          {/* Left column: title + result card */}
+          <div className="flex flex-col items-start space-y-4 md:w-1/2">
+            <h3 className="text-2xl font-extrabold text-backgroundred">Goal #1</h3>
+            <hr className="w-16 border-backgroundgrey border-[2px]" />
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[0]}</p>
+            </div>
+          </div>
+
+          {/* Right column: quote card */}
+          <div className="md:w-1/2 flex justify-center">
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold italic text-gray-900 ">
+                "I've taught 3 different course topics and there are always issue with a student trying to cheat here and there, but the usage of AI is getting to be a bit much."
+              </p>
+              <p className="text-md text-right italic text-gray-900">- GTA with formal training and monthly supervision</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Goal 1 results*/}
+      <section className="max-w-4xl mx-auto px-6 py-8">
+      <h2 className="text-3xl font-extrabold text-center mb-6">
+        Interview Findings
+      </h2>
+      <ul className="space-y-4">
+        <li className="flex items-start">
+          <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
+            1
+          </span>
+          <p className="text-gray-800 text-2xl">
+            All 10 GTAs reported issues with AI policy violations
+          </p>
+        </li>
+        <li className="flex items-start">
+          <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
+            2
+          </span>
+          <p className="text-gray-800 text-2xl">
+            4 GTAs reported issues with general cheating (e.g., using phones)
+          </p>
+        </li>
+        <li className="flex items-start">
+          <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
+            3
+          </span>
+          <p className="text-gray-800 text-2xl">
+            Only 2 GTAs reported issues grading scantrons
+          </p>
+        </li>
+      </ul>
+    </section>
+
+            {/* ---- Outcomes for Goal #2 ---- */}
+      <section className="max-w-4xl mx-auto px-6 py-16">
+        <div className="flex flex-col md:flex-row items-start md:items-end md:space-x-12 space-y-8 md:space-y-0">
+          {/* Left column: title + result card */}
+          <div className="flex flex-col items-start space-y-4 md:w-1/2">
+            <h3 className="text-2xl font-extrabold text-backgroundred">Goal #2</h3>
+            <hr className="w-16 border-backgroundgrey border-[2px]" />
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[1]}</p>
+            </div>
+          </div>
+
+          {/* Right column: quote card */}
+          <div className="md:w-1/2 flex justify-center">
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold italic text-gray-900 ">
+                "A faculty member is always there when you need them... eventually... but some semesters it feels like I've relied on other GTAs to make sure what I am doing is correct before even reaching out."
+              </p>
+              <p className="text-md text-right italic text-gray-900">- GTA with formal training and heavy supervision</p>
+            </div>
+          </div>
+        </div>
+      </section>
+            {/* Goal 2 results*/}
+      <section className="max-w-4xl mx-auto px-6 py-8">
+      <h2 className="text-3xl font-extrabold text-center mb-6">
+        Interview Findings
+      </h2>
+      <ul className="space-y-4">
+        <li className="flex items-start">
+          <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
+            1
+          </span>
+          <p className="text-gray-800 text-2xl">
+            All 10 GTAs reported reaching out to a faculty advisor when cheating was involved
+          </p>
+        </li>
+        <li className="flex items-start">
+          <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
+            2
+          </span>
+          <p className="text-gray-800 text-2xl">
+            5 GTAs reported talking to other GTAs for less serious issues (e.g., setting up online exams)
+          </p>
+        </li>
+        <li className="flex items-start">
+          <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
+            3
+          </span>
+          <p className="text-gray-800 text-2xl">
+            3 GTAs reported always reporting everyting to their faculty advisor as they took care of all grading issues
+          </p>
+        </li>
+      </ul>
+    </section>
+
+            {/* ---- Outcomes for Goal #3 ---- */}
+      <section className="max-w-4xl mx-auto px-6 py-16">
+        <div className="flex flex-col md:flex-row items-start md:items-end md:space-x-12 space-y-8 md:space-y-0">
+          {/* Left column: title + result card */}
+          <div className="flex flex-col items-start space-y-4 md:w-1/2">
+            <h3 className="text-2xl font-extrabold text-backgroundred">Goal #3</h3>
+            <hr className="w-16 border-backgroundgrey border-[2px]" />
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[2]}</p>
+            </div>
+          </div>
+
+          {/* Right column: quote card */}
+          <div className="md:w-1/2 flex justify-center">
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold italic text-gray-900 ">
+                "I know that our depratment gives a lot of structured support, but talking to other graduate students, it seems like that is not every department... it's like the wild west when it comes to having proper help and training."
+              </p>
+              <p className="text-md text-right italic text-gray-900">- GTA with formal training and monthly supervision</p>
+            </div>
+          </div>
+        </div>
+      </section>
+              {/* Goal 3 results*/}
+      <section className="max-w-4xl mx-auto px-6 py-8">
+      <h2 className="text-3xl font-extrabold text-center mb-6">
+        Interview Findings
+      </h2>
+      <ul className="space-y-4">
+        <li className="flex items-start">
+          <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
+            1
+          </span>
+          <p className="text-gray-800 text-2xl">
+            4 GTAs reported that the received a <span className='text-blue-500'>formal class prior to teaching </span> with <span className='text-blue-500'>once-a-month virtual townhall check-ins</span> between all GTAs and a faculty advisor where they were required to give a brief update on thier experience or ask a question relevant to teaching
+          </p>
+        </li>
+        <li className="flex items-start">
+          <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
+            2
+          </span>
+          <p className="text-gray-800 text-2xl">
+            3 GTAs reported that their department provided <span className='text-blue-500'>varibale training depending on what they were expected to teach</span> but had <span className='text-blue-500'>intense weekly mandatory 2-hour meetings</span> between the GTAs and teaching faculty advisor where they discussed topics <span className='text-orange-500'>somewhat</span> related to teaching
+          </p>
+        </li>
+        <li className="flex items-start">
+          <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
+            3
+          </span>
+          <p className="text-gray-800 text-2xl">
+            3 GTAs reported receiving <span className='text-orange-500'>no training prior to teaching</span> and learned as they were teaching. They also reported that <span className='text-orange-500'>support was highly depandent</span> on whatever faculty member their were assinged which resulted in <span className='text-orange-500'> heavy or no supervision.</span>
+          </p>
+        </li>
+      </ul>
+    </section>
+
+
     {/* ---- Pesona Section ---- */}
     <section className="max-w-4xl mx-auto pt-12 pb-8 px-6">
       <section className="max-w-4xl mx-auto mb-14 px-2">

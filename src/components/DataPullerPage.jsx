@@ -42,29 +42,6 @@ export function DataPullerPage() {
 
 
 
-      const themeTexts = [
-        "Description of Teaching Training Course",          // Theme 1
-        "Common Grading Issues", // Theme 2
-        "AI Issues",            // Theme 3
-        "Departmental Support",        // Theme 4
-        "GTA-to-GTA support",           // Theme 5
-        "Support Wanted",       // Theme 6
-        "Previous Experience Teaching"    // Theme 7
-      ];
-      // one ref + one boolean for each theme
-      const themeRefs = [
-        useRef(null),
-        useRef(null),
-        useRef(null),
-        useRef(null),
-        useRef(null),
-        useRef(null),
-        useRef(null),
-      ];
-      const [themesRevealed, setThemesRevealed] = useState(
-        Array(themeTexts.length).fill(false)
-      );
-
 
   useEffect(() => {
   if (!flowContainer.current) return;
