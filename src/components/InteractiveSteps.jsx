@@ -14,8 +14,8 @@ const defaultSteps = [
     id: 1,
     img: img1,
     caption: 'Preliminary',
-    headerTitle: 'Step 1: Preliminary',
-    headerSubtitle: 'GTAs’ Confidence = Training Received + Teaching Experience',
+    headerTitle: 'Preliminary: Before a Grading Issue is Recognized',
+    headerSubtitle: "GTAs’ confidence is based on the training they received and the teaching experience they've had",
     quotes: {
       A: '"It was definitely nice to get a feel for how some of these things worked, especially with the syllabus."',
       B: '"There was shadowing…you just have an idea of how [teaching] works."'
@@ -26,23 +26,23 @@ const defaultSteps = [
     id: 2,
     img: img2,
     caption: 'Grading',
-    headerTitle: 'Step 2: Grading',
+    headerTitle: 'Grading: GTA recognized a Grading Issue from a Student',
     headerSubtitle: 'Formal Training Helps GTAs Identify Policy Violations',
     quotes: {
-      A: '"The teaching class helped me prepare and look out for signs of cheating, especially the usage of AI.”',
+      A: '"The teaching class helped me prepare and look out for signs of cheating, especially to rry and detect AI usage.”',
       B: '“I knew cheating was always going to happen, but I was unsure how I should even go about catching it.”'
     },
-    sources: { A: 'GTA with formal trainnig and monthly supervision', B: 'GTA with some training and no supervision' }
+    sources: { A: 'GTA with formal training and monthly supervision', B: 'GTA with some training and no supervision' }
   },
   {
     id: 3,
     img: img3,
     caption: 'Assessment',
-    headerTitle: 'Step 3: Assessment',
-    headerSubtitle: 'Self-Confidence + Course & Department Policy = Action Taken',
+    headerTitle: 'Assessment: GTA Determines the Best Course of Action',
+    headerSubtitle: 'Self-confidence in teaching plus course/department policy will guide the actions taken by the GTA',
     quotes: {
-      A: '"The monthly check-ins with other GTAs and our supervisor have been a great resource to workshops counter measures and what to look out for.”',
-      B: '"When I started teaching I spend too much time worrying if I was actually catchig students cheating but I realised that the department takes care of all the policy violations so I just need to report it now.”'
+      A: '"The monthly check-ins with other GTAs and our supervisor have been a great resource to figure out what options I have when trying to deal with cheating.”',
+      B: '"Our long weekly meetings mean that I just have to wait until then to report any issues I have... it takes all the guessing work out of having to deal with cheating.”'
     },
     sources: { A: 'GTA with formal training and monthly supervision', B: 'GTA wth no formal training and heavy supervision' }
   },
@@ -50,11 +50,11 @@ const defaultSteps = [
     id: 4,
     img: img4,
     caption: 'Department',
-    headerTitle: 'Step 4: Department',
-    headerSubtitle: 'Department Takes Actions to Help Solve Grading Issue',
+    headerTitle: 'Department: Grading Issues are Assessed at the Departmental Level',
+    headerSubtitle: 'When required or asked for, departments will help GTAs take action',
     quotes: {
-      A: '"It is nice to know that as problems arise, I can either wait and talk to my supervisor or simply email them".”',
-      B: '“The weekly 3 hour meetings take care of any need to ever talk to my supervisor ever again... for anything...”'
+      A: '"It is nice to know that [my department] trust that I will handle general issues by myself but will step in as required or needed".”',
+      B: '"The department pretty much handles all cases of cheating right away since they set the syllabus and policies... I just enforce them”'
     },
     sources: { A: 'GTA with formal training and monthly supervision', B: 'GTA with formal training and heavy supervision' }
   },
@@ -62,11 +62,11 @@ const defaultSteps = [
     id: 5,
     img: img5,
     caption: 'Resolution',
-    headerTitle: 'Step 5: Resolution',
-    headerSubtitle: "GTA Involvement ",
+    headerTitle: 'Resolution: Grading Issue is Resolved Between the GTA and Student',
+    headerSubtitle: "GTA's future grading confidence is based on the outcome and mentoring/support given or gained",
     quotes: {
-      A: '"I feel very supported since I have my supervisor to help me deal with any issues that I cannot handle on my own".”',
-      B: '"In the begining I had to rely on other more senior GTAs to help with ambigious situations since I did not have a direct supervisor".”'
+      A: '"I fell confident that in the future I can handle a lot of the reporting process on my own since either way [my advisor] will be there to help me.”',
+      B: '"I cannot say that I feel condifent handling serious AI issues since I was never really in a position to make those decisions.”'
     },
     sources: { A: 'GTA with formal training and monthly supervision', B: 'GTA with no formal training and variable supervision' }
   }

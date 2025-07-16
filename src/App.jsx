@@ -134,7 +134,7 @@ function App() {
           className="w-64 md:w-80 rounded-2xl shadow-xl shadow-black/30"
         />
         <a
-          href="https://drive.google.com/file/d/1CIQwMEa25KASg9uQ_SysraoFHSCzVUtA/view?usp=sharing"
+          href="https://drive.google.com/file/d/13qH1WzVKmA182KAwiI-hYw4hYVMQAjJx/view?usp=drive_link"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-4 inline-block text-white bg-black/40 hover:bg-black/60 px-5 py-2 rounded-full font-medium transition"
@@ -148,9 +148,9 @@ function App() {
     <div className="relative flex justify-end">
       <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-red-600 to-red-300 rounded-full -z-10" />
       <div className="bg-gradient-to-r from-[#0987c6] to-[#1b2683] p-8 rounded-2xl shadow-lg max-w-3xl w-full text-right">
-        <p className="text-lg md:text-xl font-semibold text-backgroundwhite">
-          In university settings, my research has helped departments <span className="text-[#f27209]">understand the effectiveness</span>
-          of the training they provide to graduate teaching assistants. My research also has helped to show
+        <p className="text-lg md:text-xl font-semibold custom-shadow text-backgroundwhite">
+          In university settings, my research has helped departments <span className="text-[#f27209]">understand the effectiveness and enjoyment </span>
+          of the training they provide to graduate teaching assistants. My research has also helped highlight
           effective methods that <span className="text-[#f27209]">increased student engagement</span> with online course materials.
         </p>
       </div>
@@ -160,9 +160,9 @@ function App() {
     <div className="relative flex justify-start">
       <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-red-600 to-red-300 rounded-full -z-10" />
       <div className="bg-gradient-to-r from-[#1b2683] to-[#0987c6] p-8 rounded-2xl shadow-lg max-w-3xl w-full">
-        <p className="text-lg md:text-xl font-semibold text-backgroundwhite">
-          In app development, my research <span className="text-[#f27209]">increased end-users’ positive perception</span> of data collection
-          and likelihood of engagement with mobile and desktop apps used by research labs. In web
+        <p className="text-lg md:text-xl font-semibold custom-shadow text-backgroundwhite">
+          In app development, my research helped<span className="text-[#f27209]"> increase the positive perception</span> of data collection
+          and likelihood of engagement from end-users in mobile and desktop apps. In web
           development, my research <span className="text-[#f27209]">increased enjoyment, usability, and sign-up speed</span> for attendees
           of a yearly regional conference.
         </p>

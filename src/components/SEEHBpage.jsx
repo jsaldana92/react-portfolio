@@ -67,7 +67,7 @@ export function SEEHBpage() {
                 <p className="text-lg md:text-xl text-gray-800">
                 The South Eastern Evolution and Human Behavior (SEEHB) group needed their previous website revamped with a{' '}
                 <strong className='text-blue-500'>modernized layout</strong> to{' '}
-                <strong className='text-blue-500'>increase attendee interaction</strong> and coded to {' '}
+                <strong className='text-blue-500'>increase attendee interaction,</strong> and coded to {' '}
                 <strong className='text-blue-500'>decrease existing issues</strong>
                 </p>
             </div>
@@ -79,7 +79,7 @@ export function SEEHBpage() {
             <div className="bg-white p-8 font-semibold rounded-2xl shadow-lg max-w-xl text-center">
               <p className="text-lg md:text-xl text-gray-800">
                 I conducted <strong className='text-blue-500'>end-user interviews</strong> and 
-                <strong className='text-blue-500'> usability testing</strong> with previous conference attendees to lead research-based changes 
+                <strong className='text-blue-500'> usability testing</strong> with previous conference attendees to optimize the SEEHB website for future meetings 
               </p>
             </div>
           </div>
@@ -95,7 +95,7 @@ export function SEEHBpage() {
 
           {/* Goals Row with onClick animation */}
           <div className="flex justify-center">
-            <div className="flex space-x-6 md:space-x-12">
+            <div className="flex space-x-2 md:space-x-12">
               {goalTexts.map((text, i) => (
                 <div
                   key={i}
@@ -215,8 +215,8 @@ export function SEEHBpage() {
   <div className="flex flex-col items-start mb-12 space-y-4 md:w-1/2">
             <h3 className="text-2xl font-extrabold text-backgroundred">Goal #1</h3>
             <hr className="w-16 border-backgroundgrey border-[2 px]" />
-            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-              <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[0]}</p>
+            <div className="bg-gradient-to-r from-[#1b2683] to-[#0987c6] p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-custom-shadow-sm text-white custom-shadow-white">{goalTexts[0]}</p>
             </div>
           </div>
 
@@ -245,8 +245,8 @@ export function SEEHBpage() {
         <div className="flex flex-col space-y-8">
             {/* Insight card on top */}
             <div className="w-full mx-auto mb-8">
-            <p className="text-4xl font-extrabold custom-shadow-white text-[#000000] text-center">
-                Decreasing the number of bugs (deadlinks, misdirects, incorrect information) increased the likeliness to interact with the website.
+            <p className="text-4xl font-bold custom-shadow-white text-[#000000] text-center">
+                Decreasing the number of bugs (deadlinks, misdirects, incorrect information) increased the likelihood to interact with the website.
             </p>
             </div>
             {/* Illustration below */}
@@ -271,8 +271,8 @@ export function SEEHBpage() {
           <div className="flex flex-col items-start space-y-4 md:w-1/2">
             <h3 className="text-2xl font-extrabold text-backgroundred">Goal #2</h3>
             <hr className="w-16 border-backgroundgrey border-[2px]" />
-            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-              <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[1]}</p>
+            <div className="bg-gradient-to-r from-[#1b2683] to-[#0987c6] p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-custom-shadow-sm text-white custom-shadow-white">{goalTexts[1]}</p>
             </div>
           </div>
 
@@ -280,7 +280,7 @@ export function SEEHBpage() {
           <div className="md:w-1/2 flex justify-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
               <p className="text-lg font-semibold italic text-gray-900 ">
-                "I feel like I know where I am supposed to go... I would definitely consider using it in future, especially over the printed out schedules."
+                "I feel like I know where I am supposed to go... I would definitely consider using it in the future, especially over the printed out schedules."
               </p>
               <p className="text-md text-right italic text-gray-900">- previous attendee interviewed</p>
             </div>
@@ -292,8 +292,8 @@ export function SEEHBpage() {
         <div className="flex flex-col space-y-8">
             {/* Insight card on top */}
             <div className="w-full mx-auto mb-8">
-            <p className="text-4xl font-extrabold custom-shadow-white text-[#000000] text-center">
-                Consistent layouts, using a single-page-app website, and incorporating animations increased accessibility to features and information. 
+            <p className="text-4xl font-bold custom-shadow-white text-[#000000] text-center">
+                Consistent layouts, using a single-page app website, and incorporating animations increased accessibility to features and information. 
             </p>
             </div>
             {/* Illustration below */}
@@ -319,8 +319,8 @@ export function SEEHBpage() {
           <div className="flex flex-col items-start space-y-4 md:w-1/2">
             <h3 className="text-2xl font-extrabold text-backgroundred">Goal #3</h3>
             <hr className="w-16 border-backgroundgrey border-[2px]" />
-            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-              <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[2]}</p>
+            <div className="bg-gradient-to-r from-[#1b2683] to-[#0987c6] p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-custom-shadow-sm text-white custom-shadow-white">{goalTexts[2]}</p>
             </div>
           </div>
 
@@ -339,7 +339,7 @@ export function SEEHBpage() {
         <section className="w-full max-w-4xl mx-auto px-6 py-16">
         {/* Intro card */}
         <div className="w-full mx-auto mb-8">
-            <p className="text-4xl font-extrabold custom-shadow-white text-[#000000] text-center">
+            <p className="text-4xl font-bold custom-shadow-white text-[#000000] text-center">
             See the improvements for yourself!
             </p>
         </div>
@@ -458,7 +458,7 @@ export function SEEHBpage() {
 <section>
   <div className="w-full mx-auto px-6 py-8">
     <h2 className="text-4xl leading-snug  font-extrabold text-center text-black">
-      Take Aways
+      Impact
     </h2>
 
     <div className="flex justify-center mt-2 py-4">
@@ -474,7 +474,8 @@ export function SEEHBpage() {
       <h3 className="text-2xl font-extrabold text-backgroundred">Primary Considerations</h3>
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-        <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">Optimizing the website to decrease users' frustation while navigating by getting rid of bugs was the primary reported reason that increased likely future engagement</p>
+        <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">
+          Providing a bug and error free website is the most significant change that will increase future engagement</p>
       </div>
     </div>
 
@@ -483,7 +484,9 @@ export function SEEHBpage() {
       <h3 className="text-2xl font-extrabold text-backgroundred">Secondary Considerations</h3>
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-        <p className="text-lg font-semibold text-start md:text-end text-custom-shadow-sm text-gray-800">Improved design layouts and animations increased attention to key links and features which optimized times for user to RSVP and find schedule related items </p>
+        <p className="text-lg font-semibold text-start md:text-end text-custom-shadow-sm text-gray-800">
+          Using designs, layouts, and animations can increase attention to key links and features. This can lead to improved RSVP and usability metrics.
+          </p>
       </div>
     </div>
   </div>
@@ -493,22 +496,15 @@ export function SEEHBpage() {
   <div className="flex flex-col space-y-8 pb-16">
       {/* Insight card on top */}
       <div className="w-full mx-auto mb-8">
-      <p className="text-4xl  font-extrabold custom-shadow-white text-[#000000] text-center">
-        Future changes to this website should consider <span className='text-[#f28e0b]'>maintaining a consistent theme</span> and <span className='text-[#f28e0b]'>using current built-in tools</span> to highlight important information so that <span className='text-[#f28e0b]'>users' attention remains focused</span> where it is needed most.
+      <p className="text-4xl  font-bold custom-shadow-white text-[#000000] text-center">
+        My research directly informed the front-end    
+        <span className='text-[#f28e0b]'> redesign and development</span> of the SEEHB website, 
+        <span className='text-[#f28e0b]'> reducing user frustration</span> and 
+        <span className='text-[#f28e0b]'> increasing engagement.</span>  It also guided design decisions that 
+        <span className='text-[#f28e0b]'> improved sign-up rates </span> and
+        <span className='text-[#f28e0b]'> overall usability.</span>
       </p>
       </div>
-    {/* linear regression models */}
-    <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
-      <p className="text-2xl font-semibold text-center text-gray-700">
-        RSVPing
-      </p>
-      <p className="text-2xl font-semibold text-center text-gray-700">
-        Navigating to the Schedule
-      </p>
-      <p className="text-2xl font-semibold text-center text-gray-700">
-        Accessing Abstracts
-      </p>
-    </div>
   </div>
 </section>
 

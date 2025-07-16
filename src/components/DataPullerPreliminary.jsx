@@ -74,11 +74,11 @@ export default function DPPreliminary() {
                   p-6 rounded-2xl shadow-lg
                   flex justify-center md:justify-start
                   items-center md:items-start
-                  text-center md:text-start
+                  text-center md:text-start font-semibold
                 `}
               >
                 <p className="text-lg text-gray-800">
-                  <span className="font-semibold">{i + 1}.</span> {step}
+                  <span className="font-bold">{i + 1}.</span> {step}
                 </p>
               </div>
             ))}
