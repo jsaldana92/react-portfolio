@@ -4,8 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
 
 
-import rustImg from '../images/datapuller/rust.png';
-import betaImg from '../images/datapuller/beta.png';
+
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import DPPreliminary from './DataPullerPreliminary';
 import DataPullerImage from './DataPullerImage';
@@ -152,7 +151,7 @@ export function DataPullerPage() {
             <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl">
                 <p className="text-lg md:text-xl text-gray-800">
                 Older research facilities often rely on non-cloud based local data storage to increase cyber security and therefore{' '}
-                <strong className='text-blue-500'>manualy collect data</strong> across multiple systems
+                <strong className='text-blue-500'>manually collect data</strong> across multiple systems
                 </p>
             </div>
             </div>
@@ -164,7 +163,7 @@ export function DataPullerPage() {
                 <p className="text-lg md:text-xl text-gray-800">
                 Although more "safe" this method can be highly{' '}
                 <strong className='text-blue-500'>ineffective</strong> and cause{' '}
-                <strong className='text-blue-500'>frustation</strong> and {' '}
+                <strong className='text-blue-500'>frustration</strong> and {' '}
                 <strong className='text-blue-500'>needless time loss</strong>
                 </p>
             </div>
@@ -175,10 +174,10 @@ export function DataPullerPage() {
             <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-teal-200 to-teal-50 rounded-full -z-10" />
             <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl text-center">
               <p className="text-lg md:text-xl font-semibold text-gray-800">
-              To determine a viable solution at decreasing frustation and time loss, I conducted 
-              <strong className='text-blue-500'> preliminary interviews and questionnaires</strong> with research staff to determine the most common friction points in data collection. I then conducted{' '}   
-              <strong className='text-blue-500'> beta-test interviews</strong> to verify my solution resonated well with staff and would actually be used. Lastly, I conducted{' '} 
-              <strong className='text-blue-500'> post-launch interviews and questionnaires</strong> to determine what future solutions might increase engagement and productivity by decreasing frustration and time loss.
+              Therefore, I conducted 
+              <strong className='text-blue-500'> preliminary interviews and questionnaires</strong> with research staff to determine the most common friction points in data collection. This was followed by {' '}   
+              <strong className='text-blue-500'> beta-test interviews</strong> to gauge my solutions' (DataPuller) impact and engagement level. Lastly, I conducted{' '} 
+              <strong className='text-blue-500'> post-launch interviews and questionnaires</strong> to verify the effectiveness of beta-test changes and guide future iterations.
               </p>
             </div>
           </div>
@@ -194,7 +193,7 @@ export function DataPullerPage() {
 
           {/* Goals Row with onClick animation */}
           <div className="flex justify-center">
-            <div className="flex space-x-6 md:space-x-12">
+            <div className="flex space-x-2 md:space-x-12">
               {goalTexts.map((text, i) => (
                 <div
                   key={i}
@@ -259,6 +258,21 @@ export function DataPullerPage() {
           </div>
       </section>
 
+        {/* goal card */}
+        <section className="max-w-4xl mx-auto mt-8 px-6 flex justify-center">
+          <div className="flex items-center">
+            <div>
+              <h3 className="text-2xl font-extrabold  text-backgroundred">Goal #1</h3>
+              <hr className="w-16 border-backgroundgrey m-3 border-[2px]" />
+              <div className=" bg-gradient-to-r from-[#1b2683] to-[#0987c6]  p-6 rounded-2xl shadow-lg w-full">
+                <p className="text-lg font-semibold text-custom-shadow-sm text-white custom-shadow-white">
+                  {goalTexts[0]}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
       {/*----Interview Methods----*/}
       <section className="max-w-4xl mx-auto px-6 mt-10 mb-8">
         <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
@@ -310,32 +324,45 @@ export function DataPullerPage() {
             </div>
       </section>
 
-
+        {/* goal card */}
+        <section className="max-w-4xl mx-auto mt-8 px-6 flex justify-center">
+          <div className="flex items-center">
+            <div>
+              <h3 className="text-2xl font-extrabold  text-backgroundred">Goal #2</h3>
+              <hr className="w-16 border-backgroundgrey m-3 border-[2px]" />
+              <div className=" bg-gradient-to-r from-[#1b2683] to-[#0987c6]  p-6 rounded-2xl shadow-lg w-full">
+                <p className="text-lg font-semibold text-custom-shadow-sm text-white custom-shadow-white">
+                  {goalTexts[1]}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
     {/*preliminary conclusion */}
     <section className="max-w-4xl mx-auto px-6 mt-12 mb-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {/* Code */}
         <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-          <h3 className="text-lg underline font-semibold text-gray-800">Code Language</h3>
+          <h3 className="text-lg font-semibold text-gray-800">Code Language</h3>
           <p className="mt-2 text-gray-700">Python</p>
         </div>
 
         {/* Type */}
         <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-          <h3 className="text-lg underline font-semibold text-gray-800">App Type</h3>
+          <h3 className="text-lg font-semibold text-gray-800">App Type</h3>
           <p className="mt-2 text-gray-700">Stand alone (.exe)</p>
         </div>
 
         {/* Pulls from */}
         <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-          <h3 className="text-lg font-semibold underline  text-gray-800">Collects Folders From</h3>
+          <h3 className="text-lg font-semibold  text-gray-800">Collects Folders From</h3>
           <p className="mt-2 text-gray-700">C:/Tasks/</p>
         </div>
 
         {/* Sends to */}
         <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-          <h3 className="text-lg font-semibold underline text-gray-800">Data Sent To</h3>
+          <h3 className="text-lg font-semibold text-gray-800">Data Sent To</h3>
           <p className="mt-2 text-gray-700">
             D:/data_from_puller/
             <br />
@@ -347,7 +374,7 @@ export function DataPullerPage() {
 
         {/* Supported Files */}
         <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-          <h3 className="text-lg underline font-semibold text-gray-800">Supported Files</h3>
+          <h3 className="text-lg font-semibold text-gray-800">Supported Files</h3>
           <p className="mt-2 text-gray-700">
             .csv
           </p>
@@ -358,7 +385,7 @@ export function DataPullerPage() {
 
         {/* Feedback */}
         <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-          <h3 className="text-lg underline font-semibold text-gray-800">Feedback</h3>
+          <h3 className="text-lg font-semibold text-gray-800">Feedback</h3>
           <p className="mt-2 text-gray-700">Pop-ups for Errors and Successes</p>
         </div>
       </div>
@@ -392,6 +419,24 @@ export function DataPullerPage() {
             <p className='text-lg text-center pt-1 text-gray-700 italic'>4 Research Staff Members: Junior and Senior Researchers</p>
           </div>
       </section>
+
+
+        {/* goal card */}
+        <section className="max-w-4xl mx-auto mt-8 px-6 flex justify-center">
+          <div className="flex items-center">
+            <div>
+              <h3 className="text-2xl font-extrabold  text-backgroundred">Goal #3</h3>
+              <hr className="w-16 border-backgroundgrey m-3 border-[2px]" />
+              <div className=" bg-gradient-to-r from-[#1b2683] to-[#0987c6]  p-6 rounded-2xl shadow-lg w-full">
+                <p className="text-lg font-semibold text-custom-shadow-sm text-white custom-shadow-white">
+                  {goalTexts[2]}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
       {/*----Interview Methods----*/}
       <section className="max-w-4xl mx-auto px-6 mt-12">
         <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
@@ -444,30 +489,24 @@ export function DataPullerPage() {
             <section className="max-w-4xl mx-auto mt-4 mb-12 px-6">
             <div className="w-full mx-auto">
             <h1 className="text-2xl font-bold custom-shadow-white text-[#000000] text-center">
-                Although DataPuller was 
+                DataPuller was 
                 <span className='text-blue-500'> faster </span> 
-                than the traditional way to collect data, users primarily reported 
-                <span className='text-blue-500'> needing data from one or two projects </span>
-                 causing them to 
-                 <span className='text-blue-500'> overfixate the long start up time </span>
-                  (~12 seconds) leading them to a 
-                  <span className='text-blue-500'> negative perception </span>
-                   of the app and making it 
-                   <span className='text-blue-500'> unlikely to be used </span> 
-                   in real-world application.
+                than traditional data collection, but users
+                <span className='text-blue-500'> overfixate on the long start up time (12 seconds) </span>
+                 and reported that they were
+                 <span className='text-blue-500'> unlikley to use DataPuller. </span>
             </h1>
             </div>
             <div className="w-full mt-4 mx-auto">
             <h1 className="text-2xl font-bold custom-shadow-white text-[#000000] text-center">
-                Due to the overhead of 
                 <span className='text-blue-500'> Python’s </span> 
-                bundled interpreter, the beta-version had noticeably
+                bundled interpreter has
                 <span className='text-blue-500'> long launch times </span>
-                 regardless of optimization. To achieve a faster startup, the app was
+                 regardless of optimization. Since a faster launch time is crucial, the app needs to be
                 <span className='text-blue-500'> recoded </span> 
                 in a 
-                <span className='text-blue-500'> faster language </span> 
-                  compiled to a native binary, 
+                <span className='text-blue-500'> faster language, </span> 
+                  such as
                 <span className='text-[#cc4100]'> Rust.</span> 
             </h1>
             </div>
@@ -503,6 +542,23 @@ export function DataPullerPage() {
             <p className='text-lg text-center pt-1 text-gray-700 italic'>4 Research Staff Members: Junior and Senior Researchers</p>
           </div>
       </section>
+
+        {/* goal card */}
+        <section className="max-w-4xl mx-auto mt-8 px-6 flex justify-center">
+          <div className="flex items-center">
+            <div>
+              <h3 className="text-2xl font-extrabold  text-backgroundred">Goal #3 cont.</h3>
+              <hr className="w-16 border-backgroundgrey m-3 border-[2px]" />
+              <div className=" bg-gradient-to-r from-[#1b2683] to-[#0987c6]  p-6 rounded-2xl shadow-lg w-full">
+                <p className="text-lg font-semibold text-custom-shadow-sm text-white custom-shadow-white">
+                  {goalTexts[2]}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
       {/*----Interview Methods----*/}
       <section className="max-w-4xl mx-auto px-6 mt-12">
         <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
@@ -562,11 +618,11 @@ export function DataPullerPage() {
                 <span className='text-blue-500'> positive perception </span>
                  and  
                  <span className='text-blue-500'> greater likelihood </span>
-                  to use the app over the current methodology.
+                  to use the app over traditional data collection.
             </h1>
             </div>
             
-             <section className="max-w-4xl mt-6 mx-auto p-4">
+             <section className="max-w-4xl mt-14 mx-auto p-4">
         <DataPullerImageZoom/>
       </section>
 
@@ -590,7 +646,7 @@ export function DataPullerPage() {
 <section className="max-w-4xl mx-auto pt-4 pb-16 px-6">
   <div className="w-full">
     <h2 className="text-4xl leading-snug  font-extrabold text-center text-black">
-      Take Aways
+      Impact
     </h2>
 
     <div className="flex justify-center mt-2 py-4">
@@ -607,7 +663,9 @@ export function DataPullerPage() {
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
         <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">
-          Improving comparative speed time alone is <span className='underline'>not enough</span> to get current users to engage with DataPuller. The solution had to avoid negative connotations (slow launch speed) to increase engagement.
+          Improving a quantitative measure (data collection speed) alone is {' '}
+          <span className='underline'>not enough</span> {' '} 
+          to over come anchor biases from users to continue using traditional practices.
           </p>
       </div>
     </div>
@@ -618,7 +676,7 @@ export function DataPullerPage() {
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
         <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">
-          Future updates shoul avoid decreasing the speed DataPuller so that they do not decrease users' perception of its effectiveness.
+          Future updates should iterate on DataPuller without increasing launch speed to avoid user frustration and drop off.
         </p>
       </div>
     </div>
@@ -629,11 +687,11 @@ export function DataPullerPage() {
   <div className="flex flex-col space-y-8 pb-16">
       {/* Insight card on top */}
       <div className="w-full mx-auto mb-8">
-      <p className="text-4xl  font-extrabold custom-shadow-white text-[#000000] text-center">
-        Solving long standing issues need to be {' '}
-        <span className='text-[#f28e0b]'>perceived</span> as improving the {' '}
-        <span className='text-[#f28e0b]'>experience</span> rather than simply improving {' '}
-        <span className='text-[#f28e0b]'>efficiency</span> to overcome cognitive biases.
+      <p className="text-4xl  font-bold custom-shadow-white text-[#000000] text-center">
+        My research found a {' '}
+        <span className='text-[#f28e0b]'>solution to common frustrations</span> expressed by researchers and iterated on the beta-app to increase{' '}
+        <span className='text-[#f28e0b]'> perception</span>  and{' '}
+        <span className='text-[#f28e0b]'> engagement</span> to established cognitive biases.
       </p>
       </div>
   </div>

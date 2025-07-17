@@ -25,7 +25,7 @@ export function GTAGradingPage() {
   const [revealed, setRevealed] = useState([false, false, false]);
   // refs for each goal card
   const cardRefs = [useRef(null), useRef(null), useRef(null)];
-  const goalTexts = ['What is the most commong grading issue GTAs experience?', 'How do GTAs navigate grading issues?', 'How do different departments support GTAs with grading issues?'];
+  const goalTexts = ['What is the most common grading issue GTAs experience?', 'How do GTAs navigate grading issues?', 'How do different departments support GTAs with grading issues?'];
 
   //moving arrow components
     const flowContainer = useRef(null);
@@ -162,7 +162,7 @@ export function GTAGradingPage() {
              to Determine Most Common <span className="bg-gradient-to-r from-[#e3a730] to-[#b55f5f] bg-clip-text text-transparent"> Frustrating Aspect of Grading</span>
           </h1>
           <p className="text-xl text-gray-700 italic">
-            Conducted a qualitative analyssis of the most comming issues graduate teaching assistants encounter while grading student work.
+            Conducted a qualitative analysis of the most common issues graduate teaching assistants encounter while grading student work.
           </p>
         </div>
 
@@ -185,9 +185,9 @@ export function GTAGradingPage() {
             <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-blue-200 to-blue-50 rounded-full -z-10" />
             <div className="bg-white text-right p-8 rounded-2xl shadow-lg max-w-xl">
                 <p className="text-lg md:text-xl text-gray-800">
-                GTAs report issues with grading but it is{' '}
-                <strong className='text-blue-500'>unkown the most common type of issues</strong> and{' '}
-                <strong className='text-blue-500'>how these differ across departments</strong>
+                GTAs report issues with grading but{' '}
+                <strong className='text-blue-500'> the most common type of issue is unknown</strong> or if{' '}
+                <strong className='text-blue-500'>they are consistent across departments</strong>
                 </p>
             </div>
           </div>
@@ -217,7 +217,7 @@ export function GTAGradingPage() {
 
           {/* Goals Row with onClick animation */}
           <div className="flex justify-center">
-            <div className="flex space-x-6 md:space-x-12">
+            <div className="flex space-x-2 md:space-x-12">
               {goalTexts.map((text, i) => (
                 <div
                   key={i}
@@ -333,7 +333,7 @@ export function GTAGradingPage() {
       ref={flowBoxes[4]}
       className="col-start-3 row-start-3 bg-white p-1 md:p-6 w-full rounded shadow min-w-0 break-words font-semibold text-end text-sm md:text-lg"
     >
-      <p>Develop <span  className='text-blue-500'>Primary</span> and <span  className='text-blue-500'>Secodary</span> Considerations | <span  className='text-blue-500'>Key Take Away</span></p>
+      <p>Develop <span  className='text-blue-500'>Primary</span> and <span  className='text-blue-500'>Secondary</span> Considerations | <span  className='text-blue-500'>Impact</span></p>
     </div>
   </div>
   {/* line page break */}
@@ -394,7 +394,7 @@ export function GTAGradingPage() {
           <div className="md:w-1/2 flex justify-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
               <p className="text-lg text-center md:text-end font-semibold text-gray-900 ">
-                Totaled 220 minutes of interview reponses to thematically code
+                Totaled 220 minutes of interview responses to thematically code
               </p>
             </div>
           </div>
@@ -502,8 +502,8 @@ export function GTAGradingPage() {
           <div className="flex flex-col items-start space-y-4 md:w-1/2">
             <h3 className="text-2xl font-extrabold text-backgroundred">Goal #1</h3>
             <hr className="w-16 border-backgroundgrey border-[2px]" />
-            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-              <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[0]}</p>
+            <div className="bg-gradient-to-r from-[#1b2683] to-[#0987c6] p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-custom-shadow-sm text-white custom-shadow-white">{goalTexts[0]}</p>
             </div>
           </div>
 
@@ -549,6 +549,9 @@ export function GTAGradingPage() {
           </p>
         </li>
       </ul>
+            <div className="flex justify-center py-4 pt-8">
+        <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
+      </div>
     </section>
 
             {/* ---- Outcomes for Goal #2 ---- */}
@@ -558,8 +561,8 @@ export function GTAGradingPage() {
           <div className="flex flex-col items-start space-y-4 md:w-1/2">
             <h3 className="text-2xl font-extrabold text-backgroundred">Goal #2</h3>
             <hr className="w-16 border-backgroundgrey border-[2px]" />
-            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-              <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[1]}</p>
+            <div className="bg-gradient-to-r from-[#1b2683] to-[#0987c6] p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-custom-shadow-sm text-white custom-shadow-white">{goalTexts[1]}</p>
             </div>
           </div>
 
@@ -601,10 +604,13 @@ export function GTAGradingPage() {
             3
           </span>
           <p className="text-gray-800 text-2xl">
-            3 GTAs reported always reporting everyting to their faculty advisor as they took care of all grading issues
+            3 GTAs reported always reporting everything to their faculty advisor as they took care of all grading issues
           </p>
         </li>
       </ul>
+            <div className="flex justify-center py-4 pt-8">
+        <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
+      </div>
     </section>
 
             {/* ---- Outcomes for Goal #3 ---- */}
@@ -614,8 +620,8 @@ export function GTAGradingPage() {
           <div className="flex flex-col items-start space-y-4 md:w-1/2">
             <h3 className="text-2xl font-extrabold text-backgroundred">Goal #3</h3>
             <hr className="w-16 border-backgroundgrey border-[2px]" />
-            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-              <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[2]}</p>
+            <div className="bg-gradient-to-r from-[#1b2683] to-[#0987c6] p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-custom-shadow-sm text-white custom-shadow-white">{goalTexts[2]}</p>
             </div>
           </div>
 
@@ -623,7 +629,7 @@ export function GTAGradingPage() {
           <div className="md:w-1/2 flex justify-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
               <p className="text-lg font-semibold italic text-gray-900 ">
-                "I know that our depratment gives a lot of structured support, but talking to other graduate students, it seems like that is not every department... it's like the wild west when it comes to having proper help and training."
+                "I know that our department gives a lot of structured support, but talking to other graduate students, it seems like that is not every department... it's like the wild west when it comes to having proper help and training."
               </p>
               <p className="text-md text-right italic text-gray-900">- GTA with formal training and monthly supervision</p>
             </div>
@@ -641,15 +647,15 @@ export function GTAGradingPage() {
             1
           </span>
           <p className="text-gray-800 text-2xl">
-            4 GTAs reported that the received a <span className='text-blue-500'>formal class prior to teaching </span> with <span className='text-blue-500'>once-a-month virtual townhall check-ins</span> between all GTAs and a faculty advisor where they were required to give a brief update on thier experience or ask a question relevant to teaching
-          </p>
+            4 GTAs reported that the received a <span className='text-blue-500'>formal class prior to teaching </span> with <span className='text-blue-500'>once-a-month virtual town-hall check-ins</span> between all GTAs and a faculty advisor where they were required to give a brief update on their experience or ask a question relevant to teaching
+          </p> 
         </li>
         <li className="flex items-start">
           <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
             2
           </span>
           <p className="text-gray-800 text-2xl">
-            3 GTAs reported that their department provided <span className='text-blue-500'>varibale training depending on what they were expected to teach</span> but had <span className='text-blue-500'>intense weekly mandatory 2-hour meetings</span> between the GTAs and teaching faculty advisor where they discussed topics <span className='text-orange-500'>somewhat</span> related to teaching
+            3 GTAs reported that their department provided <span className='text-blue-500'>variable training depending on what they were expected to teach</span> but had <span className='text-blue-500'>intense weekly mandatory 2-hour meetings</span> between the GTAs and teaching faculty advisor where they discussed topics <span className='text-orange-500'>somewhat</span> related to teaching
           </p>
         </li>
         <li className="flex items-start">
@@ -657,10 +663,13 @@ export function GTAGradingPage() {
             3
           </span>
           <p className="text-gray-800 text-2xl">
-            3 GTAs reported receiving <span className='text-orange-500'>no training prior to teaching</span> and learned as they were teaching. They also reported that <span className='text-orange-500'>support was highly depandent</span> on whatever faculty member their were assinged which resulted in <span className='text-orange-500'> heavy or no supervision.</span>
+            3 GTAs reported receiving <span className='text-orange-500'>no training prior to teaching</span> and learned as they were teaching. They also reported that <span className='text-orange-500'>support was highly dependent</span> on whatever faculty member their were assigned which resulted in <span className='text-orange-500'> heavy or no supervision.</span>
           </p>
         </li>
       </ul>
+            <div className="flex justify-center py-4 pt-8">
+        <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
+      </div>
     </section>
 
 
@@ -680,7 +689,7 @@ export function GTAGradingPage() {
             imageSrc={persona1}
             name="Jenny Acworth"
             age={29}
-            quote='"Although the department certainly helps and is involved, we are the primary person handling the reporting of AI usage."'
+            quote='"Although the department certainly helps and is involved, we are the primary person handling how grading occurs."'
 
             LTIcon={FaUser}
             leftTopDem="Female"
@@ -694,7 +703,7 @@ export function GTAGradingPage() {
             TLIcon={CgGym}
             TLBehavior="Standardized derpatmental training provided a baseline expectation for teaching and classroom resources"
             TRIcon={SlCalender }
-            TRBehavior="Standardized check-ins with faculty mentor result in  in being micro-managed one semesters and receiving little support the next"
+            TRBehavior="Standardized semi-frequent check-ins with a faculty teaching mentor has resulted in a positive perception of support and mentoring"
             MLIcon={SiGoogleclassroom}
             MLBehavior="Primarily teaching online asynchronous classes"
             MRIcon={FaRobot }
@@ -723,17 +732,17 @@ export function GTAGradingPage() {
             rightBottomDem="1 year GTA"
 
             TLIcon={CgGym}
-            TLBehavior="Deparment does not standardize training resulting in either no, some, or too much training on how to teach a class"
+            TLBehavior="Deparment does not standardize training resulting in none, some, or too much training on teaching a classes"
             TRIcon={SlCalender }
-            TRBehavior="Faculty mentor check-ins are not standardized resulting in being micro-managed one semesters and receiving little support the next"
+            TRBehavior="Faculty mentor check-ins are not standardized resulting swings between being micro-managed and given no guidance"
             MLIcon={SiGoogleclassroom}
             MLBehavior="Primarily teaches in person classes entry or mid-level classes"
             MRIcon={FaRobot}
-            MRBehavior="Dealing with cheating is the most commong grading issue he has, with AI policy violations being the most common"
+            MRBehavior="AI policy violations are the most common grading issue but deal with a significant amount of general cheating"
             BLIcon={MdGroups2}
             BLBehavior="Often relies on other GTAs for support due to inconsistent training and mentoring"
             BRIcon={RiEmotionUnhappyLine}
-            BRBehavior="Enjoys teaching but the department does not meet his expectations for training or suppor"
+            BRBehavior="Enjoys teaching but the department does not meet his expectations for training or support"
           />
         </div>
         
@@ -753,7 +762,7 @@ export function GTAGradingPage() {
       </section>
       <section className='mb-14 max-w-4xl mx-auto px-2'>
         <p className='text-lg  text-gray-700 italic text-center'>
-          Deparmental training and support, alongside experience, impact how GTAs perceive grading issues
+          Departmental training and support, alongside experience, impact how GTAs perceive grading issues
           </p>
       </section>
       {/* ---- Step #1 ---- */}
@@ -771,7 +780,7 @@ export function GTAGradingPage() {
 <section className="max-w-4xl mx-auto pt-4 pb-16 px-6">
   <div className="w-full">
     <h2 className="text-4xl leading-snug  font-extrabold text-center text-black">
-      Take Aways
+      Impact
     </h2>
 
     <div className="flex justify-center mt-2 py-4">
@@ -788,7 +797,8 @@ export function GTAGradingPage() {
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
         <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">
-          Formal training, alongisde brief regular check-ins, provide the highest valued type of support. This allows GTAs the resources and the experience to imporve as lectures and rely less of direct departmental support for minor issues. 
+          Formal training, alongside brief regular check-ins, provide the highest valued type of support. 
+          This allows GTAs the resources and the experience to improve as professors and rely less of direct departmental support for minor issues. 
           </p>
       </div>
     </div>
@@ -799,7 +809,8 @@ export function GTAGradingPage() {
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
         <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">
-          Experience is ultimately the largest factor when GTAs deal with grading issues, therefore, regardless of training or departmental support and rated a low likihood to take further education towards teaching unless necessary.
+          Experience is ultimately seen as the most relevant skill to mitigate grading issues, 
+          however, real-world experience is seen as more favorable than theoretical experience making training classrooms an unappealing option for GTAs.
         </p>
       </div>
     </div>
@@ -810,12 +821,12 @@ export function GTAGradingPage() {
   <div className="flex flex-col space-y-8 pb-16">
       {/* Insight card on top */}
       <div className="w-full mx-auto mb-8">
-      <p className="text-4xl  font-extrabold custom-shadow-white text-[#000000] text-center">
-        Departments should consider providing{' '}
-        <span className='text-[#f28e0b]'>formal training</span> as part of graduate school curiculum and provide{' '}
-        <span className='underline text-[#f28e0b]'>brief</span> regular {' '}
-        <span className='text-[#f28e0b]'>check-ins</span> to continously support GTAs deal with{' '}
-        <span className='text-[#f28e0b]'>grading issues.</span> 
+      <p className="text-4xl  font-bold custom-shadow-white text-[#000000] text-center">
+        My research helped show how GTAs {' '}
+        <span className='text-[#f28e0b]'>perceive </span> departmental training, support, and mentoring. It highlighted a need for {' '}
+        <span className='text-[#f28e0b]'>standardized training classes </span> for new GTAs and {' '}
+        <span className='text-[#f28e0b]'>semi-regular check-ins</span> to support them once they are teaching. Together, these solutions were to reported to departments as methods to{' '}
+        <span className='text-[#f28e0b]'> help resolve</span> current grading issues.
       </p>
       </div>
   </div>

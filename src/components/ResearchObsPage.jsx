@@ -4,10 +4,6 @@ import { useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
 
 
-import undoImg from '../images/researchobs/undoscore.png';
-import switchImg from '../images/researchobs/switchscore.png';
-import editImg from '../images/researchobs/editscore.png';
-import famImg from '../images/researchobs/famscore.png';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ROPreliminaryInterview  from './ROPrelimInterview';
 import ROPrelimFigjam from './ROPrelimFigjam';
@@ -17,6 +13,7 @@ import dataImg from '../images/researchobs/datapage.png';
 import ROMarket from './ROMarket';
 import ROTimeline from './ROTimeline';
 import ROFlow from './ROFlow';
+import ROBetaResults from './ROBetaResults';
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -167,7 +164,7 @@ export function ResearchObsPage() {
              to Improve <span className="bg-gradient-to-r from-[#e3a730] to-[#b55f5f] bg-clip-text text-transparent">Behavioral Data Collection and Management </span>
           </h1>
           <p className="text-xl text-gray-700 italic">
-            The CEBUS lab's behavioral data collection app (WhatsOb) was no longer maintained or supported and therefore needed an updated app that would improve on its current iteration
+            The CEBUS lab's behavioral data collection app (WhatsOb) was no longer maintained or supported, therefore, they needed an updated app that would improve on its current iteration
           </p>
         </div>
 
@@ -175,7 +172,8 @@ export function ResearchObsPage() {
         <div className="space-y-12">
           {/* Card 1: Left-aligned */}
           <div className="relative flex justify-start">
-            <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-blue-200 to-blue-50 rounded-full -z-10" />
+            
+            <div className="absolute -top-8 -left-8 w-32 h-32 rounded-full -z-10" />
             <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl">
                 <p className="text-lg md:text-xl text-gray-800">
                 Many psychology labs use <strong className='text-blue-500'>mobile</strong> or {' '} 
@@ -188,12 +186,12 @@ export function ResearchObsPage() {
 
           {/* Card 2: Right-aligned */}
           <div className="relative flex justify-end">
-            <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-blue-200 to-blue-50 rounded-full -z-10" />
+            <div className="absolute -top-8 -left-8 w-32 h-32  rounded-full -z-10" />
             <div className="bg-white text-right p-8 rounded-2xl shadow-lg max-w-xl">
                 <p className="text-lg md:text-xl text-gray-800">
                 <strong className='text-blue-500'>Support </strong> and{' '}
-                <strong className='text-blue-500'>customizability</strong> for these apps is variable and can retrict labs to existing {' '}
-                <strong className='text-blue-500'>designs/ecosystems</strong>, therefore, some labs rely on indivdual graduate students to provide{' '}
+                <strong className='text-blue-500'>customizability</strong> for these apps is variable and can restrict labs to existing {' '}
+                <strong className='text-blue-500'>designs/ecosystems</strong>, therefore, some labs rely on individual graduate students to provide{' '}
                 <strong className='text-blue-500'>custom solutions</strong>
                 </p>
             </div>
@@ -201,13 +199,13 @@ export function ResearchObsPage() {
 
           {/* Card 3: Left-aligned */}
           <div className="relative flex justify-start">
-            <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-blue-200 to-blue-50 rounded-full -z-10" />
+            <div className="absolute -top-8 -left-8 w-32 h-32  rounded-full -z-10" />
             <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl">
                 <p className="text-lg md:text-xl text-gray-800">
-                <strong className='text-blue-500'>Custom solutions </strong>become{' '} 
+                <strong className='text-blue-500'>Custom solutions </strong> can become{' '} 
                 <strong className='text-blue-500'>unsupported</strong> and {' '}
-                <strong className='text-blue-500'>difficult to maintain/edit</strong> once the developer no longer works for the lab causing{' '}
-                <strong className='text-blue-500'>data collection</strong> issues
+                <strong className='text-blue-500'>difficult to maintain/edit</strong> once the developer no longer works for the lab causing issues with {' '}
+                <strong className='text-blue-500'>data collection</strong>
                 </p>
             </div>
             </div>
@@ -215,12 +213,12 @@ export function ResearchObsPage() {
 
            {/* Card 4: center-aligned */}
           <div className="relative flex justify-center">
-            <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-teal-200 to-teal-50 rounded-full -z-10" />
+            <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-red-600 to-red-300 rounded-full -z-10" />
             <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl text-center">
                 <p className="text-lg md:text-xl font-semibold text-gray-800"> I conducted
                 <strong className='text-blue-500'> exploratory and qualitative research </strong> to first determine end-user/data management issues related to the current app and to best lead the{' '}
-                <strong className='text-blue-500'>front and back-end development</strong> of a new behavioral collection app. I also conducted multiple instances of{' '}
-                <strong className='text-blue-500'>quantitative and qualitative research</strong> in both beta and final-launch versions of the app to verify that all initial concerns were addressed
+                <strong className='text-blue-500'>front and back-end development</strong> of a new behavioral collection app. I also conducted {' '}
+                <strong className='text-blue-500'>quantitative and qualitative research</strong> with the beta-app to verify that all initial concerns were addressed
                 </p>
             </div>
           </div>
@@ -236,7 +234,7 @@ export function ResearchObsPage() {
 
           {/* Goals Row with onClick animation */}
           <div className="flex justify-center">
-            <div className="flex space-x-6 md:space-x-12">
+            <div className="flex space-x-2 md:space-x-12">
               {goalTexts.map((text, i) => (
                 <div
                   key={i}
@@ -307,8 +305,8 @@ export function ResearchObsPage() {
           <div className="flex flex-col items-start space-y-4 md:w-1/2">
             <h3 className="text-2xl font-extrabold text-backgroundred">Goal #1</h3>
             <hr className="w-16 border-backgroundgrey border-[2px]" />
-            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-              <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[0]}</p>
+            <div className="p-6 bg-gradient-to-r from-[#1b2683] to-[#0987c6] rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-custom-shadow-sm text-white">{goalTexts[0]}</p>
             </div>
           </div>
 
@@ -316,7 +314,7 @@ export function ResearchObsPage() {
           <div className="md:w-1/2 flex justify-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
               <p className="text-lg font-semibold text-gray-900 ">
-                Compared Pros and Cons of Different Coding Languages and Future Cross-Platform Needs
+                Compared pros and cons of different coding languages and future cross-platform needs
                 </p>
             </div>
           </div>
@@ -354,7 +352,7 @@ export function ResearchObsPage() {
             </h1>
             </div>
             <div className="w-full mx-auto">
-              <p className='text-lg text-center pt-1 text-gray-700 italic'>Determining Current Issues with Current App</p>
+              <p className='text-lg text-center pt-1 text-gray-700 italic'>Current Issues</p>
             </div>
         </div>
       </section>
@@ -366,8 +364,8 @@ export function ResearchObsPage() {
           <div className="flex flex-col items-start space-y-4 md:w-1/2">
             <h3 className="text-2xl font-extrabold text-backgroundred">Goal #2</h3>
             <hr className="w-16 border-backgroundgrey border-[2px]" />
-            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-              <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[1]}</p>
+            <div className=" bg-gradient-to-r from-[#1b2683] to-[#0987c6] p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-custom-shadow-sm text-white">{goalTexts[1]}</p>
             </div>
           </div>
 
@@ -375,7 +373,7 @@ export function ResearchObsPage() {
           <div className="md:w-1/2 flex justify-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
               <p className="text-lg font-semibold text-gray-900 ">
-                10-minute interviews with 4 end-users (data cllectors), data manager, and primary investigator (lead researcher) focused on current errors, bugs, and "needed" versus "would like" changes 
+                10-minute interviews with 4 end-users (data collectors), data manager, and primary investigator (lead researcher) focused on current errors, bugs, and "needed" versus "would like" changes 
                 </p>
             </div>
           </div>
@@ -455,7 +453,7 @@ export function ResearchObsPage() {
             <section className="max-w-4xl mx-auto mt-4 mb-12 px-6">
             <div className="w-full mx-auto">
             <h1 className="text-2xl font-bold custom-shadow-white text-[#000000] text-center">
-                The new app, <span className='text-blue-500'>ResearchObs</span>, should provide new quality of life feautres for end-users  
+                <span className='text-blue-500'>ResearchObs</span> should provide new quality of life features for end-users  
                 <span className='text-blue-500'> (undo button and quick group switching) </span> 
                 and management 
                 <span className='text-blue-500'> (in-app editing of groups, group members,and behaviors) </span> in the 
@@ -464,11 +462,11 @@ export function ResearchObsPage() {
                  <span className='text-blue-500'> back-end </span>
                   should generally 
                   <span className='text-blue-500'> remain the same </span>
-                   to maintain with continuity with  
-                   <span className='text-blue-500'> legacy data storage/structure </span> 
-                   but the app should 
-                   <span className='text-blue-500'> standardize global data input  </span>
-                   (day,location, weather, etc.) to minize errors in stored data.
+                   to maintain continuity with  
+                   <span className='text-blue-500'> legacy data storage/structure. </span> 
+                   However, the app should 
+                   <span className='text-blue-500'> standardize global data inputs  </span>
+                   (day,location, weather, etc.) to minimize errors in stored data.
             </h1>
             </div>
       </section>
@@ -512,8 +510,8 @@ export function ResearchObsPage() {
           <div className="flex flex-col items-start space-y-4 md:w-1/2">
             <h3 className="text-2xl font-extrabold text-backgroundred">Goal #3</h3>
             <hr className="w-16 border-backgroundgrey border-[2px]" />
-            <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-              <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[2]}</p>
+            <div className="bg-gradient-to-r from-[#1b2683] to-[#0987c6] p-6 rounded-2xl shadow-lg w-full">
+              <p className="text-lg font-semibold text-custom-shadow-sm text-white">{goalTexts[2]}</p>
             </div>
           </div>
 
@@ -521,7 +519,7 @@ export function ResearchObsPage() {
           <div className="md:w-1/2 flex justify-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
               <p className="text-lg font-semibold text-gray-900 ">
-                Usability testing/interview with 4 end-users plus beta-app presentation to primary investigator focused on gaguging the effectiveness of the new features 
+                Usability testing/interview with 4 end-users plus beta-app presentation to primary investigator focused on gauging the effectiveness of the new features 
                 </p>
             </div>
           </div>
@@ -538,95 +536,37 @@ export function ResearchObsPage() {
             </h1>
             </div>
             <div className="w-full mx-auto">
-              <p className='text-lg text-center pt-1 text-gray-700 italic'>Solutions based on premiliminary research findings</p>
+              <p className='text-lg text-center pt-1 text-gray-700 italic'>Solutions based on preliminary research findings</p>
             </div>
       </section>
 
-        {/*result 1*/}
-        <section className="max-w-4xl mt-4 mx-auto px-2">
-        {/* Centered title */}
-        <h2 className="w-full text-center text-2xl font-semibold mb-4">
-            ResearchObs was Rated More Positively in Ease of Editing
-        </h2>
+      {/*columns for results */}
+      <section className="max-w-4xl mx-auto px-6 mt-2">
+        <div className="">
 
-        {/* Image container stays centered */}
-        <div className="flex justify-center">
-            <img
-            src={undoImg}
-            alt="Increased Interaction Likelihood"
-            className="bg-white p-4 rounded-lg shadow-md transition-transform duration-200 hover:scale-102"
-            />
+          {/* Component that shows improvement text with button */}
+          <div className="w-full">
+            <ROBetaResults />
+          </div>
         </div>
-        </section>
-
-        {/*result 2*/}
-        <section className="max-w-4xl mt-12 mx-auto px-2">
-        {/* Centered title */}
-        <h2 className="w-full text-center text-2xl font-semibold mb-4">
-            ResearchObs was Rated More Positively in Ease of Switching Between Groups
-        </h2>
-
-        {/* Image container stays centered */}
-        <div className="flex justify-center">
-            <img
-            src={switchImg}
-            alt="Increased Interaction Likelihood"
-            className="bg-white p-4 rounded-lg shadow-md transition-transform duration-200 hover:scale-102"
-            />
-        </div>
-        </section>
-
-        {/*result 3*/}
-        <section className="max-w-4xl mt-12 mx-auto px-2">
-        {/* Centered title */}
-        <h2 className="w-full text-center text-2xl font-semibold mb-4">
-            ResearchObs was Rated Easier to Edit Group Names, Members, and Behaviors 
-        </h2>
-
-        {/* Image container stays centered */}
-        <div className="flex justify-center">
-            <img
-            src={editImg}
-            alt="Increased Interaction Likelihood"
-            className="bg-white p-4 rounded-lg shadow-md transition-transform duration-200 hover:scale-102"
-            />
-        </div>
-        </section>
-
-        {/*result 4*/}
-        <section className="max-w-4xl mt-12 mx-auto px-2">
-        {/* Centered title */}
-        <h2 className="w-full text-center text-2xl font-semibold mb-4">
-            ResearchObs Remained Familiar to Most Users Even with New Features and Layout
-        </h2>
-
-        {/* Image container stays centered */}
-        <div className="flex justify-center">
-            <img
-            src={famImg}
-            alt="Increased Interaction Likelihood"
-            className="bg-white p-4 rounded-lg shadow-md transition-transform duration-200 hover:scale-102"
-            />
-        </div>
-        </section>
+      </section>
 
 
             <section className="max-w-4xl mx-auto mt-8 mb-12 px-6">
             <div className="w-full mx-auto">
             <h1 className="text-2xl font-bold custom-shadow-white text-[#000000] text-center">
-                Overall, the new features added were seen as an <span className='text-blue-500'>improvement </span>, with users rating multiple-aspects of their experience as being 
-                <span className='text-blue-500'> positive </span> 
-                and without a major impact on
+                The new features added were seen as an <span className='text-blue-500'>improvement, </span> being rated 
+                <span className='text-blue-500'> positively </span> 
+                and without causing major impacts on
                 <span className='text-blue-500'> familiarity </span> (a key point made by the PI).
             </h1>
             <h1 className="text-2xl font-bold custom-shadow-white text-[#000000] text-center pt-4">
-                The remain developement time should be spent optimizing back-end developement to incorporate 
+                Remaining development time should be spent optimizing back-end development to incorporate 
                 <span className='text-blue-500'> safety features </span>
-                 geared towards accidental data loss. Additionaly care should be placed on   
+                 that prevent accidental data loss. Additional care should be placed on   
                  <span className='text-blue-500'> standardizing the UI </span>
-                  to create a consistent UI geared at  
-                  <span className='text-blue-500'> improving familiarity </span>
-                   for all users. 
+                  to create a consistent experience to further 
+                  <span className='text-blue-500'> improve familiarity. </span>
             </h1>
             </div>
                           <div className="flex justify-center mb-2 mt-4 py-4">
@@ -700,7 +640,7 @@ export function ResearchObsPage() {
 <section className="max-w-4xl mx-auto pt-4 pb-16 px-6">
   <div className="w-full">
     <h2 className="text-4xl leading-snug  font-extrabold text-center text-black">
-      Take Aways
+      Impact
     </h2>
 
     <div className="flex justify-center mt-2 py-4">
@@ -717,7 +657,7 @@ export function ResearchObsPage() {
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
         <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">
-          Custom apps developed by graduate researchers can cause issues with code maintenance once the researcher leaves. These apps should allow for as much in-app editing to minimize code editing as possible.
+          Custom one-off apps can cause issues with code maintenance once the developer leaves. These apps should allow for as much in-app editing to minimize code editing as possible.
           </p>
       </div>
     </div>
@@ -728,7 +668,7 @@ export function ResearchObsPage() {
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
         <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">
-          Preliminary UX research is crucial for custom research apps since they are rarely updated which can lead long standing UX issues which will remain unsolved until the app is rewritten or the code is analyzed/updated.
+          Preliminary UX research can mitigate data loss by reducing future maintenance issues as these will remain unsolved until the app is rewritten or the code is analyzed/updated.
         </p>
       </div>
     </div>
@@ -739,12 +679,12 @@ export function ResearchObsPage() {
   <div className="flex flex-col space-y-8 pb-16">
       {/* Insight card on top */}
       <div className="w-full mx-auto mb-8">
-      <p className="text-4xl  font-extrabold custom-shadow-white text-[#000000] text-center">
-        Custom research apps need careful {' '}
-        <span className='text-[#f28e0b]'>preliminary research and developement</span> as a lack of a software developer(s) can lead to labs relying on {' '}
-        <span className='text-[#f28e0b]'>outdated and unmainted apps.</span>  
-        This is particularly important since it can cause {' '}
-        <span className='text-[#f28e0b]'>issues with data collection. </span> 
+      <p className="text-4xl  font-bold custom-shadow-white text-[#000000] text-center">
+        My research not only helped guide the development of ResearchObs, but it resulted in {' '}
+        <span className='text-[#f28e0b]'>users rating their experiences more positively </span>
+        than when using WhatsOb. My research also helped {' '}
+        <span className='text-[#f28e0b]'>identify and address longevity concerns </span>  
+         from the PI and data manager so that future changes are easy to deploy.
       </p>
       </div>
   </div>

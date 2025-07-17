@@ -20,7 +20,6 @@ import ddFinal from '../images/seehb/ddfinal.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
-
 export default function SEEHBtimeline() {
   const { pathname } = useLocation();
 
@@ -32,14 +31,15 @@ export default function SEEHBtimeline() {
   const parts2 = Array.from({ length: 6 }, () => useRef(null));
 
   useLayoutEffect(() => {
-    // 1) Sync scroll to top
-    window.scrollTo(0, 0);
-    // 2) Refresh triggers so that pin positions reset
-    ScrollTrigger.refresh();
+    let timelines = [];
 
-    // 3) Delay building timelines until after scroll reset
-    const timeoutId = setTimeout(() => {
-      // First diamond
+    const buildTimelines = () => {
+      // Reset scroll and triggers
+      window.scrollTo(0, 0);
+      ScrollTrigger.getAll().forEach(st => st.kill());
+      ScrollTrigger.refresh();
+
+      // First diamond: animate parts 2–6, leave first static
       const tl1 = gsap.timeline({
         scrollTrigger: {
           trigger: firstRef.current,
@@ -47,14 +47,15 @@ export default function SEEHBtimeline() {
           end: '+=1000%',
           scrub: 0.5,
           pin: true,
+          onRefresh: self => self.update(),
         }
       }).fromTo(
-        parts1.map(r => r.current),
+        parts1.slice(1).map(r => r.current),
         { x: () => -window.innerWidth },
         { x: 0, stagger: 0.8 }
       );
 
-      // Second diamond
+      // Second diamond: all parts
       const tl2 = gsap.timeline({
         scrollTrigger: {
           trigger: secondRef.current,
@@ -62,6 +63,7 @@ export default function SEEHBtimeline() {
           end: '+=1000%',
           scrub: 0.5,
           pin: true,
+          onRefresh: self => self.update(),
         }
       }).fromTo(
         parts2.map(r => r.current),
@@ -77,6 +79,7 @@ export default function SEEHBtimeline() {
           end: '+=50%',
           scrub: 0.5,
           pin: true,
+          onRefresh: self => self.update(),
         }
       }).fromTo(
         finalRef.current,
@@ -84,32 +87,54 @@ export default function SEEHBtimeline() {
         { y: 0, opacity: 1 }
       );
 
-      // Store for cleanup
       timelines = [tl1, tl2, tl3];
-    }, 50);
+    };
 
-    let timelines = [];
+    // Wait for images then delay a bit longer to ensure layout stabilizes
+    const waitForImages = () => {
+      const imgs = [];
+      if (firstRef.current) imgs.push(...firstRef.current.querySelectorAll('img'));
+      if (secondRef.current) imgs.push(...secondRef.current.querySelectorAll('img'));
+      if (finalSectionRef.current && finalRef.current) imgs.push(finalRef.current);
+
+      const loadPromises = imgs.map(img =>
+        new Promise(resolve => {
+          if (img.complete) resolve();
+          else img.addEventListener('load', resolve, { once: true });
+        })
+      );
+
+      Promise.all(loadPromises).then(() => {
+        // additional delay to cover navigation latency
+        setTimeout(buildTimelines, 200);
+      });
+    };
+
+    waitForImages();
+
     return () => {
-      clearTimeout(timeoutId);
+      // Cleanup GSAP and ScrollTrigger
       timelines.forEach(tl => tl.kill());
       ScrollTrigger.getAll().forEach(st => st.kill());
     };
   }, [pathname]);
 
-  const imgStyle =
-    'absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[700px] h-auto max-h-screen';
+  const imgStyle = 'absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[700px] h-auto max-h-screen';
   const zClasses = ['z-50', 'z-40', 'z-30', 'z-20', 'z-10', 'z-0'];
 
   return (
     <div className="bg-backgroundgreen w-full">
       <section ref={firstRef} className="relative w-full h-screen overflow-hidden">
-        {[dd1, dd2, dd3, dd4, dd5, dd6].map((src, i) => (
+        {/* First image static */}
+        <img src={dd1} alt="part 1" className={`${imgStyle} ${zClasses[0]}`} />
+        {/* Animated parts 2–6 */}
+        {[dd2, dd3, dd4, dd5, dd6].map((src, i) => (
           <img
             key={i}
-            ref={parts1[i]}
+            ref={parts1[i + 1]}
             src={src}
-            alt={`part ${i + 1}`}
-            className={`${imgStyle} ${zClasses[i]}`}
+            alt={`part ${i + 2}`}
+            className={`${imgStyle} ${zClasses[i + 1]}`}
           />
         ))}
       </section>

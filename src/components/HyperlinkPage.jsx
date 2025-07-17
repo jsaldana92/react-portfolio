@@ -182,7 +182,7 @@ export function HyperlinkPage() {
 
           {/* Goals Row with onClick animation */}
           <div className="flex justify-center">
-            <div className="flex space-x-6 md:space-x-12">
+            <div className="flex space-x-2 md:space-x-12">
               {goalTexts.map((text, i) => (
                 <div
                   key={i}
@@ -322,7 +322,7 @@ export function HyperlinkPage() {
       {/* Disclaimer section */}
         <div className="w-full mx-auto mb-12 px-6 ">
           <h2 className="text-xl font-semibold text-gray-900 text-center">
-            Due to the sensitive nature of this data, the actual results of this study cannot be shared online. Instead, this page uses a stand-in mock data set that was analyzed similarly to the real project to highlight the skills needed to complete the study.
+            Due to the sensitive nature of this data, the actual results of this study cannot be shared online. Instead, this page uses a stand-in mock data set that was analyzed similarly to the real project to highlight the skills needed to complete the real study.
           </h2>
 
           <div className="flex justify-center py-4">
@@ -331,28 +331,18 @@ export function HyperlinkPage() {
         </div>  
 
 {/* ---- Outcomes for Goal #1 ---- */}
-{/*----Title----*/}
-<section className="max-w-4xl mx-auto  px-6">
-  <div className="flex flex-col space-y-8">
-      {/* Insight card on top */}
-      <div className="w-full mx-auto">
-      <p className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
-          Hyperlinking video lectures to weekly announcements increased engagement
-      </p>
-      </div>
-  </div>
-  </section>
+
 
 
 {/*----Outcomes----*/}
-  <section className="max-w-4xl mx-auto px-6 py-16">
+  <section className="max-w-4xl mx-auto px-6 ">
     <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
       {/* Left column: title + result card */}
     <div className="flex flex-col items-start space-y-4 md:w-1/2">
       <h3 className="text-2xl font-extrabold text-backgroundred">Goal #1</h3>
       <hr className="w-16 border-backgroundgrey border-[2 px]" />
-      <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-        <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[0]}</p>
+      <div className=" bg-gradient-to-r from-[#1b2683] to-[#0987c6]  p-6 rounded-2xl shadow-lg w-full">
+        <p className="text-lg font-semibold text-custom-shadow-sm text-white custom-shadow-small">{goalTexts[0]}</p>
       </div>
     </div>
 
@@ -380,6 +370,17 @@ export function HyperlinkPage() {
       </div>
     </div>
   </div>
+  {/*----Title----*/}
+<section className="max-w-4xl mx-auto mt-12 px-6">
+  <div className="flex flex-col space-y-8">
+      {/* Insight card on top */}
+      <div className="w-full mx-auto">
+      <p className="text-2xl font-bold custom-shadow-white text-[#000000] text-center">
+          Hyperlinking video lectures to weekly announcements increased engagement
+      </p>
+      </div>
+  </div>
+  </section>
     {/* line page break */}
   <div className="flex justify-center mt-6 mb-8 py-4">
     <div className="w-full h-1 bg-backgroundgrey rounded-full" />
@@ -387,37 +388,39 @@ export function HyperlinkPage() {
 </section>
 
 {/* ---- Outcomes for Goal #2 ---- */}
-{/*----Title----*/}
-<section className="max-w-4xl mx-auto px-6">
-  <div className="flex flex-col space-y-8">
-      {/* Insight card on top */}
-      <div className="w-full mx-auto">
-      <p className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
-          The linear model showed that engagement and final grades were linked
-      </p>
-      </div>
-  </div>
-</section>
 {/*----Outcomes----*/}
-<section className="max-w-4xl mx-auto px-6 py-16">
+<section className="max-w-4xl mx-auto px-6 mt-12">
   <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
     {/* Left column: title + result card */}
     <div className="flex flex-col items-start space-y-4 md:w-1/2">
       <h3 className="text-2xl font-extrabold text-backgroundred">Goal #2</h3>
       <hr className="w-16 border-backgroundgrey border-[2px]" />
-      <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-        <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[1]}</p>
+      <div className=" bg-gradient-to-r from-[#1b2683] to-[#0987c6]  p-6 rounded-2xl shadow-lg w-full">
+        <p className="text-lg font-semibold text-custom-shadow-sm text-white custom-shadow-small">{goalTexts[1]}</p>
       </div>
     </div>
 
-    {/* Right column: quote card */}
+        {/* Right column: quote card */}
     <div className="md:w-1/2 flex justify-center">
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
-        <p className="text-lg font-semibold text-gray-900 ">
-          The linear regression model, which included grades, engagement metrics (e.g., number of views, percentage completed, average time completed, load count, etc.), and hyperlink-state, out performed a null model with no predictors
+        <p className="text-lg font-semibold text-gray-900">
+          Regression model predict students’ grades better than random chance
+          (F(7,567)=38.8, p &lt; .001) and accounted for approximately 39.4% of the
+          variance within our data (R2 = 0.394).
         </p>
       </div>
     </div>
+  </div>
+</section>
+{/*----Title----*/}
+<section className="max-w-4xl mt-12 mb-12 mx-auto px-6">
+  <div className="flex flex-col space-y-8">
+      {/* Insight card on top */}
+      <div className="w-full mx-auto">
+      <p className="text-2xl font-bold custom-shadow-white text-[#000000] text-center">
+          The linear model showed that engagement and final grades were linked
+      </p>
+      </div>
   </div>
 </section>
 {/* ---- Additional Insight for Goal 2 (stacked) ---- */}
@@ -453,38 +456,42 @@ export function HyperlinkPage() {
 
 
 {/* ---- Outcomes for Goal #3 ---- */}
-{/*----Title----*/}
-<section className="max-w-4xl mx-auto px-6">
-  <div className="flex flex-col space-y-8">
-      {/* Insight card on top */}
-      <div className="w-full mx-auto">
-      <p className="text-3xl font-extrabold custom-shadow-white text-[#000000] text-center">
-          Hyperlinking lectures to weekly announcement did not increase or decrease student grades
-      </p>
-      </div>
-  </div>
-</section>
+
 {/*----Outcomes----*/}
-<section className="max-w-4xl mx-auto px-6 py-16">
-  <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
+<section className="max-w-4xl mx-auto px-6 mt-12">
+  <div className="flex flex-col md:flex-row items-start md:items-end md:space-x-12 space-y-8 md:space-y-0">
     {/* Left column: title + result card */}
     <div className="flex flex-col items-start space-y-4 md:w-1/2">
       <h3 className="text-2xl font-extrabold text-backgroundred">Goal #3</h3>
       <hr className="w-16 border-backgroundgrey border-[2px]" />
-      <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-        <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">{goalTexts[2]}</p>
+      <div className="bg-gradient-to-r from-[#1b2683] to-[#0987c6] p-6 rounded-2xl shadow-lg w-full">
+        <p className="text-lg font-semibold text-custom-shadow-sm text-white custom-shadow-small">
+          {goalTexts[2]}
+        </p>
       </div>
     </div>
 
     {/* Right column: quote card */}
     <div className="md:w-1/2 flex justify-center">
-      <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
-        <p className="text-lg font-semibold text-gray-900 ">
-          Hyperlinking lectures in weekly announcements did not directly relate to student grades. Individual differences with engagement among students better accounted for grades
+      <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4 md:mb-0">
+        <p className="text-lg font-semibold text-gray-900">
+          Hyperlinking lecture was associated with a non-significant reduction in grades (b = -0.87, SE = 1.05, t(418) = -0.83, p = 0.408).
         </p>
       </div>
     </div>
   </div>
+
+  {/*----Title----*/}
+<section className="max-w-4xl mt-12 mx-auto px-6">
+  <div className="flex flex-col space-y-8">
+      {/* Insight card on top */}
+      <div className="w-full mx-auto">
+      <p className="text-2xl font-bold custom-shadow-white text-[#000000] text-center">
+          Hyperlinking lectures to weekly announcement did not increase or decrease student grades
+      </p>
+      </div>
+  </div>
+</section>
         {/* line page break */}
   <div className="flex justify-center mt-6 mb-8 py-4">
     <div className="w-full h-1 bg-backgroundgrey rounded-full" />
@@ -496,7 +503,7 @@ export function HyperlinkPage() {
 <section>
   <div className="w-full mx-auto px-6 py-8">
     <h2 className="text-4xl leading-snug  font-extrabold text-center text-black">
-      Take Aways
+      Impact
     </h2>
 
     <div className="flex justify-center mt-2 py-4">
@@ -512,7 +519,9 @@ export function HyperlinkPage() {
       <h3 className="text-2xl font-extrabold text-backgroundred">Primary Considerations</h3>
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-        <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">Hyperlinking increases student engagement with online classroom lectures and may indirectly lead to better classroom performance</p>
+        <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">
+          Hyperlinking increases student engagement with online classroom lectures 
+          and may indirectly lead to better classroom performance</p>
       </div>
     </div>
 
@@ -531,14 +540,14 @@ export function HyperlinkPage() {
   <div className="flex flex-col space-y-8 pb-16">
       {/* Insight card on top */}
       <div className="w-full mx-auto mb-8">
-      <p className="text-4xl  font-extrabold custom-shadow-white text-[#000000] text-center">
-        Professors should consider <span className='text-[#f28e0b]'>hyperlinking online lectures</span> in weekly announcements to <span className='text-[#f28e0b]'>increase engagement,</span> specifically for <span className='text-[#f28e0b]'>classes with expected lower engagement</span> metrics due to... 
+      <p className="text-4xl  font-bold custom-shadow-white text-[#000000] text-center">
+        My research quantified the <span className='text-[#f28e0b]'>real-world impact </span> associated with an <span className='text-[#f28e0b]'>easy-to-use methodology</span> that <span className='text-[#f28e0b]'>increased student engagment.</span> Hyperlinking should be used by professors who expected lowered student engagement in classrooms with... 
       </p>
       </div>
     {/* linear regression models */}
     <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
       <p className="text-2xl font-semibold text-center text-gray-700">
-        Online classrooms
+        Online sections
       </p>
       <p className="text-2xl font-semibold text-center text-gray-700">
         Large number of students

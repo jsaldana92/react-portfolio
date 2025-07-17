@@ -15,7 +15,7 @@ export default function ROFlow() {
           className="w-6 h-8 mr-2"
         />
         <h3 className="text-3xl font-extrabold flex items-center">
-        FigJam Flow Chart Intial Development
+        FigJam Flow Chart Initial Development
         </h3>
       </div>
 

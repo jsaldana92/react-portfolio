@@ -45,7 +45,7 @@ export default function ProjectCarousel() {
           <div className="flex-1 overflow-hidden">
             <h3 className="text-xl font-bold break-words text-white">ResearchObs</h3>
             <p className="text-sm mt-2 break-words whitespace-normal text-white">
-              Created behavioral observation collection app based on graduate student, PI, and lab manager interviews.
+              Created behavioral observation collection app based on graduate student, PI, and data manager interviews.
             </p>
           </div>
           <div className="flex justify-end mt-2">
@@ -65,7 +65,7 @@ export default function ProjectCarousel() {
           <div className="flex-1 overflow-hidden">
             <h3 className="text-xl font-bold break-words text-white">DataPuller</h3>
             <p className="text-sm mt-2 break-words whitespace-normal text-white">
-              Developed app based on researcher interviews to increase lab efficiency by allowing rapid collection and transfering of data.
+              Developed app based on researcher interviews to increase lab efficiency by allowing rapid collection and transferring of data.
             </p>
           </div>
           <div className="flex justify-end mt-2">
@@ -85,7 +85,7 @@ export default function ProjectCarousel() {
           <div className="flex-1 overflow-hidden">
             <h3 className="text-xl font-bold break-words text-white">Hyperlink Engagement</h3>
             <p className="text-sm mt-2 break-words whitespace-normal text-white">
-              Analyzed large dataset to determine the effect hyperlinks in weekly announcements had on online classroom engagement.
+              Analyzed student dataset to determine if hyperlinking online lectures in weekly announcements improved classroom engagement.
             </p>
           </div>
           <div className="flex justify-end mt-2">
