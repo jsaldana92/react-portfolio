@@ -151,7 +151,7 @@ export function DataPullerPage() {
             <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl">
                 <p className="text-lg md:text-xl text-gray-800">
                 Older research facilities often rely on non-cloud based local data storage to increase cyber security and therefore{' '}
-                <strong className='text-blue-500'>manualy collect data</strong> across multiple systems
+                <strong className='text-blue-500'>manually collect data</strong> across multiple systems
                 </p>
             </div>
             </div>
@@ -163,7 +163,7 @@ export function DataPullerPage() {
                 <p className="text-lg md:text-xl text-gray-800">
                 Although more "safe" this method can be highly{' '}
                 <strong className='text-blue-500'>ineffective</strong> and cause{' '}
-                <strong className='text-blue-500'>frustation</strong> and {' '}
+                <strong className='text-blue-500'>frustration</strong> and {' '}
                 <strong className='text-blue-500'>needless time loss</strong>
                 </p>
             </div>
@@ -663,7 +663,7 @@ export function DataPullerPage() {
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
         <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">
-          Improving a quantitaive measure (data collection speed) alone is {' '}
+          Improving a quantitative measure (data collection speed) alone is {' '}
           <span className='underline'>not enough</span> {' '} 
           to over come anchor biases from users to continue using traditional practices.
           </p>
@@ -689,7 +689,7 @@ export function DataPullerPage() {
       <div className="w-full mx-auto mb-8">
       <p className="text-4xl  font-bold custom-shadow-white text-[#000000] text-center">
         My research found a {' '}
-        <span className='text-[#f28e0b]'>solution to common frustrations</span> expressed by reserachers and iterated on the beta-app to increase{' '}
+        <span className='text-[#f28e0b]'>solution to common frustrations</span> expressed by researchers and iterated on the beta-app to increase{' '}
         <span className='text-[#f28e0b]'> perception</span>  and{' '}
         <span className='text-[#f28e0b]'> engagement</span> to established cognitive biases.
       </p>

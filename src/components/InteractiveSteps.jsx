@@ -66,7 +66,7 @@ const defaultSteps = [
     headerSubtitle: "GTA's future grading confidence is based on the outcome and mentoring/support given or gained",
     quotes: {
       A: '"I fell confident that in the future I can handle a lot of the reporting process on my own since either way [my advisor] will be there to help me.”',
-      B: '"I cannot say that I feel condifent handling serious AI issues since I was never really in a position to make those decisions.”'
+      B: '"I cannot say that I feel confident handling serious AI issues since I was never really in a position to make those decisions.”'
     },
     sources: { A: 'GTA with formal training and monthly supervision', B: 'GTA with no formal training and variable supervision' }
   }

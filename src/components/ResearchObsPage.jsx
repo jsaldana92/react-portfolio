@@ -191,7 +191,7 @@ export function ResearchObsPage() {
                 <p className="text-lg md:text-xl text-gray-800">
                 <strong className='text-blue-500'>Support </strong> and{' '}
                 <strong className='text-blue-500'>customizability</strong> for these apps is variable and can restrict labs to existing {' '}
-                <strong className='text-blue-500'>designs/ecosystems</strong>, therefore, some labs rely on indivdual graduate students to provide{' '}
+                <strong className='text-blue-500'>designs/ecosystems</strong>, therefore, some labs rely on individual graduate students to provide{' '}
                 <strong className='text-blue-500'>custom solutions</strong>
                 </p>
             </div>
@@ -373,7 +373,7 @@ export function ResearchObsPage() {
           <div className="md:w-1/2 flex justify-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
               <p className="text-lg font-semibold text-gray-900 ">
-                10-minute interviews with 4 end-users (data cllectors), data manager, and primary investigator (lead researcher) focused on current errors, bugs, and "needed" versus "would like" changes 
+                10-minute interviews with 4 end-users (data collectors), data manager, and primary investigator (lead researcher) focused on current errors, bugs, and "needed" versus "would like" changes 
                 </p>
             </div>
           </div>
@@ -453,7 +453,7 @@ export function ResearchObsPage() {
             <section className="max-w-4xl mx-auto mt-4 mb-12 px-6">
             <div className="w-full mx-auto">
             <h1 className="text-2xl font-bold custom-shadow-white text-[#000000] text-center">
-                <span className='text-blue-500'>ResearchObs</span> should provide new quality of life feautres for end-users  
+                <span className='text-blue-500'>ResearchObs</span> should provide new quality of life features for end-users  
                 <span className='text-blue-500'> (undo button and quick group switching) </span> 
                 and management 
                 <span className='text-blue-500'> (in-app editing of groups, group members,and behaviors) </span> in the 
@@ -466,7 +466,7 @@ export function ResearchObsPage() {
                    <span className='text-blue-500'> legacy data storage/structure. </span> 
                    However, the app should 
                    <span className='text-blue-500'> standardize global data inputs  </span>
-                   (day,location, weather, etc.) to minize errors in stored data.
+                   (day,location, weather, etc.) to minimize errors in stored data.
             </h1>
             </div>
       </section>
@@ -519,7 +519,7 @@ export function ResearchObsPage() {
           <div className="md:w-1/2 flex justify-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
               <p className="text-lg font-semibold text-gray-900 ">
-                Usability testing/interview with 4 end-users plus beta-app presentation to primary investigator focused on gaguging the effectiveness of the new features 
+                Usability testing/interview with 4 end-users plus beta-app presentation to primary investigator focused on gauging the effectiveness of the new features 
                 </p>
             </div>
           </div>
@@ -536,7 +536,7 @@ export function ResearchObsPage() {
             </h1>
             </div>
             <div className="w-full mx-auto">
-              <p className='text-lg text-center pt-1 text-gray-700 italic'>Solutions based on premiliminary research findings</p>
+              <p className='text-lg text-center pt-1 text-gray-700 italic'>Solutions based on preliminary research findings</p>
             </div>
       </section>
 
@@ -561,7 +561,7 @@ export function ResearchObsPage() {
                 <span className='text-blue-500'> familiarity </span> (a key point made by the PI).
             </h1>
             <h1 className="text-2xl font-bold custom-shadow-white text-[#000000] text-center pt-4">
-                Remaining developement time should be spent optimizing back-end developement to incorporate 
+                Remaining development time should be spent optimizing back-end development to incorporate 
                 <span className='text-blue-500'> safety features </span>
                  that prevent accidental data loss. Additional care should be placed on   
                  <span className='text-blue-500'> standardizing the UI </span>
@@ -680,10 +680,10 @@ export function ResearchObsPage() {
       {/* Insight card on top */}
       <div className="w-full mx-auto mb-8">
       <p className="text-4xl  font-bold custom-shadow-white text-[#000000] text-center">
-        My research not only helped guide the developement of ResearchObs, but it resulted in {' '}
-        <span className='text-[#f28e0b]'>users rating their experiences more possitively </span>
+        My research not only helped guide the development of ResearchObs, but it resulted in {' '}
+        <span className='text-[#f28e0b]'>users rating their experiences more positively </span>
         than when using WhatsOb. My research also helped {' '}
-        <span className='text-[#f28e0b]'>identify and address longevitiy concerns </span>  
+        <span className='text-[#f28e0b]'>identify and address longevity concerns </span>  
          from the PI and data manager so that future changes are easy to deploy.
       </p>
       </div>

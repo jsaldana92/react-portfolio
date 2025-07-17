@@ -333,7 +333,7 @@ export function GTAGradingPage() {
       ref={flowBoxes[4]}
       className="col-start-3 row-start-3 bg-white p-1 md:p-6 w-full rounded shadow min-w-0 break-words font-semibold text-end text-sm md:text-lg"
     >
-      <p>Develop <span  className='text-blue-500'>Primary</span> and <span  className='text-blue-500'>Secodary</span> Considerations | <span  className='text-blue-500'>Impact</span></p>
+      <p>Develop <span  className='text-blue-500'>Primary</span> and <span  className='text-blue-500'>Secondary</span> Considerations | <span  className='text-blue-500'>Impact</span></p>
     </div>
   </div>
   {/* line page break */}
@@ -394,7 +394,7 @@ export function GTAGradingPage() {
           <div className="md:w-1/2 flex justify-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
               <p className="text-lg text-center md:text-end font-semibold text-gray-900 ">
-                Totaled 220 minutes of interview reponses to thematically code
+                Totaled 220 minutes of interview responses to thematically code
               </p>
             </div>
           </div>
@@ -604,7 +604,7 @@ export function GTAGradingPage() {
             3
           </span>
           <p className="text-gray-800 text-2xl">
-            3 GTAs reported always reporting everyting to their faculty advisor as they took care of all grading issues
+            3 GTAs reported always reporting everything to their faculty advisor as they took care of all grading issues
           </p>
         </li>
       </ul>
@@ -629,7 +629,7 @@ export function GTAGradingPage() {
           <div className="md:w-1/2 flex justify-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
               <p className="text-lg font-semibold italic text-gray-900 ">
-                "I know that our depratment gives a lot of structured support, but talking to other graduate students, it seems like that is not every department... it's like the wild west when it comes to having proper help and training."
+                "I know that our department gives a lot of structured support, but talking to other graduate students, it seems like that is not every department... it's like the wild west when it comes to having proper help and training."
               </p>
               <p className="text-md text-right italic text-gray-900">- GTA with formal training and monthly supervision</p>
             </div>
@@ -647,15 +647,15 @@ export function GTAGradingPage() {
             1
           </span>
           <p className="text-gray-800 text-2xl">
-            4 GTAs reported that the received a <span className='text-blue-500'>formal class prior to teaching </span> with <span className='text-blue-500'>once-a-month virtual townhall check-ins</span> between all GTAs and a faculty advisor where they were required to give a brief update on thier experience or ask a question relevant to teaching
-          </p>
+            4 GTAs reported that the received a <span className='text-blue-500'>formal class prior to teaching </span> with <span className='text-blue-500'>once-a-month virtual town-hall check-ins</span> between all GTAs and a faculty advisor where they were required to give a brief update on their experience or ask a question relevant to teaching
+          </p> 
         </li>
         <li className="flex items-start">
           <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
             2
           </span>
           <p className="text-gray-800 text-2xl">
-            3 GTAs reported that their department provided <span className='text-blue-500'>varibale training depending on what they were expected to teach</span> but had <span className='text-blue-500'>intense weekly mandatory 2-hour meetings</span> between the GTAs and teaching faculty advisor where they discussed topics <span className='text-orange-500'>somewhat</span> related to teaching
+            3 GTAs reported that their department provided <span className='text-blue-500'>variable training depending on what they were expected to teach</span> but had <span className='text-blue-500'>intense weekly mandatory 2-hour meetings</span> between the GTAs and teaching faculty advisor where they discussed topics <span className='text-orange-500'>somewhat</span> related to teaching
           </p>
         </li>
         <li className="flex items-start">
@@ -663,7 +663,7 @@ export function GTAGradingPage() {
             3
           </span>
           <p className="text-gray-800 text-2xl">
-            3 GTAs reported receiving <span className='text-orange-500'>no training prior to teaching</span> and learned as they were teaching. They also reported that <span className='text-orange-500'>support was highly depandent</span> on whatever faculty member their were assinged which resulted in <span className='text-orange-500'> heavy or no supervision.</span>
+            3 GTAs reported receiving <span className='text-orange-500'>no training prior to teaching</span> and learned as they were teaching. They also reported that <span className='text-orange-500'>support was highly dependent</span> on whatever faculty member their were assigned which resulted in <span className='text-orange-500'> heavy or no supervision.</span>
           </p>
         </li>
       </ul>
@@ -762,7 +762,7 @@ export function GTAGradingPage() {
       </section>
       <section className='mb-14 max-w-4xl mx-auto px-2'>
         <p className='text-lg  text-gray-700 italic text-center'>
-          Deparmental training and support, alongside experience, impact how GTAs perceive grading issues
+          Departmental training and support, alongside experience, impact how GTAs perceive grading issues
           </p>
       </section>
       {/* ---- Step #1 ---- */}
@@ -797,8 +797,8 @@ export function GTAGradingPage() {
       <hr className="w-16 border-backgroundgrey border-[2px]" />
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
         <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">
-          Formal training, alongisde brief regular check-ins, provide the highest valued type of support. 
-          This allows GTAs the resources and the experience to imporve as professors and rely less of direct departmental support for minor issues. 
+          Formal training, alongside brief regular check-ins, provide the highest valued type of support. 
+          This allows GTAs the resources and the experience to improve as professors and rely less of direct departmental support for minor issues. 
           </p>
       </div>
     </div>
@@ -810,7 +810,7 @@ export function GTAGradingPage() {
       <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
         <p className="text-lg font-semibold text-custom-shadow-sm text-gray-800">
           Experience is ultimately seen as the most relevant skill to mitigate grading issues, 
-          however, real-world experience is seen as more favorable than theoritical experience making training classrooms an unappealing option for GTAs.
+          however, real-world experience is seen as more favorable than theoretical experience making training classrooms an unappealing option for GTAs.
         </p>
       </div>
     </div>
@@ -825,7 +825,7 @@ export function GTAGradingPage() {
         My research helped show how GTAs {' '}
         <span className='text-[#f28e0b]'>perceive </span> departmental training, support, and mentoring. It highlighted a need for {' '}
         <span className='text-[#f28e0b]'>standardized training classes </span> for new GTAs and {' '}
-        <span className='text-[#f28e0b]'>semi-regular check-ins</span> to support them once they are teaching. Together, these solutions were to reported to derpartments as methods to{' '}
+        <span className='text-[#f28e0b]'>semi-regular check-ins</span> to support them once they are teaching. Together, these solutions were to reported to departments as methods to{' '}
         <span className='text-[#f28e0b]'> help resolve</span> current grading issues.
       </p>
       </div>

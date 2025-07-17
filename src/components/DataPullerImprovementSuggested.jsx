@@ -17,7 +17,7 @@ export default function DataPullerImprovementSuggested() {
   const generalFeedbackQuotes = [
     { text: '“The launch time was super long and made it not fun waiting for the app to launch, I would much rather just click around and get to the one folder I need since I would rather not just sit there.”', author: 'Junior Researcher' },
     { text: '“I only really pull data from one or two projects at a time, so the long start up time makes it seem not necessary to use the app.”', author: 'Senior Researcher' },
-    { text: '“I cancertainly feel it being faster but the long start up time is a major downfall.”', author: 'Senior Researcher' },
+    { text: '“I certainly feel it being faster but the long start up time is a major downfall.”', author: 'Senior Researcher' },
   ];
 
   const renderQuotes = (quotes) => (

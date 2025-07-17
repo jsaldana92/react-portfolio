@@ -44,7 +44,7 @@ export default function DPPreliminary() {
       title: 'Most Wanted Feature',
       text: 'Transfer log',
       quotes: [
-        { text: '“A transfered log of what was copied would be great to make sure the transfer had no errors.”', author: 'Senior Researcher' },
+        { text: '“A transfer log of what was copied would be great to make sure the transfer had no errors.”', author: 'Senior Researcher' },
         { text: '“I think that people would not use this without a transfer log since.”', author: 'Primary Investigator' }
       ]
     },
