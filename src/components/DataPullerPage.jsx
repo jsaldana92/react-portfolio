@@ -691,7 +691,7 @@ export function DataPullerPage() {
         My research found a {' '}
         <span className='text-[#f28e0b]'>solution to common frustrations</span> expressed by researchers and iterated on the beta-app to increase{' '}
         <span className='text-[#f28e0b]'> perception</span>  and{' '}
-        <span className='text-[#f28e0b]'> engagement</span> to established cognitive biases.
+        <span className='text-[#f28e0b]'> engagement</span> to overcome established cognitive biases.
       </p>
       </div>
   </div>

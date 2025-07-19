@@ -37,7 +37,7 @@ export default function DPPreliminary() {
       text: 'Worried that other files will be transferred',
       quotes: [
         { text: '“I would be a bit weary that not every files is being transferred.”', author: 'Junior Researcher' },
-        { text: '“It would be nice to be able to check quick files are being transferred.”', author: 'Senior Researcher' }
+        { text: '“It would be nice to be able to quickly check if files are being correctly transferred.”', author: 'Senior Researcher' }
       ]
     },
     {

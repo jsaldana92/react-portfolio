@@ -6,7 +6,7 @@ export default function ROPreliminaryInterview() {
 
   const endUserQuotes = [
     { text: '"It is annoying not being able to edit the [observation] as I am [entering data]. If I want to edit it after the [observation] is complete, I might forget what I needed to change."', author: 'Junior Researcher' },
-    { text: '"The tablets lose charge really quickly and it each groups pretty much has only one tablet assigned to it, which makes data collection difficult since we cannot freely switch between the tablets as needed."', author: 'Senior Researcher' },
+    { text: '"The tablets lose charge really quickly and each groups pretty much has only one tablet assigned to it, which makes data collection difficult since we cannot freely switch between the tablets as needed."', author: 'Senior Researcher' },
     { text: '"An undo button would be really nice and would take care of tedious editing."', author: 'Senior Researcher' },
   ];
 
