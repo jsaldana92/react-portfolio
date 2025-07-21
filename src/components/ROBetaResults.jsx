@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import undoImg from '../images/researchobs/undoscore.png';
-import switchImg from '../images/researchobs/switchscore.png';
-import editImg from '../images/researchobs/editscore.png';
-import famImg from '../images/researchobs/famscore.png';
+import React, { useState } from "react";
+import undoImg from "../images/researchobs/undoscore.png";
+import switchImg from "../images/researchobs/switchscore.png";
+import editImg from "../images/researchobs/editscore.png";
+import famImg from "../images/researchobs/famscore.png";
 
 export default function ROBetaResults() {
   const tabs = [
-    'Ease of Editing',
-    'Ease of Switching Between Groups',
-    'Editing Group Details',
-    'Familiarity',
+    "Ease of Editing",
+    "Ease of Switching Between Groups",
+    "Editing Group Details",
+    "Familiarity",
   ];
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   const renderContent = () => {
     switch (selectedTab) {
-      case 'Ease of Editing':
+      case "Ease of Editing":
         return (
           <section className="max-w-4xl mt-4 mx-auto px-2">
             <h2 className="w-full text-center text-2xl font-semibold mb-4">
@@ -30,7 +30,7 @@ export default function ROBetaResults() {
             </div>
           </section>
         );
-      case 'Ease of Switching Between Groups':
+      case "Ease of Switching Between Groups":
         return (
           <section className="max-w-4xl mt-4 mx-auto px-2">
             <h2 className="w-full text-center text-2xl font-semibold mb-4">
@@ -45,7 +45,7 @@ export default function ROBetaResults() {
             </div>
           </section>
         );
-      case 'Editing Group Details':
+      case "Editing Group Details":
         return (
           <section className="max-w-4xl mt-4 mx-auto px-2">
             <h2 className="w-full text-center text-2xl font-semibold mb-4">
@@ -60,7 +60,7 @@ export default function ROBetaResults() {
             </div>
           </section>
         );
-      case 'Familiarity':
+      case "Familiarity":
         return (
           <section className="max-w-4xl mt-4 mx-auto px-2">
             <h2 className="w-full text-center text-2xl font-semibold mb-4">
@@ -83,14 +83,14 @@ export default function ROBetaResults() {
   return (
     <div className="py-8">
       <div className="flex justify-center space-x-4 mb-8">
-        {tabs.map(tab => (
+        {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setSelectedTab(tab)}
             className={`px-4 py-2 rounded-2xl font-semibold transition-colors duration-200 cursor-pointer ${
               selectedTab === tab
-                ? 'bg-blue-500 text-white'
-                : 'bg-gray-300 text-gray-800 hover:bg-gray-400'
+                ? "bg-blue-500 text-white"
+                : "bg-gray-300 text-gray-800 hover:bg-gray-400"
             }`}
           >
             {tab}

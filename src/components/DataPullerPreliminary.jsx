@@ -1,70 +1,92 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export default function DPPreliminary() {
-   // default to the first questionnaire item
+  // default to the first questionnaire item
   const [selectedQ, setSelectedQ] = useState(0);
 
   const timelineSteps = [
-    'Turn on individuals computers and insert USB drive',
-    'Open C:/Tasks/[Researcher Last Name]/[Project]',
-    'Copy all relevant data into USB',
+    "Turn on individuals computers and insert USB drive",
+    "Open C:/Tasks/[Researcher Last Name]/[Project]",
+    "Copy all relevant data into USB",
     'Move original data into a "copied" folder within [Project]',
-    'Repeat steps 2-4 until all data has been copied',
-    'Safely eject USB drive and turn off laptop'
+    "Repeat steps 2-4 until all data has been copied",
+    "Safely eject USB drive and turn off laptop",
   ];
 
   const timelineColors = [
-    'bg-[#EC7063]',
-    'bg-[#F5B041]',
-    'bg-[#F4D03F]',
-    'bg-[#48C9B0]',
-    'bg-[#7FB3D5]',
-    'bg-[#AEB6BF]'
+    "bg-[#EC7063]",
+    "bg-[#F5B041]",
+    "bg-[#F4D03F]",
+    "bg-[#48C9B0]",
+    "bg-[#7FB3D5]",
+    "bg-[#AEB6BF]",
   ];
 
   // Now include two quotes per item
   const questionnaire = [
     {
-      title: 'Most Common Data Format',
-      text: '.csv and .txt',
+      title: "Most Common Data Format",
+      text: ".csv and .txt",
       quotes: [
-        { text: '“I only use .csv files.”', author: 'Junior Researcher' },
-        { text: '“I use .txt only, but I know that a lot of my students use .csv too.”', author: 'Primary Investigator' }
-      ]
+        { text: "“I only use .csv files.”", author: "Junior Researcher" },
+        {
+          text: "“I use .txt only, but I know that a lot of my students use .csv too.”",
+          author: "Primary Investigator",
+        },
+      ],
     },
     {
-      title: 'Most Common Worry',
-      text: 'Worried that other files will be transferred',
+      title: "Most Common Worry",
+      text: "Worried that other files will be transferred",
       quotes: [
-        { text: '“I would be a bit weary that not every files is being transferred.”', author: 'Junior Researcher' },
-        { text: '“It would be nice to be able to quickly check if files are being correctly transferred.”', author: 'Senior Researcher' }
-      ]
+        {
+          text: "“I would be a bit weary that not every files is being transferred.”",
+          author: "Junior Researcher",
+        },
+        {
+          text: "“It would be nice to be able to quickly check if files are being correctly transferred.”",
+          author: "Senior Researcher",
+        },
+      ],
     },
     {
-      title: 'Most Wanted Feature',
-      text: 'Transfer log',
+      title: "Most Wanted Feature",
+      text: "Transfer log",
       quotes: [
-        { text: '“A transfer log of what was copied would be great to make sure the transfer had no errors.”', author: 'Senior Researcher' },
-        { text: '“I think that people would not use this without a transfer log since.”', author: 'Primary Investigator' }
-      ]
+        {
+          text: "“A transfer log of what was copied would be great to make sure the transfer had no errors.”",
+          author: "Senior Researcher",
+        },
+        {
+          text: "“I think that people would not use this without a transfer log since.”",
+          author: "Primary Investigator",
+        },
+      ],
     },
     {
-      title: 'Most Likely to Use App If',
-      text: 'Greatly reduces data collection speed',
+      title: "Most Likely to Use App If",
+      text: "Greatly reduces data collection speed",
       quotes: [
-        { text: '“Pulling data would need to be significantly faster to make learning a new way worth it.”', author: 'Senior Researcher' },
-        { text: '“If it is faster and helps junior researchers not make mistakes then I am all for it.”', author: 'Primary Investigator' }
-      ]
-    }
+        {
+          text: "“Pulling data would need to be significantly faster to make learning a new way worth it.”",
+          author: "Senior Researcher",
+        },
+        {
+          text: "“If it is faster and helps junior researchers not make mistakes then I am all for it.”",
+          author: "Primary Investigator",
+        },
+      ],
+    },
   ];
 
   return (
     <section className="max-w-4xl mx-auto px-6 mb-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
         {/* Left column: Timeline */}
         <div>
-          <h2 className="text-3xl  font-extrabold text-center mb-6">Timeline</h2>
+          <h2 className="text-3xl  font-extrabold text-center mb-6">
+            Timeline
+          </h2>
           <div className="flex flex-col space-y-4">
             {timelineSteps.map((step, i) => (
               <div
@@ -87,14 +109,18 @@ export default function DPPreliminary() {
 
         {/* Right column: Questionnaire */}
         <div>
-          <h2 className="text-3xl font-extrabold text-center mb-6">Questionnaire</h2>
+          <h2 className="text-3xl font-extrabold text-center mb-6">
+            Questionnaire
+          </h2>
           <div className="flex flex-col space-y-4">
             {questionnaire.map((q, i) => {
               const isSelected = selectedQ === i;
               return (
                 <div
                   key={i}
-                  onClick={() => setSelectedQ(prev => (prev === i ? null : i))}
+                  onClick={() =>
+                    setSelectedQ((prev) => (prev === i ? null : i))
+                  }
                   className={`
                     bg-white
                     p-6
@@ -103,9 +129,10 @@ export default function DPPreliminary() {
                     cursor-pointer
                     transition-all
                     duration-200
-                    ${isSelected
-                      ? 'ring-4 ring-blue-300 ring-opacity-50'
-                      : 'ring-0'
+                    ${
+                      isSelected
+                        ? "ring-4 ring-blue-300 ring-opacity-50"
+                        : "ring-0"
                     }
                   `}
                 >
@@ -131,7 +158,6 @@ export default function DPPreliminary() {
             })}
           </div>
         </div>
-
       </div>
     </section>
   );

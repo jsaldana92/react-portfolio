@@ -1,16 +1,16 @@
 // src/components/ArrowArcAnimation.jsx
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import arrow2 from '../images/arrow2.png';
-import arc1 from '../images/arc1.png';
-import arc2 from '../images/arc2.png'; 
-import arc3 from '../images/arc3.png';
-import arc4 from '../images/arc4.png';
-import arc5 from '../images/arc5.png';
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import arrow2 from "../images/arrow2.png";
+import arc1 from "../images/arc1.png";
+import arc2 from "../images/arc2.png";
+import arc3 from "../images/arc3.png";
+import arc4 from "../images/arc4.png";
+import arc5 from "../images/arc5.png";
 
 const ArrowArcAnimation = ({ isHovered }) => {
   const arrowRef = useRef();
-  const arcRef = useRef();   // arc1
+  const arcRef = useRef(); // arc1
   const arc2Ref = useRef();
   const arc3Ref = useRef();
   const arc4Ref = useRef();
@@ -57,7 +57,6 @@ const ArrowArcAnimation = ({ isHovered }) => {
       arc5Delay = 18;
       arrowWidth = 500;
       arcWidth = 120;
-
     } else if (screenWidth >= 640 && screenWidth < 768) {
       // small–medium
       arrowStartX = -440;
@@ -69,7 +68,7 @@ const ArrowArcAnimation = ({ isHovered }) => {
       arc2Delay = 5;
       arc3Delay = 10;
       arc4Delay = 15;
-      arc5Delay = 20
+      arc5Delay = 20;
       arrowWidth = 500;
       arcWidth = 120;
     } else if (screenWidth >= 768 && screenWidth < 1024) {
@@ -83,7 +82,7 @@ const ArrowArcAnimation = ({ isHovered }) => {
       arc2Delay = 4;
       arc3Delay = 8;
       arc4Delay = 12;
-      arc5Delay = 16
+      arc5Delay = 16;
       arrowWidth = 500;
       arcWidth = 160;
     } else if (screenWidth >= 1024 && screenWidth < 1280) {
@@ -97,7 +96,7 @@ const ArrowArcAnimation = ({ isHovered }) => {
       arc2Delay = 2;
       arc3Delay = 4;
       arc4Delay = 6;
-      arc5Delay = 8
+      arc5Delay = 8;
       arrowWidth = 400;
       arcWidth = 100;
     } else if (screenWidth >= 1280) {
@@ -111,11 +110,10 @@ const ArrowArcAnimation = ({ isHovered }) => {
       arc2Delay = 3;
       arc3Delay = 6;
       arc4Delay = 9;
-      arc5Delay = 12
+      arc5Delay = 12;
       arrowWidth = 300;
       arcWidth = 100;
     }
-
 
     const arcDistance = Math.abs(arcEndX - arcStartX);
     const arcDuration = arcDistance / arcSpeed;
@@ -131,84 +129,131 @@ const ArrowArcAnimation = ({ isHovered }) => {
     gsap.set(arrow, { width: arrowWidth });
     gsap.set([arc, arc2, arc3, arc4, arc5], { width: arcWidth });
     gsap.set([arc, arc2, arc3, arc4, arc5], { x: arcStartX });
-    
 
     if (isHovered) {
       tlRef.current = gsap.timeline({ repeat: -1, repeatDelay: 0.5 });
 
       // Arrow move
-      tlRef.current.to(arrow, {
-        x: arrowEndX,
-        duration: arrowDuration,
-        ease: 'power0.5.inOut',
-      }, 0);
+      tlRef.current.to(
+        arrow,
+        {
+          x: arrowEndX,
+          duration: arrowDuration,
+          ease: "power0.5.inOut",
+        },
+        0
+      );
 
       // Arrow fade
-      tlRef.current.to(arrow, {
-        opacity: 0,
-        duration: fadeDuration,
-        ease: 'power1.out',
-      }, arrowDuration - fadeDuration);
+      tlRef.current.to(
+        arrow,
+        {
+          opacity: 0,
+          duration: fadeDuration,
+          ease: "power1.out",
+        },
+        arrowDuration - fadeDuration
+      );
 
       // Arc 1
-      tlRef.current.to(arc, {
-        x: arcEndX,
-        duration: arcDuration,
-        ease: 'power0.5.inOut',
-      }, 0);
-      tlRef.current.to(arc, {
-        opacity: 0,
-        duration: fadeDuration,
-        ease: 'power1.out',
-      }, arcDuration - fadeDuration);
+      tlRef.current.to(
+        arc,
+        {
+          x: arcEndX,
+          duration: arcDuration,
+          ease: "power0.5.inOut",
+        },
+        0
+      );
+      tlRef.current.to(
+        arc,
+        {
+          opacity: 0,
+          duration: fadeDuration,
+          ease: "power1.out",
+        },
+        arcDuration - fadeDuration
+      );
 
       // Arc 2
-      tlRef.current.to(arc2, {
-        x: arcEndX,
-        duration: arcDuration,
-        ease: 'power0.5.inOut',
-      }, arc2Delay);
-      tlRef.current.to(arc2, {
-        opacity: 0,
-        duration: fadeDuration,
-        ease: 'power1.out',
-      }, arc2Delay + arcDuration - fadeDuration);
+      tlRef.current.to(
+        arc2,
+        {
+          x: arcEndX,
+          duration: arcDuration,
+          ease: "power0.5.inOut",
+        },
+        arc2Delay
+      );
+      tlRef.current.to(
+        arc2,
+        {
+          opacity: 0,
+          duration: fadeDuration,
+          ease: "power1.out",
+        },
+        arc2Delay + arcDuration - fadeDuration
+      );
 
       // Arc 3
-      tlRef.current.to(arc3, {
-        x: arcEndX,
-        duration: arcDuration,
-        ease: 'power0.5.inOut',
-      }, arc3Delay);
-      tlRef.current.to(arc3, {
-        opacity: 0,
-        duration: fadeDuration,
-        ease: 'power1.out',
-      }, arc3Delay + arcDuration - fadeDuration);
+      tlRef.current.to(
+        arc3,
+        {
+          x: arcEndX,
+          duration: arcDuration,
+          ease: "power0.5.inOut",
+        },
+        arc3Delay
+      );
+      tlRef.current.to(
+        arc3,
+        {
+          opacity: 0,
+          duration: fadeDuration,
+          ease: "power1.out",
+        },
+        arc3Delay + arcDuration - fadeDuration
+      );
 
       // Arc 4
-      tlRef.current.to(arc4, {
-        x: arcEndX,
-        duration: arcDuration,
-        ease: 'power0.5.inOut',
-      }, arc4Delay);
-      tlRef.current.to(arc4, {
-        opacity: 0,
-        duration: fadeDuration,
-        ease: 'power1.out',
-      }, arc4Delay + arcDuration - fadeDuration);
+      tlRef.current.to(
+        arc4,
+        {
+          x: arcEndX,
+          duration: arcDuration,
+          ease: "power0.5.inOut",
+        },
+        arc4Delay
+      );
+      tlRef.current.to(
+        arc4,
+        {
+          opacity: 0,
+          duration: fadeDuration,
+          ease: "power1.out",
+        },
+        arc4Delay + arcDuration - fadeDuration
+      );
 
       // Arc 5
-      tlRef.current.to(arc5, {
-        x: arcEndX,
-        duration: arcDuration,
-        ease: 'power0.5.inOut',
-      }, arc5Delay);
-      tlRef.current.to(arc5, {
-        opacity: 0,
-        duration: fadeDuration,
-        ease: 'power1.out',
-      }, arc5Delay + arcDuration - fadeDuration);
+      tlRef.current.to(
+        arc5,
+        {
+          x: arcEndX,
+          duration: arcDuration,
+          ease: "power0.5.inOut",
+        },
+        arc5Delay
+      );
+      tlRef.current.to(
+        arc5,
+        {
+          opacity: 0,
+          duration: fadeDuration,
+          ease: "power1.out",
+        },
+        arc5Delay + arcDuration - fadeDuration
+      );
     }
   };
 
@@ -220,14 +265,17 @@ const ArrowArcAnimation = ({ isHovered }) => {
       tlRef.current = null;
 
       // Reset all opacities when hover ends
-      gsap.set([
-        arrowRef.current,
-        arcRef.current,
-        arc2Ref.current,
-        arc3Ref.current,
-        arc4Ref.current,
-        arc5Ref.current,
-      ], { opacity: 1 });
+      gsap.set(
+        [
+          arrowRef.current,
+          arcRef.current,
+          arc2Ref.current,
+          arc3Ref.current,
+          arc4Ref.current,
+          arc5Ref.current,
+        ],
+        { opacity: 1 }
+      );
     }
 
     return () => {
@@ -249,11 +297,36 @@ const ArrowArcAnimation = ({ isHovered }) => {
         alt="arrow"
         className="blur-[0.5px] absolute z-10"
       />
-      <img ref={arcRef} src={arc1} alt="arc1" className="blur-[0.8px] absolute z-20" />
-      <img ref={arc2Ref} src={arc2} alt="arc2" className="blur-[0.8px] absolute z-20" />
-      <img ref={arc3Ref} src={arc3} alt="arc3" className="blur-[0.8px] absolute z-20" />
-      <img ref={arc4Ref} src={arc4} alt="arc4" className="blur-[0.8px] absolute z-20" />
-      <img ref={arc5Ref} src={arc5} alt="arc5" className="blur-[0.8px] absolute z-20" />
+      <img
+        ref={arcRef}
+        src={arc1}
+        alt="arc1"
+        className="blur-[0.8px] absolute z-20"
+      />
+      <img
+        ref={arc2Ref}
+        src={arc2}
+        alt="arc2"
+        className="blur-[0.8px] absolute z-20"
+      />
+      <img
+        ref={arc3Ref}
+        src={arc3}
+        alt="arc3"
+        className="blur-[0.8px] absolute z-20"
+      />
+      <img
+        ref={arc4Ref}
+        src={arc4}
+        alt="arc4"
+        className="blur-[0.8px] absolute z-20"
+      />
+      <img
+        ref={arc5Ref}
+        src={arc5}
+        alt="arc5"
+        className="blur-[0.8px] absolute z-20"
+      />
     </div>
   );
 };

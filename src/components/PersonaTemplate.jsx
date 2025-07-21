@@ -1,5 +1,5 @@
 // src/components/PersonaTemplate.jsx
-import React from 'react';
+import React from "react";
 
 export default function PersonaTemplate({
   // Top
@@ -48,10 +48,8 @@ export default function PersonaTemplate({
           {name} – {age}
         </p>
       </div>
-      <div className='mb-4 px-4'>
-        <p className='text-center text-md md:text-lg italic'>
-          {quote}
-        </p>
+      <div className="mb-4 px-4">
+        <p className="text-center text-md md:text-lg italic">{quote}</p>
       </div>
 
       {/* line page break */}

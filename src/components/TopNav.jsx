@@ -1,15 +1,15 @@
 // src/components/TopNav.jsx
-import React, { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import { FiMenu, FiX } from 'react-icons/fi';
+import React, { useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { FiMenu, FiX } from "react-icons/fi";
 
 const pages = [
-  { label: 'Home', to: '/' },
-  { label: 'ResearchObs', to: '/ResearchObs' },
-  { label: 'DataPuller', to: '/DataPuller' },
-  { label: 'Hyperlink Engagement', to: '/HyperlinkEngagement' },
-  { label: 'GTA Grading Experience', to: '/GTAGradingExperience' },
-  { label: 'SEEHB Website', to: '/SEEHB' }
+  { label: "Home", to: "/" },
+  { label: "ResearchObs", to: "/ResearchObs" },
+  { label: "DataPuller", to: "/DataPuller" },
+  { label: "Hyperlink Engagement", to: "/HyperlinkEngagement" },
+  { label: "GTA Grading Experience", to: "/GTAGradingExperience" },
+  { label: "SEEHB Website", to: "/SEEHB" },
 ];
 
 export default function TopNav() {
@@ -22,16 +22,16 @@ export default function TopNav() {
         {/* Desktop Nav */}
         <div className="hidden md:flex h-16 items-center justify-center">
           <ul className="flex justify-center space-x-8 py-2 w-full">
-            {pages.map(page => (
+            {pages.map((page) => (
               <li key={page.to} className="relative">
                 <NavLink
                   to={page.to}
                   end
                   className={({ isActive }) =>
                     `px-4 py-1 transition ${
-                      isActive 
-                        ? 'text-blue-600 font-semibold' 
-                        : 'text-gray-800 font-medium'
+                      isActive
+                        ? "text-blue-600 font-semibold"
+                        : "text-gray-800 font-medium"
                     }`
                   }
                 >
@@ -47,14 +47,13 @@ export default function TopNav() {
           </ul>
         </div>
 
-
         {/* Mobile Nav */}
         <div className="flex md:hidden h-16 items-center justify-between">
           <span className="text-lg font-bold text-gray-800">
-            {pages.find(p => p.to === pathname)?.label || 'Home'}
+            {pages.find((p) => p.to === pathname)?.label || "Home"}
           </span>
           <button
-            onClick={() => setMenuOpen(o => !o)}
+            onClick={() => setMenuOpen((o) => !o)}
             className="p-2 text-gray-800 hover:text-blue-600 transition"
             aria-label="Toggle menu"
           >
@@ -66,7 +65,7 @@ export default function TopNav() {
         {menuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg">
             <ul className="flex flex-col">
-              {pages.map(page => (
+              {pages.map((page) => (
                 <li key={page.to}>
                   <NavLink
                     to={page.to}

@@ -5,20 +5,22 @@ import timelineImg from "../images/researchobs/ROTimeline.png";
 export default function ROTimeline() {
   // detect mobile width for responsive behavior
   const [isMobile, setIsMobile] = useState(
-    typeof window !== 'undefined' ? window.innerWidth < 768 : false
+    typeof window !== "undefined" ? window.innerWidth < 768 : false
   );
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <section className="w-full mx-auto p-6">
       {/* Title */}
       <div className="flex items-center justify-center mb-6">
-        <h3 className="text-3xl text-center font-extrabold">Research and Development Timeline</h3>
+        <h3 className="text-3xl text-center font-extrabold">
+          Research and Development Timeline
+        </h3>
       </div>
 
       <div className="border border-gray-200 rounded-lg shadow-lg bg-white">
@@ -65,7 +67,9 @@ export default function ROTimeline() {
                 className="overflow-auto touch-pan-y h-[200px] md:h-[300px]"
                 style={{ touchAction: "pan-y pinch-zoom" }}
               >
-                <TransformComponent wrapperStyle={{ height: '100%', width: 'auto' }}>
+                <TransformComponent
+                  wrapperStyle={{ height: "100%", width: "auto" }}
+                >
                   <div className="cursor-grab active:cursor-grabbing h-full flex items-center">
                     <img
                       src={timelineImg}
