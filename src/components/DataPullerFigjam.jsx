@@ -9,19 +9,15 @@ export default function DataPullerImageZoom() {
     <section className="max-w-4xl mx-auto p-6">
       {/* Title with Figma and Rust logos */}
       <div className="flex items-center justify-center mb-6">
-        <img
-          src={figmaLogo}
-          alt="Figma logo"
-          className="w-6 h-8 mr-2"
-        />
+        <img src={figmaLogo} alt="Figma logo" className="w-6 h-8 mr-2" />
         <h3 className="text-3xl font-extrabold flex items-center">
-        FigJam Flow Chart for
-        <img
+          FigJam Flow Chart for
+          <img
             src={rustLogo}
             alt="Rust logo"
             className="w-8 h-8 ml-3 mr-1 inline"
-        />
-        Rust-based DataPuller
+          />
+          Rust-based DataPuller
         </h3>
       </div>
 
@@ -35,7 +31,7 @@ export default function DataPullerImageZoom() {
           pan={{ disabled: false, lockAxisX: false, lockAxisY: false }}
         >
           {({ zoomIn, zoomOut, resetTransform }) => (
-            <>  
+            <>
               {/* Controls bar with bottom border */}
               <div className="flex justify-center space-x-2 p-2 border-b border-gray-200">
                 <button

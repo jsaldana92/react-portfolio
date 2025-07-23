@@ -1,10 +1,10 @@
-import { useRef } from 'react';
-import researchObsCard from '../images/researchobs_card.png';
-import dataPullerCard from '../images/datapuller_card.png';
-import hyperlinkCard from '../images/hyperlink_card.png';
-import gradingCard from '../images/grading_card.png';
-import seehbCard from '../images/seehbcard.png';
-import { Link } from 'react-router-dom';
+import { useRef } from "react";
+import researchObsCard from "../images/researchobs_card.png";
+import dataPullerCard from "../images/datapuller_card.png";
+import hyperlinkCard from "../images/hyperlink_card.png";
+import gradingCard from "../images/grading_card.png";
+import seehbCard from "../images/seehbcard.png";
+import { Link } from "react-router-dom";
 
 function ProjectCard({ backContent }) {
   return (
@@ -25,9 +25,13 @@ export default function ProjectCarousel() {
     startX.current = e.pageX - containerRef.current.offsetLeft;
     scrollLeft.current = containerRef.current.scrollLeft;
   };
-  const handleMouseLeave = () => { isDragging.current = false; };
-  const handleMouseUp    = () => { isDragging.current = false; };
-  const handleMouseMove  = (e) => {
+  const handleMouseLeave = () => {
+    isDragging.current = false;
+  };
+  const handleMouseUp = () => {
+    isDragging.current = false;
+  };
+  const handleMouseMove = (e) => {
     if (!isDragging.current) return;
     e.preventDefault();
     const x = e.pageX - containerRef.current.offsetLeft;
@@ -43,13 +47,19 @@ export default function ProjectCarousel() {
           style={{ backgroundImage: `url(${researchObsCard})` }}
         >
           <div className="flex-1 overflow-hidden">
-            <h3 className="text-xl font-bold break-words text-white">ResearchObs</h3>
+            <h3 className="text-xl font-bold break-words text-white">
+              ResearchObs
+            </h3>
             <p className="text-sm mt-2 break-words whitespace-normal text-white">
-              Created behavioral observation collection app based on graduate student, PI, and data manager interviews.
+              Created behavioral observation collection app based on graduate
+              student, PI, and data manager interviews.
             </p>
           </div>
           <div className="flex justify-end mt-2">
-            <Link to="/ResearchObs" className="text-blue-400 hover:underline whitespace-nowrap">
+            <Link
+              to="/ResearchObs"
+              className="text-blue-400 hover:underline whitespace-nowrap"
+            >
               Learn more &rarr;
             </Link>
           </div>
@@ -63,13 +73,19 @@ export default function ProjectCarousel() {
           style={{ backgroundImage: `url(${dataPullerCard})` }}
         >
           <div className="flex-1 overflow-hidden">
-            <h3 className="text-xl font-bold break-words text-white">DataPuller</h3>
+            <h3 className="text-xl font-bold break-words text-white">
+              DataPuller
+            </h3>
             <p className="text-sm mt-2 break-words whitespace-normal text-white">
-              Developed app based on researcher interviews to increase lab efficiency by allowing rapid collection and transferring of data.
+              Developed app based on researcher interviews to increase lab
+              efficiency by allowing rapid collection and transferring of data.
             </p>
           </div>
           <div className="flex justify-end mt-2">
-            <Link to="/DataPuller" className="text-blue-400 hover:underline whitespace-nowrap">
+            <Link
+              to="/DataPuller"
+              className="text-blue-400 hover:underline whitespace-nowrap"
+            >
               Learn more &rarr;
             </Link>
           </div>
@@ -83,13 +99,19 @@ export default function ProjectCarousel() {
           style={{ backgroundImage: `url(${hyperlinkCard})` }}
         >
           <div className="flex-1 overflow-hidden">
-            <h3 className="text-xl font-bold break-words text-white">Hyperlink Engagement</h3>
+            <h3 className="text-xl font-bold break-words text-white">
+              Hyperlink Engagement
+            </h3>
             <p className="text-sm mt-2 break-words whitespace-normal text-white">
-              Analyzed student dataset to determine if hyperlinking online lectures in weekly announcements improved classroom engagement.
+              Analyzed student dataset to determine if hyperlinking online
+              lectures in weekly announcements improved classroom engagement.
             </p>
           </div>
           <div className="flex justify-end mt-2">
-            <Link to="/HyperlinkEngagement" className="text-blue-400 hover:underline whitespace-nowrap">
+            <Link
+              to="/HyperlinkEngagement"
+              className="text-blue-400 hover:underline whitespace-nowrap"
+            >
               Learn more &rarr;
             </Link>
           </div>
@@ -103,13 +125,20 @@ export default function ProjectCarousel() {
           style={{ backgroundImage: `url(${gradingCard})` }}
         >
           <div className="flex-1 overflow-hidden">
-            <h3 className="text-xl font-bold break-words text-white">GTA Grading Experience</h3>
+            <h3 className="text-xl font-bold break-words text-white">
+              GTA Grading Experience
+            </h3>
             <p className="text-sm mt-2 break-words whitespace-normal text-white">
-              Interviewed graduate teaching assistants to determine most common issues with grading to help inform university-wide training policy.
+              Interviewed graduate teaching assistants to determine most common
+              issues with grading to help inform university-wide training
+              policy.
             </p>
           </div>
           <div className="flex justify-end mt-2">
-            <Link to="/GTAGradingExperience" className="text-blue-400 hover:underline whitespace-nowrap">
+            <Link
+              to="/GTAGradingExperience"
+              className="text-blue-400 hover:underline whitespace-nowrap"
+            >
               Learn more &rarr;
             </Link>
           </div>
@@ -123,13 +152,19 @@ export default function ProjectCarousel() {
           style={{ backgroundImage: `url(${seehbCard})` }}
         >
           <div className="flex-1 overflow-hidden">
-            <h3 className="text-xl font-bold break-words text-white">SEEHB Website</h3>
+            <h3 className="text-xl font-bold break-words text-white">
+              SEEHB Website
+            </h3>
             <p className="text-sm mt-2 break-words whitespace-normal text-white">
-              Conducted market research, developed and deployed website end-to-end, and adjusted based on user feedback.
+              Conducted market research, developed and deployed website
+              end-to-end, and adjusted based on user feedback.
             </p>
           </div>
           <div className="flex justify-end mt-2">
-            <Link to="/SEEHB" className="text-blue-400 hover:underline whitespace-nowrap">
+            <Link
+              to="/SEEHB"
+              className="text-blue-400 hover:underline whitespace-nowrap"
+            >
               Learn more &rarr;
             </Link>
           </div>
@@ -141,7 +176,7 @@ export default function ProjectCarousel() {
   return (
     <section
       className="overflow-x-auto whitespace-nowrap py-8 cursor-grab active:cursor-grabbing select-none"
-      style={{ WebkitOverflowScrolling: 'touch' }}
+      style={{ WebkitOverflowScrolling: "touch" }}
       ref={containerRef}
       onMouseDown={handleMouseDown}
       onMouseLeave={handleMouseLeave}

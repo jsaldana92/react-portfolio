@@ -3,19 +3,14 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import flowImg from "../images/researchobs/ROPrelimFig.png";
 import figmaLogo from "../images/datapuller/figma_logo.png";
 
-
 export default function ROPrelimFigjam() {
   return (
     <section className="max-w-4xl mx-auto p-6">
       {/* Title with Figma and Rust logos */}
       <div className="flex items-center justify-center mb-6">
-        <img
-          src={figmaLogo}
-          alt="Figma logo"
-          className="w-6 h-8 mr-2"
-        />
+        <img src={figmaLogo} alt="Figma logo" className="w-6 h-8 mr-2" />
         <h3 className="text-3xl font-extrabold flex items-center">
-        FigJam Flow Chart Initial Development
+          FigJam Flow Chart Initial Development
         </h3>
       </div>
 
@@ -29,7 +24,7 @@ export default function ROPrelimFigjam() {
           pan={{ disabled: false, lockAxisX: false, lockAxisY: false }}
         >
           {({ zoomIn, zoomOut, resetTransform }) => (
-            <>  
+            <>
               {/* Controls bar with bottom border */}
               <div className="flex justify-center space-x-2 p-2 border-b border-gray-200">
                 <button
