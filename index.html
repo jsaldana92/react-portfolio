@@ -13,7 +13,8 @@
       }
       gtag("js", new Date());
 
-      gtag("config", "G-NV9B90EZT9");
+      // Disable automatic first page_view; we'll send page_view from React
+      gtag("config", "G-NV9B90EZT9", { send_page_view: false });
     </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
