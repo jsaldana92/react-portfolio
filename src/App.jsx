@@ -1,6 +1,7 @@
 // src/App.jsx
 
-import { useRef, useEffect, useState } from "react";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import TopNav from "./components/TopNav";
 import { TfiAndroid } from "react-icons/tfi";
 import { HiUserGroup } from "react-icons/hi2";
@@ -11,7 +12,6 @@ import ProjectCards from "./components/ProjectCard";
 //import BentoSection from './components/BentoSection';
 import "./index.css";
 import { Suspense, lazy } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 const GTAGradingPage = lazy(() => import("./components/GTAGradingPage"));
 const HyperlinkPage = lazy(() => import("./components/HyperlinkPage"));
@@ -22,7 +22,72 @@ const SEEHBpage = lazy(() => import("./components/SEEHBpage"));
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
+// Normalize paths so '/' and '/#' are the same, and '/#/SEEHB' → '/SEEHB'
+const normalizePath = (rawPath) => {
+  if (rawPath === "/#" || rawPath === "/#/") return "/";
+  if (rawPath.startsWith("/#/")) return rawPath.replace("/#", "");
+  return rawPath;
+};
+
+// Optional: map page titles for cleaner GA reports
+const titleFor = (path) => {
+  const map = {
+    "/": "Jhonatan Saldana | Home",
+    "/SEEHB": "SEEHB Case Study",
+    "/GTAGradingExperience": "GTA Grading Experience",
+    "/HyperlinkEngagement": "Hyperlink Engagement",
+    "/DataPuller": "DataPuller",
+    "/ResearchObs": "ResearchObs",
+  };
+  return map[path] || `Portfolio | ${path}`;
+};
+
+const sendPageView = (normalizedPath) => {
+  if (!window.gtag) return;
+
+  const page_title = titleFor(normalizedPath);
+  // Canonical (no hash) for GA consistency
+  const page_location = `https://www.jhonatan-saldana.com${normalizedPath}`;
+
+  // GA4 page_view
+  window.gtag("event", "page_view", {
+    page_title,
+    page_location,
+    page_path: normalizedPath,
+  });
+
+  // Keep GA internal state aligned
+  window.gtag("config", "G-NV9B90EZT9", {
+    page_path: normalizedPath,
+    page_title,
+  });
+};
+
+// Small component that fires a page_view on initial mount + every route change
+function PageTracker() {
+  const location = useLocation();
+  useEffect(() => {
+    // Build from the real URL so it works with HashRouter or BrowserRouter
+    const rawPath = `${window.location.pathname}${window.location.search}${
+      window.location.hash || ""
+    }`;
+    const normalized = normalizePath(rawPath);
+    sendPageView(normalized);
+  }, [location.pathname, location.search, location.hash]);
+  return null;
+}
+
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Build the raw path using the actual URL (works for HashRouter and BrowserRouter)
+    const { pathname, search, hash } = window.location;
+    const rawPath = `${pathname}${search}${hash || ""}`;
+    const normalized = normalizePath(rawPath);
+    sendPageView(normalized);
+  }, [location.pathname, location.search, location.hash]);
+
   const dynamicWords = [
     <>
       <span className="inline-flex items-center justify-center rounded-full bg-[#158fcc]  w-8 h-8 mr-0">
@@ -94,6 +159,7 @@ function App() {
       <ScrollToTop />
 
       <main>
+        <PageTracker />
         <Routes>
           {/* Home at #/ */}
           <Route
