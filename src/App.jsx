@@ -1,17 +1,14 @@
 // src/App.jsx
-
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Suspense, lazy } from "react";
 import TopNav from "./components/TopNav";
 import { TfiAndroid } from "react-icons/tfi";
 import { HiUserGroup } from "react-icons/hi2";
 import { BsFillClipboard2DataFill } from "react-icons/bs";
 import { FiTrendingUp } from "react-icons/fi";
 import profileImg from "./images/profile.png";
-import ProjectCards from "./components/ProjectCard";
-//import BentoSection from './components/BentoSection';
+import Projects from "./components/Projects";
 import "./index.css";
-import { Suspense, lazy } from "react";
 import ScrollToTop from "./components/ScrollToTop";
 const GTAGradingPage = lazy(() => import("./components/GTAGradingPage"));
 const HyperlinkPage = lazy(() => import("./components/HyperlinkPage"));
@@ -21,6 +18,8 @@ const BentoSection = lazy(() => import("./components/BentoSection"));
 const SEEHBpage = lazy(() => import("./components/SEEHBpage"));
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { FaGithub } from "react-icons/fa";
+import { FiFileText } from "react-icons/fi";
 
 // Normalize paths so '/' and '/#' are the same, and '/#/SEEHB' → '/SEEHB'
 const normalizePath = (rawPath) => {
@@ -44,30 +43,22 @@ const titleFor = (path) => {
 
 const sendPageView = (normalizedPath) => {
   if (!window.gtag) return;
-
   const page_title = titleFor(normalizedPath);
-  // Canonical (no hash) for GA consistency
   const page_location = `https://www.jhonatan-saldana.com${normalizedPath}`;
-
-  // GA4 page_view
   window.gtag("event", "page_view", {
     page_title,
     page_location,
     page_path: normalizedPath,
   });
-
-  // Keep GA internal state aligned
   window.gtag("config", "G-NV9B90EZT9", {
     page_path: normalizedPath,
     page_title,
   });
 };
 
-// Small component that fires a page_view on initial mount + every route change
 function PageTracker() {
   const location = useLocation();
   useEffect(() => {
-    // Build from the real URL so it works with HashRouter or BrowserRouter
     const rawPath = `${window.location.pathname}${window.location.search}${
       window.location.hash || ""
     }`;
@@ -78,25 +69,15 @@ function PageTracker() {
 }
 
 function App() {
-  const location = useLocation();
-
-  useEffect(() => {
-    // Build the raw path using the actual URL (works for HashRouter and BrowserRouter)
-    const { pathname, search, hash } = window.location;
-    const rawPath = `${pathname}${search}${hash || ""}`;
-    const normalized = normalizePath(rawPath);
-    sendPageView(normalized);
-  }, [location.pathname, location.search, location.hash]);
-
   const dynamicWords = [
     <>
-      <span className="inline-flex items-center justify-center rounded-full bg-[#158fcc]  w-8 h-8 mr-0">
+      <span className="inline-flex items-center justify-center rounded-full bg-[#158fcc] w-8 h-8 mr-0">
         <TfiAndroid className="text-green-500 text-2xl" />
       </span>
-      <span className="ml-1  custom-shadow-grey">apps</span>
+      <span className="ml-1 custom-shadow-grey">apps</span>
     </>,
     <>
-      <span className="inline-flex items-center justify-center rounded-full bg-[#158fcc]  w-8 h-8 mr-0">
+      <span className="inline-flex items-center justify-center rounded-full bg-[#158fcc] w-8 h-8 mr-0">
         <HiUserGroup className="text-yellow-300 text-2xl" />
       </span>
       <span className="ml-1 custom-shadow-grey">communities</span>
@@ -111,7 +92,7 @@ function App() {
       <span className="inline-flex items-center justify-center rounded-full bg-[#158fcc] w-8 h-8 mr-0">
         <FiTrendingUp className="text-black text-2xl" />
       </span>
-      <span className="ml-1  custom-shadow-grey">user engagement</span>
+      <span className="ml-1 custom-shadow-grey">user engagement</span>
     </>,
   ];
 
@@ -119,7 +100,6 @@ function App() {
     const [index, setIndex] = useState(0);
     const wordRef = useRef();
 
-    // Rotate words
     useEffect(() => {
       const interval = setInterval(() => {
         setIndex((prev) => (prev + 1) % dynamicWords.length);
@@ -127,7 +107,6 @@ function App() {
       return () => clearInterval(interval);
     }, []);
 
-    // Animate transition on index change
     useGSAP(() => {
       if (wordRef.current) {
         gsap.fromTo(
@@ -140,7 +119,6 @@ function App() {
 
     return (
       <div className="text-gray-900 text-2xl mt-8 font-semibold leading-snug">
-        {/* On small screens: stack lines. On md+: inline */}
         <span className="block md:inline custom-shadow-white">
           Conducting research to improve
         </span>
@@ -154,67 +132,92 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-backgroundwhite text-gray-800">
+    // Key fixes:
+    // - min-h-dvh + flex + flex-1 ensures the bg spans to the bottom
+    // - overflow-x-clip prevents w-screen sections from creating a sideways scroll
+    // - bg on this wrapper gives you an app-wide background regardless of page height
+    <div className="min-h-dvh bg-backgroundwhite text-gray-800 flex flex-col overflow-x-clip">
       <TopNav />
       <ScrollToTop />
 
-      <main>
+      {/* Make main consume all available height */}
+      <main className="flex-1">
         <PageTracker />
         <Routes>
-          {/* Home at #/ */}
           <Route
             path="/"
             element={
               <section>
                 {/* Centered Intro Block */}
-                <div className="text-center  py-6">
+                <div className="text-center py-6">
                   <h1 className="text-5xl text-textblack custom-shadow-white font-bold">
                     Jhonatan M. Saldaña Santisteban
                   </h1>
                   <p className="text-[#f27209] italic text-xl font-semibold">
-                    UX Research Intern and Cognitive Psychologist, PhD Candidate
+                    UX Researcher and Cognitive Psychologist, PhD Candidate
                   </p>
                 </div>
-                <section className="relative w-screen overflow-hidden py-16 px-6  text-white">
+
+                {/* Hero / Summary rows */}
+                <section className="relative w-full overflow-hidden py-16 px-6 text-white">
                   <div className="relative z-10 max-w-5xl mx-auto space-y-12">
-                    {/* Top Row: stacked on small, side-by-side on md+ */}
+                    {/* Top Row */}
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-12">
-                      {/* Card 1 */}
                       <div className="relative w-full md:w-2/3 flex justify-start">
                         <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-red-600 to-red-300 rounded-full -z-10" />
                         <div className="bg-gradient-to-r from-[#1b2683] to-[#0987c6] p-8 rounded-2xl shadow-lg max-w-xl w-full">
-                          <p className="text-lg md:text-xl font-semibold text-backgroundwhite">
-                            As a UX researcher, my goal is to leverage the{" "}
+                          <p className="text-lg md:text-xl font-semibold text-white">
+                            As a UX researcher, I leverage my expertise in{" "}
                             <span className="text-[#f27209]">quantitative</span>{" "}
                             and{" "}
                             <span className="text-[#f27209]">
                               qualitative methodologies{" "}
                             </span>
-                            I’ve become familiar with over my academic career as
-                            a{" "}
+                            grounded in my background as a{" "}
                             <span className="text-[#f27209]">
                               cognitive psychologist
                             </span>{" "}
-                            to produce real-world impact.
+                            to drive{" "}
+                            <span className="text-[#f27209]">
+                              product development
+                            </span>{" "}
+                            and inform{" "}
+                            <span className="text-[#f27209]">
+                              strategic design decisions
+                            </span>{" "}
                           </p>
                         </div>
                       </div>
 
-                      {/* Photo + Resume */}
+                      {/* Photo + Resume + GitHub */}
                       <div className="w-full md:w-1/4 flex flex-col items-center">
                         <img
                           src={profileImg}
                           alt="Jhonatan"
                           className="w-64 md:w-80 rounded-2xl shadow-xl shadow-black/30"
                         />
-                        <a
-                          href="https://drive.google.com/file/d/1Ag33D8-jdyysqxay4hyyyHSyxF3oSW7R/view?usp=sharing"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-4 inline-block text-white bg-black/40 hover:bg-black/60 px-5 py-2 rounded-full font-medium transition"
-                        >
-                          Resume
-                        </a>
+                        <div className="mt-4 flex items-center gap-3">
+                          <a
+                            href="https://drive.google.com/file/d/1Ag33D8-jdyysqxay4hyyyHSyxF3oSW7R/view?usp=sharing"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group inline-flex items-center gap-2 text-white bg-black/40 hover:bg-black/60 px-4 py-3 rounded-xl font-medium transition"
+                            aria-label="Open Resume"
+                          >
+                            <FiFileText className="text-3xl" />
+                            <span className="hidden sm:inline">Resume</span>
+                          </a>
+                          <a
+                            href="https://github.com/jsaldana92"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group inline-flex items-center gap-2 text-white bg-black/40 hover:bg-black/60 px-4 py-3 rounded-xl font-medium transition"
+                            aria-label="Open GitHub"
+                          >
+                            <FaGithub className="text-3xl" />
+                            <span className="hidden sm:inline">GitHub</span>
+                          </a>
+                        </div>
                       </div>
                     </div>
 
@@ -222,19 +225,29 @@ function App() {
                     <div className="relative flex justify-end">
                       <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-red-600 to-red-300 rounded-full -z-10" />
                       <div className="bg-gradient-to-r from-[#0987c6] to-[#1b2683] p-8 rounded-2xl shadow-lg max-w-3xl w-full text-right">
-                        <p className="text-lg md:text-xl font-semibold custom-shadow text-backgroundwhite">
-                          In university settings, my research has helped
-                          departments{" "}
+                        <p className="text-lg md:text-xl font-semibold custom-shadow text-white">
+                          In a university setting, I led research across{" "}
                           <span className="text-[#f27209]">
-                            understand the effectiveness and enjoyment{" "}
-                          </span>
-                          of the training they provide to graduate teaching
-                          assistants. My research has also helped highlight
-                          effective methods that{" "}
-                          <span className="text-[#f27209]">
-                            increased student engagement
+                            three academic departments
                           </span>{" "}
-                          with online course materials.
+                          to evaluate and improve their{" "}
+                          <span className="text-[#f27209]">
+                            graduate teaching assistant training programs
+                          </span>
+                          , uncovering the most common pain points in grading
+                          and identifying{" "}
+                          <span className="text-[#f27209]">
+                            standardized support methods
+                          </span>{" "}
+                          that improved GTA confidence and teaching quality. My
+                          related work on online learning engagement revealed{" "}
+                          <span className="text-[#f27209]">
+                            actionable strategies that identified methods to
+                            student interaction by 1.4x
+                          </span>{" "}
+                          with digital course materials, helping instructors
+                          create more effective and engaging online learning
+                          experiences.
                         </p>
                       </div>
                     </div>
@@ -243,45 +256,53 @@ function App() {
                     <div className="relative flex justify-start">
                       <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-red-600 to-red-300 rounded-full -z-10" />
                       <div className="bg-gradient-to-r from-[#1b2683] to-[#0987c6] p-8 rounded-2xl shadow-lg max-w-3xl w-full">
-                        <p className="text-lg md:text-xl font-semibold custom-shadow text-backgroundwhite">
-                          In app development, my research helped
+                        <p className="text-lg md:text-xl font-semibold custom-shadow text-white">
+                          In app development, my research improved{" "}
                           <span className="text-[#f27209]">
-                            {" "}
-                            increase the positive perception
-                          </span>{" "}
-                          of data collection and likelihood of engagement from
-                          end-users in mobile and desktop apps. In web
-                          development, my research{" "}
+                            user trust, engagement, and usability
+                          </span>
+                          , leading to a{" "}
                           <span className="text-[#f27209]">
-                            increased enjoyment, usability, and sign-up speed
+                            90% faster launch time
                           </span>{" "}
-                          for attendees of a yearly regional conference.
+                          and{" "}
+                          <span className="text-[#f27209]">
+                            higher satisfaction ratings from 3.2 to 4.7
+                          </span>
+                          . In web development,{" "}
+                          <span className="text-[#f27209]">
+                            usability testing and iterative design
+                          </span>{" "}
+                          increased enjoyment, accessibility, and{" "}
+                          <span className="text-[#f27209]">
+                            cut sign-up times by over 70%
+                          </span>
+                          , resulting in users being twice as likely to revisit
+                          and share the site.
                         </p>
                       </div>
                     </div>
                   </div>
                 </section>
 
-                <section className="w-screen px-6 text-left">
+                {/* Dynamic line */}
+                <section className="w-full px-6 text-left">
                   <div className="max-w-7xl mx-auto">
-                    <div>
-                      <DynamicText />
-                    </div>
+                    <DynamicText />
                   </div>
                 </section>
 
-                {/*Carousel Section */}
-                <section className="w-screen px-6">
+                {/* Projects carousel */}
+                <section className="w-full px-6">
                   <div className="max-w-7xl mx-auto relative overflow-hidden">
-                    <ProjectCards />
-                    {/* Fading overlays */}
+                    <Projects />
                     <div className="absolute left-0 top-0 h-full w-4 bg-gradient-to-r from-backgroundwhite to-transparent pointer-events-none z-10" />
                     <div className="absolute right-0 top-0 h-full w-4 bg-gradient-to-l from-backgroundwhite to-transparent pointer-events-none z-10" />
                   </div>
                 </section>
 
                 {/* Bento Section */}
-                <section className="w-screen px-6 mb-12">
+                <section className="w-full px-6 pb-12">
                   <div className="max-w-7xl mx-auto">
                     <Suspense
                       fallback={
@@ -298,7 +319,7 @@ function App() {
             }
           />
 
-          {/* SEEHB page at #/SEEHB */}
+          {/* SEEHB page */}
           <Route
             path="/SEEHB"
             element={
@@ -310,7 +331,7 @@ function App() {
             }
           />
 
-          {/* GTAGradingExperience page at #/GTAGradingPage */}
+          {/* GTA Grading */}
           <Route
             path="/GTAGradingExperience"
             element={
@@ -322,7 +343,7 @@ function App() {
             }
           />
 
-          {/* HyperlinkPage page at #/HyperlinkPage */}
+          {/* Hyperlink */}
           <Route
             path="/HyperlinkEngagement"
             element={
@@ -334,7 +355,7 @@ function App() {
             }
           />
 
-          {/* DataPuller page at #/DataPuller */}
+          {/* DataPuller */}
           <Route
             path="/DataPuller"
             element={
@@ -346,7 +367,7 @@ function App() {
             }
           />
 
-          {/* ResearchObs page at #/ResearchObs */}
+          {/* ResearchObs */}
           <Route
             path="/ResearchObs"
             element={
@@ -358,7 +379,7 @@ function App() {
             }
           />
 
-          {/* Fallback to Home */}
+          {/* Fallback */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
