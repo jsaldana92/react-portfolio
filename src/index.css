@@ -1,22 +1,21 @@
 @import "tailwindcss";
 
-
 @layer base {
-  html, body {
+  html,
+  body {
     @apply overflow-x-hidden;
   }
 }
- @theme{
-    --color-backgroundgrey: #2c282865;
-    --color-cardbackground: #2c2929;
-    --color-bentobackground: #1f1f1f;
-    --color-backgroundred: #9B3B3B;
-    --color-backgroundwhite: #ebe8e4;
-    --color-textblack: #2E2E2E;
-    --color-cardblue: #4A5E72;
-    --color-backgroundgreen: #5F7E61;
+@theme {
+  --color-backgroundgrey: #2c282865;
+  --color-cardbackground: #2c2929;
+  --color-bentobackground: #1f1f1f;
+  --color-backgroundred: #9b3b3b;
+  --color-backgroundwhite: #9396ad;
+  --color-textblack: #2e2e2e;
+  --color-cardblue: #4a5e72;
+  --color-backgroundgreen: #5f7e61;
 }
-
 
 ::-webkit-scrollbar {
   display: none;
@@ -40,7 +39,6 @@
   animation: bg-pulse 5s ease infinite;
 }
 
-
 .glow-hover {
   transition: box-shadow 0.3s ease;
   border-radius: 0.75rem; /* Tailwind's rounded-xl */
@@ -61,7 +59,8 @@
 }
 
 @keyframes bubble {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0;
     transform: translateY(0);
   }

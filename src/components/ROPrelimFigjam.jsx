@@ -8,20 +8,29 @@ export default function ROPrelimFigjam() {
     <section className="max-w-4xl mx-auto p-6">
       {/* Title with Figma and Rust logos */}
       <div className="flex items-center justify-center mb-6">
-        <img src={figmaLogo} alt="Figma logo" className="w-6 h-8 mr-2" />
         <h3 className="text-3xl font-extrabold flex items-center">
-          FigJam Flow Chart Initial Development
+          Journey Map
         </h3>
       </div>
 
       {/* Full border on all sides, white background */}
       <div className="border border-gray-200 rounded-lg shadow-lg bg-white">
         <TransformWrapper
-          initialScale={1}
+          initialScale={0.4}
           wheel={{ step: 0.1 }}
           pinch={{ step: 5 }}
           doubleClick={{ disabled: true }}
-          pan={{ disabled: false, lockAxisX: false, lockAxisY: false }}
+          /* 👇 prevent snap-back */
+          limitToBounds={false}
+          centerOnInit={false}
+          centerZoomedOut={false}
+          /* 👇 correct prop name + keep free panning */
+          panning={{
+            disabled: false,
+            lockAxisX: false,
+            lockAxisY: false,
+            velocityDisabled: true,
+          }}
         >
           {({ zoomIn, zoomOut, resetTransform }) => (
             <>
@@ -46,17 +55,22 @@ export default function ROPrelimFigjam() {
                   Reset
                 </button>
               </div>
-              {/* Scrollable zoom area */}
+
+              {/* Taller scrollable zoom area */}
               <div
-                className="overflow-auto touch-pan-y max-h-[600px]"
+                className="overflow-auto touch-pan-y h-[600px] select-none"
                 style={{ touchAction: "pan-y pinch-zoom" }}
               >
-                <TransformComponent>
+                <TransformComponent
+                  wrapperClass="!w-full !h-full"
+                  contentClass="!w-auto !h-full"
+                >
                   <div className="cursor-grab active:cursor-grabbing">
                     <img
                       src={flowImg}
                       alt="Speed chart"
-                      className="w-full h-auto"
+                      className="block h-full max-w-none"
+                      draggable={false}
                     />
                   </div>
                 </TransformComponent>

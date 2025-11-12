@@ -5,6 +5,7 @@ import reactLogo from "../images/reactlogo.svg";
 import pythonLogo from "../images/pythonlogo.svg";
 import rLogo from "../images/rlogo.svg";
 import flutterLogo from "../images/flutterlogo.svg";
+import sqlLogo from "../images/sqllogo.svg"; // <-- NEW
 
 const snippets = {
   React: [
@@ -43,12 +44,22 @@ const snippets = {
     "FutureBuilder(future: ...)",
     "Container(color: Colors.blue)",
   ],
+  SQL: [
+    "SELECT * FROM users;",
+    "SELECT id, COUNT(*) FROM orders GROUP BY id;",
+    "SELECT u.id, b.total FROM users u JOIN bills b USING(id);",
+    "INSERT INTO logs(level,msg) VALUES('INFO','start');",
+    "UPDATE users SET last_login=NOW() WHERE id=42;",
+    "CREATE INDEX idx_orders_created ON orders(created_at);",
+    "SELECT * FROM purchases ORDER BY amount DESC LIMIT 5;",
+  ],
 };
 
 const logos = [
   { name: "React", src: reactLogo },
   { name: "Python", src: pythonLogo },
   { name: "R", src: rLogo },
+  { name: "SQL", src: sqlLogo }, // <-- NEW
   { name: "Flutter", src: flutterLogo },
 ];
 
@@ -75,10 +86,8 @@ const CodingLanguages = ({ isHovered }) => {
 
   const startAnimation = () => {
     if (intervalRef.current) return;
-
     // Fire immediately
     animateToNext();
-
     // Then run on interval
     intervalRef.current = setInterval(animateToNext, 2500);
   };
@@ -91,11 +100,16 @@ const CodingLanguages = ({ isHovered }) => {
   useEffect(() => {
     if (isHovered) startAnimation();
     else stopAnimation();
-
     return () => stopAnimation(); // cleanup on unmount or unhover
   }, [isHovered]);
 
   useEffect(() => {
+    // reset refs length for current snippet count (avoids stale refs if counts differ)
+    snippetRefs.current = snippetRefs.current.slice(
+      0,
+      snippets[logos[current].name].length
+    );
+
     gsap.set([logoRef.current, ...snippetRefs.current], {
       x: (i) => (i % 2 === 0 ? "100%" : "-100%"),
       opacity: 0,
@@ -106,7 +120,7 @@ const CodingLanguages = ({ isHovered }) => {
       opacity: 1,
       duration: 0.6,
       ease: "power2.out",
-      stagger: 0.05, // small delay between each line
+      stagger: 0.05,
     });
   }, [current]);
 
