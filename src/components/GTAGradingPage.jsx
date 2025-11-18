@@ -27,7 +27,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function GTAGradingPage() {
   // which goals have been “flipped”
-  const [revealed, setRevealed] = useState([false, false, false]);
+  const [revealed, setRevealed] = useState([true, true, true]);
   // refs for each goal card
   const cardRefs = [useRef(null), useRef(null), useRef(null)];
   const goalTexts = [
@@ -67,7 +67,7 @@ export function GTAGradingPage() {
     useRef(null),
   ];
   const [themesRevealed, setThemesRevealed] = useState(
-    Array(themeTexts.length).fill(false)
+    Array(themeTexts.length).fill(true)
   );
 
   useEffect(() => {
@@ -141,150 +141,170 @@ export function GTAGradingPage() {
 
   // 2) animation hook
   useEffect(() => {
-    if (!statsRef.current) return;
-    const elems = statsRef.current.querySelectorAll(".anim");
-    gsap.fromTo(
-      elems,
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 }
-    );
-  }, [statsIndex]);
+    // animate all theme boxes into view on initial load
+    themeRefs.forEach((ref, i) => {
+      if (!ref.current) return;
+      gsap.fromTo(
+        ref.current,
+        { opacity: 0, scale: 0.9 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.4,
+          delay: 0.05 * i, // small stagger
+          ease: "back.out(1.7)",
+        }
+      );
+    });
+  }, []);
+
   // ───────────────────────────────────────────────────────────
 
   return (
     <div className="w-full">
-      {/* ---- Intro squares ---- */}
-      <section className="max-w-4xl mx-auto py-16 px-6 space-y-16">
+      {/* ---- Intro + Research Approach (GTA Grading) ---- */}
+      <section className="max-w-4xl mx-auto py-16 px-6 space-y-12">
         {/* Header */}
         <div className="text-center space-y-4">
-          <h1 className="text-5xl font-extrabold">
-            <span className="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">
-              Conducting Interviews
-            </span>{" "}
-            to Determine Most Common{" "}
-            <span className="bg-gradient-to-r from-[#e3a730] to-[#b55f5f] bg-clip-text text-transparent">
-              {" "}
-              Frustrating Aspect of Grading
-            </span>
+          <h1 className="text-5xl font-extrabold text-gray-900">
+            GTA Grading: Uncovering Grading-Related Pain Points
           </h1>
-          <p className="text-xl text-gray-700 italic">
-            Conducted a qualitative analysis of the most common issues graduate
-            teaching assistants encounter while grading student work.
-          </p>
         </div>
 
-        {/* Cards */}
-        <div className="space-y-12">
-          {/* Card 1: Left-aligned */}
-          <div className="relative flex justify-start">
-            <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-blue-200 to-blue-50 rounded-full -z-10" />
-            <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl">
-              <p className="text-lg md:text-xl text-gray-800">
-                Higher-education institutions often rely on{" "}
-                <strong className="text-blue-500">
-                  Graduate Teaching Assistants (GTAs){" "}
-                </strong>{" "}
-                to teach multiple undergraduate classes across{" "}
-                <strong className="text-blue-500">different departments</strong>
-              </p>
+        {/* Intro (centered box) */}
+        <div className="relative flex justify-center">
+          <div className="bg-white p-8 rounded-2xl shadow-lg max-w-3xl text-center cursor-auto">
+            <p className="text-lg md:text-xl text-gray-800">
+              To uncover the most common{" "}
+              <span className="font-semibold">grading-related pain points</span>
+              , I conducted semi-structured interviews with GTAs across multiple
+              departments. Each participant walked through recent grading tasks,
+              highlighting moments of confusion, overload, or lack of support.
+            </p>
+            <p className="text-lg md:text-xl text-gray-800 mt-4">
+              I then thematically coded the interviews to identify shared
+              patterns—including academic integrity concerns, unclear
+              expectations, and inconsistent guidance. These insights informed
+              GTA personas and a grading journey map that shaped recommendations
+              for improving{" "}
+              <span className="font-semibold">
+                training, communication, and departmental support.
+              </span>
+            </p>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="flex justify-center py-4">
+          <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
+        </div>
+
+        {/* Research Approach */}
+        <div className="relative flex justify-center">
+          <div className="p-6 md:p-8 rounded-2xl w-full max-w-4xl cursor-auto">
+            <h2 className="text-4xl font-extrabold text-center mb-4 text-gray-900">
+              Research Approach
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-gray-800">
+              {/* Recruitment & Design */}
+              <div className="rounded-xl p-4 bg-gray-50">
+                <p className="font-semibold mb-1">Recruitment &amp; Design</p>
+                <p className="text-sm">
+                  Interviewed GTAs from{" "}
+                  <span className="font-semibold">multiple departments</span>,
+                  each teaching different courses and formats, to capture a
+                  broad range of grading pain points and support structures.
+                </p>
+              </div>
+              {/* Interviews & Thematic Analysis */}
+              <div className="rounded-xl p-4 bg-gray-50">
+                <p className="font-semibold mb-1">
+                  Interviews &amp; Thematic Analysis
+                </p>
+                <p className="text-sm">
+                  Conducted instructor interviews and then thematically coded
+                  responses to identify recurring issues like AI violations,
+                  cheating, rubric ambiguity, and uneven faculty guidance.
+                </p>
+              </div>
+              {/* Synthesis & Department Impact */}
+              <div className="rounded-xl p-4 bg-gray-50">
+                <p className="font-semibold mb-1">
+                  Synthesis &amp; Department Impact
+                </p>
+                <p className="text-sm">
+                  Built GTA personas and a grading journey map to highlight
+                  where pain points cluster. Presented{" "}
+                  <span className="font-semibold">
+                    primary and secondary recommendations
+                  </span>{" "}
+                  to departments to refine training and policy communication
+                  around grading issues.
+                </p>
+              </div>
             </div>
           </div>
+        </div>
 
-          {/* Card 2: Right-aligned */}
-          <div className="relative flex justify-end">
-            <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-blue-200 to-blue-50 rounded-full -z-10" />
-            <div className="bg-white text-right p-8 rounded-2xl shadow-lg max-w-xl">
-              <p className="text-lg md:text-xl text-gray-800">
-                GTAs report issues with grading but{" "}
-                <strong className="text-blue-500">
-                  {" "}
-                  the most common type of issue is unknown
-                </strong>{" "}
-                or if{" "}
-                <strong className="text-blue-500">
-                  they are consistent across departments
-                </strong>
-              </p>
-            </div>
+        {/* ---- Research Purpose (unchanged) ---- */}
+        <div className="flex justify-center">
+          <div className="w-full mx-auto">
+            <p className="text-4xl font-extrabold custom-shadow-white text-[#000000] text-center">
+              Research Purpose
+            </p>
           </div>
+        </div>
 
-          {/* Card 3: Right-aligned */}
-          <div className="relative flex justify-center">
-            <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-teal-200 to-teal-50 rounded-full -z-10" />
-            <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl text-center">
-              <p className="text-lg md:text-xl font-semibold text-gray-800">
-                To determine the most
-                <strong className="text-blue-500"> themes</strong> with grading
-                issues, I conducted{" "}
-                <strong className="text-blue-500"> interviews</strong> with GTAs
-                from multiple departments to determine the most common factors
-                leading to GTAs{" "}
-                <strong className="text-blue-500"> experiencing issues</strong>{" "}
-                with <strong className="text-blue-500"> grading</strong>
-              </p>
-            </div>
-          </div>
-
-          {/* Card 4: Centered briefing */}
-          <div className="flex justify-center">
-            <div className="w-full mx-auto">
-              <p className="text-4xl font-extrabold custom-shadow-white text-[#000000] text-center">
-                Research Purpose
-              </p>
-            </div>
-          </div>
-
-          {/* Goals Row with onClick animation */}
-          <div className="flex justify-center">
-            <div className="flex space-x-2 md:space-x-12">
-              {goalTexts.map((text, i) => (
-                <div
-                  key={i}
-                  ref={cardRefs[i]}
-                  onClick={() => {
-                    // toggle only this card
-                    setRevealed((prev) => {
-                      const copy = [...prev];
-                      copy[i] = !copy[i];
-                      return copy;
-                    });
-                    // animate only the clicked card
-                    const el = cardRefs[i].current;
-                    if (!el) return;
-                    gsap.fromTo(
-                      el,
-                      { scale: 0.9, opacity: 0 },
-                      {
-                        scale: 1,
-                        opacity: 1,
-                        duration: 0.4,
-                        ease: "back.out(1.7)",
-                      }
-                    );
-                  }}
-                  className={`relative flex items-center justify-center  box-content font-semibold rounded-2xl shadow-lg p-6 h-18 w-18 md:h-12 md:w-42 text-center cursor-pointer overflow-hidden ${
-                    revealed[i]
-                      ? "bg-white text-sm custom-shadow-sm text-gray-800"
-                      : "bg-blue-950/80 text-white"
+        {/* Goals Row with onClick animation (UNCHANGED) */}
+        <div className="flex justify-center">
+          <div className="flex space-x-2 md:space-x-12">
+            {goalTexts.map((text, i) => (
+              <div
+                key={i}
+                ref={cardRefs[i]}
+                onClick={() => {
+                  // toggle only this card
+                  setRevealed((prev) => {
+                    const copy = [...prev];
+                    copy[i] = !copy[i];
+                    return copy;
+                  });
+                  // animate only the clicked card
+                  const el = cardRefs[i].current;
+                  if (!el) return;
+                  gsap.fromTo(
+                    el,
+                    { scale: 0.9, opacity: 0 },
+                    {
+                      scale: 1,
+                      opacity: 1,
+                      duration: 0.4,
+                      ease: "back.out(1.7)",
+                    }
+                  );
+                }}
+                className={`relative flex items-center justify-center  box-content font-semibold rounded-2xl shadow-lg p-6 h-18 w-18 md:h-12 md:w-42 text-center cursor-pointer overflow-hidden ${
+                  revealed[i]
+                    ? "bg-white text-sm custom-shadow-sm text-gray-800"
+                    : "bg-blue-950/80 text-white"
+                }`}
+              >
+                <span
+                  className={`block just transition-opacity duration-300 ${
+                    revealed[i] ? "opacity-0" : "opacity-100"
                   }`}
                 >
-                  <span
-                    className={`block just transition-opacity duration-300 ${
-                      revealed[i] ? "opacity-0" : "opacity-100"
-                    }`}
-                  >
-                    Goal #{i + 1}
-                  </span>
-                  <span
-                    className={`absolute font-semibold inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                      revealed[i] ? "opacity-100" : "opacity-0"
-                    }`}
-                  >
-                    {text}
-                  </span>
-                </div>
-              ))}
-            </div>
+                  Goal #{i + 1}
+                </span>
+                <span
+                  className={`absolute font-semibold inset-0 flex items-center justify-center transition-opacity duration-300 ${
+                    revealed[i] ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {text}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -436,8 +456,7 @@ export function GTAGradingPage() {
           <div className="md:w-1/2 flex justify-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
               <p className="text-lg text-center md:text-start font-semibold text-gray-900 ">
-                Approximately 20-minute Interviews with 10 GTAs from 3
-                departments
+                Interviews with 10 GTAs from 3 departments
               </p>
             </div>
           </div>
@@ -446,7 +465,8 @@ export function GTAGradingPage() {
           <div className="md:w-1/2 flex justify-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
               <p className="text-lg text-center md:text-end font-semibold text-gray-900 ">
-                Totaled 220 minutes of interview responses to thematically code
+                Focus: Personal experience with grading issues ranging from
+                training provided by department to day-to-day pain points
               </p>
             </div>
           </div>
@@ -619,34 +639,108 @@ export function GTAGradingPage() {
       {/* Goal 1 results*/}
       <section className="max-w-4xl mx-auto px-6 py-8">
         <h2 className="text-3xl font-extrabold text-center mb-6">
-          Interview Findings
+          Interview Findings → Prioritized Opportunities
         </h2>
-        <ul className="space-y-4">
-          <li className="flex items-start">
-            <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
-              1
-            </span>
-            <p className="text-gray-800 text-2xl">
-              All 10 GTAs reported issues with AI policy violations
-            </p>
-          </li>
-          <li className="flex items-start">
-            <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
-              2
-            </span>
-            <p className="text-gray-800 text-2xl">
-              4 GTAs reported issues with general cheating (e.g., using phones)
-            </p>
-          </li>
-          <li className="flex items-start">
-            <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
-              3
-            </span>
-            <p className="text-gray-800 text-2xl">
-              Only 2 GTAs reported issues grading scantrons
-            </p>
-          </li>
-        </ul>
+        <p className="text-center text-gray-700 mb-6">
+          From interviews with <span className="font-semibold">10 GTAs</span>, I
+          translated raw findings into opportunities scored by{" "}
+          <span className="font-semibold">impact</span> and{" "}
+          <span className="font-semibold">level of effort</span>.
+        </p>
+
+        <div className="space-y-4">
+          {/* Row 1 */}
+          <div className="bg-white p-5 rounded-2xl shadow-lg flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h3 className="text-lg font-semibold">
+                Standardize AI Policy & Communication
+              </h3>
+              <p className="text-gray-800 text-sm md:text-base mt-1">
+                All <span className="font-semibold">10/10 GTAs</span> cited AI
+                policy violations as a frequent grading pain point. Clear,
+                shared language and examples would reduce confusion for both
+                GTAs and students.
+              </p>
+            </div>
+            <div className="flex flex-col items-start md:items-end gap-1">
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                High Impact
+              </span>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800">
+                Low Effort
+              </span>
+            </div>
+          </div>
+
+          {/* Row 2 */}
+          <div className="bg-white p-5 rounded-2xl shadow-lg flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h3 className="text-lg font-semibold">
+                Create an Academic Integrity Support Path
+              </h3>
+              <p className="text-gray-800 text-sm md:text-base mt-1">
+                <span className="font-semibold">4/10 GTAs</span> described
+                cheating cases (phones, unauthorized materials) as stressful and
+                time-consuming. A clear escalation and support path would reduce
+                emotional and administrative load.
+              </p>
+            </div>
+            <div className="flex flex-col items-start md:items-end gap-1">
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800">
+                High Impact
+              </span>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-800">
+                High Effort
+              </span>
+            </div>
+          </div>
+
+          {/* Row 3 */}
+          <div className="bg-white p-5 rounded-2xl shadow-lg flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h3 className="text-lg font-semibold">
+                Provide a GTA Grading Starter Kit
+              </h3>
+              <p className="text-gray-800 text-sm md:text-base mt-1">
+                Many GTAs reported uncertainty when grading for the first time.
+                A short starter kit (rubric examples, sample feedback, policy
+                summary) would smooth the onboarding process.
+              </p>
+            </div>
+            <div className="flex flex-col items-start md:items-end gap-1">
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-sky-100 text-sky-800">
+                Moderate Impact
+              </span>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800">
+                Low Effort
+              </span>
+            </div>
+          </div>
+
+          {/* Row 4 */}
+          <div className="bg-white p-5 rounded-2xl shadow-lg flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h3 className="text-lg font-semibold">
+                Clarify Scantron Grading Workflow
+              </h3>
+              <p className="text-gray-800 text-sm md:text-base mt-1">
+                Only <span className="font-semibold">2/10 GTAs</span> reported
+                scantron-specific grading issues. A brief how-to or FAQ could
+                help, but it is a lower-priority opportunity compared to AI and
+                cheating.
+              </p>
+            </div>
+            <div className="flex flex-col items-start md:items-end gap-1">
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-800">
+                Lower Impact
+              </span>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800">
+                Low Effort
+              </span>
+            </div>
+          </div>
+        </div>
+
         <div className="flex justify-center py-4 pt-8">
           <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
         </div>
@@ -687,37 +781,89 @@ export function GTAGradingPage() {
       {/* Goal 2 results*/}
       <section className="max-w-4xl mx-auto px-6 py-8">
         <h2 className="text-3xl font-extrabold text-center mb-6">
-          Interview Findings
+          Support & Escalation Opportunities
         </h2>
-        <ul className="space-y-4">
-          <li className="flex items-start">
-            <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
-              1
-            </span>
-            <p className="text-gray-800 text-2xl">
-              All 10 GTAs reported reaching out to a faculty advisor when
-              cheating was involved
-            </p>
-          </li>
-          <li className="flex items-start">
-            <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
-              2
-            </span>
-            <p className="text-gray-800 text-2xl">
-              5 GTAs reported talking to other GTAs for less serious issues
-              (e.g., setting up online exams)
-            </p>
-          </li>
-          <li className="flex items-start">
-            <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
-              3
-            </span>
-            <p className="text-gray-800 text-2xl">
-              3 GTAs reported always reporting everything to their faculty
-              advisor as they took care of all grading issues
-            </p>
-          </li>
-        </ul>
+        <p className="text-center text-gray-700 mb-6">
+          From interviews with <span className="font-semibold">10 GTAs</span>, I
+          translated how they seek support for grading issues into opportunities
+          scored by <span className="font-semibold">impact</span> and{" "}
+          <span className="font-semibold">level of effort</span>.
+        </p>
+
+        <div className="space-y-4">
+          {/* Row 1 */}
+          <div className="bg-white p-5 rounded-2xl shadow-lg flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h3 className="text-lg font-semibold">
+                Formal Escalation Path for Cheating Cases
+              </h3>
+              <p className="text-gray-800 text-sm md:text-base mt-1">
+                All <span className="font-semibold">10/10 GTAs</span> reported
+                reaching out to a faculty advisor when cheating or serious
+                academic integrity issues were involved. Making this escalation
+                path explicit and visible would reduce uncertainty and emotional
+                load during high-stakes cases.
+              </p>
+            </div>
+            <div className="flex flex-col items-start md:items-end gap-1">
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                High Impact
+              </span>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-800">
+                Medium Effort
+              </span>
+            </div>
+          </div>
+
+          {/* Row 2 */}
+          <div className="bg-white p-5 rounded-2xl shadow-lg flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h3 className="text-lg font-semibold">
+                Peer Support Channels for Routine Issues
+              </h3>
+              <p className="text-gray-800 text-sm md:text-base mt-1">
+                <span className="font-semibold">5/10 GTAs</span> reported
+                leaning on other GTAs for “everyday” questions (e.g., setting up
+                online exams). A lightweight peer channel (Slack, Teams, or
+                office-hours group) would make this support more accessible and
+                less ad hoc.
+              </p>
+            </div>
+            <div className="flex flex-col items-start md:items-end gap-1">
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-sky-100 text-sky-800">
+                Moderate Impact
+              </span>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800">
+                Low Effort
+              </span>
+            </div>
+          </div>
+
+          {/* Row 3 */}
+          <div className="bg-white p-5 rounded-2xl shadow-lg flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h3 className="text-lg font-semibold">
+                Clarify Faculty vs. GTA Responsibility Boundaries
+              </h3>
+              <p className="text-gray-800 text-sm md:text-base mt-1">
+                <span className="font-semibold">3/10 GTAs</span> said they
+                report nearly everything to their faculty advisor, who
+                effectively handles all grading issues. Clearer guidelines
+                around what GTAs should own vs. escalate could empower GTAs
+                without overloading faculty.
+              </p>
+            </div>
+            <div className="flex flex-col items-start md:items-end gap-1">
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800">
+                High Impact
+              </span>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-800">
+                Medium Effort
+              </span>
+            </div>
+          </div>
+        </div>
+
         <div className="flex justify-center py-4 pt-8">
           <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
         </div>
@@ -758,63 +904,110 @@ export function GTAGradingPage() {
       {/* Goal 3 results*/}
       <section className="max-w-4xl mx-auto px-6 py-8">
         <h2 className="text-3xl font-extrabold text-center mb-6">
-          Interview Findings
+          Training & Onboarding Opportunities
         </h2>
-        <ul className="space-y-4">
-          <li className="flex items-start">
-            <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
-              1
-            </span>
-            <p className="text-gray-800 text-2xl">
-              4 GTAs reported that the received a{" "}
-              <span className="text-blue-500">
-                formal class prior to teaching{" "}
-              </span>{" "}
-              with{" "}
-              <span className="text-blue-500">
-                once-a-month virtual town-hall check-ins
-              </span>{" "}
-              between all GTAs and a faculty advisor where they were required to
-              give a brief update on their experience or ask a question relevant
-              to teaching
-            </p>
-          </li>
-          <li className="flex items-start">
-            <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
-              2
-            </span>
-            <p className="text-gray-800 text-2xl">
-              3 GTAs reported that their department provided{" "}
-              <span className="text-blue-500">
-                variable training depending on what they were expected to teach
-              </span>{" "}
-              but had{" "}
-              <span className="text-blue-500">
-                intense weekly mandatory 2-hour meetings
-              </span>{" "}
-              between the GTAs and teaching faculty advisor where they discussed
-              topics <span className="text-orange-500">somewhat</span> related
-              to teaching
-            </p>
-          </li>
-          <li className="flex items-start">
-            <span className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold mr-4">
-              3
-            </span>
-            <p className="text-gray-800 text-2xl">
-              3 GTAs reported receiving{" "}
-              <span className="text-orange-500">
-                no training prior to teaching
-              </span>{" "}
-              and learned as they were teaching. They also reported that{" "}
-              <span className="text-orange-500">
-                support was highly dependent
-              </span>{" "}
-              on whatever faculty member their were assigned which resulted in{" "}
-              <span className="text-orange-500"> heavy or no supervision.</span>
-            </p>
-          </li>
-        </ul>
+
+        <p className="text-center text-gray-700 mb-6">
+          GTA interviews revealed large variation in{" "}
+          <span className="font-semibold">pre-teaching preparation</span> and
+          <span className="font-semibold">ongoing instructional support</span>.
+          Below, these findings are translated into opportunities organized by{" "}
+          <span className="font-semibold">impact</span> and{" "}
+          <span className="font-semibold">level of effort</span>.
+        </p>
+
+        <div className="space-y-4">
+          {/* Row 1 */}
+          <div className="bg-white p-5 rounded-2xl shadow-lg flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h3 className="text-lg font-semibold">
+                Standardize Pre-Teaching Foundations
+              </h3>
+              <p className="text-gray-800 text-sm md:text-base mt-1">
+                <span className="font-semibold">4/10 GTAs</span> received a
+                formal class before teaching, paired with{" "}
+                <span className="font-semibold">
+                  monthly virtual town-halls
+                </span>{" "}
+                for check-ins and questions. This model provides structure,
+                early community-building, and predictable support—yet is not
+                used department-wide. Offering a unified baseline course would
+                equalize the starting point for new instructors.
+              </p>
+            </div>
+            <div className="flex flex-col items-start md:items-end gap-1">
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                High Impact
+              </span>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-800">
+                Medium Effort
+              </span>
+            </div>
+          </div>
+
+          {/* Row 2 */}
+          <div className="bg-white p-5 rounded-2xl shadow-lg flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h3 className="text-lg font-semibold">
+                Optimize Weekly Teaching Meetings
+              </h3>
+              <p className="text-gray-800 text-sm md:text-base mt-1">
+                <span className="font-semibold">3/10 GTAs</span> experienced{" "}
+                <span className="font-semibold">
+                  intense weekly 2-hour mandatory training meetings
+                </span>
+                . GTAs reported that these were only{" "}
+                <span className="font-semibold text-orange-500">
+                  somewhat relevant
+                </span>{" "}
+                to actual teaching needs. Reworking these into shorter, focused,
+                actionable sessions could dramatically increase usefulness while
+                reducing burnout.
+              </p>
+            </div>
+            <div className="flex flex-col items-start md:items-end gap-1">
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800">
+                Moderate Impact
+              </span>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-800">
+                High Effort
+              </span>
+            </div>
+          </div>
+
+          {/* Row 3 */}
+          <div className="bg-white p-5 rounded-2xl shadow-lg flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h3 className="text-lg font-semibold">
+                Guarantee Minimum Support for All GTAs
+              </h3>
+              <p className="text-gray-800 text-sm md:text-base mt-1">
+                <span className="font-semibold">3/10 GTAs</span> reported
+                receiving{" "}
+                <span className="font-semibold text-orange-500">
+                  no formal training
+                </span>{" "}
+                at all and having support that varied dramatically depending on
+                their assigned faculty. This inconsistency results in{" "}
+                <span className="font-semibold text-orange-500">
+                  heavy or no supervision
+                </span>
+                , which affects grading quality and instructor confidence.
+                Establishing a minimum support standard would eliminate these
+                disparities.
+              </p>
+            </div>
+            <div className="flex flex-col items-start md:items-end gap-1">
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                High Impact
+              </span>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800">
+                Low Effort
+              </span>
+            </div>
+          </div>
+        </div>
+
         <div className="flex justify-center py-4 pt-8">
           <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
         </div>
@@ -857,6 +1050,9 @@ export function GTAGradingPage() {
               BLBehavior="Relies on faculty mentor's open-door policy and check-ins for support more than on other GTAs"
               BRIcon={RiEmotionHappyLine}
               BRBehavior="Enjoys teaching and is happy with the departmental support received and made available"
+              suggestions={
+                "Well structured training and effective departmental support require only minimal clarification of AI policy enforcement to improve the grading experience."
+              }
             />
           </div>
           <div className="w-90 md:w-140 overflow-hidden">
@@ -886,6 +1082,9 @@ export function GTAGradingPage() {
               BLBehavior="Often relies on other GTAs for support due to inconsistent training and mentoring"
               BRIcon={RiEmotionUnhappyLine}
               BRBehavior="Enjoys teaching but the department does not meet his expectations for training or support"
+              suggestions={
+                "Inconsistent training and support result in inconsistent grading experience. Developing guidelines for departments to follow would help improve instructors' experience."
+              }
             />
           </div>
         </div>
@@ -899,7 +1098,7 @@ export function GTAGradingPage() {
         <section className="max-w-4xl mx-auto mb-1 px-2">
           <h2 className="text-3xl font-extrabold text-center">Journey Map</h2>
         </section>
-        <section className="mb-14 max-w-4xl mx-auto px-2">
+        <section className="mb-8 max-w-4xl mx-auto px-2">
           <p className="text-lg  text-gray-700 italic text-center">
             Departmental training and support, alongside experience, impact how
             GTAs perceive grading issues
@@ -972,17 +1171,23 @@ export function GTAGradingPage() {
           <div className="w-full mx-auto mb-8">
             <p className="text-4xl  font-bold custom-shadow-white text-[#000000] text-center">
               My research helped show how GTAs{" "}
-              <span className="text-[#f28e0b]">perceive </span> departmental
+              <span className="text-blue-200">perceive </span> departmental
               training, support, and mentoring. It highlighted a need for{" "}
-              <span className="text-[#f28e0b]">
+              <span className="text-blue-200">
                 standardized training classes{" "}
               </span>{" "}
-              for new GTAs and{" "}
-              <span className="text-[#f28e0b]">semi-regular check-ins</span> to
-              support them once they are teaching. Together, these solutions
-              were reported to departments as methods to{" "}
-              <span className="text-[#f28e0b]"> help resolve</span> current
-              grading issues and have been successfully employed across
+              for new GTAs which center on the{" "}
+              <span className="text-blue-200">
+                practical applications behind teaching
+              </span>{" "}
+              and not pedagogical theory.{" "}
+              <span className="text-blue-200">Short</span> (~30 minutes) and{" "}
+              <span className="text-blue-200">semi-regular check-ins</span>{" "}
+              (once every two months) provide enough support to more experienced
+              GTAs without taking away their ability to gain more personal
+              experience. Together, these solutions were reported to departments
+              as methods to <span className="text-blue-200"> help resolve</span>{" "}
+              current grading issues and have been successfully employed across
               different classes.
             </p>
           </div>

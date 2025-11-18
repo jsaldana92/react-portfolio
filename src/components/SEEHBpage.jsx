@@ -11,6 +11,10 @@ import seehbGMedia from "../images/seehb/seehbGMedia.png";
 import seehbRHome from "../images/seehb/seehbRHome.png";
 import seehbRSchedule from "../images/seehb/seehbRSchedule.png";
 import seehbRMedia from "../images/seehb/seehbRMedia.png";
+import ddFinal from "../images/seehb/ddfinal.png";
+import abshome from "../images/seehb/abs1.png";
+import absschedule from "../images/seehb/abs2.png";
+import abs3 from "../images/seehb/abs3.png";
 
 export function SEEHBpage() {
   const { pathname } = useLocation();
@@ -19,7 +23,7 @@ export function SEEHBpage() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   // which goals have been “flipped”
-  const [revealed, setRevealed] = useState([false, false, false]);
+  const [revealed, setRevealed] = useState([true, true, true]);
   // refs for each goal card
   const cardRefs = [useRef(null), useRef(null), useRef(null)];
   const goalTexts = [
@@ -39,136 +43,146 @@ export function SEEHBpage() {
       <section className="max-w-4xl mx-auto py-16 px-6 space-y-16">
         {/* Header */}
         <div className="text-center space-y-4">
-          <h1 className="text-5xl font-extrabold">
-            <span className="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">
-              Improving Navigation, Enjoyment, and Impact
-            </span>{" "}
-            on the SEEHB Conference Website
+          <h1 className="text-5xl font-extrabold text-gray-900">
+            Redesigning the SEEHB Conference Website
           </h1>
-          <p className="text-xl text-gray-700 italic">
-            Led UX research to improve conference site usability through user
-            interviews, click-tracking, and A|B testing.
-          </p>
         </div>
 
-        {/* Cards */}
-        <div className="space-y-12">
-          {/* Card 1: Left-aligned */}
-          <div className="relative flex justify-start">
-            <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-blue-200 to-blue-50 rounded-full -z-10" />
-            <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl">
-              <p className="text-lg md:text-xl text-gray-800">
-                Custom websites created by no-code solutions can result in{" "}
-                <strong className="text-blue-500">unimpactful</strong> and{" "}
-                <strong className="text-blue-500">unmaintained</strong> websites
-                that do not reflect the changing needs of yearly conferences.
-                This expands to{" "}
-                <strong className="text-blue-500"> confusing</strong> and{" "}
-                <strong className="text-blue-500">bug-ridden</strong> pages that
-                leave a{" "}
-                <strong className="text-blue-500">negative impression </strong>{" "}
-                on potential conference attendees
-              </p>
+        {/* Intro (centered box) */}
+        <div className="relative flex justify-center">
+          <div className="bg-white p-8 rounded-2xl shadow-lg max-w-3xl text-center cursor-auto">
+            <p className="text-lg md:text-xl text-gray-800">
+              The SEEHB conference website had been built with a no-code tool
+              and was increasingly difficult to navigate, visually outdated, and
+              prone to bugs. Pages felt{" "}
+              <span className="font-semibold">confusing</span> and{" "}
+              <span className="font-semibold">unmaintained</span>, which risked
+              leaving a{" "}
+              <span className="font-semibold">negative impression</span> on
+              potential attendees.
+            </p>
+            <p className="text-lg md:text-xl text-gray-800 mt-4">
+              To improve navigation, enjoyment, and overall impact, I led a UX
+              research effort that combined{" "}
+              <span className="font-semibold">end-user interviews</span>,{" "}
+              <span className="font-semibold">click-tracking analysis</span>,
+              and <span className="font-semibold">A/B testing</span>. These
+              findings informed a modern, code-based redesign that better
+              supports registration, program exploration, and sponsor visibility
+              for future SEEHB meetings.
+            </p>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="flex justify-center py-4">
+          <div className="w-2/3 h-1 bg-backgroundgrey rounded-full" />
+        </div>
+
+        {/* Research Approach */}
+        <div className="relative flex justify-center">
+          <div className="p-6 md:p-8 rounded-2xl w-full max-w-4xl cursor-auto">
+            <h2 className="text-4xl font-extrabold text-center mb-4 text-gray-900">
+              Research Approach
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-gray-800">
+              {/* Discovery & Audit */}
+              <div className="rounded-xl p-4 bg-gray-50">
+                <p className="font-semibold mb-1">Discovery &amp; Audit</p>
+                <p className="text-sm">
+                  Reviewed the existing no-code site, mapped user flows, and
+                  cataloged navigation issues, dead links, and visual
+                  inconsistencies to define the baseline problems.
+                </p>
+              </div>
+
+              {/* User Research & Analytics */}
+              <div className="rounded-xl p-4 bg-gray-50">
+                <p className="font-semibold mb-1">
+                  User Research &amp; Analytics
+                </p>
+                <p className="text-sm">
+                  Conducted interviews and remote usability tests with prior
+                  attendees, then paired those insights with click-tracking data
+                  to see where users dropped off or missed key actions like
+                  registering or viewing the schedule.
+                </p>
+              </div>
+
+              {/* Design, Test, & Iterate */}
+              <div className="rounded-xl p-4 bg-gray-50">
+                <p className="font-semibold mb-1">
+                  Design, Test, &amp; Iterate
+                </p>
+                <p className="text-sm">
+                  Prototyped new layouts, navigation patterns, and homepage
+                  content, then ran A/B tests to validate changes before
+                  implementing a performant, maintainable React-based site.
+                </p>
+              </div>
             </div>
           </div>
+        </div>
 
-          {/* Card 2: Right-aligned */}
-          <div className="relative flex justify-end">
-            <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-teal-200 to-teal-50 rounded-full -z-10" />
-            <div className="bg-white p-8 rounded-2xl shadow-lg max-w-xl text-right">
-              <p className="text-lg md:text-xl text-gray-800">
-                The South Eastern Evolution and Human Behavior (SEEHB) group
-                needed their previous website revamped with a{" "}
-                <strong className="text-blue-500">modernized layout</strong> to{" "}
-                <strong className="text-blue-500">
-                  increase attendee interaction,
-                </strong>{" "}
-                and coded to{" "}
-                <strong className="text-blue-500">
-                  decrease existing issues
-                </strong>
-              </p>
-            </div>
+        {/* Card 4: Centered briefing (UNCHANGED) */}
+        <div className="flex justify-center">
+          <div className="w-full mx-auto">
+            <p className="text-4xl font-extrabold custom-shadow-white text-[#000000] text-center">
+              Client Briefing
+            </p>
           </div>
+        </div>
 
-          {/* Card 3: Right-aligned */}
-          <div className="relative flex justify-center">
-            <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-teal-200 to-teal-50 rounded-full -z-10" />
-            <div className="bg-white p-8 font-semibold rounded-2xl shadow-lg max-w-xl text-center">
-              <p className="text-lg md:text-xl text-gray-800">
-                I conducted{" "}
-                <strong className="text-blue-500">end-user interviews</strong>{" "}
-                and
-                <strong className="text-blue-500">
-                  {" "}
-                  usability testing
-                </strong>{" "}
-                with previous conference attendees to optimize the SEEHB website
-                for future meetings
-              </p>
-            </div>
-          </div>
-
-          {/* Card 4: Centered briefing */}
-          <div className="flex justify-center">
-            <div className="w-full mx-auto">
-              <p className="text-4xl font-extrabold custom-shadow-white text-[#000000] text-center">
-                Client Briefing
-              </p>
-            </div>
-          </div>
-
-          {/* Goals Row with onClick animation */}
-          <div className="flex justify-center">
-            <div className="flex space-x-2 md:space-x-12">
-              {goalTexts.map((text, i) => (
-                <div
-                  key={i}
-                  ref={cardRefs[i]}
-                  onClick={() => {
-                    // toggle only this card
-                    setRevealed((prev) => {
-                      const copy = [...prev];
-                      copy[i] = !copy[i];
-                      return copy;
-                    });
-                    // animate only the clicked card
-                    const el = cardRefs[i].current;
-                    if (!el) return;
-                    gsap.fromTo(
-                      el,
-                      { scale: 0.9, opacity: 0 },
-                      {
-                        scale: 1,
-                        opacity: 1,
-                        duration: 0.4,
-                        ease: "back.out(1.7)",
-                      }
-                    );
-                  }}
-                  className={`relative flex items-center justify-center  box-content font-semibold rounded-2xl shadow-lg p-6 h-18 w-18 md:h-12 md:w-42 text-center cursor-pointer overflow-hidden ${
-                    revealed[i]
-                      ? "bg-white custom-shadow-sm text-gray-800"
-                      : "bg-blue-950/80 text-white"
+        {/* Goals Row with onClick animation (UNCHANGED) */}
+        <div className="flex justify-center">
+          <div className="flex space-x-2 md:space-x-12">
+            {goalTexts.map((text, i) => (
+              <div
+                key={i}
+                ref={cardRefs[i]}
+                onClick={() => {
+                  // toggle only this card
+                  setRevealed((prev) => {
+                    const copy = [...prev];
+                    copy[i] = !copy[i];
+                    return copy;
+                  });
+                  // animate only the clicked card
+                  const el = cardRefs[i].current;
+                  if (!el) return;
+                  gsap.fromTo(
+                    el,
+                    { scale: 0.9, opacity: 0 },
+                    {
+                      scale: 1,
+                      opacity: 1,
+                      duration: 0.4,
+                      ease: "back.out(1.7)",
+                    }
+                  );
+                }}
+                className={`relative flex items-center justify-center  box-content font-semibold rounded-2xl shadow-lg p-6 h-18 w-18 md:h-12 md:w-42 text-center cursor-pointer overflow-hidden ${
+                  revealed[i]
+                    ? "bg-white custom-shadow-sm text-gray-800"
+                    : "bg-blue-950/80 text-white"
+                }`}
+              >
+                <span
+                  className={`block just transition-opacity duration-300 ${
+                    revealed[i] ? "opacity-0" : "opacity-100"
                   }`}
                 >
-                  <span
-                    className={`block just transition-opacity duration-300 ${
-                      revealed[i] ? "opacity-0" : "opacity-100"
-                    }`}
-                  >
-                    Goal #{i + 1}
-                  </span>
-                  <span
-                    className={`absolute font-semibold inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                      revealed[i] ? "opacity-100" : "opacity-0"
-                    }`}
-                  >
-                    {text}
-                  </span>
-                </div>
-              ))}
-            </div>
+                  Goal #{i + 1}
+                </span>
+                <span
+                  className={`absolute font-semibold inset-0 flex items-center justify-center transition-opacity duration-300 ${
+                    revealed[i] ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {text}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -176,16 +190,22 @@ export function SEEHBpage() {
       {/* Intro card and results title */}
       <div className="w-full mx-auto px-6 py-8">
         <h2 className="text-4xl font-extrabold text-gray-900 text-center">
-          Methodology Overview
+          Market Solution Research
         </h2>
 
         <div className="flex justify-center py-4">
           <div className="w-2/3 h-1 bg-gradient-to-r from-blue-500 to-teal-400 rounded-full" />
         </div>
-      </div>
 
-      {/* ---- GSAP timeline component ---- */}
-      <SEEHBtimeline key={pathname} />
+        {/* Double Diamond image */}
+        <div className="flex justify-center mt-4">
+          <img
+            src={ddFinal}
+            alt="Double Diamond framework summarizing market solution research"
+            className="max-w-full md:max-w-7xl max-h-[70vh] rounded-2xl object-contain"
+          />
+        </div>
+      </div>
 
       {/* Intro card and results title */}
       <section className="w-full mx-auto">
@@ -220,7 +240,7 @@ export function SEEHBpage() {
           <div className="md:w-1/2 flex justify-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
               <p className="text-lg text-center md:text-start font-semibold text-gray-900 ">
-                Closed Question Questionnaire and Usability Testing
+                End User Interviews, Questionnaire, and Usability Testing
               </p>
             </div>
           </div>
@@ -229,7 +249,8 @@ export function SEEHBpage() {
           <div className="md:w-1/2 flex justify-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full mb-4">
               <p className="text-lg text-center md:text-end font-semibold text-gray-900 ">
-                Approximately 15-minute Interviews with Open Ended Questions
+                Focus: Determining common issues faced by users regarding the
+                website layout, information, navigation, and general appeal
               </p>
             </div>
           </div>
@@ -290,10 +311,17 @@ export function SEEHBpage() {
         <div className="flex flex-col space-y-8">
           {/* Insight card on top */}
           <div className="w-full mx-auto mb-8">
-            <p className="text-4xl font-bold custom-shadow-white text-[#000000] text-center">
+            <h1 className="text-4xl font-bold custom-shadow-white text-[#000000] text-center">
               Decreasing the number of bugs (dead links, misdirects, incorrect
               information) increased the likelihood to interact with the
               website.
+            </h1>
+            <p className="mt-2 text-xl text-center text-gray-700">
+              <span className="italic font-semibold">
+                "We are going to push the website and need to fix all the issues
+                to make a good appearance"
+              </span>{" "}
+              - stakeholder
             </p>
           </div>
           {/* Illustration below */}
@@ -408,64 +436,9 @@ export function SEEHBpage() {
           </p>
         </div>
 
-        {/* React Site row */}
-        <div className="text-start p-6">
-          <h1 className="text-2xl font-extrabold">
-            <span className="bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">
-              Research Based React
-            </span>{" "}
-            Website
-          </h1>
-
-          <section className="flex justify-start">
-            <div className="block w-3/4 h-[4px] bg-backgroundgrey "></div>
-          </section>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6  mb-12">
-          {[
-            { src: seehbRHome, href: "https://www.seehb.org/", label: "Home" },
-            {
-              src: seehbRSchedule,
-              href: "https://www.seehb.org/#/schedule",
-              label: "Schedule",
-            },
-            {
-              src: seehbRMedia,
-              href: "https://www.seehb.org/#/media",
-              label: "Media",
-            },
-          ].map(({ src, href, label }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer"
-            >
-              <img
-                src={src}
-                alt={label}
-                className="w-full h-auto transition-transform duration-300 group-hover:scale-105 group-hover:blur-[1px]"
-              />
-              <div
-                className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-80 
-                            transition-opacity duration-300 flex items-center justify-center
-                            pointer-events-none"
-              >
-                <span className="text-white text-2xl font-bold">{label}</span>
-              </div>
-            </a>
-          ))}
-        </div>
-
         {/* Google Sites row */}
         <div className="text-end p-6">
-          <h1 className="text-2xl font-extrabold">
-            <span className="bg-gradient-to-r from-[#b55f5f] to-[#e3a730] bg-clip-text text-transparent">
-              Old Google Sites
-            </span>{" "}
-            Website
-          </h1>
+          <h1 className="text-2xl font-extrabold">Old Google Sites Website</h1>
 
           <section className="flex justify-end">
             <div className="block w-3/4 h-[4px] bg-backgroundgrey "></div>
@@ -511,6 +484,105 @@ export function SEEHBpage() {
             </a>
           ))}
         </div>
+
+        {/* ABS Site Row*/}
+        <div className="text-start p-6">
+          <h1 className="text-2xl font-extrabold">
+            Competitor Conference Website
+          </h1>
+
+          <section className="flex justify-start">
+            <div className="block w-3/4 h-[4px] bg-backgroundgrey "></div>
+          </section>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6  mb-12">
+          {[
+            {
+              src: abshome,
+              href: "https://www.animalbehaviorsociety.org/2025/index.php",
+              label: "ABS",
+            },
+            {
+              src: absschedule,
+              href: "https://www.animalbehaviorsociety.org/2025/index.php",
+              label: "ABS",
+            },
+            {
+              src: abs3,
+              href: "https://www.animalbehaviorsociety.org/2025/index.php",
+              label: "ABS",
+            },
+          ].map(({ src, href, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer"
+            >
+              <img
+                src={src}
+                alt={label}
+                className="w-full h-auto transition-transform duration-300 group-hover:scale-105 group-hover:blur-[1px]"
+              />
+              <div
+                className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-80 
+                            transition-opacity duration-300 flex items-center justify-center
+                            pointer-events-none"
+              >
+                <span className="text-white text-2xl font-bold">{label}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {/* React Site row */}
+        <div className="text-end p-6">
+          <h1 className="text-2xl font-extrabold">
+            Research Based React Website
+          </h1>
+
+          <section className="flex justify-end">
+            <div className="block w-3/4 h-[4px] bg-backgroundgrey "></div>
+          </section>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6  mb-12">
+          {[
+            { src: seehbRHome, href: "https://www.seehb.org/", label: "Home" },
+            {
+              src: seehbRSchedule,
+              href: "https://www.seehb.org/#/schedule",
+              label: "Schedule",
+            },
+            {
+              src: seehbRMedia,
+              href: "https://www.seehb.org/#/media",
+              label: "Media",
+            },
+          ].map(({ src, href, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer"
+            >
+              <img
+                src={src}
+                alt={label}
+                className="w-full h-auto transition-transform duration-300 group-hover:scale-105 group-hover:blur-[1px]"
+              />
+              <div
+                className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-80 
+                            transition-opacity duration-300 flex items-center justify-center
+                            pointer-events-none"
+              >
+                <span className="text-white text-2xl font-bold">{label}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+
         <div className="flex justify-center mt-6 mb-8 py-4">
           <div className="w-full h-1 bg-backgroundgrey rounded-full" />
         </div>
@@ -585,26 +657,37 @@ export function SEEHBpage() {
         <div className="flex flex-col space-y-8 pb-16">
           {/* Insight card on top */}
           <div className="w-full mx-auto mb-8">
-            <p className="text-4xl  font-bold custom-shadow-white text-[#000000] text-center">
+            <p className="text-4xl font-bold custom-shadow-white text-[#000000] text-center">
               My research directly informed the front-end
-              <span className="text-[#f28e0b]">
+              <span className="text-blue-200">
                 {" "}
                 redesign and development
               </span>{" "}
-              of the SEEHB website,
-              <span className="text-[#f28e0b]">
-                {" "}
-                reducing user frustration
+              of the SEEHB website, cutting reported issues from an average of{" "}
+              <span className="text-blue-200 font-semibold">6 bugs to 0</span>.
+              Post-launch testing showed that the new site{" "}
+              <span className="text-blue-200">reduced user frustration</span>{" "}
+              and <span className="text-blue-200">increased engagement</span> —
+              attendees’ likelihood to{" "}
+              <span className="text-blue-200 font-semibold">
+                return to the site’s picture gallery
               </span>{" "}
-              and
-              <span className="text-[#f28e0b]"> increasing engagement.</span> It
-              also guided design decisions that
-              <span className="text-[#f28e0b]">
-                {" "}
-                improved sign-up rates{" "}
+              rose from{" "}
+              <span className="text-blue-200 font-semibold">1.0 to 5.0</span> on
+              a 5-point Likert scale, and their likelihood to{" "}
+              <span className="text-blue-200 font-semibold">
+                share the website
               </span>{" "}
-              and
-              <span className="text-[#f28e0b]"> overall usability.</span>
+              increased from{" "}
+              <span className="text-blue-200 font-semibold">2.0 to 4.3</span> on
+              the same scale. It also guided design decisions that{" "}
+              <span className="text-blue-200">improved sign-up rates</span> by
+              speeding up key tasks — time to RSVP dropped from{" "}
+              <span className="text-blue-200 font-semibold">5.3s to 1.3s</span>,
+              and time to find presentation abstracts decreased from{" "}
+              <span className="text-blue-200 font-semibold">20s to 15s</span>,{" "}
+              collectively boosting{" "}
+              <span className="text-blue-200">overall usability.</span>
             </p>
           </div>
         </div>
