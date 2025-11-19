@@ -31,6 +31,9 @@ export default function PersonaTemplate({
   TRIcon: TopRightIcon,
   MRIcon: MiddleRightIcon,
   BRIcon: BottomRightIcon,
+
+  // Suggestions section
+  suggestions,
 }) {
   // Tailwind classes for a fixed, consistent icon size
   const iconClass = "w-3 h-3 md:w-4 md:h-4 flex-shrink-0";
@@ -62,8 +65,8 @@ export default function PersonaTemplate({
         <h3 className="text-lg md:text-xl font-semibold text-center mb-4">
           Demographics
         </h3>
-        <div className="grid  text-sm md:text-md grid-cols-2 gap-4">
-          <div className="flex items-center  space-x-2">
+        <div className="grid text-sm md:text-md grid-cols-2 gap-4">
+          <div className="flex items-center space-x-2">
             {LeftTopIcon && <LeftTopIcon className={iconClass} />}
             <span className="font-semibold">{leftTopDem}</span>
           </div>
@@ -119,6 +122,25 @@ export default function PersonaTemplate({
           </div>
         </div>
       </div>
+
+      {/* line page break for Suggestions */}
+      {suggestions && (
+        <>
+          <div className="flex justify-center py-4">
+            <div className="w-4/5 h-1 bg-backgroundgrey rounded-full" />
+          </div>
+
+          {/* Suggestions */}
+          <div className="px-4 pb-8">
+            <h3 className="text-lg md:text-xl font-semibold text-center mb-4">
+              Suggestions
+            </h3>
+            <p className="text-sm md:text-md text-gray-800 text-center">
+              {suggestions}
+            </p>
+          </div>
+        </>
+      )}
     </div>
   );
 }
