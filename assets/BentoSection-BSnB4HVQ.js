@@ -1,4 +1,4 @@
-import{h as d0,i as rx,R as U2,r as Ze,j as rt,g as oi}from"./index-BQ02ZDxZ.js";import{f as D2}from"./flutterlogo-BA0L0q-h.js";const N2="/assets/figro_logo-CTtJeDWO.png";/**
+import{h as d0,i as rx,R as U2,r as Ze,j as rt,g as oi}from"./index-Bi0NHwtE.js";import{f as D2}from"./flutterlogo-BA0L0q-h.js";const N2="/assets/figro_logo-CTtJeDWO.png";/**
  * @license
  * Copyright 2010-2025 Three.js Authors
  * SPDX-License-Identifier: MIT
