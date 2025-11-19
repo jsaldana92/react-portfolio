@@ -162,35 +162,10 @@ function App() {
                 <section className="relative w-full overflow-hidden py-16 px-6 text-white">
                   <div className="relative z-10 max-w-5xl mx-auto space-y-12">
                     {/* Top Row */}
+                    {/* Top Row */}
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-12">
-                      <div className="relative w-full md:w-2/3 flex justify-start">
-                        <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-red-600 to-red-300 rounded-full -z-10" />
-                        <div className="bg-gradient-to-r from-[#1b2683] to-[#0987c6] p-8 rounded-2xl shadow-lg max-w-xl w-full">
-                          <p className="text-lg md:text-xl font-semibold text-white">
-                            As a UX researcher, I leverage my expertise in{" "}
-                            <span className="text-[#f27209]">quantitative</span>{" "}
-                            and{" "}
-                            <span className="text-[#f27209]">
-                              qualitative methodologies{" "}
-                            </span>
-                            grounded in my background as a{" "}
-                            <span className="text-[#f27209]">
-                              cognitive psychologist
-                            </span>{" "}
-                            to drive{" "}
-                            <span className="text-[#f27209]">
-                              product development
-                            </span>{" "}
-                            and inform{" "}
-                            <span className="text-[#f27209]">
-                              strategic design decisions
-                            </span>{" "}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Photo + Resume + GitHub */}
-                      <div className="w-full md:w-1/4 flex flex-col items-center">
+                      {/* PHOTO + RESUME/GITHUB — appears FIRST on mobile, SECOND on desktop */}
+                      <div className="order-1 md:order-2 w-full md:w-1/4 flex flex-col items-center">
                         <img
                           src={profileImg}
                           alt="Jhonatan"
@@ -217,6 +192,34 @@ function App() {
                             <FaGithub className="text-3xl" />
                             <span className="hidden sm:inline">GitHub</span>
                           </a>
+                        </div>
+                      </div>
+
+                      {/* SUMMARY BOX — appears SECOND on mobile, FIRST on desktop */}
+                      <div className="order-2 md:order-1 relative w-full md:w-2/3 flex justify-start">
+                        <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-red-600 to-red-300 rounded-full -z-10" />
+                        <div className="bg-gradient-to-r from-[#1b2683] to-[#0987c6] p-8 rounded-2xl shadow-lg max-w-xl w-full">
+                          <p className="text-lg md:text-xl font-semibold text-white">
+                            As a UX researcher, I leverage my expertise in{" "}
+                            <span className="text-[#f27209]">quantitative</span>{" "}
+                            and{" "}
+                            <span className="text-[#f27209]">
+                              qualitative methodologies
+                            </span>{" "}
+                            grounded in my background as a{" "}
+                            <span className="text-[#f27209]">
+                              cognitive psychologist
+                            </span>{" "}
+                            to drive{" "}
+                            <span className="text-[#f27209]">
+                              product development
+                            </span>{" "}
+                            and inform{" "}
+                            <span className="text-[#f27209]">
+                              strategic design decisions
+                            </span>
+                            .
+                          </p>
                         </div>
                       </div>
                     </div>

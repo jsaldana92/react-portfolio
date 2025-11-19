@@ -75,15 +75,15 @@ export default function ROGrid() {
         <h2 className="text-3xl font-extrabold">Stakeholder Requirements</h2>
       </header>
 
-      {/* Grid table */}
+      {/* DESKTOP TABLE */}
       <div
         role="table"
-        className="grid grid-cols-1 md:grid-cols-4 bg-white rounded-2xl shadow-lg overflow-hidden"
+        className="hidden md:grid grid-cols-4 bg-white rounded-2xl shadow-lg overflow-hidden"
       >
         {/* Header row */}
         <div
           role="row"
-          className="hidden md:contents bg-gray-50 text-sm font-semibold text-gray-700"
+          className="contents bg-gray-50 text-sm font-semibold text-gray-700"
         >
           <Cell role="columnheader">Requirements</Cell>
           <Cell role="columnheader" className="flex items-center gap-2">
@@ -100,20 +100,57 @@ export default function ROGrid() {
           </Cell>
         </div>
 
-        {/* Mobile stacked header */}
-        <div className="md:hidden p-3 border-b border-gray-200 bg-gray-50 text-sm font-semibold text-gray-700">
-          Requirements / Java / Kotlin / Flutter
-        </div>
-
         {/* Rows */}
         {rows.map((r) => (
           <React.Fragment key={r.req}>
             <Cell className="font-medium text-gray-900">{r.req}</Cell>
-
             <Cell>{r.java ? <Check /> : <XMark />}</Cell>
             <Cell>{r.kotlin ? <Check /> : <XMark />}</Cell>
             <Cell>{r.flutter ? <Check /> : <XMark />}</Cell>
           </React.Fragment>
+        ))}
+      </div>
+
+      {/* MOBILE CARD VERSION */}
+      <div className="md:hidden space-y-4">
+        {rows.map((r) => (
+          <div
+            key={r.req}
+            className="bg-white rounded-xl shadow p-4 border border-gray-100"
+          >
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">
+              {r.req}
+            </h3>
+
+            <div className="space-y-2">
+              {/* Java */}
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <img src={javaLogo} className="w-6 h-6" alt="Java" />
+                  <span className="font-medium">Java</span>
+                </div>
+                {r.java ? <Check /> : <XMark />}
+              </div>
+
+              {/* Kotlin */}
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <img src={kotlinLogo} className="w-6 h-6" alt="Kotlin" />
+                  <span className="font-medium">Kotlin</span>
+                </div>
+                {r.kotlin ? <Check /> : <XMark />}
+              </div>
+
+              {/* Flutter */}
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <img src={flutterLogo} className="w-6 h-6" alt="Flutter" />
+                  <span className="font-medium">Flutter</span>
+                </div>
+                {r.flutter ? <Check /> : <XMark />}
+              </div>
+            </div>
+          </div>
         ))}
       </div>
 

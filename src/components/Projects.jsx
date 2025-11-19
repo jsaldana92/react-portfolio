@@ -105,7 +105,7 @@ export default function Projects() {
   const projects = useMemo(
     () => [
       {
-        title: "Contextual Interviews → Behavioral Observation App",
+        title: "Market Analysis and Interviews → Behavioral Observation App",
         to: "/ResearchObs",
         bg: researchObsCard,
         methods: [
@@ -116,6 +116,7 @@ export default function Projects() {
           "Stakeholder Interviews",
           "Beta Testing",
           "Information Architecture",
+          "Iterative Redesign",
         ],
         summary:
           "Interviewed end-users, data manager, and PI to align workflows; validated changes through beta usability testing (5-pt Likert scale).",
@@ -136,7 +137,7 @@ export default function Projects() {
         ],
       },
       {
-        title: "Semi-Structured Interviews → GTA Grading Insights",
+        title: "End User Interviews → Instructor Grading Insights",
         to: "/GTAGradingExperience",
         bg: gradingCard,
         methods: [
@@ -158,7 +159,7 @@ export default function Projects() {
         ],
       },
       {
-        title: "Conference Website → Faster Discovery & Sign-Ups",
+        title: "Conference Website → Faster Discovery & Decreased Frustration",
         to: "/SEEHB",
         bg: seehbCard,
         methods: [
@@ -193,6 +194,7 @@ export default function Projects() {
           "A/B Testing",
           "Beta Testing",
           "Performance Optimization",
+          "Iterative Redesign",
         ],
         summary:
           "Moved from Python prototype to Rust to match perceived speed needs and reduce friction (5-pt Likert scale).",
