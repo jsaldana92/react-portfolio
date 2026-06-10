@@ -1,5 +1,42 @@
 @import "tailwindcss";
 
+@plugin "daisyui" {
+  themes: portfolio --default;
+}
+
+@plugin "daisyui/theme" {
+  name: "portfolio";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #f6f1ea;
+  --color-base-200: #efe6dc;
+  --color-base-300: #d8cabb;
+  --color-base-content: #24211f;
+
+  --color-primary: #7a1e3a;
+  --color-primary-content: #ffffff;
+
+  --color-secondary: #5f162d;
+  --color-secondary-content: #ffffff;
+
+  --color-accent: #7a1e3a;
+  --color-accent-content: #ffffff;
+
+  --color-neutral: #24211f;
+  --color-neutral-content: #fffdf8;
+
+  --color-info: #3b82f6;
+  --color-info-content: #ffffff;
+  --color-success: #166534;
+  --color-success-content: #ffffff;
+  --color-warning: #92400e;
+  --color-warning-content: #ffffff;
+  --color-error: #991b1b;
+  --color-error-content: #ffffff;
+}
+
 @layer base {
   html,
   body {
@@ -7,14 +44,22 @@
   }
 }
 @theme {
-  --color-backgroundgrey: #2c282865;
-  --color-cardbackground: #2c2929;
-  --color-bentobackground: #1f1f1f;
-  --color-backgroundred: #9b3b3b;
-  --color-backgroundwhite: #9396ad;
-  --color-textblack: #2e2e2e;
-  --color-cardblue: #4a5e72;
-  --color-backgroundgreen: #5f7e61;
+  --color-backgroundwhite: #f6f1ea;
+  --color-surface: #fffdf8;
+  --color-brandred: #7a1e3a;
+  --color-branddark: #5f162d;
+  --color-ink: #24211f;
+  --color-muted: #3a3430;
+  --color-softtext: #4b4540;
+  --color-subtletext: #5c554f;
+
+  --color-backgroundgrey: #efe6dc;
+  --color-cardbackground: #fffdf8;
+  --color-bentobackground: #fff8ef;
+  --color-backgroundred: #7a1e3a;
+  --color-textblack: #24211f;
+  --color-cardblue: #e8ddd2;
+  --color-backgroundgreen: #d8cabb;
 }
 
 ::-webkit-scrollbar {
